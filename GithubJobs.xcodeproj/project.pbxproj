@@ -10,11 +10,12 @@
 		E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6AE2556D67400B5483A /* AppDelegate.swift */; };
 		E2B3E6B12556D67400B5483A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6B02556D67400B5483A /* SceneDelegate.swift */; };
 		E2B3E6B32556D67400B5483A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6B22556D67400B5483A /* ViewController.swift */; };
-		E2B3E6B62556D67400B5483A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2B3E6B42556D67400B5483A /* Main.storyboard */; };
 		E2B3E6B82556D67700B5483A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2B3E6B72556D67700B5483A /* Assets.xcassets */; };
 		E2B3E6BB2556D67700B5483A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2B3E6B92556D67700B5483A /* LaunchScreen.storyboard */; };
 		E2B3E6C62556D67700B5483A /* GithubJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6C52556D67700B5483A /* GithubJobsTests.swift */; };
 		E2B3E6D12556D67700B5483A /* GithubJobsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6D02556D67700B5483A /* GithubJobsUITests.swift */; };
+		E2B3E6EA2556D7BA00B5483A /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6E92556D7BA00B5483A /* JobsViewController.swift */; };
+		E2B3E6EF2556D7E400B5483A /* JobsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6EE2556D7E400B5483A /* JobsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,6 @@
 		E2B3E6AE2556D67400B5483A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2B3E6B02556D67400B5483A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E2B3E6B22556D67400B5483A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E2B3E6B52556D67400B5483A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2B3E6B72556D67700B5483A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2B3E6BA2556D67700B5483A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2B3E6BC2556D67700B5483A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		E2B3E6CC2556D67700B5483A /* GithubJobsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubJobsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B3E6D02556D67700B5483A /* GithubJobsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubJobsUITests.swift; sourceTree = "<group>"; };
 		E2B3E6D22556D67700B5483A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2B3E6E92556D7BA00B5483A /* JobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewController.swift; sourceTree = "<group>"; };
+		E2B3E6EE2556D7E400B5483A /* JobsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +101,10 @@
 		E2B3E6AD2556D67400B5483A /* GithubJobs */ = {
 			isa = PBXGroup;
 			children = (
+				E2B3E6E72556D79A00B5483A /* Scenes */,
 				E2B3E6AE2556D67400B5483A /* AppDelegate.swift */,
 				E2B3E6B02556D67400B5483A /* SceneDelegate.swift */,
 				E2B3E6B22556D67400B5483A /* ViewController.swift */,
-				E2B3E6B42556D67400B5483A /* Main.storyboard */,
 				E2B3E6B72556D67700B5483A /* Assets.xcassets */,
 				E2B3E6B92556D67700B5483A /* LaunchScreen.storyboard */,
 				E2B3E6BC2556D67700B5483A /* Info.plist */,
@@ -126,6 +128,23 @@
 				E2B3E6D22556D67700B5483A /* Info.plist */,
 			);
 			path = GithubJobsUITests;
+			sourceTree = "<group>";
+		};
+		E2B3E6E72556D79A00B5483A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E2B3E6E82556D7A900B5483A /* Jobs */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E2B3E6E82556D7A900B5483A /* Jobs */ = {
+			isa = PBXGroup;
+			children = (
+				E2B3E6E92556D7BA00B5483A /* JobsViewController.swift */,
+				E2B3E6EE2556D7E400B5483A /* JobsView.swift */,
+			);
+			path = Jobs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +252,6 @@
 			files = (
 				E2B3E6BB2556D67700B5483A /* LaunchScreen.storyboard in Resources */,
 				E2B3E6B82556D67700B5483A /* Assets.xcassets in Resources */,
-				E2B3E6B62556D67400B5483A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +276,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B3E6EA2556D7BA00B5483A /* JobsViewController.swift in Sources */,
+				E2B3E6EF2556D7E400B5483A /* JobsView.swift in Sources */,
 				E2B3E6B32556D67400B5483A /* ViewController.swift in Sources */,
 				E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */,
 				E2B3E6B12556D67400B5483A /* SceneDelegate.swift in Sources */,
@@ -296,14 +316,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E2B3E6B42556D67400B5483A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2B3E6B52556D67400B5483A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E2B3E6B92556D67700B5483A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -439,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E95KU8J3PN;
 				INFOPLIST_FILE = GithubJobs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E95KU8J3PN;
 				INFOPLIST_FILE = GithubJobs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
