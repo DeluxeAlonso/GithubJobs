@@ -16,6 +16,7 @@
 		E2B3E6D12556D67700B5483A /* GithubJobsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6D02556D67700B5483A /* GithubJobsUITests.swift */; };
 		E2B3E6EA2556D7BA00B5483A /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6E92556D7BA00B5483A /* JobsViewController.swift */; };
 		E2B3E6EF2556D7E400B5483A /* JobsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6EE2556D7E400B5483A /* JobsView.swift */; };
+		E2B3E6F82556DAE100B5483A /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6F72556DAE100B5483A /* JobTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		E2B3E6D22556D67700B5483A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2B3E6E92556D7BA00B5483A /* JobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewController.swift; sourceTree = "<group>"; };
 		E2B3E6EE2556D7E400B5483A /* JobsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsView.swift; sourceTree = "<group>"; };
+		E2B3E6F72556DAE100B5483A /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		E2B3E6AD2556D67400B5483A /* GithubJobs */ = {
 			isa = PBXGroup;
 			children = (
+				E2B3E6FF2556DC8200B5483A /* Networking */,
 				E2B3E6E72556D79A00B5483A /* Scenes */,
 				E2B3E6AE2556D67400B5483A /* AppDelegate.swift */,
 				E2B3E6B02556D67400B5483A /* SceneDelegate.swift */,
@@ -141,10 +144,26 @@
 		E2B3E6E82556D7A900B5483A /* Jobs */ = {
 			isa = PBXGroup;
 			children = (
+				E2B3E6F62556DACE00B5483A /* ViewComponents */,
 				E2B3E6E92556D7BA00B5483A /* JobsViewController.swift */,
 				E2B3E6EE2556D7E400B5483A /* JobsView.swift */,
 			);
 			path = Jobs;
+			sourceTree = "<group>";
+		};
+		E2B3E6F62556DACE00B5483A /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				E2B3E6F72556DAE100B5483A /* JobTableViewCell.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		E2B3E6FF2556DC8200B5483A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +298,7 @@
 				E2B3E6EA2556D7BA00B5483A /* JobsViewController.swift in Sources */,
 				E2B3E6EF2556D7E400B5483A /* JobsView.swift in Sources */,
 				E2B3E6B32556D67400B5483A /* ViewController.swift in Sources */,
+				E2B3E6F82556DAE100B5483A /* JobTableViewCell.swift in Sources */,
 				E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */,
 				E2B3E6B12556D67400B5483A /* SceneDelegate.swift in Sources */,
 			);
