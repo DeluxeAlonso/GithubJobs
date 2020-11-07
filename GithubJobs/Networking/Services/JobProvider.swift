@@ -20,7 +20,7 @@ extension JobProvider: Endpoint {
     var path: String {
         switch self {
         case .getAll:
-            return "/positions.json?"
+            return "/positions.json"
         }
     }
 

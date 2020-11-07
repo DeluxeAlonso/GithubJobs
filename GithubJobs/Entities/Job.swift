@@ -12,7 +12,7 @@ struct Job: Decodable {
     let id: String
     let title: String
     let description: String
-    let companyLogoPath: String
+    let companyLogoPath: String?
 
     enum CodingKeys: String, CodingKey {
         case id
