@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E21AEC2B2556E1D000A85639 /* JobClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC2A2556E1D000A85639 /* JobClient.swift */; };
+		E21AEC332556E1E600A85639 /* JobProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC322556E1E600A85639 /* JobProvider.swift */; };
 		E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6AE2556D67400B5483A /* AppDelegate.swift */; };
 		E2B3E6B12556D67400B5483A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6B02556D67400B5483A /* SceneDelegate.swift */; };
 		E2B3E6B32556D67400B5483A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6B22556D67400B5483A /* ViewController.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E21AEC2A2556E1D000A85639 /* JobClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobClient.swift; sourceTree = "<group>"; };
+		E21AEC322556E1E600A85639 /* JobProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobProvider.swift; sourceTree = "<group>"; };
 		E2B3E6AB2556D67400B5483A /* GithubJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B3E6AE2556D67400B5483A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2B3E6B02556D67400B5483A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E21AEC292556E1C200A85639 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E21AEC2A2556E1D000A85639 /* JobClient.swift */,
+				E21AEC322556E1E600A85639 /* JobProvider.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		E2B3E6A22556D67400B5483A = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +195,7 @@
 		E2B3E6FF2556DC8200B5483A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E21AEC292556E1C200A85639 /* Services */,
 				E2B3E7342556DFFD00B5483A /* FeedResults */,
 				E2B3E7002556DCB900B5483A /* APIClient.swift */,
 				E2B3E7152556DDD200B5483A /* Endpoint.swift */,
@@ -366,11 +380,13 @@
 				E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */,
 				E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */,
 				E2B3E6EF2556D7E400B5483A /* JobsView.swift in Sources */,
+				E21AEC2B2556E1D000A85639 /* JobClient.swift in Sources */,
 				E2B3E6B32556D67400B5483A /* ViewController.swift in Sources */,
 				E2B3E72B2556DFA300B5483A /* Dictionary+Format.swift in Sources */,
 				E2B3E7372556E01400B5483A /* Job.swift in Sources */,
 				E2B3E7162556DDD200B5483A /* Endpoint.swift in Sources */,
 				E2B3E6F82556DAE100B5483A /* JobTableViewCell.swift in Sources */,
+				E21AEC332556E1E600A85639 /* JobProvider.swift in Sources */,
 				E2B3E7112556DDB600B5483A /* Descriptable.swift in Sources */,
 				E2B3E70A2556DD5700B5483A /* APIError.swift in Sources */,
 				E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */,
