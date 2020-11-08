@@ -10,6 +10,7 @@ import Foundation
 protocol JobsViewModelProtocol {
 
     var viewState: Bindable<JobsViewState> { get }
+    var needsPrefetch: Bool { get }
 
     var jobsCells: [JobCellViewModel] { get }
 
@@ -25,6 +26,10 @@ final class JobsViewModel: JobsViewModelProtocol {
 
     private var jobs: [Job] {
         return viewState.value.currentJobs
+    }
+
+    var needsPrefetch: Bool {
+        return viewState.value.needsPrefetch
     }
 
     var jobsCells: [JobCellViewModel] {
@@ -54,7 +59,7 @@ final class JobsViewModel: JobsViewModelProtocol {
 
     private func processResult(_ jobs: [Job], currentPage: Int,
                                currentJobs: [Job]) -> JobsViewState {
-        var allJobs = currentPage == 1 ? [] : jobs
+        var allJobs = currentPage == 1 ? [] : currentJobs
         allJobs.append(contentsOf: jobs)
         guard !allJobs.isEmpty else { return .empty }
 

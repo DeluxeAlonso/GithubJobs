@@ -17,6 +17,7 @@ class JobsViewController: UIViewController {
     }()
 
     private var displayedCellsIndexPaths = Set<IndexPath>()
+    private var prefetchDataSource: TableViewDataSourcePrefetching!
 
     private let viewModel: JobsViewModelProtocol
 
@@ -53,10 +54,20 @@ class JobsViewController: UIViewController {
         tableView.delegate = self
     }
 
+    private func configureTableViewDataSource() {
+        prefetchDataSource = TableViewDataSourcePrefetching(cellCount: viewModel.jobsCells.count,
+                                                            needsPrefetch: viewModel.needsPrefetch,
+                                                            prefetchHandler: { [weak self] in
+                                                                self?.viewModel.getAllJobs()
+        })
+        tableView.prefetchDataSource = prefetchDataSource
+    }
+
     private func setupBindings() {
         viewModel.viewState.bindAndFire { [weak self] state in
             guard let strongSelf = self else { return }
             strongSelf.configureView(with: state)
+            strongSelf.configureTableViewDataSource()
             strongSelf.tableView.reloadData()
         }
     }
