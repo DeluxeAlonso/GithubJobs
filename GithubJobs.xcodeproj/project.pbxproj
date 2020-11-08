@@ -27,7 +27,6 @@
 		E2B3E6C62556D67700B5483A /* GithubJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6C52556D67700B5483A /* GithubJobsTests.swift */; };
 		E2B3E6D12556D67700B5483A /* GithubJobsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6D02556D67700B5483A /* GithubJobsUITests.swift */; };
 		E2B3E6EA2556D7BA00B5483A /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6E92556D7BA00B5483A /* JobsViewController.swift */; };
-		E2B3E6EF2556D7E400B5483A /* JobsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6EE2556D7E400B5483A /* JobsView.swift */; };
 		E2B3E6F82556DAE100B5483A /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6F72556DAE100B5483A /* JobTableViewCell.swift */; };
 		E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E7002556DCB900B5483A /* APIClient.swift */; };
 		E2B3E70A2556DD5700B5483A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E7092556DD5600B5483A /* APIError.swift */; };
@@ -84,7 +83,6 @@
 		E2B3E6D02556D67700B5483A /* GithubJobsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubJobsUITests.swift; sourceTree = "<group>"; };
 		E2B3E6D22556D67700B5483A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2B3E6E92556D7BA00B5483A /* JobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewController.swift; sourceTree = "<group>"; };
-		E2B3E6EE2556D7E400B5483A /* JobsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsView.swift; sourceTree = "<group>"; };
 		E2B3E6F72556DAE100B5483A /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		E2B3E7002556DCB900B5483A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		E2B3E7092556DD5600B5483A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 			children = (
 				E2B3E6F62556DACE00B5483A /* ViewComponents */,
 				E2B3E6E92556D7BA00B5483A /* JobsViewController.swift */,
-				E2B3E6EE2556D7E400B5483A /* JobsView.swift */,
 				E21AEC372556E35100A85639 /* JobsViewModel.swift */,
 				E28B5293255700F100389043 /* JobsViewState.swift */,
 			);
@@ -436,7 +433,6 @@
 				E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */,
 				E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */,
 				E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */,
-				E2B3E6EF2556D7E400B5483A /* JobsView.swift in Sources */,
 				E21AEC2B2556E1D000A85639 /* JobClient.swift in Sources */,
 				E2B3E6B32556D67400B5483A /* ViewController.swift in Sources */,
 				E28B52A725570CCF00389043 /* UIView+Layout.swift in Sources */,

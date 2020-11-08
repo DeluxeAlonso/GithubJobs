@@ -9,7 +9,13 @@ import UIKit
 
 class JobsViewController: UIViewController {
 
-    private var jobsView: JobsView!
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+
+        return tableView
+    }()
+
     private var displayedCellsIndexPaths = Set<IndexPath>()
 
     private let viewModel: JobsViewModelProtocol
@@ -26,14 +32,10 @@ class JobsViewController: UIViewController {
     }
 
     // MARK: - Lifecycle
-
-    override func loadView() {
-        jobsView = JobsView()
-        self.view = jobsView
-    }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Jobs"
         setupUI()
         setupBindings()
         viewModel.getAllJobs()
@@ -42,21 +44,24 @@ class JobsViewController: UIViewController {
     // MARK: - Private
 
     private func setupUI() {
-        jobsView.tableView.register(JobTableViewCell.self, forCellReuseIdentifier: "Cell")
-        jobsView.tableView.dataSource = self
-        jobsView.tableView.delegate = self
+        view.addSubview(tableView)
+        tableView.fillSuperview()
+
+        tableView.register(JobTableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 
     private func setupBindings() {
         viewModel.viewState.bindAndFire { [weak self] state in
             guard let strongSelf = self else { return }
             strongSelf.configureView(with: state)
-            strongSelf.jobsView.tableView.reloadData()
+            strongSelf.tableView.reloadData()
         }
     }
 
     private func configureView(with state: JobsViewState) {
-        let tableView = jobsView.tableView
         switch state {
         case .empty:
             tableView.tableFooterView = CustomFooterView(message: "Empty")
