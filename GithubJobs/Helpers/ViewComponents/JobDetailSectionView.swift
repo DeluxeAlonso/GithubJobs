@@ -31,8 +31,7 @@ class JobDetailSectionView: UIView {
     }
 
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupUI()
+        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Private

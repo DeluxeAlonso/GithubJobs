@@ -9,14 +9,15 @@ import UIKit
 
 class JobDetailViewController: UIViewController {
 
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         return tableView
     }()
 
-    var headerView: JobDetailHeaderView!
+    private var headerView: JobDetailHeaderView!
+    private var displayedCellsIndexPaths = Set<IndexPath>()
 
     private let viewModel: JobDetailViewModelProtocol
     private weak var coordinator: JobDetailCoordinatorProtocol?
@@ -45,6 +46,7 @@ class JobDetailViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        // Recalculate header heaight if needed
         if let headerView = tableView.tableHeaderView {
             let newSize = headerView.systemLayoutSizeFitting(CGSize(width: self.view.bounds.width, height: 0))
             if newSize.height != headerView.frame.size.height {
@@ -58,29 +60,16 @@ class JobDetailViewController: UIViewController {
 
     private func setupUI() {
         setupTableView()
-        setupHeaderView()
     }
 
     private func setupTableView() {
         view.addSubview(tableView)
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        ])
+        tableView.fillSuperview()
 
         tableView.register(cellType: JobTableViewCell.self)
 
         tableView.dataSource = self
         tableView.delegate = self
-    }
-
-    private func setupHeaderView() {
-        headerView = JobDetailHeaderView()
-        headerView.frame = .init(x: 0, y:0, width: view.frame.width, height: view.frame.height)
-
-        tableView.tableHeaderView = headerView
     }
 
     private func configureView(with state: JobDetailViewState) {
@@ -96,18 +85,27 @@ class JobDetailViewController: UIViewController {
         }
     }
 
-    // MARK: - Reactive Behaviour
+    // MARK: - Reactive Behavior
 
     private func setupBindings() {
         title = viewModel.jobTitle
-        headerView.title = viewModel.jobDescription
-        headerView.logoURLString = viewModel.companyLogoURLString
+
+        configureHeaderView()
 
         viewModel.viewState.bindAndFire { [weak self] state in
             guard let strongSelf = self else { return }
             strongSelf.configureView(with: state)
             strongSelf.tableView.reloadData()
         }
+    }
+
+    private func configureHeaderView() {
+        headerView = JobDetailHeaderView()
+        headerView.viewModel = viewModel.makeJobDetailHeaderViewModel()
+
+        headerView.frame = .init(x: 0, y:0, width: view.frame.width, height: view.frame.height)
+
+        tableView.tableHeaderView = headerView
     }
 
 }
@@ -146,6 +144,13 @@ extension JobDetailViewController: UITableViewDelegate {
         let view = JobDetailSectionView()
         view.title = LocalizedStrings.relatedJobsTitle.localized
         return view
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if !displayedCellsIndexPaths.contains(indexPath) {
+            displayedCellsIndexPaths.insert(indexPath)
+            TableViewCellAnimator.fadeAnimate(cell: cell)
+        }
     }
 
 }

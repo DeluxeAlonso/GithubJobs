@@ -49,12 +49,7 @@ class JobsViewController: UIViewController {
 
     private func setupUI() {
         view.addSubview(tableView)
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        ])
+        tableView.fillSuperview()
 
         tableView.register(cellType: JobTableViewCell.self)
         
@@ -87,7 +82,7 @@ class JobsViewController: UIViewController {
         }
     }
 
-    // MARK: - Reactive Behaviour
+    // MARK: - Reactive Behavior
 
     private func setupBindings() {
         viewModel.viewState.bindAndFire { [weak self] state in

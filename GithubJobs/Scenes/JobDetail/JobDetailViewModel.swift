@@ -20,34 +20,19 @@ struct JobDetailViewModel: JobDetailViewModelProtocol {
         return job.title
     }
 
-    var jobDescription: String? {
-        return job.description.htmlToString
-    }
-
-    var companyLogoURLString: String? {
-        return job.companyLogoPath
-    }
-
-    private var jobs: [Job] {
-        return viewState.value.currentJobs
-    }
-
     var jobsCells: [JobCellViewModel] {
+        let jobs = viewState.value.currentJobs
         return jobs.map { JobCellViewModel($0) }
     }
 
     // MARK: - Initializers
 
-    init(jobClient: JobClientProtocol, job: Job) {
-        self.jobClient = jobClient
+    init(_ job: Job, jobClient: JobClientProtocol) {
         self.job = job
+        self.jobClient = jobClient
     }
 
     // MARK: - Public
-
-    func job(at index: Int) -> Job {
-        return jobs[index]
-    }
 
     func getRelatedJobs() {
         jobClient.getJobs(description: job.title) { result in
@@ -58,6 +43,15 @@ struct JobDetailViewModel: JobDetailViewModelProtocol {
                 self.viewState.value = .error(error)
             }
         }
+    }
+
+    func job(at index: Int) -> Job {
+        let jobs = viewState.value.currentJobs
+        return jobs[index]
+    }
+
+    func makeJobDetailHeaderViewModel() -> JobDetailHeaderViewModelProtocol {
+        return JobDetailHeaderViewModel(job)
     }
 
     // MARK: - Private

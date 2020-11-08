@@ -9,8 +9,8 @@ import UIKit
 
 class JobDetailHeaderView: UIView {
 
-    private lazy var companyLogoContainerView: UIView = {
-        let view = UIView()
+    private lazy var companyLogoContainerView: BackgroundCurvedView = {
+        let view = BackgroundCurvedView()
         view.backgroundColor = .systemBlue
         view.contentMode = .redraw
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +49,12 @@ class JobDetailHeaderView: UIView {
         }
     }
 
+    var viewModel: JobDetailHeaderViewModelProtocol? {
+        didSet {
+            setupBindings()
+        }
+    }
+
     // MARK: - Initializers
 
     override init(frame: CGRect) {
@@ -57,11 +63,17 @@ class JobDetailHeaderView: UIView {
     }
 
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupUI()
+        fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Private
+
     private func setupUI() {
+        setupCompanyLogoView()
+        setupTitleLabel()
+    }
+
+    private func setupCompanyLogoView() {
         addSubview(companyLogoContainerView)
         NSLayoutConstraint.activate([
             companyLogoContainerView.topAnchor.constraint(equalTo: topAnchor),
@@ -71,20 +83,39 @@ class JobDetailHeaderView: UIView {
         ])
 
         companyLogoContainerView.addSubview(companyLogoImageView)
-        NSLayoutConstraint.activate([
-            companyLogoImageView.centerXAnchor.constraint(equalTo: companyLogoContainerView.centerXAnchor),
-            companyLogoImageView.centerYAnchor.constraint(equalTo: companyLogoContainerView.centerYAnchor),
-            companyLogoImageView.heightAnchor.constraint(equalToConstant: 85),
-            companyLogoImageView.widthAnchor.constraint(equalToConstant: 85)
-        ])
+        companyLogoImageView.centerInSuperview(size: .init(width: 80, height: 80))
+    }
 
+    private func setupTitleLabel() {
         addSubview(titleLabel)
+
+        let trailingContraint = titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+        let leadingContraint = titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8)
+
+        // Add a 999 priority to supress width constraint warning.
+        trailingContraint.priority = .init(999)
+        leadingContraint.priority = .init(999)
+
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: companyLogoContainerView.bottomAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            leadingContraint,
+            trailingContraint,
         ])
+    }
+
+    // MARK: - Reactive Behavior
+
+    private func setupBindings() {
+        guard let viewModel = viewModel else { return }
+
+        titleLabel.text = viewModel.jobDescription
+
+        guard let urlString = viewModel.companyLogoURLString,
+              let url = URL(string: urlString) else {
+            return
+        }
+        companyLogoImageView.setImage(with: url)
     }
 
 }
