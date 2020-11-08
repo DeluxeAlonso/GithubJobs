@@ -59,10 +59,11 @@ struct JobDetailViewModel: JobDetailViewModelProtocol {
     // MARK: - Private
 
     private func processResult(_ jobs: [Job]) -> JobDetailViewState {
-        guard !jobs.isEmpty else { return .empty }
-
         // We only show related jobs that are not the one we are currently displaying.
-        return .populated(jobs.filter { $0.id != job.id })
+        let filteredJobs = jobs.filter { $0.id != job.id }
+        guard !filteredJobs.isEmpty else { return .empty }
+        
+        return .populated(filteredJobs)
     }
 
 }

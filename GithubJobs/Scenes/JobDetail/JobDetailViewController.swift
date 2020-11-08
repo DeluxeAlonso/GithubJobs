@@ -20,7 +20,7 @@ class JobDetailViewController: UIViewController {
 
     private let viewModel: JobDetailViewModelProtocol
     private weak var coordinator: JobDetailCoordinatorProtocol?
-    
+
     // MARK: - Initializers
 
     init(viewModel: JobDetailViewModelProtocol, coordinator: JobDetailCoordinatorProtocol) {
@@ -134,6 +134,7 @@ extension JobDetailViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        coordinator?.showJobDetail(viewModel.job(at: indexPath.row))
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

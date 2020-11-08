@@ -15,10 +15,13 @@ protocol JobDetailViewModelProtocol {
 
     var jobsCells: [JobCellViewModel] { get }
 
+    func job(at index: Int) -> Job
     func getRelatedJobs()
 
 }
 
 protocol JobDetailCoordinatorProtocol: class {
+
+    func showJobDetail(_ job: Job)
 
 }
