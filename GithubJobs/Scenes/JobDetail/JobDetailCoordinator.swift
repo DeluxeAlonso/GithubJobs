@@ -20,9 +20,7 @@ final class JobDetailCoordinator: NSObject, JobDetailCoordinatorProtocol, Coordi
     }
 
     func start() {
-        var viewModel = JobDetailViewModel(jobClient: JobClient())
-        viewModel.job = job
-
+        let viewModel = JobDetailViewModel(job, jobClient: JobClient())
         let viewController = JobDetailViewController(viewModel: viewModel, coordinator: self)
 
         navigationController.pushViewController(viewController, animated: true)

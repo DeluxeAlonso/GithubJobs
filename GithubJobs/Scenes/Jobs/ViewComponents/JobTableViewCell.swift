@@ -38,6 +38,10 @@ class JobTableViewCell: UITableViewCell {
 
     private func setupUI() {
         accessoryType = .disclosureIndicator
+        textLabel?.numberOfLines = 2
+
+        detailTextLabel?.numberOfLines = 2
+        detailTextLabel?.textColor = .systemGray
     }
 
     private func setupBindables() {

@@ -1,14 +1,13 @@
 //
-//  GithubJobsTests.swift
+//  JobDetailTests.swift
 //  GithubJobsTests
 //
-//  Created by Alonso on 11/7/20.
+//  Created by Alonso on 11/8/20.
 //
 
 import XCTest
-@testable import GithubJobs
 
-class GithubJobsTests: XCTestCase {
+class JobDetailTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -9,15 +9,14 @@ import Foundation
 
 protocol JobDetailViewModelProtocol {
 
-    var jobTitle: String? { get }
-    var jobDescription: String? { get }
-    var compenyLogoURLString: String? { get }
     var viewState: Bindable<JobDetailViewState> { get }
 
+    var jobTitle: String? { get }
     var jobsCells: [JobCellViewModel] { get }
 
-    func job(at index: Int) -> Job
     func getRelatedJobs()
+    func job(at index: Int) -> Job
+    func makeJobDetailHeaderViewModel() -> JobDetailHeaderViewModelProtocol
 
 }
 
