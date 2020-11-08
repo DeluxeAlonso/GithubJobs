@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  GithubJobs
+
+  Created by Alonso on 11/8/20.
+  
+*/
+
+"jobsTitle" = "Empleos";
+"emptyJobsTitle" = "No hay empleos que mostrar";
+
+"relatedJobsTitle" = "Empleos relacionados";
+"emptyRelatedJobsTitle" = "No hay empleos relacionados que mostrar";

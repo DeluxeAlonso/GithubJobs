@@ -1,5 +1,5 @@
 //
-//  JobsViewController.swift
+//  JobDetailViewController.swift
 //  GithubJobs
 //
 //  Created by Alonso on 11/7/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class JobsViewController: UIViewController {
+class JobDetailViewController: UIViewController {
 
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -16,15 +16,14 @@ class JobsViewController: UIViewController {
         return tableView
     }()
 
-    private var displayedCellsIndexPaths = Set<IndexPath>()
-    private var prefetchDataSource: TableViewDataSourcePrefetching!
+    var headerView: JobDetailHeaderView!
 
-    private let viewModel: JobsViewModelProtocol
-    private weak var coordinator: JobsCoordinatorProtocol?
+    private let viewModel: JobDetailViewModelProtocol
+    private weak var coordinator: JobDetailCoordinatorProtocol?
 
     // MARK: - Initializers
 
-    init(viewModel: JobsViewModelProtocol, coordinator: JobsCoordinatorProtocol) {
+    init(viewModel: JobDetailViewModelProtocol, coordinator: JobDetailCoordinatorProtocol) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -35,19 +34,34 @@ class JobsViewController: UIViewController {
     }
 
     // MARK: - Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = LocalizedStrings.jobsTitle.localized
         setupUI()
         setupBindings()
-        viewModel.getJobs()
+        viewModel.getRelatedJobs()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let headerView = tableView.tableHeaderView {
+            let newSize = headerView.systemLayoutSizeFitting(CGSize(width: self.view.bounds.width, height: 0))
+            if newSize.height != headerView.frame.size.height {
+                headerView.frame.size.height = newSize.height
+                tableView.tableHeaderView = headerView
+            }
+        }
     }
 
     // MARK: - Private
 
     private func setupUI() {
+        setupTableView()
+        setupHeaderView()
+    }
+
+    private func setupTableView() {
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -57,27 +71,25 @@ class JobsViewController: UIViewController {
         ])
 
         tableView.register(JobTableViewCell.self, forCellReuseIdentifier: "Cell")
-        
+
         tableView.dataSource = self
         tableView.delegate = self
     }
 
-    private func configureTableViewDataSource() {
-        prefetchDataSource = TableViewDataSourcePrefetching(cellCount: viewModel.jobsCells.count,
-                                                            needsPrefetch: viewModel.needsPrefetch,
-                                                            prefetchHandler: { [weak self] in
-                                                                self?.viewModel.getJobs()
-        })
-        tableView.prefetchDataSource = prefetchDataSource
+    private func setupHeaderView() {
+        headerView = JobDetailHeaderView()
+        headerView.frame = .init(x: 0, y:0, width: view.frame.width, height: view.frame.height)
+
+        tableView.tableHeaderView = headerView
     }
 
-    private func configureView(with state: JobsViewState) {
+    private func configureView(with state: JobDetailViewState) {
         switch state {
         case .empty:
-            tableView.tableFooterView = CustomFooterView(message: LocalizedStrings.emptyJobsTitle.localized)
+            tableView.tableFooterView = CustomFooterView(message: LocalizedStrings.emptyRelatedJobsTitle.localized)
         case .populated:
             tableView.tableFooterView = UIView()
-        case .initial, .paging:
+        case .initial:
             tableView.tableFooterView = LoadingFooterView()
         case .error(let error):
             tableView.tableFooterView = CustomFooterView(message: error.description)
@@ -87,10 +99,13 @@ class JobsViewController: UIViewController {
     // MARK: - Reactive Behaviour
 
     private func setupBindings() {
+        title = viewModel.jobTitle
+        headerView.title = viewModel.jobDescription
+        headerView.logoURLString = viewModel.compenyLogoURLString
+
         viewModel.viewState.bindAndFire { [weak self] state in
             guard let strongSelf = self else { return }
             strongSelf.configureView(with: state)
-            strongSelf.configureTableViewDataSource()
             strongSelf.tableView.reloadData()
         }
     }
@@ -99,15 +114,7 @@ class JobsViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 
-extension JobsViewController: UITableViewDataSource {
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.jobsCells.count
-    }
+extension JobDetailViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! JobTableViewCell
@@ -116,22 +123,29 @@ extension JobsViewController: UITableViewDataSource {
         return cell
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.jobsCells.count
+    }
+
 }
 
 // MARK: - UITableViewDelegate
 
-extension JobsViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if !displayedCellsIndexPaths.contains(indexPath) {
-            displayedCellsIndexPaths.insert(indexPath)
-            TableViewCellAnimator.fadeAnimate(cell: cell)
-        }
-    }
+extension JobDetailViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         coordinator?.showJobDetail(viewModel.job(at: indexPath.row))
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60.0
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = JobDetailSectionView()
+        view.title = LocalizedStrings.relatedJobsTitle.localized
+        return view
     }
 
 }

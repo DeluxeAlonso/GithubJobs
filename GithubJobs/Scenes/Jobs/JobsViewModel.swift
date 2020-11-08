@@ -7,22 +7,13 @@
 
 import Foundation
 
-protocol JobsViewModelProtocol {
-
-    var viewState: Bindable<JobsViewState> { get }
-    var needsPrefetch: Bool { get }
-
-    var jobsCells: [JobCellViewModel] { get }
-
-    func getAllJobs()
-
-}
-
 final class JobsViewModel: JobsViewModelProtocol {
 
     private let jobClient: JobClientProtocol
 
     let viewState: Bindable<JobsViewState> = Bindable(.initial)
+
+    // MARK: - Computed Properties
 
     private var jobs: [Job] {
         return viewState.value.currentJobs
@@ -36,13 +27,23 @@ final class JobsViewModel: JobsViewModelProtocol {
         return jobs.map { JobCellViewModel($0) }
     }
 
+    // MARK: - Initializers
+
     init(jobClient: JobClientProtocol) {
         self.jobClient = jobClient
     }
 
-    func getAllJobs() {
+    // MARK: - Public
+
+    func getJobs() {
         fetchJobs(currentPage: viewState.value.currentPage)
     }
+
+    func job(at index: Int) -> Job {
+        return jobs[index]
+    }
+
+    // MARK: - Private
 
     private func fetchJobs(currentPage: Int) {
         jobClient.getJobs(page: currentPage) { result in
