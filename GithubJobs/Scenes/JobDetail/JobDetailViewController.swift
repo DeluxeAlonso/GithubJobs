@@ -17,6 +17,7 @@ class JobDetailViewController: UIViewController {
     }()
 
     private var headerView: JobDetailHeaderView!
+    private var displayedCellsIndexPaths = Set<IndexPath>()
 
     private let viewModel: JobDetailViewModelProtocol
     private weak var coordinator: JobDetailCoordinatorProtocol?
@@ -45,6 +46,7 @@ class JobDetailViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        // Recalculate header heaight if needed
         if let headerView = tableView.tableHeaderView {
             let newSize = headerView.systemLayoutSizeFitting(CGSize(width: self.view.bounds.width, height: 0))
             if newSize.height != headerView.frame.size.height {
@@ -62,12 +64,7 @@ class JobDetailViewController: UIViewController {
 
     private func setupTableView() {
         view.addSubview(tableView)
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        ])
+        tableView.fillSuperview()
 
         tableView.register(cellType: JobTableViewCell.self)
 
@@ -147,6 +144,13 @@ extension JobDetailViewController: UITableViewDelegate {
         let view = JobDetailSectionView()
         view.title = LocalizedStrings.relatedJobsTitle.localized
         return view
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if !displayedCellsIndexPaths.contains(indexPath) {
+            displayedCellsIndexPaths.insert(indexPath)
+            TableViewCellAnimator.fadeAnimate(cell: cell)
+        }
     }
 
 }

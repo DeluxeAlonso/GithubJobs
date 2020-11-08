@@ -66,7 +66,14 @@ class JobDetailHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Private
+
     private func setupUI() {
+        setupCompanyLogoView()
+        setupTitleLabel()
+    }
+
+    private func setupCompanyLogoView() {
         addSubview(companyLogoContainerView)
         NSLayoutConstraint.activate([
             companyLogoContainerView.topAnchor.constraint(equalTo: topAnchor),
@@ -76,25 +83,24 @@ class JobDetailHeaderView: UIView {
         ])
 
         companyLogoContainerView.addSubview(companyLogoImageView)
-        NSLayoutConstraint.activate([
-            companyLogoImageView.centerXAnchor.constraint(equalTo: companyLogoContainerView.centerXAnchor),
-            companyLogoImageView.centerYAnchor.constraint(equalTo: companyLogoContainerView.centerYAnchor),
-            companyLogoImageView.heightAnchor.constraint(equalToConstant: 80),
-            companyLogoImageView.widthAnchor.constraint(equalToConstant: 80)
-        ])
+        companyLogoImageView.centerInSuperview(size: .init(width: 80, height: 80))
+    }
 
+    private func setupTitleLabel() {
         addSubview(titleLabel)
-        let trailingContraint = titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
-        trailingContraint.priority = .init(999)
 
+        let trailingContraint = titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         let leadingContraint = titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8)
+
+        // Add a 999 priority to supress width constraint warning.
+        trailingContraint.priority = .init(999)
         leadingContraint.priority = .init(999)
 
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: companyLogoContainerView.bottomAnchor, constant: 8),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             leadingContraint,
             trailingContraint,
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
         ])
     }
 
