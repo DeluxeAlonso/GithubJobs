@@ -18,6 +18,8 @@
 		E2641BF22557C82900675868 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2641BF42557C82900675868 /* Localizable.strings */; };
 		E2641BFD2557C8AE00675868 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641BFC2557C8AE00675868 /* LocalizedStrings.swift */; };
 		E2641C022557C90100675868 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641C012557C90100675868 /* String+Localized.swift */; };
+		E2641C0F2557CDE300675868 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641C0E2557CDE300675868 /* UITableView+Register.swift */; };
+		E2641C142557CE1200675868 /* Dequeuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641C132557CE1200675868 /* Dequeuable.swift */; };
 		E2673AE425577A0B00727460 /* DataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673AE325577A0B00727460 /* DataSourcePrefetching.swift */; };
 		E2673AE925577A2300727460 /* TableViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673AE825577A2300727460 /* TableViewDataSourcePrefetching.swift */; };
 		E2673AF42557817B00727460 /* JobsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673AF32557817B00727460 /* JobsProtocols.swift */; };
@@ -97,6 +99,8 @@
 		E2641BF82557C85E00675868 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E2641BFC2557C8AE00675868 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		E2641C012557C90100675868 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		E2641C0E2557CDE300675868 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
+		E2641C132557CE1200675868 /* Dequeuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dequeuable.swift; sourceTree = "<group>"; };
 		E2673AE325577A0B00727460 /* DataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcePrefetching.swift; sourceTree = "<group>"; };
 		E2673AE825577A2300727460 /* TableViewDataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSourcePrefetching.swift; sourceTree = "<group>"; };
 		E2673AF32557817B00727460 /* JobsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsProtocols.swift; sourceTree = "<group>"; };
@@ -380,6 +384,7 @@
 			children = (
 				E2B3E7102556DDB600B5483A /* Descriptable.swift */,
 				E2673AFE2557823F00727460 /* Coordinator.swift */,
+				E2641C132557CE1200675868 /* Dequeuable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 				E2641BD62557C04900675868 /* String+HTML.swift */,
 				E2641BE82557C55500675868 /* UIImageView+Kingfisher.swift */,
 				E2641C012557C90100675868 /* String+Localized.swift */,
+				E2641C0E2557CDE300675868 /* UITableView+Register.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -653,6 +659,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2641C142557CE1200675868 /* Dequeuable.swift in Sources */,
 				E21AEC382556E35100A85639 /* JobsViewModel.swift in Sources */,
 				E28B52AC25570CF000389043 /* FontHelper.swift in Sources */,
 				E2673B04255782F000727460 /* JobsCoordinator.swift in Sources */,
@@ -674,6 +681,7 @@
 				E2641C022557C90100675868 /* String+Localized.swift in Sources */,
 				E28B5294255700F100389043 /* JobsViewState.swift in Sources */,
 				E2B3E7162556DDD200B5483A /* Endpoint.swift in Sources */,
+				E2641C0F2557CDE300675868 /* UITableView+Register.swift in Sources */,
 				E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */,
 				E2673AF42557817B00727460 /* JobsProtocols.swift in Sources */,
 				E28B528C2556FEEA00389043 /* Bindable.swift in Sources */,

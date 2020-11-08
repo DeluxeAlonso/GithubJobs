@@ -9,11 +9,10 @@ import Foundation
 
 struct JobDetailViewModel: JobDetailViewModelProtocol {
 
+    private let job: Job
     private let jobClient: JobClientProtocol
 
     let viewState: Bindable<JobDetailViewState> = Bindable(.initial)
-
-    var job: Job!
 
     // MARK: - Computed Properties
 
@@ -25,7 +24,7 @@ struct JobDetailViewModel: JobDetailViewModelProtocol {
         return job.description.htmlToString
     }
 
-    var compenyLogoURLString: String? {
+    var companyLogoURLString: String? {
         return job.companyLogoPath
     }
 
@@ -39,8 +38,9 @@ struct JobDetailViewModel: JobDetailViewModelProtocol {
 
     // MARK: - Initializers
 
-    init(jobClient: JobClientProtocol) {
+    init(jobClient: JobClientProtocol, job: Job) {
         self.jobClient = jobClient
+        self.job = job
     }
 
     // MARK: - Public

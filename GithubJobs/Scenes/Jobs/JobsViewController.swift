@@ -56,10 +56,13 @@ class JobsViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
 
-        tableView.register(JobTableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(cellType: JobTableViewCell.self)
         
         tableView.dataSource = self
         tableView.delegate = self
+
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
     }
 
     private func configureTableViewDataSource() {
@@ -110,7 +113,7 @@ extension JobsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! JobTableViewCell
+        let cell = tableView.dequeueReusableCell(with: JobTableViewCell.self, for: indexPath)
         cell.viewModel = viewModel.jobsCells[indexPath.row]
 
         return cell

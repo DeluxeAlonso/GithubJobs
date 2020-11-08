@@ -70,7 +70,7 @@ class JobDetailViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
 
-        tableView.register(JobTableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(cellType: JobTableViewCell.self)
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -101,7 +101,7 @@ class JobDetailViewController: UIViewController {
     private func setupBindings() {
         title = viewModel.jobTitle
         headerView.title = viewModel.jobDescription
-        headerView.logoURLString = viewModel.compenyLogoURLString
+        headerView.logoURLString = viewModel.companyLogoURLString
 
         viewModel.viewState.bindAndFire { [weak self] state in
             guard let strongSelf = self else { return }
@@ -117,7 +117,7 @@ class JobDetailViewController: UIViewController {
 extension JobDetailViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! JobTableViewCell
+        let cell = tableView.dequeueReusableCell(with: JobTableViewCell.self, for: indexPath)
         cell.viewModel = viewModel.jobsCells[indexPath.row]
 
         return cell
