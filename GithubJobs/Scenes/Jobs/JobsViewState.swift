@@ -43,10 +43,10 @@ enum JobsViewState: Equatable {
 
     var currentJobs: [Job] {
         switch self {
-        case .populated(let movies):
-            return movies
-        case .paging(let movies, _):
-            return movies
+        case .populated(let jobs):
+            return jobs
+        case .paging(let jobs, _):
+            return jobs
         case .empty, .error, .initial:
             return []
         }

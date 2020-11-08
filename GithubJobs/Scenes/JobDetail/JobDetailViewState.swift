@@ -31,8 +31,8 @@ enum JobDetailViewState: Equatable {
 
     var currentJobs: [Job] {
         switch self {
-        case .populated(let movies):
-            return movies
+        case .populated(let jobs):
+            return jobs
         case .empty, .error, .initial:
             return []
         }
