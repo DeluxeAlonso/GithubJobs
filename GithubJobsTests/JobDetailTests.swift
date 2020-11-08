@@ -6,27 +6,68 @@
 //
 
 import XCTest
+@testable import GithubJobs
 
 class JobDetailTests: XCTestCase {
 
+    var mockJobClient: MockJobClient!
+    var viewModelToTest: JobDetailViewModel!
+
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        mockJobClient = MockJobClient()
+
+        let job = Job.with()
+        viewModelToTest = JobDetailViewModel(job, jobClient: mockJobClient)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        mockJobClient = nil
+        viewModelToTest = nil
+        try super.tearDownWithError()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testJobTitle() {
+        //Act
+        let title = viewModelToTest.jobTitle
+        //Assert
+        XCTAssertEqual(title, "Job 1")
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testGetRelatedJobsPopulated() {
+        //Arrange
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: [Job.with(id: "2")]))
+        //Act
+        viewModelToTest.getRelatedJobs()
+        //Assert
+        XCTAssertEqual(viewModelToTest.viewState.value, .populated([Job.with(id: "2")]))
+    }
+
+    func testGetRelatedJobsEmpty() {
+        //Arrange
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: []))
+        //Act
+        viewModelToTest.getRelatedJobs()
+        //Assert
+        XCTAssertEqual(viewModelToTest.viewState.value, .empty)
+    }
+
+    func testGetRelatedJobsEmptyAfterFilter() {
+        //Arrange
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: [Job.with(id: "1")]))
+        //Act
+        viewModelToTest.getRelatedJobs()
+        //Assert
+        XCTAssertEqual(viewModelToTest.viewState.value, .empty)
+    }
+
+    func testGetJobsError() {
+        //Arrange
+        mockJobClient.getJobResult = Result.failure(APIError.badRequest)
+        //Act
+        viewModelToTest.getRelatedJobs()
+        //Assert
+        XCTAssertEqual(viewModelToTest.viewState.value, .error(APIError.badRequest))
     }
 
 }

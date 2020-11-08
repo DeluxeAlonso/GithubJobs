@@ -15,4 +15,8 @@ final class MockJobClient: JobClient {
         completion(getJobResult)
     }
 
+    override func getJobs(description: String, completion: @escaping (Result<JobsResult, APIError>) -> Void) {
+        completion(getJobResult)
+    }
+
 }

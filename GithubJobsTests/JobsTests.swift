@@ -10,7 +10,7 @@ import XCTest
 
 class JobsTests: XCTestCase {
 
-    var mockJobClient: JobClient!
+    var mockJobClient: MockJobClient!
     var viewModelToTest: JobsViewModel!
 
     override func setUpWithError() throws {
@@ -25,25 +25,42 @@ class JobsTests: XCTestCase {
         try super.tearDownWithError()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testGetJobsPopulated() {
+        //Arrange
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: [Job.with()]))
+        //Act
+        viewModelToTest.getJobs()
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: []))
+        viewModelToTest.getJobs()
+        //Assert
+        XCTAssertEqual(viewModelToTest.viewState.value, .populated([Job.with()]))
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testGetJobsPaging() {
+        //Arrange
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: [Job.with()]))
+        //Act
+        viewModelToTest.getJobs()
+        //Assert
+        XCTAssertEqual(viewModelToTest.viewState.value, .paging([Job.with()], next: 2))
     }
 
-}
+    func testGetJobsEmpty() {
+        //Arrange
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: []))
+        //Act
+        viewModelToTest.getJobs()
+        //Assert
+        XCTAssertEqual(viewModelToTest.viewState.value, .empty)
+    }
 
-private final class MockJobClient: JobClient {
-
-    var getJobResult: Result<JobsResult, APIError>!
-    override func getJobs(page: Int, completion: @escaping (Result<JobsResult, APIError>) -> Void) {
-        completion(getJobResult)
+    func testGetJobsError() {
+        //Arrange
+        mockJobClient.getJobResult = Result.failure(APIError.badRequest)
+        //Act
+        viewModelToTest.getJobs()
+        //Assert
+        XCTAssertEqual(viewModelToTest.viewState.value, .error(APIError.badRequest))
     }
 
 }
