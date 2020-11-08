@@ -22,7 +22,7 @@ struct JobDetailViewModel: JobDetailViewModelProtocol {
     }
 
     var jobDescription: String? {
-        return job.description
+        return job.description.htmlToString
     }
 
     private var jobs: [Job] {
