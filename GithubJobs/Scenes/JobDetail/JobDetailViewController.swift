@@ -101,6 +101,7 @@ class JobDetailViewController: UIViewController {
     private func setupBindings() {
         title = viewModel.jobTitle
         headerView.title = viewModel.jobDescription
+        headerView.logoURLString = viewModel.compenyLogoURLString
 
         viewModel.viewState.bindAndFire { [weak self] state in
             guard let strongSelf = self else { return }

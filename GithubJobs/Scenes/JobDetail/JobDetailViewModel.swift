@@ -25,6 +25,10 @@ struct JobDetailViewModel: JobDetailViewModelProtocol {
         return job.description.htmlToString
     }
 
+    var compenyLogoURLString: String? {
+        return job.companyLogoPath
+    }
+
     private var jobs: [Job] {
         return viewState.value.currentJobs
     }

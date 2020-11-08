@@ -9,7 +9,7 @@ import UIKit
 
 class JobDetailHeaderView: UIView {
 
-    lazy var companyLogoContainerView: UIView = {
+    private lazy var companyLogoContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemBlue
         view.contentMode = .redraw
@@ -17,13 +17,14 @@ class JobDetailHeaderView: UIView {
         return view
     }()
 
-    lazy var companyLogoImageView: UIImageView = {
+    private lazy var companyLogoImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.setContentHuggingPriority(.required, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -37,6 +38,18 @@ class JobDetailHeaderView: UIView {
             titleLabel.text = title
         }
     }
+
+    var logoURLString: String? {
+        didSet {
+            guard let urlString = logoURLString,
+                  let url = URL(string: urlString) else {
+                return
+            }
+            companyLogoImageView.setImage(with: url)
+        }
+    }
+
+    // MARK: - Initializers
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,6 +68,14 @@ class JobDetailHeaderView: UIView {
             companyLogoContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             companyLogoContainerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             companyLogoContainerView.heightAnchor.constraint(equalToConstant: 100)
+        ])
+
+        companyLogoContainerView.addSubview(companyLogoImageView)
+        NSLayoutConstraint.activate([
+            companyLogoImageView.centerXAnchor.constraint(equalTo: companyLogoContainerView.centerXAnchor),
+            companyLogoImageView.centerYAnchor.constraint(equalTo: companyLogoContainerView.centerYAnchor),
+            companyLogoImageView.heightAnchor.constraint(equalToConstant: 85),
+            companyLogoImageView.widthAnchor.constraint(equalToConstant: 85)
         ])
 
         addSubview(titleLabel)

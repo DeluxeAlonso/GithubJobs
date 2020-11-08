@@ -10,7 +10,8 @@ import Foundation
 protocol JobDetailViewModelProtocol {
 
     var jobTitle: String? { get }
-    var jobDescription: String? { get}
+    var jobDescription: String? { get }
+    var compenyLogoURLString: String? { get }
     var viewState: Bindable<JobDetailViewState> { get }
 
     var jobsCells: [JobCellViewModel] { get }
