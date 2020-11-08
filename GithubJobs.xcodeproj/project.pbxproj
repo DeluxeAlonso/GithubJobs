@@ -13,6 +13,10 @@
 		E21AEC3E2556E3B800A85639 /* JobClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC3D2556E3B700A85639 /* JobClientProtocol.swift */; };
 		E2673AE425577A0B00727460 /* DataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673AE325577A0B00727460 /* DataSourcePrefetching.swift */; };
 		E2673AE925577A2300727460 /* TableViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673AE825577A2300727460 /* TableViewDataSourcePrefetching.swift */; };
+		E2673AF42557817B00727460 /* JobsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673AF32557817B00727460 /* JobsProtocols.swift */; };
+		E2673AFA255781A800727460 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673AF9255781A800727460 /* JobDetailViewController.swift */; };
+		E2673AFF2557823F00727460 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673AFE2557823F00727460 /* Coordinator.swift */; };
+		E2673B04255782F000727460 /* JobsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673B03255782F000727460 /* JobsCoordinator.swift */; };
 		E28B528C2556FEEA00389043 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B528B2556FEEA00389043 /* Bindable.swift */; };
 		E28B5294255700F100389043 /* JobsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B5293255700F100389043 /* JobsViewState.swift */; };
 		E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B529925570C3F00389043 /* LoadingFooterView.swift */; };
@@ -65,6 +69,10 @@
 		E21AEC3D2556E3B700A85639 /* JobClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobClientProtocol.swift; sourceTree = "<group>"; };
 		E2673AE325577A0B00727460 /* DataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcePrefetching.swift; sourceTree = "<group>"; };
 		E2673AE825577A2300727460 /* TableViewDataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSourcePrefetching.swift; sourceTree = "<group>"; };
+		E2673AF32557817B00727460 /* JobsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsProtocols.swift; sourceTree = "<group>"; };
+		E2673AF9255781A800727460 /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
+		E2673AFE2557823F00727460 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E2673B03255782F000727460 /* JobsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsCoordinator.swift; sourceTree = "<group>"; };
 		E28B528B2556FEEA00389043 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		E28B5293255700F100389043 /* JobsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewState.swift; sourceTree = "<group>"; };
 		E28B529925570C3F00389043 /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
@@ -141,6 +149,14 @@
 				E2673AE825577A2300727460 /* TableViewDataSourcePrefetching.swift */,
 			);
 			path = DataSources;
+			sourceTree = "<group>";
+		};
+		E2673AF82557819100727460 /* JobDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E2673AF9255781A800727460 /* JobDetailViewController.swift */,
+			);
+			path = JobDetail;
 			sourceTree = "<group>";
 		};
 		E28B528A2556FEE200389043 /* Utils */ = {
@@ -229,6 +245,7 @@
 		E2B3E6E72556D79A00B5483A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E2673AF82557819100727460 /* JobDetail */,
 				E2B3E6E82556D7A900B5483A /* Jobs */,
 			);
 			path = Scenes;
@@ -241,6 +258,8 @@
 				E2B3E6E92556D7BA00B5483A /* JobsViewController.swift */,
 				E21AEC372556E35100A85639 /* JobsViewModel.swift */,
 				E28B5293255700F100389043 /* JobsViewState.swift */,
+				E2673AF32557817B00727460 /* JobsProtocols.swift */,
+				E2673B03255782F000727460 /* JobsCoordinator.swift */,
 			);
 			path = Jobs;
 			sourceTree = "<group>";
@@ -281,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				E2B3E7102556DDB600B5483A /* Descriptable.swift */,
+				E2673AFE2557823F00727460 /* Coordinator.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -443,11 +463,13 @@
 			files = (
 				E21AEC382556E35100A85639 /* JobsViewModel.swift in Sources */,
 				E28B52AC25570CF000389043 /* FontHelper.swift in Sources */,
+				E2673B04255782F000727460 /* JobsCoordinator.swift in Sources */,
 				E2B3E6EA2556D7BA00B5483A /* JobsViewController.swift in Sources */,
 				E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */,
 				E2673AE925577A2300727460 /* TableViewDataSourcePrefetching.swift in Sources */,
 				E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */,
 				E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */,
+				E2673AFA255781A800727460 /* JobDetailViewController.swift in Sources */,
 				E21AEC2B2556E1D000A85639 /* JobClient.swift in Sources */,
 				E2B3E6B32556D67400B5483A /* ViewController.swift in Sources */,
 				E28B52A725570CCF00389043 /* UIView+Layout.swift in Sources */,
@@ -457,12 +479,14 @@
 				E28B5294255700F100389043 /* JobsViewState.swift in Sources */,
 				E2B3E7162556DDD200B5483A /* Endpoint.swift in Sources */,
 				E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */,
+				E2673AF42557817B00727460 /* JobsProtocols.swift in Sources */,
 				E28B528C2556FEEA00389043 /* Bindable.swift in Sources */,
 				E28B52A225570C9000389043 /* CustomFooterView.swift in Sources */,
 				E2B3E6F82556DAE100B5483A /* JobTableViewCell.swift in Sources */,
 				E21AEC3E2556E3B800A85639 /* JobClientProtocol.swift in Sources */,
 				E21AEC332556E1E600A85639 /* JobProvider.swift in Sources */,
 				E2B3E7112556DDB600B5483A /* Descriptable.swift in Sources */,
+				E2673AFF2557823F00727460 /* Coordinator.swift in Sources */,
 				E2B3E70A2556DD5700B5483A /* APIError.swift in Sources */,
 				E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */,
 				E28B52B225570D2B00389043 /* TableViewCellAnimator.swift in Sources */,

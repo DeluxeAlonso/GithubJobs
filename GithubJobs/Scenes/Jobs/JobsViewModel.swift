@@ -7,17 +7,6 @@
 
 import Foundation
 
-protocol JobsViewModelProtocol {
-
-    var viewState: Bindable<JobsViewState> { get }
-    var needsPrefetch: Bool { get }
-
-    var jobsCells: [JobCellViewModel] { get }
-
-    func getAllJobs()
-
-}
-
 final class JobsViewModel: JobsViewModelProtocol {
 
     private let jobClient: JobClientProtocol

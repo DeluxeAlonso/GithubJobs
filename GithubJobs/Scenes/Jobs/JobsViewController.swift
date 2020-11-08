@@ -20,11 +20,13 @@ class JobsViewController: UIViewController {
     private var prefetchDataSource: TableViewDataSourcePrefetching!
 
     private let viewModel: JobsViewModelProtocol
+    private weak var coordinator: JobsCoordinatorProtocol?
 
     // MARK: - Initializers
 
-    init(viewModel: JobsViewModelProtocol) {
+    init(viewModel: JobsViewModelProtocol, coordinator: JobsCoordinatorProtocol) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
 
