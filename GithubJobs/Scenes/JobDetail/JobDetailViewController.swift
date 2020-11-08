@@ -86,7 +86,7 @@ class JobDetailViewController: UIViewController {
     private func configureView(with state: JobDetailViewState) {
         switch state {
         case .empty:
-            tableView.tableFooterView = CustomFooterView(message: "No jobs to show")
+            tableView.tableFooterView = CustomFooterView(message: LocalizedStrings.emptyRelatedJobsTitle.localized)
         case .populated:
             tableView.tableFooterView = UIView()
         case .initial:
@@ -144,7 +144,7 @@ extension JobDetailViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = JobDetailSectionView()
-        view.title = "Related jobs"
+        view.title = LocalizedStrings.relatedJobsTitle.localized
         return view
     }
 

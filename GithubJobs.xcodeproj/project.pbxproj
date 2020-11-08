@@ -15,6 +15,9 @@
 		E2641BD22557AA9100675868 /* JobDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641BD12557AA9100675868 /* JobDetailViewState.swift */; };
 		E2641BD72557C04900675868 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641BD62557C04900675868 /* String+HTML.swift */; };
 		E2641BE92557C55500675868 /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641BE82557C55500675868 /* UIImageView+Kingfisher.swift */; };
+		E2641BF22557C82900675868 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2641BF42557C82900675868 /* Localizable.strings */; };
+		E2641BFD2557C8AE00675868 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641BFC2557C8AE00675868 /* LocalizedStrings.swift */; };
+		E2641C022557C90100675868 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641C012557C90100675868 /* String+Localized.swift */; };
 		E2673AE425577A0B00727460 /* DataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673AE325577A0B00727460 /* DataSourcePrefetching.swift */; };
 		E2673AE925577A2300727460 /* TableViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673AE825577A2300727460 /* TableViewDataSourcePrefetching.swift */; };
 		E2673AF42557817B00727460 /* JobsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673AF32557817B00727460 /* JobsProtocols.swift */; };
@@ -90,6 +93,10 @@
 		E2641BD12557AA9100675868 /* JobDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewState.swift; sourceTree = "<group>"; };
 		E2641BD62557C04900675868 /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 		E2641BE82557C55500675868 /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
+		E2641BF32557C82900675868 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E2641BF82557C85E00675868 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E2641BFC2557C8AE00675868 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		E2641C012557C90100675868 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		E2673AE325577A0B00727460 /* DataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcePrefetching.swift; sourceTree = "<group>"; };
 		E2673AE825577A2300727460 /* TableViewDataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSourcePrefetching.swift; sourceTree = "<group>"; };
 		E2673AF32557817B00727460 /* JobsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsProtocols.swift; sourceTree = "<group>"; };
@@ -232,6 +239,7 @@
 			children = (
 				E28B528B2556FEEA00389043 /* Bindable.swift */,
 				E28B52AB25570CF000389043 /* FontHelper.swift */,
+				E2641BFC2557C8AE00675868 /* LocalizedStrings.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -290,6 +298,7 @@
 				E2B3E6B72556D67700B5483A /* Assets.xcassets */,
 				E2B3E6B92556D67700B5483A /* LaunchScreen.storyboard */,
 				E2B3E6BC2556D67700B5483A /* Info.plist */,
+				E2641BF42557C82900675868 /* Localizable.strings */,
 			);
 			path = GithubJobs;
 			sourceTree = "<group>";
@@ -384,6 +393,7 @@
 				E28B52A625570CCF00389043 /* UIView+Layout.swift */,
 				E2641BD62557C04900675868 /* String+HTML.swift */,
 				E2641BE82557C55500675868 /* UIImageView+Kingfisher.swift */,
+				E2641C012557C90100675868 /* String+Localized.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,6 +504,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-419",
 			);
 			mainGroup = E2B3E6A22556D67400B5483A;
 			productRefGroup = E2B3E6AC2556D67400B5483A /* Products */;
@@ -513,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2B3E6BB2556D67700B5483A /* LaunchScreen.storyboard in Resources */,
+				E2641BF22557C82900675868 /* Localizable.strings in Resources */,
 				E2B3E6B82556D67700B5483A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -659,6 +671,7 @@
 				E2B3E72B2556DFA300B5483A /* Dictionary+Format.swift in Sources */,
 				E2B3E7372556E01400B5483A /* Job.swift in Sources */,
 				E2673AE425577A0B00727460 /* DataSourcePrefetching.swift in Sources */,
+				E2641C022557C90100675868 /* String+Localized.swift in Sources */,
 				E28B5294255700F100389043 /* JobsViewState.swift in Sources */,
 				E2B3E7162556DDD200B5483A /* Endpoint.swift in Sources */,
 				E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */,
@@ -673,6 +686,7 @@
 				E2B3E7112556DDB600B5483A /* Descriptable.swift in Sources */,
 				E2641BD72557C04900675868 /* String+HTML.swift in Sources */,
 				E2673B09255786F000727460 /* JobDetailProtocols.swift in Sources */,
+				E2641BFD2557C8AE00675868 /* LocalizedStrings.swift in Sources */,
 				E2641BE92557C55500675868 /* UIImageView+Kingfisher.swift in Sources */,
 				E2673AFF2557823F00727460 /* Coordinator.swift in Sources */,
 				E2B3E70A2556DD5700B5483A /* APIError.swift in Sources */,
@@ -716,6 +730,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		E2641BF42557C82900675868 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2641BF32557C82900675868 /* en */,
+				E2641BF82557C85E00675868 /* es-419 */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E2B3E6B92556D67700B5483A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -731,6 +754,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -792,6 +816,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
