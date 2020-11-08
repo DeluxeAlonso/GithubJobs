@@ -9,8 +9,8 @@ import UIKit
 
 class JobDetailHeaderView: UIView {
 
-    private lazy var companyLogoContainerView: UIView = {
-        let view = UIView()
+    private lazy var companyLogoContainerView: BackgroundCurvedView = {
+        let view = BackgroundCurvedView()
         view.backgroundColor = .systemBlue
         view.contentMode = .redraw
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -79,8 +79,8 @@ class JobDetailHeaderView: UIView {
         NSLayoutConstraint.activate([
             companyLogoImageView.centerXAnchor.constraint(equalTo: companyLogoContainerView.centerXAnchor),
             companyLogoImageView.centerYAnchor.constraint(equalTo: companyLogoContainerView.centerYAnchor),
-            companyLogoImageView.heightAnchor.constraint(equalToConstant: 85),
-            companyLogoImageView.widthAnchor.constraint(equalToConstant: 85)
+            companyLogoImageView.heightAnchor.constraint(equalToConstant: 80),
+            companyLogoImageView.widthAnchor.constraint(equalToConstant: 80)
         ])
 
         addSubview(titleLabel)
