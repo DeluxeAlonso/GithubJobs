@@ -4,7 +4,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/DLAutoSlidePageViewController.svg?style=flat)]()
 [![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://developer.apple.com/swift/)
 
-Simple app written in Swift 5 using the Github Jobs API.
+Simple app written in Swift 5 using the Github Jobs API: https://jobs.github.com/api
 
 ## Screenshots
 
