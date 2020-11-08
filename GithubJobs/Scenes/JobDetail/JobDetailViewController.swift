@@ -70,6 +70,9 @@ class JobDetailViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
+
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
     }
 
     private func configureView(with state: JobDetailViewState) {
