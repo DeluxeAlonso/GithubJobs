@@ -8,7 +8,7 @@
 import Foundation
 
 enum JobProvider {
-    case getAll(page: Int)
+    case getAll(page: Int, description: String)
 }
 
 extension JobProvider: Endpoint {
@@ -26,8 +26,8 @@ extension JobProvider: Endpoint {
 
     var params: [String: Any]? {
         switch self {
-        case .getAll(let page):
-            return ["page": page]
+        case .getAll(let page, let description):
+            return ["page": page, "description": description]
         }
     }
 

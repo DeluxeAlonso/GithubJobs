@@ -14,10 +14,13 @@ protocol JobsViewModelProtocol {
 
     var jobsCells: [JobCellViewModel] { get }
 
-    func getAllJobs()
+    func getJobs()
+    func job(at index: Int) -> Job
 
 }
 
 protocol JobsCoordinatorProtocol: class {
-    
+
+    func showJobDetail(_ job: Job)
+
 }

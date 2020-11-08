@@ -38,17 +38,23 @@ class JobsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         title = "Jobs"
         setupUI()
         setupBindings()
-        viewModel.getAllJobs()
+        viewModel.getJobs()
     }
 
     // MARK: - Private
 
     private func setupUI() {
         view.addSubview(tableView)
-        tableView.fillSuperview()
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
 
         tableView.register(JobTableViewCell.self, forCellReuseIdentifier: "Cell")
         
@@ -60,10 +66,25 @@ class JobsViewController: UIViewController {
         prefetchDataSource = TableViewDataSourcePrefetching(cellCount: viewModel.jobsCells.count,
                                                             needsPrefetch: viewModel.needsPrefetch,
                                                             prefetchHandler: { [weak self] in
-                                                                self?.viewModel.getAllJobs()
+                                                                self?.viewModel.getJobs()
         })
         tableView.prefetchDataSource = prefetchDataSource
     }
+
+    private func configureView(with state: JobsViewState) {
+        switch state {
+        case .empty:
+            tableView.tableFooterView = CustomFooterView(message: "No jobs to show")
+        case .populated:
+            tableView.tableFooterView = UIView()
+        case .initial, .paging:
+            tableView.tableFooterView = LoadingFooterView()
+        case .error(let error):
+            tableView.tableFooterView = CustomFooterView(message: error.description)
+        }
+    }
+
+    // MARK: - Reactive Behaviour
 
     private func setupBindings() {
         viewModel.viewState.bindAndFire { [weak self] state in
@@ -71,19 +92,6 @@ class JobsViewController: UIViewController {
             strongSelf.configureView(with: state)
             strongSelf.configureTableViewDataSource()
             strongSelf.tableView.reloadData()
-        }
-    }
-
-    private func configureView(with state: JobsViewState) {
-        switch state {
-        case .empty:
-            tableView.tableFooterView = CustomFooterView(message: "Empty")
-        case .populated:
-            tableView.tableFooterView = UIView()
-        case .initial, .paging:
-            tableView.tableFooterView = LoadingFooterView()
-        case .error(let error):
-            tableView.tableFooterView = CustomFooterView(message: error.description)
         }
     }
 
@@ -123,6 +131,7 @@ extension JobsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        coordinator?.showJobDetail(viewModel.job(at: indexPath.row))
     }
 
 }

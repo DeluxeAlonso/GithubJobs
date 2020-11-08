@@ -18,7 +18,7 @@ struct Job: Decodable, Equatable {
     enum CodingKeys: String, CodingKey {
         case id
         case title
-        case description
+        case description = "how_to_apply"
         case company
         case companyLogoPath = "company_logo"
     }

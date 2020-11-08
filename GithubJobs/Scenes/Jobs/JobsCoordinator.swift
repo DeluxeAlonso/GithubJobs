@@ -13,8 +13,6 @@ final class JobsCoordinator: NSObject, JobsCoordinatorProtocol, Coordinator, UIN
     var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
 
-    var movieId: Int!
-
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
@@ -26,6 +24,16 @@ final class JobsCoordinator: NSObject, JobsCoordinatorProtocol, Coordinator, UIN
 
         navigationController.delegate = self
         navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func showJobDetail(_ job: Job) {
+        let coordinator = JobDetailCoordinator(navigationController: navigationController)
+        coordinator.job = job
+
+        coordinator.parentCoordinator = unwrappedParentCoordinator
+
+        unwrappedParentCoordinator.childCoordinators.append(coordinator)
+        coordinator.start()
     }
 
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
