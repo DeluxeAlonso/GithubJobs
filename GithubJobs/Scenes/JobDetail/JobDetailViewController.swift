@@ -96,12 +96,11 @@ class JobDetailViewController: UIViewController {
         }
     }
 
-    // MARK: - Reactive Behaviour
+    // MARK: - Reactive Behavior
 
     private func setupBindings() {
         title = viewModel.jobTitle
-        headerView.title = viewModel.jobDescription
-        headerView.logoURLString = viewModel.companyLogoURLString
+        headerView.viewModel = viewModel.makeJobDetailHeaderViewModel()
 
         viewModel.viewState.bindAndFire { [weak self] state in
             guard let strongSelf = self else { return }

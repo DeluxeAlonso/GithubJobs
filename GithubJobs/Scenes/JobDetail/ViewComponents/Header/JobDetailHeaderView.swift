@@ -49,6 +49,12 @@ class JobDetailHeaderView: UIView {
         }
     }
 
+    var viewModel: JobDetailHeaderViewModelProtocol? {
+        didSet {
+            setupBindings()
+        }
+    }
+
     // MARK: - Initializers
 
     override init(frame: CGRect) {
@@ -57,8 +63,7 @@ class JobDetailHeaderView: UIView {
     }
 
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupUI()
+        fatalError("init(coder:) has not been implemented")
     }
 
     private func setupUI() {
@@ -85,6 +90,20 @@ class JobDetailHeaderView: UIView {
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
         ])
+    }
+
+    // MARK: - Reactive Behavior
+
+    private func setupBindings() {
+        guard let viewModel = viewModel else { return }
+
+        titleLabel.text = viewModel.jobDescription
+
+        guard let urlString = viewModel.companyLogoURLString,
+              let url = URL(string: urlString) else {
+            return
+        }
+        companyLogoImageView.setImage(with: url)
     }
 
 }

@@ -87,7 +87,7 @@ class JobsViewController: UIViewController {
         }
     }
 
-    // MARK: - Reactive Behaviour
+    // MARK: - Reactive Behavior
 
     private func setupBindings() {
         viewModel.viewState.bindAndFire { [weak self] state in
