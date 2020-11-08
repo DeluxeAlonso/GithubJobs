@@ -11,7 +11,7 @@ class JobDetailHeaderView: UIView {
 
     private lazy var companyLogoContainerView: BackgroundCurvedView = {
         let view = BackgroundCurvedView()
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .systemTeal
         view.contentMode = .redraw
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
