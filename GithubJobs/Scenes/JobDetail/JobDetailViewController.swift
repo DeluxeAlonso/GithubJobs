@@ -9,14 +9,14 @@ import UIKit
 
 class JobDetailViewController: UIViewController {
 
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         return tableView
     }()
 
-    var headerView: JobDetailHeaderView!
+    private var headerView: JobDetailHeaderView!
 
     private let viewModel: JobDetailViewModelProtocol
     private weak var coordinator: JobDetailCoordinatorProtocol?
@@ -58,7 +58,6 @@ class JobDetailViewController: UIViewController {
 
     private func setupUI() {
         setupTableView()
-        setupHeaderView()
     }
 
     private func setupTableView() {
@@ -74,13 +73,6 @@ class JobDetailViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
-    }
-
-    private func setupHeaderView() {
-        headerView = JobDetailHeaderView()
-        headerView.frame = .init(x: 0, y:0, width: view.frame.width, height: view.frame.height)
-
-        tableView.tableHeaderView = headerView
     }
 
     private func configureView(with state: JobDetailViewState) {
@@ -100,13 +92,23 @@ class JobDetailViewController: UIViewController {
 
     private func setupBindings() {
         title = viewModel.jobTitle
-        headerView.viewModel = viewModel.makeJobDetailHeaderViewModel()
+
+        configureHeaderView()
 
         viewModel.viewState.bindAndFire { [weak self] state in
             guard let strongSelf = self else { return }
             strongSelf.configureView(with: state)
             strongSelf.tableView.reloadData()
         }
+    }
+
+    private func configureHeaderView() {
+        headerView = JobDetailHeaderView()
+        headerView.viewModel = viewModel.makeJobDetailHeaderViewModel()
+
+        headerView.frame = .init(x: 0, y:0, width: view.frame.width, height: view.frame.height)
+
+        tableView.tableHeaderView = headerView
     }
 
 }

@@ -84,10 +84,16 @@ class JobDetailHeaderView: UIView {
         ])
 
         addSubview(titleLabel)
+        let trailingContraint = titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+        trailingContraint.priority = .init(999)
+
+        let leadingContraint = titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8)
+        leadingContraint.priority = .init(999)
+
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: companyLogoContainerView.bottomAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            leadingContraint,
+            trailingContraint,
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
         ])
     }

@@ -244,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				E2609A3A25583718008002BA /* Header */,
-				E2673B1D25578A5E00727460 /* JobDetailSectionView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -262,6 +261,7 @@
 		E28B529825570C3300389043 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E2673B1D25578A5E00727460 /* JobDetailSectionView.swift */,
 				E2673AE2255779A400727460 /* DataSources */,
 				E28B52B025570D1A00389043 /* Animations */,
 				E28B529925570C3F00389043 /* LoadingFooterView.swift */,
