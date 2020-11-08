@@ -9,6 +9,12 @@ import UIKit
 
 class JobTableViewCell: UITableViewCell {
 
+    var viewModel: JobCellViewModel? {
+        didSet {
+            setupBindables()
+        }
+    }
+
     // MARK: - Initializer
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -20,10 +26,24 @@ class JobTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        textLabel?.text = nil
+        detailTextLabel?.text = nil
+    }
+
     // MARK: - Private
 
     private func setupUI() {
         accessoryType = .disclosureIndicator
+    }
+
+    private func setupBindables() {
+        guard let viewModel = viewModel else { return }
+        textLabel?.text = viewModel.title
+        detailTextLabel?.text = viewModel.company
     }
 
 }

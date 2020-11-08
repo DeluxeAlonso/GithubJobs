@@ -10,6 +10,6 @@ import Foundation
 protocol JobClientProtocol {
     
     func getJobs(page: Int,
-                 completion: @escaping (Result<JobsResult?, APIError>) -> Void)
+                 completion: @escaping (Result<JobsResult, APIError>) -> Void)
 
 }

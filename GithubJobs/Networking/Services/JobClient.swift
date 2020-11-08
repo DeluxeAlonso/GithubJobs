@@ -20,7 +20,7 @@ class JobClient: JobClientProtocol, APIClient {
         self.init(configuration: .default)
     }
 
-    func getJobs(page: Int, completion: @escaping (Result<JobsResult?, APIError>) -> Void) {
+    func getJobs(page: Int, completion: @escaping (Result<JobsResult, APIError>) -> Void) {
         let request = JobProvider.getAll(page: page).request
         fetch(with: request, decode: { json -> JobsResult? in
             guard let jobsResult = json as? JobsResult else { return  nil }
