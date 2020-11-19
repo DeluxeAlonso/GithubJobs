@@ -37,7 +37,6 @@
 		E2673B1E25578A5E00727460 /* JobDetailSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673B1D25578A5E00727460 /* JobDetailSectionView.swift */; };
 		E27E9CAF2558458B00210D1C /* MockJobClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E9CAE2558458B00210D1C /* MockJobClient.swift */; };
 		E27E9CBD2558463A00210D1C /* Job+MockInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E9CBC2558463A00210D1C /* Job+MockInitializer.swift */; };
-		E28B528C2556FEEA00389043 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B528B2556FEEA00389043 /* Bindable.swift */; };
 		E28B5294255700F100389043 /* JobsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B5293255700F100389043 /* JobsViewState.swift */; };
 		E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B529925570C3F00389043 /* LoadingFooterView.swift */; };
 		E28B52A225570C9000389043 /* CustomFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52A125570C9000389043 /* CustomFooterView.swift */; };
@@ -122,7 +121,6 @@
 		E2673B1D25578A5E00727460 /* JobDetailSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailSectionView.swift; sourceTree = "<group>"; };
 		E27E9CAE2558458B00210D1C /* MockJobClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJobClient.swift; sourceTree = "<group>"; };
 		E27E9CBC2558463A00210D1C /* Job+MockInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job+MockInitializer.swift"; sourceTree = "<group>"; };
-		E28B528B2556FEEA00389043 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		E28B5293255700F100389043 /* JobsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewState.swift; sourceTree = "<group>"; };
 		E28B529925570C3F00389043 /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
 		E28B52A125570C9000389043 /* CustomFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterView.swift; sourceTree = "<group>"; };
@@ -267,7 +265,6 @@
 		E28B528A2556FEE200389043 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E28B528B2556FEEA00389043 /* Bindable.swift */,
 				E28B52AB25570CF000389043 /* FontHelper.swift */,
 				E2641BFC2557C8AE00675868 /* LocalizedStrings.swift */,
 			);
@@ -712,7 +709,6 @@
 				E2641C0F2557CDE300675868 /* UITableView+Register.swift in Sources */,
 				E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */,
 				E2673AF42557817B00727460 /* JobsProtocols.swift in Sources */,
-				E28B528C2556FEEA00389043 /* Bindable.swift in Sources */,
 				E2641BD22557AA9100675868 /* JobDetailViewState.swift in Sources */,
 				E28B52A225570C9000389043 /* CustomFooterView.swift in Sources */,
 				E2B3E6F82556DAE100B5483A /* JobTableViewCell.swift in Sources */,
