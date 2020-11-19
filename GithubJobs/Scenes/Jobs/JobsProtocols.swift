@@ -5,9 +5,11 @@
 //  Created by Alonso on 11/7/20.
 //
 
+import Combine
+
 protocol JobsViewModelProtocol {
 
-    var viewState: Bindable<JobsViewState> { get }
+    var viewStatePublisher: Published<JobsViewState>.Publisher { get }
     var needsPrefetch: Bool { get }
 
     var jobsCells: [JobCellViewModel] { get }
