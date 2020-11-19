@@ -5,20 +5,26 @@
 //  Created by Alonso on 11/7/20.
 //
 
+import Combine
+
 final class JobsViewModel: JobsViewModelProtocol {
 
     private let jobClient: JobClientProtocol
 
-    let viewState: Bindable<JobsViewState> = Bindable(.initial)
+    @Published var viewState: JobsViewState = .initial
+
+    var viewStatePublisher: Published<JobsViewState>.Publisher {
+        $viewState
+    }
 
     // MARK: - Computed Properties
 
     private var jobs: [Job] {
-        return viewState.value.currentJobs
+        return viewState.currentJobs
     }
 
     var needsPrefetch: Bool {
-        return viewState.value.needsPrefetch
+        return viewState.needsPrefetch
     }
 
     var jobsCells: [JobCellViewModel] {
@@ -34,7 +40,7 @@ final class JobsViewModel: JobsViewModelProtocol {
     // MARK: - Public
 
     func getJobs() {
-        fetchJobs(currentPage: viewState.value.currentPage)
+        fetchJobs(currentPage: viewState.currentPage)
     }
 
     func job(at index: Int) -> Job {
@@ -47,11 +53,11 @@ final class JobsViewModel: JobsViewModelProtocol {
         jobClient.getJobs(page: currentPage) { result in
             switch result {
             case .success(let jobResult):
-                self.viewState.value = self.processResult(jobResult.jobs,
+                self.viewState = self.processResult(jobResult.jobs,
                                                           currentPage: currentPage,
                                                           currentJobs: self.jobs)
             case .failure(let error):
-                self.viewState.value = .error(error)
+                self.viewState = .error(error)
             }
         }
     }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class JobsViewController: UIViewController {
 
@@ -18,6 +19,7 @@ class JobsViewController: UIViewController {
 
     private var displayedCellsIndexPaths = Set<IndexPath>()
     private var prefetchDataSource: TableViewDataSourcePrefetching!
+    private var cancellables: Set<AnyCancellable> = []
 
     private let viewModel: JobsViewModelProtocol
     private weak var coordinator: JobsCoordinatorProtocol?
@@ -85,12 +87,14 @@ class JobsViewController: UIViewController {
     // MARK: - Reactive Behavior
 
     private func setupBindings() {
-        viewModel.viewState.bindAndFire { [weak self] state in
-            guard let strongSelf = self else { return }
-            strongSelf.configureView(with: state)
-            strongSelf.configureTableViewDataSource()
-            strongSelf.tableView.reloadData()
-        }
+        viewModel.viewStatePublisher
+            .receive(on: RunLoop.main)
+            .sink { [weak self] state in
+                guard let strongSelf = self else { return }
+                strongSelf.configureView(with: state)
+                strongSelf.configureTableViewDataSource()
+                strongSelf.tableView.reloadData()
+            }.store(in: &cancellables)
     }
 
 }
