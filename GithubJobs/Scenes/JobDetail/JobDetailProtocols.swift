@@ -5,9 +5,11 @@
 //  Created by Alonso on 11/7/20.
 //
 
+import Combine
+
 protocol JobDetailViewModelProtocol {
 
-    var viewState: Bindable<JobDetailViewState> { get }
+    var viewStatePublisher: Published<JobDetailViewState>.Publisher { get }
 
     var jobTitle: String? { get }
     var jobsCells: [JobCellViewModel] { get }

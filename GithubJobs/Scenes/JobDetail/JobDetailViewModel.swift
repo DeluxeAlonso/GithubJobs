@@ -5,12 +5,18 @@
 //  Created by Alonso on 11/7/20.
 //
 
-struct JobDetailViewModel: JobDetailViewModelProtocol {
+import Combine
+
+final class JobDetailViewModel: JobDetailViewModelProtocol {
 
     private let job: Job
     private let jobClient: JobClientProtocol
 
-    let viewState: Bindable<JobDetailViewState> = Bindable(.initial)
+    @Published var viewState: JobDetailViewState = .initial
+
+    var viewStatePublisher: Published<JobDetailViewState>.Publisher {
+        $viewState
+    }
 
     // MARK: - Computed Properties
 
@@ -19,7 +25,7 @@ struct JobDetailViewModel: JobDetailViewModelProtocol {
     }
 
     var jobsCells: [JobCellViewModel] {
-        let jobs = viewState.value.currentJobs
+        let jobs = viewState.currentJobs
         return jobs.map { JobCellViewModel($0) }
     }
 
@@ -36,15 +42,15 @@ struct JobDetailViewModel: JobDetailViewModelProtocol {
         jobClient.getJobs(description: job.title) { result in
             switch result {
             case .success(let jobResult):
-                self.viewState.value = self.processResult(jobResult.jobs)
+                self.viewState = self.processResult(jobResult.jobs)
             case .failure(let error):
-                self.viewState.value = .error(error)
+                self.viewState = .error(error)
             }
         }
     }
 
     func job(at index: Int) -> Job {
-        let jobs = viewState.value.currentJobs
+        let jobs = viewState.currentJobs
         return jobs[index]
     }
 

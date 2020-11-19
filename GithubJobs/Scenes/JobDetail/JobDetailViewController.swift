@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class JobDetailViewController: UIViewController {
 
@@ -18,6 +19,7 @@ class JobDetailViewController: UIViewController {
 
     private var headerView: JobDetailHeaderView!
     private var displayedCellsIndexPaths = Set<IndexPath>()
+    private var cancellables: Set<AnyCancellable> = []
 
     private let viewModel: JobDetailViewModelProtocol
     private weak var coordinator: JobDetailCoordinatorProtocol?
@@ -95,11 +97,13 @@ class JobDetailViewController: UIViewController {
 
         configureHeaderView()
 
-        viewModel.viewState.bindAndFire { [weak self] state in
-            guard let strongSelf = self else { return }
-            strongSelf.configureView(with: state)
-            strongSelf.tableView.reloadData()
-        }
+        viewModel.viewStatePublisher
+            .receive(on: RunLoop.main)
+            .sink { [weak self] state in
+                guard let strongSelf = self else { return }
+                strongSelf.configureView(with: state)
+                strongSelf.tableView.reloadData()
+            }.store(in: &cancellables)
     }
 
     private func configureHeaderView() {
