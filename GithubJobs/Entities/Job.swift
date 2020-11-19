@@ -5,8 +5,6 @@
 //  Created by Alonso on 11/7/20.
 //
 
-import Foundation
-
 struct Job: Decodable, Equatable {
 
     let id: String

@@ -5,8 +5,6 @@
 //  Created by Alonso on 11/8/20.
 //
 
-import Foundation
-
 protocol Localizable {
 
     var tableName: String { get }
