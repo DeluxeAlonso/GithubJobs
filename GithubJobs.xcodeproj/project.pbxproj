@@ -47,7 +47,6 @@
 		E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52B62557215600389043 /* JobCellViewModel.swift */; };
 		E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6AE2556D67400B5483A /* AppDelegate.swift */; };
 		E2B3E6B12556D67400B5483A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6B02556D67400B5483A /* SceneDelegate.swift */; };
-		E2B3E6B32556D67400B5483A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6B22556D67400B5483A /* ViewController.swift */; };
 		E2B3E6B82556D67700B5483A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2B3E6B72556D67700B5483A /* Assets.xcassets */; };
 		E2B3E6BB2556D67700B5483A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2B3E6B92556D67700B5483A /* LaunchScreen.storyboard */; };
 		E2B3E6D12556D67700B5483A /* GithubJobsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6D02556D67700B5483A /* GithubJobsUITests.swift */; };
@@ -134,7 +133,6 @@
 		E2B3E6AB2556D67400B5483A /* GithubJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B3E6AE2556D67400B5483A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2B3E6B02556D67400B5483A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E2B3E6B22556D67400B5483A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2B3E6B72556D67700B5483A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2B3E6BA2556D67700B5483A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2B3E6BC2556D67700B5483A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -327,7 +325,6 @@
 				E2B3E6E72556D79A00B5483A /* Scenes */,
 				E2B3E6AE2556D67400B5483A /* AppDelegate.swift */,
 				E2B3E6B02556D67400B5483A /* SceneDelegate.swift */,
-				E2B3E6B22556D67400B5483A /* ViewController.swift */,
 				E2B3E6B72556D67700B5483A /* Assets.xcassets */,
 				E2B3E6B92556D67700B5483A /* LaunchScreen.storyboard */,
 				E2B3E6BC2556D67700B5483A /* Info.plist */,
@@ -704,7 +701,6 @@
 				E2673AFA255781A800727460 /* JobDetailViewController.swift in Sources */,
 				E2673B0E2557872E00727460 /* JobDetailCoordinator.swift in Sources */,
 				E21AEC2B2556E1D000A85639 /* JobClient.swift in Sources */,
-				E2B3E6B32556D67400B5483A /* ViewController.swift in Sources */,
 				E28B52A725570CCF00389043 /* UIView+Layout.swift in Sources */,
 				E2B3E72B2556DFA300B5483A /* Dictionary+Format.swift in Sources */,
 				E261F94A25583CBA00DBC582 /* BackgroundCurvedView.swift in Sources */,
