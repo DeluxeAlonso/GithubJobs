@@ -40,7 +40,7 @@ class JobDetailTests: XCTestCase {
         //Act
         viewModelToTest.getRelatedJobs()
         //Assert
-        XCTAssertEqual(viewModelToTest.viewState.value, .populated([Job.with(id: "2")]))
+        XCTAssertEqual(viewModelToTest.viewState, .populated([Job.with(id: "2")]))
     }
 
     func testGetRelatedJobsEmpty() {
@@ -49,7 +49,7 @@ class JobDetailTests: XCTestCase {
         //Act
         viewModelToTest.getRelatedJobs()
         //Assert
-        XCTAssertEqual(viewModelToTest.viewState.value, .empty)
+        XCTAssertEqual(viewModelToTest.viewState, .empty)
     }
 
     func testGetRelatedJobsEmptyAfterFilter() {
@@ -58,7 +58,7 @@ class JobDetailTests: XCTestCase {
         //Act
         viewModelToTest.getRelatedJobs()
         //Assert
-        XCTAssertEqual(viewModelToTest.viewState.value, .empty)
+        XCTAssertEqual(viewModelToTest.viewState, .empty)
     }
 
     func testGetJobsError() {
@@ -67,7 +67,7 @@ class JobDetailTests: XCTestCase {
         //Act
         viewModelToTest.getRelatedJobs()
         //Assert
-        XCTAssertEqual(viewModelToTest.viewState.value, .error(APIError.badRequest))
+        XCTAssertEqual(viewModelToTest.viewState, .error(APIError.badRequest))
     }
 
 }
