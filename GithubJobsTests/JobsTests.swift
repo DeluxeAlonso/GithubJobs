@@ -33,7 +33,7 @@ class JobsTests: XCTestCase {
         mockJobClient.getJobResult = Result.success(JobsResult(jobs: []))
         viewModelToTest.getJobs()
         //Assert
-        XCTAssertEqual(viewModelToTest.viewState.value, .populated([Job.with()]))
+        XCTAssertEqual(viewModelToTest.viewState, .populated([Job.with()]))
     }
 
     func testGetJobsPaging() {
@@ -42,7 +42,7 @@ class JobsTests: XCTestCase {
         //Act
         viewModelToTest.getJobs()
         //Assert
-        XCTAssertEqual(viewModelToTest.viewState.value, .paging([Job.with()], next: 2))
+        XCTAssertEqual(viewModelToTest.viewState, .paging([Job.with()], next: 2))
     }
 
     func testGetJobsEmpty() {
@@ -51,7 +51,7 @@ class JobsTests: XCTestCase {
         //Act
         viewModelToTest.getJobs()
         //Assert
-        XCTAssertEqual(viewModelToTest.viewState.value, .empty)
+        XCTAssertEqual(viewModelToTest.viewState, .empty)
     }
 
     func testGetJobsError() {
@@ -60,7 +60,7 @@ class JobsTests: XCTestCase {
         //Act
         viewModelToTest.getJobs()
         //Assert
-        XCTAssertEqual(viewModelToTest.viewState.value, .error(APIError.badRequest))
+        XCTAssertEqual(viewModelToTest.viewState, .error(APIError.badRequest))
     }
 
 }
