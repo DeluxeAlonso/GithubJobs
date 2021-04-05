@@ -6,70 +6,46 @@
 //
 
 import Foundation
+import Combine
 
 protocol APIClient {
 
     var session: URLSession { get }
 
     func fetch<T: Decodable>(with request: URLRequest,
-                             decode: @escaping (Decodable) -> T?,
-                             completion: @escaping (Result<T, APIError>) -> Void)
+                             decode: @escaping (Decodable) -> T?) -> AnyPublisher<T, APIError>
 
 }
 
 extension APIClient {
 
-    typealias JSONTaskCompletionHandler = (Decodable?, APIError?) -> Void
-
     private func decodingTask<T: Decodable>(with request: URLRequest,
-                                            decodingType: T.Type,
-                                            completionHandler completion: JSONTaskCompletionHandler?) -> URLSessionDataTask {
-        let task = session.dataTask(with: request) { data, response, _ in
-            guard let httpResponse = response as? HTTPURLResponse else {
-                completion?(nil, .requestFailed)
-                return
+                                             decodingType: T.Type) -> AnyPublisher<Decodable, Error> {
+        session.dataTaskPublisher(for: request)
+            .tryMap { result -> Decodable in
+                guard let httpResponse = result.response as? HTTPURLResponse else { throw APIError.requestFailed }
+                guard httpResponse.statusCode == 200 || httpResponse.statusCode == 201 else { throw APIError(response: httpResponse) }
+                let decoder = JSONDecoder()
+                let genericModel = try decoder.decode(decodingType, from: result.data)
+                return genericModel
             }
-            if httpResponse.statusCode == 200 || httpResponse.statusCode == 201 {
-                if let data = data {
-                    do {
-                        let decoder = JSONDecoder()
-                        let genericModel = try decoder.decode(decodingType, from: data)
-                        completion?(genericModel, nil)
-                    } catch {
-                        print(error.localizedDescription)
-                        completion?(nil, .requestFailed)
-                    }
-                } else {
-                    completion?(nil, .invalidData)
-                }
-            } else {
-                completion?(nil, APIError(response: httpResponse))
-            }
-        }
-        return task
+            .eraseToAnyPublisher()
     }
 
+
     func fetch<T: Decodable>(with request: URLRequest,
-                             decode: @escaping (Decodable) -> T?,
-                             completion: @escaping (Result<T, APIError>) -> Void) {
-        let task = decodingTask(with: request, decodingType: T.self) { (json, error) in
-            DispatchQueue.main.async {
-                guard let json = json else {
-                    if let error = error {
-                        completion(Result.failure(error))
-                    } else {
-                        completion(Result.failure(.requestFailed))
-                    }
-                    return
-                }
-                if let value = decode(json) {
-                    completion(.success(value))
-                } else {
-                    completion(.failure(.requestFailed))
-                }
+                             decode: @escaping (Decodable) -> T?) -> AnyPublisher<T, APIError> {
+        decodingTask(with: request, decodingType: T.self).tryMap { model -> T in
+            guard let decodedModel = decode(model) else { throw APIError.requestFailed }
+            return decodedModel
+        }.mapError({ error -> APIError in
+            switch (error) {
+            case let apiError as APIError:
+                return apiError
+            default:
+                return APIError.requestFailed
             }
-        }
-        task.resume()
+        }).eraseToAnyPublisher()
     }
 
 }

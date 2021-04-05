@@ -11,6 +11,8 @@ final class JobsViewModel: JobsViewModelProtocol {
 
     private let jobClient: JobClientProtocol
 
+    private var cancellables: Set<AnyCancellable> = []
+
     @Published var viewState: JobsViewState = .initial
 
     var viewStatePublisher: Published<JobsViewState>.Publisher {
@@ -50,16 +52,12 @@ final class JobsViewModel: JobsViewModelProtocol {
     // MARK: - Private
 
     private func fetchJobs(currentPage: Int) {
-        jobClient.getJobs(page: currentPage) { result in
-            switch result {
-            case .success(let jobResult):
-                self.viewState = self.processResult(jobResult.jobs,
-                                                          currentPage: currentPage,
-                                                          currentJobs: self.jobs)
-            case .failure(let error):
-                self.viewState = .error(error)
-            }
-        }
+        jobClient.getJobs(page: currentPage)
+            .sink { completion in
+                if case let .failure(error) = completion { self.viewState = .error(error) }
+            } receiveValue: { jobResult in
+                self.viewState = self.processResult(jobResult.jobs, currentPage: currentPage, currentJobs: self.jobs)
+            }.store(in: &cancellables)
     }
 
     private func processResult(_ jobs: [Job], currentPage: Int,
