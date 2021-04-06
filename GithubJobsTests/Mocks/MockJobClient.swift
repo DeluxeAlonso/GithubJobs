@@ -7,14 +7,14 @@
 
 @testable import GithubJobs
 
-final class MockJobClient: JobClient {
+final class MockJobClient: JobClientProtocol {
 
     var getJobResult: Result<JobsResult, APIError>!
-    override func getJobs(page: Int, completion: @escaping (Result<JobsResult, APIError>) -> Void) {
+    func getJobs(page: Int, completion: @escaping (Result<JobsResult, APIError>) -> Void) {
         completion(getJobResult)
     }
 
-    override func getJobs(description: String, completion: @escaping (Result<JobsResult, APIError>) -> Void) {
+    func getJobs(description: String, completion: @escaping (Result<JobsResult, APIError>) -> Void) {
         completion(getJobResult)
     }
 
