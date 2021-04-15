@@ -10,7 +10,7 @@ import Combine
 
 class JobsViewController: UIViewController {
 
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
