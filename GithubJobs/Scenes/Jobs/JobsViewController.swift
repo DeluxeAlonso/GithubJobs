@@ -88,7 +88,7 @@ class JobsViewController: UIViewController {
 
     private func setupBindings() {
         viewModel.viewStatePublisher
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
                 guard let strongSelf = self else { return }
                 strongSelf.configureView(with: state)
