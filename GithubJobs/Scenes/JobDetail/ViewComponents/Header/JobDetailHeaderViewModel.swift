@@ -14,8 +14,8 @@ protocol JobDetailHeaderViewModelProtocol {
 
 struct JobDetailHeaderViewModel: JobDetailHeaderViewModelProtocol {
 
-    let jobDescription: String
-    let companyLogoURLString: String?
+    private(set) var jobDescription: String
+    private(set) var companyLogoURLString: String?
 
     init(_ job: Job) {
         self.jobDescription = job.description.htmlToString

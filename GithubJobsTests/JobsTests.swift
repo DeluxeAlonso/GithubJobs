@@ -6,12 +6,15 @@
 //
 
 import XCTest
+import Combine
 @testable import GithubJobs
 
 class JobsTests: XCTestCase {
 
-    var mockJobClient: MockJobClient!
-    var viewModelToTest: JobsViewModel!
+    private var mockJobClient: MockJobClient!
+    private var viewModelToTest: JobsViewModel!
+
+    private var cancellables: Set<AnyCancellable> = []
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -25,42 +28,61 @@ class JobsTests: XCTestCase {
         try super.tearDownWithError()
     }
 
-    func testGetJobsPopulated() {
-        //Arrange
-        mockJobClient.getJobResult = Result.success(JobsResult(jobs: [Job.with()]))
-        //Act
+    func testGetJobsPaging() {
+        // Arrange
+        let jobsToTest = [Job.with()]
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: jobsToTest))
+        let expectation = XCTestExpectation(description: "State is set to paging")
+        // Act
+        viewModelToTest.$viewState.dropFirst().sink { state in
+            state == .paging(jobsToTest, next: 2) ? expectation.fulfill() : XCTFail()
+        }.store(in: &cancellables)
         viewModelToTest.getJobs()
-        mockJobClient.getJobResult = Result.success(JobsResult(jobs: []))
-        viewModelToTest.getJobs()
-        //Assert
-        XCTAssertEqual(viewModelToTest.viewState, .populated([Job.with()]))
+        // Assert
+        wait(for: [expectation], timeout: 1)
     }
 
-    func testGetJobsPaging() {
-        //Arrange
-        mockJobClient.getJobResult = Result.success(JobsResult(jobs: [Job.with()]))
-        //Act
+    func testGetJobsPopulated() {
+        // Arrange
+        let jobsToTest = [Job.with()]
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: jobsToTest))
+        let expectation = XCTestExpectation(description: "State is set to populated")
+        // Act
+        viewModelToTest.$viewState.dropFirst(2).sink { state in
+            state == .populated(jobsToTest) ? expectation.fulfill() : XCTFail()
+        }.store(in: &cancellables)
         viewModelToTest.getJobs()
-        //Assert
-        XCTAssertEqual(viewModelToTest.viewState, .paging([Job.with()], next: 2))
+
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: []))
+        viewModelToTest.getJobs()
+        // Assert
+        wait(for: [expectation], timeout: 1)
     }
 
     func testGetJobsEmpty() {
-        //Arrange
+        // Arrange
         mockJobClient.getJobResult = Result.success(JobsResult(jobs: []))
-        //Act
+        let expectation = XCTestExpectation(description: "State is set to empty")
+        // Act
+        viewModelToTest.$viewState.dropFirst().sink { state in
+            state == .empty ? expectation.fulfill() : XCTFail()
+        }.store(in: &cancellables)
         viewModelToTest.getJobs()
-        //Assert
-        XCTAssertEqual(viewModelToTest.viewState, .empty)
+        // Assert
+        wait(for: [expectation], timeout: 1)
     }
 
     func testGetJobsError() {
-        //Arrange
+        // Arrange
         mockJobClient.getJobResult = Result.failure(APIError.badRequest)
-        //Act
+        let expectation = XCTestExpectation(description: "State is set to error")
+        // Act
+        viewModelToTest.$viewState.dropFirst().sink { state in
+            state == .error(APIError.badRequest) ? expectation.fulfill() : XCTFail()
+        }.store(in: &cancellables)
         viewModelToTest.getJobs()
-        //Assert
-        XCTAssertEqual(viewModelToTest.viewState, .error(APIError.badRequest))
+        // Assert
+        wait(for: [expectation], timeout: 1)
     }
 
 }
