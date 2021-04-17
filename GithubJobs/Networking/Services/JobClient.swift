@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class JobClient: JobClientProtocol, APIClient {
 
@@ -20,28 +21,20 @@ class JobClient: JobClientProtocol, APIClient {
         self.init(configuration: .default)
     }
 
-    func getJobs(page: Int, completion: @escaping (Result<JobsResult, APIError>) -> Void) {
+    func getJobs(page: Int) -> AnyPublisher<JobsResult, APIError> {
         let request = JobProvider.getAll(page: page, description: "").request
-        fetch(with: request, decode: { json -> JobsResult? in
+        return fetch(with: request) { json -> JobsResult? in
             guard let jobsResult = json as? JobsResult else { return  nil }
             return jobsResult
-        }, completion: completion)
+        }.eraseToAnyPublisher()
     }
 
-    func getJobs(description: String, completion: @escaping (Result<JobsResult, APIError>) -> Void) {
+    func getJobs(description: String) -> AnyPublisher<JobsResult, APIError> {
         let request = JobProvider.getAll(page: 0, description: description).request
-        fetch(with: request, decode: { json -> JobsResult? in
+        return fetch(with: request) { json -> JobsResult? in
             guard let jobsResult = json as? JobsResult else { return  nil }
             return jobsResult
-        }, completion: completion)
-    }
-
-    func getJobs(page: Int, description: String, completion: @escaping (Result<JobsResult, APIError>) -> Void) {
-        let request = JobProvider.getAll(page: page, description: description).request
-        fetch(with: request, decode: { json -> JobsResult? in
-            guard let jobsResult = json as? JobsResult else { return  nil }
-            return jobsResult
-        }, completion: completion)
+        }.eraseToAnyPublisher()
     }
 
 }

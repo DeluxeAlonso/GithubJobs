@@ -37,7 +37,7 @@ final class JobsViewModel: JobsViewModelProtocol {
         self.jobClient = jobClient
     }
 
-    // MARK: - Public
+    // MARK: - JobsViewModelProtocol
 
     func getJobs() {
         fetchJobs(currentPage: viewState.currentPage)
@@ -50,16 +50,13 @@ final class JobsViewModel: JobsViewModelProtocol {
     // MARK: - Private
 
     private func fetchJobs(currentPage: Int) {
-        jobClient.getJobs(page: currentPage) { result in
-            switch result {
-            case .success(let jobResult):
-                self.viewState = self.processResult(jobResult.jobs,
-                                                          currentPage: currentPage,
-                                                          currentJobs: self.jobs)
-            case .failure(let error):
-                self.viewState = .error(error)
-            }
-        }
+        jobClient.getJobs(page: currentPage)
+            .map { [weak self] jobResult -> JobsViewState in
+                guard let self = self else { fatalError() }
+                return self.processResult(jobResult.jobs, currentPage: currentPage, currentJobs: self.jobs)
+            }.catch { error -> Just<JobsViewState> in
+                return Just(.error(error))
+            }.assign(to: &$viewState)
     }
 
     private func processResult(_ jobs: [Job], currentPage: Int,

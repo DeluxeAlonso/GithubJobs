@@ -31,7 +31,7 @@ class JobsTests: XCTestCase {
     func testGetJobsPaging() {
         // Arrange
         let jobsToTest = [Job.with()]
-        mockJobClient.getJobResult = Result.success(JobsResult(jobs: jobsToTest))
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
         let expectation = XCTestExpectation(description: "State is set to paging")
         // Act
         viewModelToTest.$viewState.dropFirst().sink { state in
@@ -45,7 +45,7 @@ class JobsTests: XCTestCase {
     func testGetJobsPopulated() {
         // Arrange
         let jobsToTest = [Job.with()]
-        mockJobClient.getJobResult = Result.success(JobsResult(jobs: jobsToTest))
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
         let expectation = XCTestExpectation(description: "State is set to populated")
         // Act
         viewModelToTest.$viewState.dropFirst(2).sink { state in
@@ -53,7 +53,7 @@ class JobsTests: XCTestCase {
         }.store(in: &cancellables)
         viewModelToTest.getJobs()
 
-        mockJobClient.getJobResult = Result.success(JobsResult(jobs: []))
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: [])).publisher.eraseToAnyPublisher()
         viewModelToTest.getJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
@@ -61,7 +61,7 @@ class JobsTests: XCTestCase {
 
     func testGetJobsEmpty() {
         // Arrange
-        mockJobClient.getJobResult = Result.success(JobsResult(jobs: []))
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: [])).publisher.eraseToAnyPublisher()
         let expectation = XCTestExpectation(description: "State is set to empty")
         // Act
         viewModelToTest.$viewState.dropFirst().sink { state in
@@ -74,7 +74,7 @@ class JobsTests: XCTestCase {
 
     func testGetJobsError() {
         // Arrange
-        mockJobClient.getJobResult = Result.failure(APIError.badRequest)
+        mockJobClient.getJobResult = Result.failure(APIError.badRequest).publisher.eraseToAnyPublisher()
         let expectation = XCTestExpectation(description: "State is set to error")
         // Act
         viewModelToTest.$viewState.dropFirst().sink { state in

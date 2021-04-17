@@ -36,17 +36,16 @@ final class JobDetailViewModel: JobDetailViewModelProtocol {
         self.jobClient = jobClient
     }
 
-    // MARK: - Public
+    // MARK: - JobDetailViewModelProtocol
 
     func getRelatedJobs() {
-        jobClient.getJobs(description: job.title) { result in
-            switch result {
-            case .success(let jobResult):
-                self.viewState = self.processResult(jobResult.jobs)
-            case .failure(let error):
-                self.viewState = .error(error)
-            }
-        }
+        jobClient.getJobs(description: job.title)
+            .map { [weak self] jobResult -> JobDetailViewState in
+                guard let self = self else { fatalError() }
+                return self.processResult(jobResult.jobs)
+            }.catch { error -> Just<JobDetailViewState> in
+                return Just(.error(error))
+            }.assign(to: &$viewState)
     }
 
     func job(at index: Int) -> Job {

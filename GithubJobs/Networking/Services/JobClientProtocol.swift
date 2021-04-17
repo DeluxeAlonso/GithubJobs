@@ -5,12 +5,11 @@
 //  Created by Alonso on 11/7/20.
 //
 
-import Foundation
+import Combine
 
 protocol JobClientProtocol {
-    
-    func getJobs(page: Int, completion: @escaping (Result<JobsResult, APIError>) -> Void)
 
-    func getJobs(description: String, completion: @escaping (Result<JobsResult, APIError>) -> Void)
+    func getJobs(page: Int) -> AnyPublisher<JobsResult, APIError>
+    func getJobs(description: String) -> AnyPublisher<JobsResult, APIError>
 
 }
