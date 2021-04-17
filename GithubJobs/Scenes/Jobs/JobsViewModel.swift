@@ -37,7 +37,7 @@ final class JobsViewModel: JobsViewModelProtocol {
         self.jobClient = jobClient
     }
 
-    // MARK: - Public
+    // MARK: - JobsViewModelProtocol
 
     func getJobs() {
         fetchJobs(currentPage: viewState.currentPage)
