@@ -248,6 +248,7 @@
 		E2673B1725578A1E00727460 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E2B8E4042634DCA80086D581 /* Section */,
 				E2609A3A25583718008002BA /* Header */,
 			);
 			path = ViewComponents;
@@ -265,6 +266,7 @@
 		E28B528A2556FEE200389043 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E2B8E4002634DC180086D581 /* Theming */,
 				E28B52AB25570CF000389043 /* FontHelper.swift */,
 				E2641BFC2557C8AE00675868 /* LocalizedStrings.swift */,
 			);
@@ -274,7 +276,6 @@
 		E28B529825570C3300389043 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
-				E2673B1D25578A5E00727460 /* JobDetailSectionView.swift */,
 				E2673AE2255779A400727460 /* DataSources */,
 				E28B52B025570D1A00389043 /* Animations */,
 				E28B529925570C3F00389043 /* LoadingFooterView.swift */,
@@ -443,6 +444,22 @@
 				E2B3E7362556E01400B5483A /* Job.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		E2B8E4002634DC180086D581 /* Theming */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Theming;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		E2B8E4042634DCA80086D581 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				E2673B1D25578A5E00727460 /* JobDetailSectionView.swift */,
+			);
+			path = Section;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
