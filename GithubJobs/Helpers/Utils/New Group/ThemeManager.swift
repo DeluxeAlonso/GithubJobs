@@ -12,24 +12,32 @@ class ThemeManager: ThemeManagerProtocol {
 
     static let shared = ThemeManager()
 
+    @Storage(key: "UserInterfaceStyle", defaultValue: UIUserInterfaceStyle.unspecified.rawValue)
+    private var userInterfaceStyleRawValue: Int
+
     init() {}
 
-    lazy private(set) var appearance: CurrentValueSubject<UIUserInterfaceStyle, Never> = {
-        return CurrentValueSubject<UIUserInterfaceStyle, Never>(userInterfaceStyle)
+    // MARK: - ThemeManagerProtocol
+
+    lazy private(set) var interfaceStyle: CurrentValueSubject<UIUserInterfaceStyle, Never> = {
+        return CurrentValueSubject<UIUserInterfaceStyle, Never>(storedInterfaceStyle)
     }()
 
-    var userInterfaceStyle: UIUserInterfaceStyle  {
-        get {
-            let interfaceStyleRawValue = UserDefaults.standard.integer(forKey: "GithubJobsUserInterfaceStyle")
-            return UIUserInterfaceStyle(rawValue: interfaceStyleRawValue) ?? .unspecified
-        }
-        set {
-            let inderfaceStyleRawValue = newValue.rawValue
-            UserDefaults.standard.set(inderfaceStyleRawValue,
-                                      forKey: "GithubJobsUserInterfaceStyle")
-            appearance.value = newValue
-        }
+    func updateInterfaceStyle(_ userInterfaceStyle: UIUserInterfaceStyle) {
+        self.storedInterfaceStyle = userInterfaceStyle
     }
 
+    // MARK: - Private
+
+    private var storedInterfaceStyle: UIUserInterfaceStyle  {
+        get {
+            return UIUserInterfaceStyle(rawValue: userInterfaceStyleRawValue) ?? .unspecified
+        }
+        set {
+            userInterfaceStyleRawValue = newValue.rawValue
+            // We update the style subject value.
+            interfaceStyle.value = newValue
+        }
+    }
 
 }
