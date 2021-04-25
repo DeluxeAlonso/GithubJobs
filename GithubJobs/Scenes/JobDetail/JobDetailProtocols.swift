@@ -16,6 +16,7 @@ protocol JobDetailViewModelProtocol {
 
     func getRelatedJobs()
     func job(at index: Int) -> Job
+
     func makeJobDetailHeaderViewModel() -> JobDetailHeaderViewModelProtocol
 
 }
