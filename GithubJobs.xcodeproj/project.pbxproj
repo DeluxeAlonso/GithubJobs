@@ -37,6 +37,9 @@
 		E2673B1E25578A5E00727460 /* JobDetailSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673B1D25578A5E00727460 /* JobDetailSectionView.swift */; };
 		E27E9CAF2558458B00210D1C /* MockJobClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E9CAE2558458B00210D1C /* MockJobClient.swift */; };
 		E27E9CBD2558463A00210D1C /* Job+MockInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E9CBC2558463A00210D1C /* Job+MockInitializer.swift */; };
+		E289EFB92634FAA600A60609 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289EFB82634FAA600A60609 /* ThemeManager.swift */; };
+		E289EFBE2634FAB200A60609 /* ThemeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289EFBD2634FAB200A60609 /* ThemeManagerProtocol.swift */; };
+		E289EFC32634FB2C00A60609 /* ThemeDisplayAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289EFC22634FB2C00A60609 /* ThemeDisplayAppearance.swift */; };
 		E28B5294255700F100389043 /* JobsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B5293255700F100389043 /* JobsViewState.swift */; };
 		E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B529925570C3F00389043 /* LoadingFooterView.swift */; };
 		E28B52A225570C9000389043 /* CustomFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52A125570C9000389043 /* CustomFooterView.swift */; };
@@ -121,6 +124,9 @@
 		E2673B1D25578A5E00727460 /* JobDetailSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailSectionView.swift; sourceTree = "<group>"; };
 		E27E9CAE2558458B00210D1C /* MockJobClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJobClient.swift; sourceTree = "<group>"; };
 		E27E9CBC2558463A00210D1C /* Job+MockInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job+MockInitializer.swift"; sourceTree = "<group>"; };
+		E289EFB82634FAA600A60609 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		E289EFBD2634FAB200A60609 /* ThemeManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManagerProtocol.swift; sourceTree = "<group>"; };
+		E289EFC22634FB2C00A60609 /* ThemeDisplayAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeDisplayAppearance.swift; sourceTree = "<group>"; };
 		E28B5293255700F100389043 /* JobsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewState.swift; sourceTree = "<group>"; };
 		E28B529925570C3F00389043 /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
 		E28B52A125570C9000389043 /* CustomFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterView.swift; sourceTree = "<group>"; };
@@ -449,6 +455,9 @@
 		E2B8E4002634DC180086D581 /* Theming */ = {
 			isa = PBXGroup;
 			children = (
+				E289EFB82634FAA600A60609 /* ThemeManager.swift */,
+				E289EFBD2634FAB200A60609 /* ThemeManagerProtocol.swift */,
+				E289EFC22634FB2C00A60609 /* ThemeDisplayAppearance.swift */,
 			);
 			name = Theming;
 			path = "New Group";
@@ -716,6 +725,8 @@
 				E2673B0E2557872E00727460 /* JobDetailCoordinator.swift in Sources */,
 				E21AEC2B2556E1D000A85639 /* JobClient.swift in Sources */,
 				E28B52A725570CCF00389043 /* UIView+Layout.swift in Sources */,
+				E289EFC32634FB2C00A60609 /* ThemeDisplayAppearance.swift in Sources */,
+				E289EFBE2634FAB200A60609 /* ThemeManagerProtocol.swift in Sources */,
 				E2B3E72B2556DFA300B5483A /* Dictionary+Format.swift in Sources */,
 				E261F94A25583CBA00DBC582 /* BackgroundCurvedView.swift in Sources */,
 				E2B3E7372556E01400B5483A /* Job.swift in Sources */,
@@ -733,6 +744,7 @@
 				E2609A36255836E5008002BA /* JobDetailHeaderViewModel.swift in Sources */,
 				E2673B1E25578A5E00727460 /* JobDetailSectionView.swift in Sources */,
 				E21AEC332556E1E600A85639 /* JobProvider.swift in Sources */,
+				E289EFB92634FAA600A60609 /* ThemeManager.swift in Sources */,
 				E2B3E7112556DDB600B5483A /* Descriptable.swift in Sources */,
 				E2641BD72557C04900675868 /* String+HTML.swift in Sources */,
 				E2673B09255786F000727460 /* JobDetailProtocols.swift in Sources */,
