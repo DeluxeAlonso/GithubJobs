@@ -90,6 +90,15 @@ class JobDetailViewController: UIViewController {
         }
     }
 
+    private func configureHeaderView() {
+        headerView = JobDetailHeaderView()
+        headerView.viewModel = viewModel.makeJobDetailHeaderViewModel()
+
+        headerView.frame = .init(x: 0, y:0, width: view.frame.width, height: view.frame.height)
+
+        tableView.tableHeaderView = headerView
+    }
+
     // MARK: - Reactive Behavior
 
     private func setupBindings() {
@@ -98,21 +107,12 @@ class JobDetailViewController: UIViewController {
         configureHeaderView()
 
         viewModel.viewStatePublisher
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
                 guard let strongSelf = self else { return }
                 strongSelf.configureView(with: state)
                 strongSelf.tableView.reloadData()
             }.store(in: &cancellables)
-    }
-
-    private func configureHeaderView() {
-        headerView = JobDetailHeaderView()
-        headerView.viewModel = viewModel.makeJobDetailHeaderViewModel()
-
-        headerView.frame = .init(x: 0, y:0, width: view.frame.width, height: view.frame.height)
-
-        tableView.tableHeaderView = headerView
     }
 
 }

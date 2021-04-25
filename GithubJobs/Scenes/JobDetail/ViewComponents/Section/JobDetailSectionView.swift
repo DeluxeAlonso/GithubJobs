@@ -9,7 +9,7 @@ import UIKit
 
 class JobDetailSectionView: UIView {
 
-    lazy var titleLabel: UILabel = {
+    lazy private var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -24,6 +24,8 @@ class JobDetailSectionView: UIView {
             titleLabel.text = title
         }
     }
+
+    // MARK: - Initializers
 
     override init(frame: CGRect) {
         super.init(frame: frame)
