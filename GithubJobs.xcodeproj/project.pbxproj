@@ -1005,7 +1005,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D7CAC83E65AD7543F7F36EBD /* Pods-GithubJobsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E95KU8J3PN;
@@ -1028,7 +1027,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7771E51A7BFB3E9D429BA97C /* Pods-GithubJobsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E95KU8J3PN;
@@ -1051,7 +1049,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 458720BDE507BBB51E7C2E62 /* Pods-GithubJobs-GithubJobsUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E95KU8J3PN;
 				INFOPLIST_FILE = GithubJobsUITests/Info.plist;
@@ -1072,7 +1069,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3AD21CD6706B03211A6DA9CA /* Pods-GithubJobs-GithubJobsUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E95KU8J3PN;
 				INFOPLIST_FILE = GithubJobsUITests/Info.plist;
