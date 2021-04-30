@@ -29,7 +29,7 @@ class ThemeManager: ThemeManagerProtocol {
 
     // MARK: - Private
 
-    private var storedInterfaceStyle: UIUserInterfaceStyle  {
+    private var storedInterfaceStyle: UIUserInterfaceStyle {
         get {
             return UIUserInterfaceStyle(rawValue: userInterfaceStyleRawValue) ?? .unspecified
         }

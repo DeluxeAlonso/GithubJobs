@@ -100,7 +100,7 @@ class JobDetailHeaderView: UIView {
             titleLabel.topAnchor.constraint(equalTo: companyLogoContainerView.bottomAnchor, constant: 8),
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             leadingContraint,
-            trailingContraint,
+            trailingContraint
         ])
     }
 

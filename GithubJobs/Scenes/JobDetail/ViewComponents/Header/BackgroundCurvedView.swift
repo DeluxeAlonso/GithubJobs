@@ -21,7 +21,6 @@ class BackgroundCurvedView: UIView {
                           controlPoint: CGPoint(x: layerWidth * 0.5, y: layerHeight))
         path.close()
 
-
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
         layer.mask = shapeLayer

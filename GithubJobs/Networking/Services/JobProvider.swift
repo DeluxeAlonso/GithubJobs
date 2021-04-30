@@ -45,7 +45,7 @@ extension JobProvider: Endpoint {
         }
     }
 
-    var headers: [String : String]? {
+    var headers: [String: String]? {
         return nil
     }
 

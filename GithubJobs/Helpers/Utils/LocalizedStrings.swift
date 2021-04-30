@@ -33,4 +33,3 @@ enum LocalizedStrings: String, Localizable {
     }
 
 }
-
