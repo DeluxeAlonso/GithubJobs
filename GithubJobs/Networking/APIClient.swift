@@ -20,7 +20,7 @@ protocol APIClient {
 extension APIClient {
 
     private func decodingTask<T: Decodable>(with request: URLRequest,
-                                             decodingType: T.Type) -> AnyPublisher<Decodable, Error> {
+                                            decodingType: T.Type) -> AnyPublisher<Decodable, Error> {
         session.dataTaskPublisher(for: request)
             .tryMap { result -> Decodable in
                 guard let httpResponse = result.response as? HTTPURLResponse else { throw APIError.requestFailed }
@@ -32,14 +32,13 @@ extension APIClient {
             .eraseToAnyPublisher()
     }
 
-
     func fetch<T: Decodable>(with request: URLRequest,
                              decode: @escaping (Decodable) -> T?) -> AnyPublisher<T, APIError> {
         decodingTask(with: request, decodingType: T.self).tryMap { model -> T in
             guard let decodedModel = decode(model) else { throw APIError.requestFailed }
             return decodedModel
         }.mapError({ error -> APIError in
-            switch (error) {
+            switch error {
             case let apiError as APIError:
                 return apiError
             default:

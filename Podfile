@@ -7,6 +7,7 @@ target 'GithubJobs' do
 
   # Pods for GithubJobs
   pod 'Kingfisher', '5.13.4'
+  pod 'SwiftLint'
 
   target 'GithubJobsTests' do
     inherit! :search_paths

@@ -35,7 +35,7 @@ class JobsTests: XCTestCase {
         let expectation = XCTestExpectation(description: "State is set to paging")
         // Act
         viewModelToTest.$viewState.dropFirst().sink { state in
-            state == .paging(jobsToTest, next: 2) ? expectation.fulfill() : XCTFail()
+            state == .paging(jobsToTest, next: 2) ? expectation.fulfill() : XCTFail("State wasn't set to paging")
         }.store(in: &cancellables)
         viewModelToTest.getJobs()
         // Assert
@@ -49,7 +49,7 @@ class JobsTests: XCTestCase {
         let expectation = XCTestExpectation(description: "State is set to populated")
         // Act
         viewModelToTest.$viewState.dropFirst(2).sink { state in
-            state == .populated(jobsToTest) ? expectation.fulfill() : XCTFail()
+            state == .populated(jobsToTest) ? expectation.fulfill() : XCTFail("State wasn't set to populated")
         }.store(in: &cancellables)
         viewModelToTest.getJobs()
 
@@ -65,7 +65,7 @@ class JobsTests: XCTestCase {
         let expectation = XCTestExpectation(description: "State is set to empty")
         // Act
         viewModelToTest.$viewState.dropFirst().sink { state in
-            state == .empty ? expectation.fulfill() : XCTFail()
+            state == .empty ? expectation.fulfill() : XCTFail("State wasn't set to populated")
         }.store(in: &cancellables)
         viewModelToTest.getJobs()
         // Assert
@@ -78,7 +78,7 @@ class JobsTests: XCTestCase {
         let expectation = XCTestExpectation(description: "State is set to error")
         // Act
         viewModelToTest.$viewState.dropFirst().sink { state in
-            state == .error(APIError.badRequest) ? expectation.fulfill() : XCTFail()
+            state == .error(APIError.badRequest) ? expectation.fulfill() : XCTFail("State wasn't set to error")
         }.store(in: &cancellables)
         viewModelToTest.getJobs()
         // Assert
