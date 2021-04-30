@@ -487,6 +487,7 @@
 			buildConfigurationList = E2B3E6D52556D67700B5483A /* Build configuration list for PBXNativeTarget "GithubJobs" */;
 			buildPhases = (
 				4DE9BD63585162060E725936 /* [CP] Check Pods Manifest.lock */,
+				E24608AA263BBC6000AFB65F /* ShellScript */,
 				E2B3E6A72556D67400B5483A /* Sources */,
 				E2B3E6A82556D67400B5483A /* Frameworks */,
 				E2B3E6A92556D67400B5483A /* Resources */,
@@ -693,6 +694,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GithubJobs/Pods-GithubJobs-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E24608AA263BBC6000AFB65F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		FF4213D888EBAA5CEC03942C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
