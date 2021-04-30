@@ -19,14 +19,4 @@ final class MockJobClient: JobClientProtocol {
         return getJobResult
     }
 
-
-    //    var getJobResult: Result<JobsResult, APIError>!
-    //    func getJobs(page: Int, completion: @escaping (Result<JobsResult, APIError>) -> Void) {
-//        completion(getJobResult)
-//    }
-//
-//    func getJobs(description: String, completion: @escaping (Result<JobsResult, APIError>) -> Void) {
-//        completion(getJobResult)
-//    }
-
 }

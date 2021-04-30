@@ -30,62 +30,62 @@ class JobDetailTests: XCTestCase {
     }
 
     func testJobTitle() {
-        //Act
+        // Act
         let title = viewModelToTest.jobTitle
-        //Assert
+        // Assert
         XCTAssertEqual(title, "Job 1")
     }
 
     func testGetRelatedJobsPopulated() {
-        //Arrange
+        // Arrange
         let jobsToTest = [Job.with(id: "2")]
         mockJobClient.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
         let expectation = XCTestExpectation(description: "State is set to populated")
-        //Act
+        // Act
         viewModelToTest.$viewState.dropFirst().sink { state in
-            state == .populated(jobsToTest) ? expectation.fulfill() : XCTFail()
+            state == .populated(jobsToTest) ? expectation.fulfill() : XCTFail("State wasn't set to populated")
         }.store(in: &cancellables)
         viewModelToTest.getRelatedJobs()
-        //Assert
+        // Assert
         wait(for: [expectation], timeout: 1)
     }
 
     func testGetRelatedJobsEmpty() {
-        //Arrange
+        // Arrange
         mockJobClient.getJobResult = Result.success(JobsResult(jobs: [])).publisher.eraseToAnyPublisher()
         let expectation = XCTestExpectation(description: "State is set to empty")
-        //Act
+        // Act
         viewModelToTest.$viewState.dropFirst().sink { state in
-            state == .empty ? expectation.fulfill() : XCTFail()
+            state == .empty ? expectation.fulfill() : XCTFail("State wasn't set to empty")
         }.store(in: &cancellables)
         viewModelToTest.getRelatedJobs()
-        //Assert
+        // Assert
         wait(for: [expectation], timeout: 1)
     }
 
     func testGetRelatedJobsEmptyAfterFilter() {
-        //Arrange
+        // Arrange
         mockJobClient.getJobResult = Result.success(JobsResult(jobs: [Job.with(id: "1")])).publisher.eraseToAnyPublisher()
         let expectation = XCTestExpectation(description: "State is set to empty because it solely fetched itself")
-        //Act
+        // Act
         viewModelToTest.$viewState.dropFirst().sink { state in
-            state == .empty ? expectation.fulfill() : XCTFail()
+            state == .empty ? expectation.fulfill() : XCTFail("State wasn't set to empty")
         }.store(in: &cancellables)
         viewModelToTest.getRelatedJobs()
-        //Assert
+        // Assert
         wait(for: [expectation], timeout: 1)
     }
 
     func testGetJobsError() {
-        //Arrange
+        // Arrange
         mockJobClient.getJobResult = Result<JobsResult, APIError>.failure(APIError.badRequest).publisher.eraseToAnyPublisher()
         let expectation = XCTestExpectation(description: "State is set to error")
-        //Act
+        // Act
         viewModelToTest.$viewState.dropFirst().sink { state in
-            state == .error(APIError.badRequest) ? expectation.fulfill() : XCTFail()
+            state == .error(APIError.badRequest) ? expectation.fulfill() : XCTFail("State wasn't set to error")
         }.store(in: &cancellables)
         viewModelToTest.getRelatedJobs()
-        //Assert
+        // Assert
         wait(for: [expectation], timeout: 1)
     }
 
