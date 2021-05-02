@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -46,6 +46,7 @@
 		E28B52AC25570CF000389043 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52AB25570CF000389043 /* FontHelper.swift */; };
 		E28B52B225570D2B00389043 /* TableViewCellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52B125570D2B00389043 /* TableViewCellAnimator.swift */; };
 		E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52B62557215600389043 /* JobCellViewModel.swift */; };
+		E29456C3263E6CA70011AF68 /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = E29456C2263E6CA70011AF68 /* KingfisherStatic */; };
 		E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6AE2556D67400B5483A /* AppDelegate.swift */; };
 		E2B3E6B12556D67400B5483A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6B02556D67400B5483A /* SceneDelegate.swift */; };
 		E2B3E6B82556D67700B5483A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2B3E6B72556D67700B5483A /* Assets.xcassets */; };
@@ -151,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E29456C3263E6CA70011AF68 /* KingfisherStatic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,13 +173,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D2FC2398F9E3604A20207E7A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		E21AEC292556E1C200A85639 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,7 +277,6 @@
 				E2B3E6C42556D67700B5483A /* GithubJobsTests */,
 				E2B3E6CF2556D67700B5483A /* GithubJobsUITests */,
 				E2B3E6AC2556D67400B5483A /* Products */,
-				D2FC2398F9E3604A20207E7A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -464,6 +458,9 @@
 			dependencies = (
 			);
 			name = GithubJobs;
+			packageProductDependencies = (
+				E29456C2263E6CA70011AF68 /* KingfisherStatic */,
+			);
 			productName = GithubJobs;
 			productReference = E2B3E6AB2556D67400B5483A /* GithubJobs.app */;
 			productType = "com.apple.product-type.application";
@@ -536,6 +533,10 @@
 				"es-419",
 			);
 			mainGroup = E2B3E6A22556D67400B5483A;
+			packageReferences = (
+				E29456C1263E6CA70011AF68 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E29456DC263E709F0011AF68 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+			);
 			productRefGroup = E2B3E6AC2556D67400B5483A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -590,7 +591,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -982,6 +983,33 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E29456C1263E6CA70011AF68 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.13.0;
+			};
+		};
+		E29456DC263E709F0011AF68 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.43.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E29456C2263E6CA70011AF68 /* KingfisherStatic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E29456C1263E6CA70011AF68 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherStatic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E2B3E6A32556D67400B5483A /* Project object */;
 }
