@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-protocol ThemeManagerProtocol: class {
+protocol ThemeManagerProtocol: AnyObject {
 
     var interfaceStyle: CurrentValueSubject<UIUserInterfaceStyle, Never> { get }
 
