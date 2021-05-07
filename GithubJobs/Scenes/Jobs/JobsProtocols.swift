@@ -19,7 +19,7 @@ protocol JobsViewModelProtocol {
 
 }
 
-protocol JobsCoordinatorProtocol: class {
+protocol JobsCoordinatorProtocol: AnyObject {
 
     func showJobDetail(_ job: Job)
 
