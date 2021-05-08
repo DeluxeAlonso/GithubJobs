@@ -71,6 +71,8 @@ class JobDetailHeaderView: UIView {
     private func setupUI() {
         setupCompanyLogoView()
         setupTitleLabel()
+
+        titleLabel.preferredMaxLayoutWidth = titleLabel.bounds.width
     }
 
     private func setupCompanyLogoView() {
