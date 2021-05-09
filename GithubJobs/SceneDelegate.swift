@@ -7,6 +7,34 @@
 
 import UIKit
 
+class EmptyViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .black
+    }
+
+}
+
+class PrimarySplitViewController: UISplitViewController,
+                                  UISplitViewControllerDelegate {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.delegate = self
+        self.preferredDisplayMode = UISplitViewController.DisplayMode.oneBesideSecondary
+    }
+
+    func splitViewController(
+             _ splitViewController: UISplitViewController,
+             collapseSecondary secondaryViewController: UIViewController,
+             onto primaryViewController: UIViewController) -> Bool {
+        // Return true to prevent UIKit from applying its default behavior
+        return true
+    }
+
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -19,7 +47,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         mainCoordinator = JobsCoordinator(navigationController: UINavigationController())
         mainCoordinator.start()
 
-        self.window?.rootViewController = mainCoordinator.navigationController
+        let splitVC = PrimarySplitViewController()
+        splitVC.viewControllers = [mainCoordinator.navigationController,
+                                   UINavigationController(rootViewController: EmptyViewController())]
+
+        self.window?.rootViewController = splitVC//mainCoordinator.navigationController
         self.window?.makeKeyAndVisible()
     }
 
