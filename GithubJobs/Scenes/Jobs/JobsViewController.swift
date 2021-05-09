@@ -47,6 +47,13 @@ class JobsViewController: UIViewController {
         viewModel.getJobs()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let indexPathForSelectedRow = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPathForSelectedRow, animated: true)
+        }
+    }
+
     // MARK: - Private
 
     private func setupUI() {
@@ -128,7 +135,6 @@ extension JobsViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         coordinator?.showJobDetail(viewModel.job(at: indexPath.row))
     }
 
