@@ -34,6 +34,8 @@
 		E2673B132557877F00727460 /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673B122557877F00727460 /* JobDetailViewModel.swift */; };
 		E2673B1925578A3200727460 /* JobDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673B1825578A3200727460 /* JobDetailHeaderView.swift */; };
 		E2673B1E25578A5E00727460 /* JobDetailSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673B1D25578A5E00727460 /* JobDetailSectionView.swift */; };
+		E2792433264786E000891120 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2792432264786E000891120 /* MainSplitViewController.swift */; };
+		E27924352647873800891120 /* EmptyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27924342647873800891120 /* EmptyDetailViewController.swift */; };
 		E27E9CAF2558458B00210D1C /* MockJobClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E9CAE2558458B00210D1C /* MockJobClient.swift */; };
 		E27E9CBD2558463A00210D1C /* Job+MockInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E9CBC2558463A00210D1C /* Job+MockInitializer.swift */; };
 		E289EFB92634FAA600A60609 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289EFB82634FAA600A60609 /* ThemeManager.swift */; };
@@ -111,6 +113,8 @@
 		E2673B122557877F00727460 /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
 		E2673B1825578A3200727460 /* JobDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailHeaderView.swift; sourceTree = "<group>"; };
 		E2673B1D25578A5E00727460 /* JobDetailSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailSectionView.swift; sourceTree = "<group>"; };
+		E2792432264786E000891120 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
+		E27924342647873800891120 /* EmptyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDetailViewController.swift; sourceTree = "<group>"; };
 		E27E9CAE2558458B00210D1C /* MockJobClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJobClient.swift; sourceTree = "<group>"; };
 		E27E9CBC2558463A00210D1C /* Job+MockInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job+MockInitializer.swift"; sourceTree = "<group>"; };
 		E289EFB82634FAA600A60609 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
@@ -224,6 +228,31 @@
 			path = ViewComponents;
 			sourceTree = "<group>";
 		};
+		E279242F264786BA00891120 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E2792431264786C800891120 /* Detail */,
+				E2792430264786BE00891120 /* Master */,
+				E2792432264786E000891120 /* MainSplitViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E2792430264786BE00891120 /* Master */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Master;
+			sourceTree = "<group>";
+		};
+		E2792431264786C800891120 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E27924342647873800891120 /* EmptyDetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		E27E9CAD2558457200210D1C /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +359,7 @@
 		E2B3E6E72556D79A00B5483A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E279242F264786BA00891120 /* Main */,
 				E2B3E6E82556D7A900B5483A /* Jobs */,
 				E2673AF82557819100727460 /* JobDetail */,
 			);
@@ -608,6 +638,7 @@
 				E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */,
 				E2673AE925577A2300727460 /* TableViewDataSourcePrefetching.swift in Sources */,
 				E2673B1925578A3200727460 /* JobDetailHeaderView.swift in Sources */,
+				E2792433264786E000891120 /* MainSplitViewController.swift in Sources */,
 				E2673B132557877F00727460 /* JobDetailViewModel.swift in Sources */,
 				E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */,
 				E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */,
@@ -640,6 +671,7 @@
 				E2673B09255786F000727460 /* JobDetailProtocols.swift in Sources */,
 				E2641BFD2557C8AE00675868 /* LocalizedStrings.swift in Sources */,
 				E2641BE92557C55500675868 /* UIImageView+Kingfisher.swift in Sources */,
+				E27924352647873800891120 /* EmptyDetailViewController.swift in Sources */,
 				E2673AFF2557823F00727460 /* Coordinator.swift in Sources */,
 				E2B3E70A2556DD5700B5483A /* APIError.swift in Sources */,
 				E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */,

@@ -29,6 +29,7 @@ final class JobsCoordinator: NSObject, JobsCoordinatorProtocol, Coordinator, UIN
     func showJobDetail(_ job: Job) {
         let coordinator = JobDetailCoordinator(navigationController: navigationController)
         coordinator.job = job
+        coordinator.detailNavigationController = UINavigationController()
 
         coordinator.parentCoordinator = unwrappedParentCoordinator
 
