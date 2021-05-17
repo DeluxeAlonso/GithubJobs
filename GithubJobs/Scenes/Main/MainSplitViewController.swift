@@ -9,12 +9,22 @@ import UIKit
 
 final class MainSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
 
+    // MARK: - Initializers
+
+    init(preferredDisplayMode: UISplitViewController.DisplayMode) {
+        super.init(nibName: nil, bundle: nil)
+        self.preferredDisplayMode = preferredDisplayMode
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = self
-        self.preferredDisplayMode = UISplitViewController.DisplayMode.oneBesideSecondary
+        delegate = self
     }
 
     // MARK: - UISplitViewControllerDelegate
