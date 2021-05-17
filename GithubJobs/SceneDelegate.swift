@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         mainCoordinator = JobsCoordinator(navigationController: UINavigationController())
         mainCoordinator.start()
 
-        let splitVC = MainSplitViewController()
+        let splitVC = MainSplitViewController(preferredDisplayMode: .oneBesideSecondary)
         splitVC.viewControllers = [mainCoordinator.navigationController, EmptyDetailViewController()]
 
         self.window?.rootViewController = splitVC
