@@ -44,5 +44,6 @@ class JobDetailSectionView: UIView {
 
         addSubview(titleLabel)
         titleLabel.fillSuperview()
+    }
 
 }
