@@ -14,6 +14,7 @@ class JobDetailSectionView: UIView {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
+        label.textColor = .black
         label.backgroundColor = .systemTeal
 
         return label
