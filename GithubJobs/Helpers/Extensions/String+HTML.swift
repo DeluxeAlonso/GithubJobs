@@ -24,7 +24,17 @@ extension String {
     }
     
     var htmlToString: String {
-        return htmlToAttributedString?.string ?? ""
+        return htmlToAttributedString?.string.trailingNewLinesTrimmed ?? ""
+    }
+
+    var trailingNewLinesTrimmed: String {
+        var newString = self
+
+        while newString.last?.isNewline == true {
+            newString = String(newString.dropLast())
+        }
+
+        return newString
     }
 
 }
