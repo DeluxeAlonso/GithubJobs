@@ -10,7 +10,7 @@ Simple universal app written in Swift 5 using the Github Jobs API: https://jobs.
 
 <img src="Screenshots/Home.png" width=200 height=433> <img src="Screenshots/Detail.png" width=200 height=433>
 <img src="Screenshots/Home_Dark.png" width=200 height=433> <img src="Screenshots/Detail_Dark.png" width=200 height=433>
-<img src="Screenshots/iPAD.png" width=404 height=300> <img src="Screenshots/iPAD_Dark.png" width=404 height=300>
+<img src="Screenshots/iPad.png" width=404 height=300> <img src="Screenshots/iPad_Dark.png" width=404 height=300>
 
 ## Third-party libraries
 
