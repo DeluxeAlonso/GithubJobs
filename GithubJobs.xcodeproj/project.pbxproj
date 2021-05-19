@@ -232,26 +232,10 @@
 		E279242F264786BA00891120 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				E2792431264786C800891120 /* Detail */,
-				E2792430264786BE00891120 /* Master */,
+				E27924342647873800891120 /* EmptyDetailViewController.swift */,
 				E2792432264786E000891120 /* MainSplitViewController.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		E2792430264786BE00891120 /* Master */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Master;
-			sourceTree = "<group>";
-		};
-		E2792431264786C800891120 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				E27924342647873800891120 /* EmptyDetailViewController.swift */,
-			);
-			path = Detail;
 			sourceTree = "<group>";
 		};
 		E27E9CAD2558457200210D1C /* Mocks */ = {
