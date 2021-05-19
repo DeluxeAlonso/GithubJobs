@@ -18,7 +18,7 @@ class BackgroundCurvedView: UIView {
         path.addLine(to: CGPoint(x: layerWidth, y: 0))
         path.addLine(to: CGPoint(x: layerWidth, y: layerHeight * 0.85))
         path.addQuadCurve(to: CGPoint(x: 0, y: layerHeight * 0.85),
-                          controlPoint: CGPoint(x: layerWidth * 0.5, y: layerHeight))
+                          controlPoint: CGPoint(x: layerWidth * 0.5, y: layerHeight + 12.0))
         path.close()
 
         let shapeLayer = CAShapeLayer()
