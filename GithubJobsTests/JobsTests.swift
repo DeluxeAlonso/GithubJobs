@@ -62,12 +62,13 @@ class JobsTests: XCTestCase {
 
     func testGetJobsEmpty() {
         // Arrange
+        let jobsToTest: [Job] = []
         let expectation = XCTestExpectation(description: "State is set to empty")
         // Act
         viewModelToTest.$viewState.dropFirst().sink { state in
             state == .empty ? expectation.fulfill() : XCTFail("State wasn't set to populated")
         }.store(in: &cancellables)
-        mockJobClient.getJobResult = Result.success(JobsResult(jobs: [])).publisher.eraseToAnyPublisher()
+        mockJobClient.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
         viewModelToTest.getJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
@@ -75,12 +76,13 @@ class JobsTests: XCTestCase {
 
     func testGetJobsError() {
         // Arrange
+        let errorToTest = APIError.badRequest
         let expectation = XCTestExpectation(description: "State is set to error")
         // Act
         viewModelToTest.$viewState.dropFirst().sink { state in
             state == .error(APIError.badRequest) ? expectation.fulfill() : XCTFail("State wasn't set to error")
         }.store(in: &cancellables)
-        mockJobClient.getJobResult = Result.failure(APIError.badRequest).publisher.eraseToAnyPublisher()
+        mockJobClient.getJobResult = Result.failure(errorToTest).publisher.eraseToAnyPublisher()
         viewModelToTest.getJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
