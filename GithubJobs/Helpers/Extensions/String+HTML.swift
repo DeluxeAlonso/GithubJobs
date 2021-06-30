@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-
+    
     var htmlToAttributedString: NSAttributedString? {
         guard let data = data(using: .utf8) else { return nil }
         do {
@@ -26,15 +26,15 @@ extension String {
     var htmlToString: String {
         return htmlToAttributedString?.string.trailingNewLinesTrimmed ?? ""
     }
-
+    
     var trailingNewLinesTrimmed: String {
         var newString = self
-
+        
         while newString.last?.isNewline == true {
             newString = String(newString.dropLast())
         }
-
+        
         return newString
     }
-
+    
 }
