@@ -12,7 +12,7 @@ class ThemeManager: ThemeManagerProtocol {
 
     static let shared = ThemeManager()
 
-    @Storage(key: "UserInterfaceStyle", defaultValue: UIUserInterfaceStyle.unspecified.rawValue)
+    @UserDefaultsStorage(key: "UserInterfaceStyle", defaultValue: UIUserInterfaceStyle.unspecified.rawValue)
     private var userInterfaceStyleRawValue: Int
 
     init() {}
