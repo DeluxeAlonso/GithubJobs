@@ -80,7 +80,7 @@ class JobDetailViewController: UIViewController {
     private func configureView(with state: JobDetailViewState) {
         switch state {
         case .empty:
-            tableView.tableFooterView = CustomFooterView(message: LocalizedStrings.emptyRelatedJobsTitle.localized)
+            tableView.tableFooterView = CustomFooterView(message: LocalizedStrings.emptyRelatedJobsTitle())
         case .populated:
             tableView.tableFooterView = UIView()
         case .initial:
@@ -149,7 +149,7 @@ extension JobDetailViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = JobDetailSectionView()
-        view.title = LocalizedStrings.relatedJobsTitle.localized
+        view.title = LocalizedStrings.relatedJobsTitle()
         return view
     }
 
