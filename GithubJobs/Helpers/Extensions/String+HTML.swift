@@ -11,16 +11,12 @@ extension String {
     
     var htmlToAttributedString: NSAttributedString? {
         guard let data = data(using: .utf8) else { return nil }
-        do {
-            let attributedStringOptions: [NSAttributedString.DocumentReadingOptionKey: Any] = [
-                .documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue
-            ]
-            return try NSAttributedString(data: data,
-                                          options: attributedStringOptions,
-                                          documentAttributes: nil)
-        } catch {
-            return nil
-        }
+        let attributedStringOptions: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+            .documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue
+        ]
+        return try? NSAttributedString(data: data,
+                                       options: attributedStringOptions,
+                                       documentAttributes: nil)
     }
     
     var htmlToString: String {
