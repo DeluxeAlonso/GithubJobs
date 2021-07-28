@@ -1,5 +1,5 @@
 //
-//  Storage.swift
+//  UserDefaultsStorage.swift
 //  GithubJobs
 //
 //  Created by Alonso on 24/04/21.
@@ -8,7 +8,7 @@
 import Foundation
 
 @propertyWrapper
-struct Storage<T> {
+struct UserDefaultsStorage<T> {
 
     private let key: String
     private let defaultValue: T
