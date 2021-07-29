@@ -18,6 +18,10 @@ extension Localizable where Self: RawRepresentable, Self.RawValue == String {
         return rawValue.localized(tableName: tableName)
     }
 
+    func callAsFunction() -> String {
+        return self.localized
+    }
+
 }
 
 enum LocalizedStrings: String, Localizable {

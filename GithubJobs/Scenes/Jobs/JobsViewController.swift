@@ -41,7 +41,7 @@ class JobsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = LocalizedStrings.jobsTitle.localized
+        title = LocalizedStrings.jobsTitle()
         setupUI()
         setupBindings()
         viewModel.getJobs()
@@ -81,7 +81,7 @@ class JobsViewController: UIViewController {
     private func configureView(with state: JobsViewState) {
         switch state {
         case .empty:
-            tableView.tableFooterView = CustomFooterView(message: LocalizedStrings.emptyJobsTitle.localized)
+            tableView.tableFooterView = CustomFooterView(message: LocalizedStrings.emptyJobsTitle())
         case .populated:
             tableView.tableFooterView = UIView()
         case .initial, .paging:
