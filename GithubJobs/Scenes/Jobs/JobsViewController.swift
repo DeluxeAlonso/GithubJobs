@@ -82,9 +82,9 @@ class JobsViewController: UIViewController {
         switch state {
         case .empty:
             tableView.tableFooterView = CustomFooterView(message: LocalizedStrings.emptyJobsTitle())
-        case .populated:
+        case .populated, .paging:
             tableView.tableFooterView = UIView()
-        case .initial, .paging:
+        case .initial:
             tableView.tableFooterView = LoadingFooterView()
         case .error(let error):
             tableView.tableFooterView = CustomFooterView(message: error.description)

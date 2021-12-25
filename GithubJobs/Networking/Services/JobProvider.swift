@@ -14,13 +14,13 @@ enum JobProvider {
 extension JobProvider: Endpoint {
 
     var base: String {
-        return "https://jobs.github.com"
+        return "https://private-45833-githubjobsapi.apiary-mock.com"
     }
 
     var path: String {
         switch self {
         case .getAll:
-            return "/positions.json"
+            return "/positions"
         }
     }
 
