@@ -8,7 +8,9 @@ Simple universal app written in Swift 5 using the Github Jobs API: https://jobs.
 
 ## Deprecation note
 
-Github Jobs API was deprecated so a mock API is being used to display jobs information.
+Github Jobs API was deprecated so a mock API is being used to display jobs information. 
+More info about the API deprecation can be found here:
+https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/
 
 ## Screenshots
 
