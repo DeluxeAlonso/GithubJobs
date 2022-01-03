@@ -9,7 +9,7 @@ import Combine
 
 final class JobsViewModel: JobsViewModelProtocol {
 
-    private let jobsInteractor: JobsInteractorProtocol
+    private let interactor: JobsInteractorProtocol
 
     @Published var viewState: JobsViewState = .initial
 
@@ -33,8 +33,8 @@ final class JobsViewModel: JobsViewModelProtocol {
 
     // MARK: - Initializers
 
-    init(jobsInteractor: JobsInteractorProtocol) {
-        self.jobsInteractor = jobsInteractor
+    init(interactor: JobsInteractorProtocol) {
+        self.interactor = interactor
     }
 
     // MARK: - JobsViewModelProtocol
@@ -50,7 +50,7 @@ final class JobsViewModel: JobsViewModelProtocol {
     // MARK: - Private
 
     private func fetchJobs(currentPage: Int) {
-        jobsInteractor.getJobs(page: currentPage)
+        interactor.getJobs(page: currentPage)
             .map { [weak self] jobResult -> JobsViewState in
                 guard let self = self else { fatalError() }
                 return self.processResult(jobResult.jobs, currentPage: currentPage, currentJobs: self.jobs)

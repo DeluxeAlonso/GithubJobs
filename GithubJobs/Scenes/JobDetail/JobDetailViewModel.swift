@@ -10,7 +10,7 @@ import Combine
 final class JobDetailViewModel: JobDetailViewModelProtocol {
 
     private let job: Job
-    private let jobsInteractor: JobsInteractorProtocol
+    private let interactor: JobsInteractorProtocol
 
     @Published var viewState: JobDetailViewState = .initial
 
@@ -31,15 +31,15 @@ final class JobDetailViewModel: JobDetailViewModelProtocol {
 
     // MARK: - Initializers
 
-    init(_ job: Job, jobsInteractor: JobsInteractorProtocol) {
+    init(_ job: Job, interactor: JobsInteractorProtocol) {
         self.job = job
-        self.jobsInteractor = jobsInteractor
+        self.interactor = interactor
     }
 
     // MARK: - JobDetailViewModelProtocol
 
     func getRelatedJobs() {
-        jobsInteractor.getJobs(description: job.title)
+        interactor.getJobs(description: job.title)
             .map { [weak self] jobResult -> JobDetailViewState in
                 guard let self = self else { fatalError() }
                 return self.processResult(jobResult.jobs)
