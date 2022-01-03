@@ -19,6 +19,13 @@ protocol JobsViewModelProtocol {
 
 }
 
+protocol JobsInteractorProtocol {
+
+    func getJobs(page: Int) -> AnyPublisher<JobsResult, APIError>
+    func getJobs(description: String) -> AnyPublisher<JobsResult, APIError>
+    
+}
+
 protocol JobsCoordinatorProtocol: AnyObject {
 
     func showJobDetail(_ job: Job)
