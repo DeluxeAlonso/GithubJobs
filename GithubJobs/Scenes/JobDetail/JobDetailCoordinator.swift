@@ -21,7 +21,8 @@ final class JobDetailCoordinator: NSObject, JobDetailCoordinatorProtocol, Coordi
     }
 
     func start() {
-        let viewModel = JobDetailViewModel(job, jobClient: JobClient())
+        let interactor = JobsInteractor(jobClient: JobClient())
+        let viewModel = JobDetailViewModel(job, interactor: interactor)
         let viewController = JobDetailViewController(viewModel: viewModel, coordinator: self)
 
         if let detailNavigationController = detailNavigationController {

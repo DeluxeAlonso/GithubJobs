@@ -1,16 +1,17 @@
 //
-//  MockClient.swift
+//  MockJobsInteractor.swift
 //  GithubJobsTests
 //
-//  Created by Alonso on 11/8/20.
+//  Created by Alonso on 3/01/22.
 //
 
 @testable import GithubJobs
 import Combine
 
-final class MockJobClient: JobClientProtocol {
+final class MockJobsInteractor: JobsInteractorProtocol {
 
     var getJobResult: AnyPublisher<JobsResult, APIError>!
+
     func getJobs(page: Int) -> AnyPublisher<JobsResult, APIError> {
         return getJobResult
     }

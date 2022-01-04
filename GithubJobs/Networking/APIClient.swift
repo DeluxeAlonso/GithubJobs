@@ -24,7 +24,9 @@ extension APIClient {
         session.dataTaskPublisher(for: request)
             .tryMap { result -> Decodable in
                 guard let httpResponse = result.response as? HTTPURLResponse else { throw APIError.requestFailed }
-                guard httpResponse.statusCode == 200 || httpResponse.statusCode == 201 else { throw APIError(response: httpResponse) }
+                guard httpResponse.statusCode == 200 || httpResponse.statusCode == 201 else {
+                    throw APIError(response: httpResponse)
+                }
                 let decoder = JSONDecoder()
                 let genericModel = try decoder.decode(decodingType, from: result.data)
                 return genericModel
@@ -35,9 +37,12 @@ extension APIClient {
     func fetch<T: Decodable>(with request: URLRequest,
                              decode: @escaping (Decodable) -> T?) -> AnyPublisher<T, APIError> {
         decodingTask(with: request, decodingType: T.self).tryMap { model -> T in
-            guard let decodedModel = decode(model) else { throw APIError.requestFailed }
+            guard let decodedModel = decode(model) else {
+                throw APIError.requestFailed
+            }
             return decodedModel
         }.mapError({ error -> APIError in
+            print(error)
             switch error {
             case let apiError as APIError:
                 return apiError

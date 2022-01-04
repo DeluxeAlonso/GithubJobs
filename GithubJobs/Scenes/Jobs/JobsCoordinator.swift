@@ -18,7 +18,8 @@ final class JobsCoordinator: NSObject, JobsCoordinatorProtocol, Coordinator, UIN
     }
 
     func start() {
-        let viewModel = JobsViewModel(jobClient: JobClient())
+        let interactor = JobsInteractor(jobClient: JobClient())
+        let viewModel = JobsViewModel(interactor: interactor)
 
         let viewController = JobsViewController(viewModel: viewModel, coordinator: self)
 
