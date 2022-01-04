@@ -11,19 +11,19 @@ import Combine
 
 class JobsTests: XCTestCase {
 
-    private var mockJobClient: MockJobClient!
+    private var mockJobsInteractor: MockJobsInteractor!
     private var viewModelToTest: JobsViewModel!
 
     private var cancellables: Set<AnyCancellable> = []
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        mockJobClient = MockJobClient()
-        viewModelToTest = JobsViewModel(jobClient: mockJobClient)
+        mockJobsInteractor = MockJobsInteractor()
+        viewModelToTest = JobsViewModel(interactor: mockJobsInteractor)
     }
 
     override func tearDownWithError() throws {
-        mockJobClient = nil
+        mockJobsInteractor = nil
         viewModelToTest = nil
         try super.tearDownWithError()
     }
@@ -36,7 +36,7 @@ class JobsTests: XCTestCase {
         viewModelToTest.$viewState.dropFirst().sink { state in
             state == .paging(jobsToTest, next: 2) ? expectation.fulfill() : XCTFail("State wasn't set to paging")
         }.store(in: &cancellables)
-        mockJobClient.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
+        mockJobsInteractor.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
         viewModelToTest.getJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
@@ -51,10 +51,10 @@ class JobsTests: XCTestCase {
             state == .populated(jobsToTest) ? expectation.fulfill() : XCTFail("State wasn't set to populated")
         }.store(in: &cancellables)
 
-        mockJobClient.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
+        mockJobsInteractor.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
         viewModelToTest.getJobs()
 
-        mockJobClient.getJobResult = Result.success(JobsResult(jobs: [])).publisher.eraseToAnyPublisher()
+        mockJobsInteractor.getJobResult = Result.success(JobsResult(jobs: [])).publisher.eraseToAnyPublisher()
         viewModelToTest.getJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
@@ -68,7 +68,7 @@ class JobsTests: XCTestCase {
         viewModelToTest.$viewState.dropFirst().sink { state in
             state == .empty ? expectation.fulfill() : XCTFail("State wasn't set to populated")
         }.store(in: &cancellables)
-        mockJobClient.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
+        mockJobsInteractor.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
         viewModelToTest.getJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
@@ -82,7 +82,7 @@ class JobsTests: XCTestCase {
         viewModelToTest.$viewState.dropFirst().sink { state in
             state == .error(APIError.badRequest) ? expectation.fulfill() : XCTFail("State wasn't set to error")
         }.store(in: &cancellables)
-        mockJobClient.getJobResult = Result.failure(errorToTest).publisher.eraseToAnyPublisher()
+        mockJobsInteractor.getJobResult = Result.failure(errorToTest).publisher.eraseToAnyPublisher()
         viewModelToTest.getJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
