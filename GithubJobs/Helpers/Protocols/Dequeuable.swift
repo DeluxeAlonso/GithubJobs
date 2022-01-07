@@ -9,13 +9,13 @@ import UIKit
 
 protocol Dequeuable {
 
-    static var dequeuIdentifier: String { get }
+    static var dequeueIdentifier: String { get }
 
 }
 
 extension Dequeuable where Self: UIView {
 
-    static var dequeuIdentifier: String {
+    static var dequeueIdentifier: String {
         return String(describing: self)
     }
 
