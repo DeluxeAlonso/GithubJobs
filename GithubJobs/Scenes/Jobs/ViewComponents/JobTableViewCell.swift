@@ -37,9 +37,8 @@ class JobTableViewCell: UITableViewCell {
     }
 
     private func setupBindables() {
-        guard let viewModel = viewModel else { return }
-        textLabel?.text = viewModel.title
-        detailTextLabel?.text = viewModel.company
+        textLabel?.text = viewModel?.title
+        detailTextLabel?.text = viewModel?.company
     }
 
 }
