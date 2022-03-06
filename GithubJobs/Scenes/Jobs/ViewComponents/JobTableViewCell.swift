@@ -26,14 +26,6 @@ class JobTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Lifecycle
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        textLabel?.text = nil
-        detailTextLabel?.text = nil
-    }
-
     // MARK: - Private
 
     private func setupUI() {
