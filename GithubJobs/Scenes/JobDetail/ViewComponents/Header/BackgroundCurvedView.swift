@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BackgroundCurvedView: UIView {
+final class BackgroundCurvedView: UIView {
 
     override func draw(_ rect: CGRect) {
         let layerHeight = layer.frame.height
