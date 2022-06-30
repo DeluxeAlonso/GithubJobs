@@ -71,10 +71,13 @@ class JobDetailHeaderView: UIView {
     private func setupUI() {
         setupCompanyLogoView()
         setupTitleLabel()
+
+        titleLabel.preferredMaxLayoutWidth = titleLabel.bounds.width
     }
 
     private func setupCompanyLogoView() {
         addSubview(companyLogoContainerView)
+
         NSLayoutConstraint.activate([
             companyLogoContainerView.topAnchor.constraint(equalTo: topAnchor),
             companyLogoContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -98,9 +101,9 @@ class JobDetailHeaderView: UIView {
 
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: companyLogoContainerView.bottomAnchor, constant: 8),
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
             leadingContraint,
-            trailingContraint,
+            trailingContraint
         ])
     }
 

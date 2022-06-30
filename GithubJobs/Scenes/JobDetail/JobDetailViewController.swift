@@ -48,9 +48,9 @@ class JobDetailViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // Recalculate header heaight if needed
+        // Recalculate header height if needed
         if let headerView = tableView.tableHeaderView {
-            let newSize = headerView.systemLayoutSizeFitting(CGSize(width: self.view.bounds.width, height: 0))
+            let newSize = headerView.systemLayoutSizeFitting(CGSize(width: tableView.bounds.width, height: 0))
             if newSize.height != headerView.frame.size.height {
                 headerView.frame.size.height = newSize.height
                 tableView.tableHeaderView = headerView
@@ -80,7 +80,7 @@ class JobDetailViewController: UIViewController {
     private func configureView(with state: JobDetailViewState) {
         switch state {
         case .empty:
-            tableView.tableFooterView = CustomFooterView(message: LocalizedStrings.emptyRelatedJobsTitle.localized)
+            tableView.tableFooterView = CustomFooterView(message: LocalizedStrings.emptyRelatedJobsTitle())
         case .populated:
             tableView.tableFooterView = UIView()
         case .initial:
@@ -94,7 +94,7 @@ class JobDetailViewController: UIViewController {
         headerView = JobDetailHeaderView()
         headerView.viewModel = viewModel.makeJobDetailHeaderViewModel()
 
-        headerView.frame = .init(x: 0, y:0, width: view.frame.width, height: view.frame.height)
+        headerView.frame = .init(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
 
         tableView.tableHeaderView = headerView
     }
@@ -149,7 +149,7 @@ extension JobDetailViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = JobDetailSectionView()
-        view.title = LocalizedStrings.relatedJobsTitle.localized
+        view.title = LocalizedStrings.relatedJobsTitle()
         return view
     }
 

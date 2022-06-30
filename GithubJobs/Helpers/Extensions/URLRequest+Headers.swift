@@ -10,8 +10,7 @@ import Foundation
 extension URLRequest {
 
     mutating func setJSONContentType() {
-        setValue("application/json; charset=utf-8",
-                 forHTTPHeaderField: "Content-Type")
+        setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
     }
 
     mutating func setHeader(for httpHeaderField: String, with value: String) {

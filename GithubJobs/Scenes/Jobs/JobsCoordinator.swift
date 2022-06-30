@@ -18,7 +18,8 @@ final class JobsCoordinator: NSObject, JobsCoordinatorProtocol, Coordinator, UIN
     }
 
     func start() {
-        let viewModel = JobsViewModel(jobClient: JobClient())
+        let interactor = JobsInteractor(jobClient: JobClient())
+        let viewModel = JobsViewModel(interactor: interactor)
 
         let viewController = JobsViewController(viewModel: viewModel, coordinator: self)
 
@@ -29,6 +30,7 @@ final class JobsCoordinator: NSObject, JobsCoordinatorProtocol, Coordinator, UIN
     func showJobDetail(_ job: Job) {
         let coordinator = JobDetailCoordinator(navigationController: navigationController)
         coordinator.job = job
+        coordinator.detailNavigationController = UINavigationController()
 
         coordinator.parentCoordinator = unwrappedParentCoordinator
 

@@ -14,6 +14,7 @@ class JobDetailSectionView: UIView {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
+        label.textColor = .black
         label.backgroundColor = .systemTeal
 
         return label
@@ -40,13 +41,9 @@ class JobDetailSectionView: UIView {
 
     private func setupUI() {
         backgroundColor = .systemBackground
+
         addSubview(titleLabel)
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
-        ])
+        titleLabel.fillSuperview()
     }
 
 }

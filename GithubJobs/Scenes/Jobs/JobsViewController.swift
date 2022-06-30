@@ -41,10 +41,17 @@ class JobsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = LocalizedStrings.jobsTitle.localized
+        title = LocalizedStrings.jobsTitle()
         setupUI()
         setupBindings()
         viewModel.getJobs()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let indexPathForSelectedRow = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPathForSelectedRow, animated: true)
+        }
     }
 
     // MARK: - Private
@@ -74,10 +81,10 @@ class JobsViewController: UIViewController {
     private func configureView(with state: JobsViewState) {
         switch state {
         case .empty:
-            tableView.tableFooterView = CustomFooterView(message: LocalizedStrings.emptyJobsTitle.localized)
-        case .populated:
+            tableView.tableFooterView = CustomFooterView(message: LocalizedStrings.emptyJobsTitle())
+        case .populated, .paging:
             tableView.tableFooterView = UIView()
-        case .initial, .paging:
+        case .initial:
             tableView.tableFooterView = LoadingFooterView()
         case .error(let error):
             tableView.tableFooterView = CustomFooterView(message: error.description)
@@ -128,7 +135,6 @@ extension JobsViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         coordinator?.showJobDetail(viewModel.job(at: indexPath.row))
     }
 

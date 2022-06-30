@@ -4,12 +4,28 @@
 [![Platform](https://img.shields.io/cocoapods/p/DLAutoSlidePageViewController.svg?style=flat)]()
 [![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://developer.apple.com/swift/)
 
-Simple app written in Swift 5 using the Github Jobs API: https://jobs.github.com/api
+Simple universal app written in Swift 5 using the Github Jobs API: https://jobs.github.com/api
+
+## Deprecation note
+
+Github Jobs API was deprecated so a mock API is being used to display jobs information. 
+More info about the API deprecation can be found here:
+https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/
 
 ## Screenshots
 
+### iOS
+
 <img src="Screenshots/Home.png" width=200 height=433> <img src="Screenshots/Detail.png" width=200 height=433>
 <img src="Screenshots/Home_Dark.png" width=200 height=433> <img src="Screenshots/Detail_Dark.png" width=200 height=433>
+
+### iPadOS
+
+<img src="Screenshots/iPadOS.png" width=404 height=300> <img src="Screenshots/iPadOS_Dark.png" width=404 height=300>
+
+### MacOS
+
+<img src="Screenshots/MacOS.png" width=404 height=300> <img src="Screenshots/MacOS_Dark.png" width=404 height=300>
 
 ## Third-party libraries
 
