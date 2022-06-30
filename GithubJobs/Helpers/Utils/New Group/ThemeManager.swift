@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ThemeManager: ThemeManagerProtocol {
+final class ThemeManager: ThemeManagerProtocol {
 
     static let shared = ThemeManager()
 

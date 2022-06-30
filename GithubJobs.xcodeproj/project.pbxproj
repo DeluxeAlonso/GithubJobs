@@ -50,6 +50,7 @@
 		E28B52B225570D2B00389043 /* TableViewCellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52B125570D2B00389043 /* TableViewCellAnimator.swift */; };
 		E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52B62557215600389043 /* JobCellViewModel.swift */; };
 		E29456C3263E6CA70011AF68 /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = E29456C2263E6CA70011AF68 /* KingfisherStatic */; };
+		E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A13FE5286D5C75001BC83D /* ViewController.swift */; };
 		E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6AE2556D67400B5483A /* AppDelegate.swift */; };
 		E2B3E6B12556D67400B5483A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6B02556D67400B5483A /* SceneDelegate.swift */; };
 		E2B3E6B82556D67700B5483A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2B3E6B72556D67700B5483A /* Assets.xcassets */; };
@@ -130,6 +131,7 @@
 		E28B52AB25570CF000389043 /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		E28B52B125570D2B00389043 /* TableViewCellAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAnimator.swift; sourceTree = "<group>"; };
 		E28B52B62557215600389043 /* JobCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCellViewModel.swift; sourceTree = "<group>"; };
+		E2A13FE5286D5C75001BC83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2B3E6AB2556D67400B5483A /* GithubJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B3E6AE2556D67400B5483A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2B3E6B02556D67400B5483A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -286,6 +288,14 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		E2A13FE4286D5C57001BC83D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E2A13FE5286D5C75001BC83D /* ViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		E2B3E6A22556D67400B5483A = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +402,7 @@
 		E2B3E70E2556DD8400B5483A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E2A13FE4286D5C57001BC83D /* Common */,
 				E2B3E7212556DF6500B5483A /* Extensions */,
 				E2B3E70F2556DD9E00B5483A /* Protocols */,
 				E289EFC7263516D700A60609 /* PropertyWrappers */,
@@ -628,6 +639,7 @@
 				E2673AE925577A2300727460 /* TableViewDataSourcePrefetching.swift in Sources */,
 				E2673B1925578A3200727460 /* JobDetailHeaderView.swift in Sources */,
 				E2792433264786E000891120 /* MainSplitViewController.swift in Sources */,
+				E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */,
 				E2673B132557877F00727460 /* JobDetailViewModel.swift in Sources */,
 				E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */,
 				E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */,
