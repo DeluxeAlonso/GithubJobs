@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "DLProgressHUD",
-        "repositoryURL": "https://github.com/DeluxeAlonso/DLProgressHUD.git",
-        "state": {
-          "branch": "main",
-          "revision": "3c24d7c4449f0ba1d85359cc571372cb3069d70b",
-          "version": null
-        }
-      },
-      {
         "package": "Kingfisher",
         "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
         "state": {
