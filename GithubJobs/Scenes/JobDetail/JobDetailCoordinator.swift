@@ -23,7 +23,9 @@ final class JobDetailCoordinator: NSObject, JobDetailCoordinatorProtocol, Coordi
     func start() {
         let interactor = JobsInteractor(jobClient: JobClient())
         let viewModel = JobDetailViewModel(job, interactor: interactor)
-        let viewController = JobDetailViewController(viewModel: viewModel, coordinator: self)
+        let viewController = JobDetailViewController(viewModel: viewModel,
+                                                     coordinator: self,
+                                                     themeManager: ThemeManager.shared)
 
         if let detailNavigationController = detailNavigationController {
             detailNavigationController.pushViewController(viewController, animated: false)
