@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class JobsViewController: ViewController {
+final class JobsViewController: ViewController {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
