@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class EmptyDetailViewController: UIViewController {
+final class EmptyDetailViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

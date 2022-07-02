@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         mainCoordinator.start()
 
         let splitVC = MainSplitViewController(preferredDisplayMode: .oneBesideSecondary)
-        splitVC.viewControllers = [mainCoordinator.navigationController, EmptyDetailViewController()]
+        splitVC.viewControllers = [mainCoordinator.navigationController, EmptyDetailViewController(themeManager: ThemeManager.shared)]
 
         self.window?.rootViewController = splitVC
         self.window?.makeKeyAndVisible()
