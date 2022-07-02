@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class JobsViewController: UIViewController {
+class JobsViewController: ViewController {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -26,10 +26,10 @@ class JobsViewController: UIViewController {
 
     // MARK: - Initializers
 
-    init(viewModel: JobsViewModelProtocol, coordinator: JobsCoordinatorProtocol) {
+    init(viewModel: JobsViewModelProtocol, coordinator: JobsCoordinatorProtocol, themeManager: ThemeManagerProtocol) {
         self.viewModel = viewModel
         self.coordinator = coordinator
-        super.init(nibName: nil, bundle: nil)
+        super.init(themeManager: themeManager)
     }
 
     required init?(coder: NSCoder) {
