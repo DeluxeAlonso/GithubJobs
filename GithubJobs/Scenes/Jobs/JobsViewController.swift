@@ -58,6 +58,7 @@ final class JobsViewController: ViewController {
 
     private func setupUI() {
         view.addSubview(tableView)
+
         tableView.fillSuperview()
 
         tableView.register(cellType: JobTableViewCell.self)
