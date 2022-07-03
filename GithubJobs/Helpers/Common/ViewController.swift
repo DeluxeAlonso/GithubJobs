@@ -29,6 +29,7 @@ class ViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] userInterfaceStyle in
                 guard let self = self else { return }
+                self.navigationController?.overrideUserInterfaceStyle = userInterfaceStyle
                 self.overrideUserInterfaceStyle = userInterfaceStyle
             }.store(in: &themeCancellable)
     }
