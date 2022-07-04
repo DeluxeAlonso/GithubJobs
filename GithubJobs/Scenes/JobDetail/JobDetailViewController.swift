@@ -26,7 +26,9 @@ final class JobDetailViewController: ViewController {
 
     // MARK: - Initializers
 
-    init(viewModel: JobDetailViewModelProtocol, coordinator: JobDetailCoordinatorProtocol, themeManager: ThemeManagerProtocol) {
+    init(themeManager: ThemeManagerProtocol,
+         viewModel: JobDetailViewModelProtocol,
+         coordinator: JobDetailCoordinatorProtocol) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(themeManager: themeManager)

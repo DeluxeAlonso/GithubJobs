@@ -21,9 +21,9 @@ final class JobsCoordinator: NSObject, JobsCoordinatorProtocol, Coordinator, UIN
         let interactor = JobsInteractor(jobClient: JobClient())
         let viewModel = JobsViewModel(interactor: interactor)
 
-        let viewController = JobsViewController(viewModel: viewModel,
-                                                coordinator: self,
-                                                themeManager: ThemeManager.shared)
+        let viewController = JobsViewController(themeManager: ThemeManager.shared,
+                                                viewModel: viewModel,
+                                                coordinator: self)
 
         navigationController.delegate = self
         navigationController.pushViewController(viewController, animated: true)
