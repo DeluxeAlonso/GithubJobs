@@ -11,9 +11,6 @@
 		E21AEC332556E1E600A85639 /* JobProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC322556E1E600A85639 /* JobProvider.swift */; };
 		E21AEC382556E35100A85639 /* JobsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC372556E35100A85639 /* JobsViewModel.swift */; };
 		E21AEC3E2556E3B800A85639 /* JobClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC3D2556E3B700A85639 /* JobClientProtocol.swift */; };
-		E234A014287298E50086F353 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234A013287298E50086F353 /* SettingsViewController.swift */; };
-		E234A01628729C440086F353 /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234A01528729C440086F353 /* SettingsProtocols.swift */; };
-		E234A01828729C620086F353 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234A01728729C620086F353 /* SettingsCoordinator.swift */; };
 		E23930DE25585D8000E7C4ED /* JobDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23930DD25585D8000E7C4ED /* JobDetailTests.swift */; };
 		E2609A36255836E5008002BA /* JobDetailHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2609A35255836E5008002BA /* JobDetailHeaderViewModel.swift */; };
 		E261F94A25583CBA00DBC582 /* BackgroundCurvedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E261F94925583CBA00DBC582 /* BackgroundCurvedView.swift */; };
@@ -98,9 +95,6 @@
 		E21AEC322556E1E600A85639 /* JobProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobProvider.swift; sourceTree = "<group>"; };
 		E21AEC372556E35100A85639 /* JobsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewModel.swift; sourceTree = "<group>"; };
 		E21AEC3D2556E3B700A85639 /* JobClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobClientProtocol.swift; sourceTree = "<group>"; };
-		E234A013287298E50086F353 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		E234A01528729C440086F353 /* SettingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
-		E234A01728729C620086F353 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		E23930DD25585D8000E7C4ED /* JobDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailTests.swift; sourceTree = "<group>"; };
 		E25C2E9F26487E4100DFAEFC /* GithubJobs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GithubJobs.entitlements; sourceTree = "<group>"; };
 		E2609A35255836E5008002BA /* JobDetailHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailHeaderViewModel.swift; sourceTree = "<group>"; };
@@ -211,9 +205,6 @@
 			children = (
 				E2ADF9F82873ECA800987D4D /* ThemeSelection */,
 				E2ADF9F52873EB9F00987D4D /* ViewComponents */,
-				E234A013287298E50086F353 /* SettingsViewController.swift */,
-				E234A01528729C440086F353 /* SettingsProtocols.swift */,
-				E234A01728729C620086F353 /* SettingsCoordinator.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -699,7 +690,6 @@
 				E2ADF9F72873EBB800987D4D /* SettingsSectionHeaderView.swift in Sources */,
 				E2673AE425577A0B00727460 /* DataSourcePrefetching.swift in Sources */,
 				E2641C022557C90100675868 /* String+Localized.swift in Sources */,
-				E234A014287298E50086F353 /* SettingsViewController.swift in Sources */,
 				E2ADF9FA2873ECBD00987D4D /* ThemeSelectionViewController.swift in Sources */,
 				E28B5294255700F100389043 /* JobsViewState.swift in Sources */,
 				E2B3E7162556DDD200B5483A /* Endpoint.swift in Sources */,
@@ -724,10 +714,8 @@
 				E27924352647873800891120 /* EmptyDetailViewController.swift in Sources */,
 				E2673AFF2557823F00727460 /* Coordinator.swift in Sources */,
 				E2B3E70A2556DD5700B5483A /* APIError.swift in Sources */,
-				E234A01628729C440086F353 /* SettingsProtocols.swift in Sources */,
 				E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */,
 				E28B52B225570D2B00389043 /* TableViewCellAnimator.swift in Sources */,
-				E234A01828729C620086F353 /* SettingsCoordinator.swift in Sources */,
 				E2B3E6B12556D67400B5483A /* SceneDelegate.swift in Sources */,
 				E2B3E7232556DF8000B5483A /* URLRequest+Headers.swift in Sources */,
 				E27138AA2782384400E6F501 /* JobsInteractor.swift in Sources */,
