@@ -1,13 +1,13 @@
 //
-//  SettingsCoordinator.swift
+//  ThemeSelectionCoordinator.swift
 //  GithubJobs
 //
-//  Created by Alonso on 3/07/22.
+//  Created by Alonso on 4/07/22.
 //
 
 import UIKit
 
-final class SettingsCoordinator: NSObject, Coordinator, SettingsCoordinatorProtocol {
+final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoordinatorProtocol {
 
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?
@@ -20,7 +20,7 @@ final class SettingsCoordinator: NSObject, Coordinator, SettingsCoordinatorProto
     }
 
     func start() {
-        let viewController = SettingsViewController(themeManager: ThemeManager.shared, coordinator: self)
+        let viewController = ThemeSelectionViewController(themeManager: ThemeManager.shared, coordinator: self)
 
         navigationController.pushViewController(viewController, animated: false)
         navigationController.modalPresentationStyle = .fullScreen
