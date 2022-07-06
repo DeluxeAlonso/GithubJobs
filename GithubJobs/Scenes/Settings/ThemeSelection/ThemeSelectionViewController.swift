@@ -7,18 +7,6 @@
 
 import UIKit
 
-enum Theme: CaseIterable {
-    case light, dark, system
-
-    var title: String? {
-        switch self {
-        case .light: return "Light"
-        case .dark: return "Dark"
-        case .system: return "System"
-        }
-    }
-}
-
 enum ThemeSelectionSection {
     case main
 
