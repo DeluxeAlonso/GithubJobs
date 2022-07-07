@@ -5,8 +5,6 @@
 //  Created by Alonso on 6/07/22.
 //
 
-import Foundation
-
 enum ThemeSelectionSection {
     case main
 
