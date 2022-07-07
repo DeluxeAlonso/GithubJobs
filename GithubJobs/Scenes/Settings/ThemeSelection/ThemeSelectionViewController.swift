@@ -7,24 +7,6 @@
 
 import UIKit
 
-enum ThemeSelectionSection {
-    case main
-
-    var title: String? {
-        switch self {
-        case .main:
-            return "Theme"
-        }
-    }
-
-    var themes: [Theme] {
-        switch self {
-        case .main:
-            return Theme.allCases
-        }
-    }
-}
-
 class ThemeSelectionViewController: ViewController {
 
     lazy private var collectionView: UICollectionView = {
