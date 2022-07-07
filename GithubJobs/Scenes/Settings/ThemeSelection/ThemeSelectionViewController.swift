@@ -7,23 +7,7 @@
 
 import UIKit
 
-enum ThemeSelectionSection {
-    case main
-
-    var title: String? {
-        switch self {
-        case .main:
-            return "Theme"
-        }
-    }
-
-    var themes: [Theme] {
-        switch self {
-        case .main:
-            return Theme.allCases
-        }
-    }
-}
+typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataSource<ThemeSelectionSection, Theme>
 
 class ThemeSelectionViewController: ViewController {
 
@@ -33,7 +17,7 @@ class ThemeSelectionViewController: ViewController {
         return collectionView
     }()
 
-    private var dataSource: UICollectionViewDiffableDataSource<ThemeSelectionSection, Theme>!
+    private var dataSource: ThemeSelectionCollectionViewDataSource!
 
     private weak var coordinator: ThemeSelectionCoordinatorProtocol?
 
@@ -77,15 +61,14 @@ class ThemeSelectionViewController: ViewController {
             cell.contentConfiguration = content
         }
 
-        dataSource = UICollectionViewDiffableDataSource<ThemeSelectionSection, Theme>(collectionView: collectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, identifier: Theme) -> UICollectionViewCell? in
+        dataSource = ThemeSelectionCollectionViewDataSource(collectionView: collectionView) { collectionView, indexPath, identifier in
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
                                                                     for: indexPath, item: identifier)
             cell.accessories = [.disclosureIndicator()]
             return cell
         }
 
-        dataSource.supplementaryViewProvider = { (collectionView: UICollectionView, kind: String, indexPath: IndexPath) -> UICollectionReusableView? in
+        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
             let headerView = collectionView.dequeueReusableView(with: SettingsSectionHeaderView.self,
                                                                 kind: UICollectionView.elementKindSectionHeader,
                                                                 for: indexPath)
