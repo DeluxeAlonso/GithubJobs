@@ -75,6 +75,7 @@
 		E2B3E7302556DFD200B5483A /* CharacterSet+Filtering.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E72F2556DFD200B5483A /* CharacterSet+Filtering.swift */; };
 		E2B3E7372556E01400B5483A /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E7362556E01400B5483A /* Job.swift */; };
 		E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E73B2556E10700B5483A /* JobsResult.swift */; };
+		E2CC32482877DFF500345569 /* ThemeSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +171,7 @@
 		E2B3E72F2556DFD200B5483A /* CharacterSet+Filtering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+Filtering.swift"; sourceTree = "<group>"; };
 		E2B3E7362556E01400B5483A /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		E2B3E73B2556E10700B5483A /* JobsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsResult.swift; sourceTree = "<group>"; };
+		E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +339,7 @@
 				E2ADF9FD2873ECE200987D4D /* ThemeSelectionCoordinator.swift */,
 				E23C362328753BB20041B67A /* Theme+Title.swift */,
 				E26B977F2876976D00C6D197 /* ThemeSelectionSection.swift */,
+				E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */,
 			);
 			path = ThemeSelection;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 				E2673AE925577A2300727460 /* TableViewDataSourcePrefetching.swift in Sources */,
 				E2673B1925578A3200727460 /* JobDetailHeaderView.swift in Sources */,
 				E2792433264786E000891120 /* MainSplitViewController.swift in Sources */,
+				E2CC32482877DFF500345569 /* ThemeSelectionViewModel.swift in Sources */,
 				E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */,
 				E2673B132557877F00727460 /* JobDetailViewModel.swift in Sources */,
 				E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */,

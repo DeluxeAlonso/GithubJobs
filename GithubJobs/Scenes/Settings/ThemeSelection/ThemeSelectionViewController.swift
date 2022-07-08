@@ -38,8 +38,6 @@ class ThemeSelectionViewController: ViewController {
         collectionView.register(viewType: SettingsSectionHeaderView.self, kind: UICollectionView.elementKindSectionHeader)
 
         configureCollectionViewLayout()
-        //configureCollectionViewDataSource()
-        //updateUI()
     }
 
     private func configureCollectionViewLayout() {
