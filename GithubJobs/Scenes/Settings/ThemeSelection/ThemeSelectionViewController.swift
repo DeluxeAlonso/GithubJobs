@@ -17,11 +17,15 @@ class ThemeSelectionViewController: ViewController {
         return collectionView
     }()
 
-    private var dataSource: ThemeSelectionCollectionViewDataSource!
-
+    private let viewModel: ThemeSelectionViewModelProtocol
     private weak var coordinator: ThemeSelectionCoordinatorProtocol?
 
-    init(themeManager: ThemeManagerProtocol, coordinator: ThemeSelectionCoordinatorProtocol) {
+    private var dataSource: ThemeSelectionCollectionViewDataSource?
+
+    init(themeManager: ThemeManagerProtocol,
+         viewModel: ThemeSelectionViewModelProtocol,
+         coordinator: ThemeSelectionCoordinatorProtocol) {
+        self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(themeManager: themeManager)
     }
@@ -49,10 +53,10 @@ class ThemeSelectionViewController: ViewController {
     }
 
     private func configureCollectionViewDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Theme> { cell, _, item in
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Theme> { [weak self] cell, _, theme in
             var content = UIListContentConfiguration.sidebarCell()
 
-            content.text = item.title
+            content.text = self?.viewModel.title(for: theme)
             content.textToSecondaryTextVerticalPadding = 4
             content.secondaryTextProperties.numberOfLines = 0
 
@@ -66,7 +70,7 @@ class ThemeSelectionViewController: ViewController {
             return cell
         }
 
-        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
+        dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
             let headerView = collectionView.dequeueReusableView(with: SettingsSectionHeaderView.self,
                                                                 kind: UICollectionView.elementKindSectionHeader,
                                                                 for: indexPath)

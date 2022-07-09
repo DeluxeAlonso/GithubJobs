@@ -20,7 +20,11 @@ final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoor
     }
 
     func start() {
-        let viewController = ThemeSelectionViewController(themeManager: ThemeManager.shared, coordinator: self)
+        let themeManager = ThemeManager.shared
+        let viewModel = ThemeSelectionViewModel(themeManager: themeManager)
+        let viewController = ThemeSelectionViewController(themeManager: themeManager,
+                                                          viewModel: viewModel,
+                                                          coordinator: self)
 
         navigationController.pushViewController(viewController, animated: false)
         navigationController.modalPresentationStyle = .fullScreen
