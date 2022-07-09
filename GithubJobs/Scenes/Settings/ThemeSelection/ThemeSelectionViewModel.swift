@@ -15,4 +15,12 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
         self.themeManager = themeManager
     }
 
+    func title(for theme: Theme) -> String? {
+        switch theme {
+        case .light: return "Light"
+        case .dark: return "Dark"
+        case .system: return "System"
+        }
+    }
+
 }

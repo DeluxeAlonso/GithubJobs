@@ -17,10 +17,15 @@ class ThemeSelectionViewController: ViewController {
         return collectionView
     }()
 
-    private var dataSource: ThemeSelectionCollectionViewDataSource?
+    private let viewModel: ThemeSelectionViewModelProtocol
     private weak var coordinator: ThemeSelectionCoordinatorProtocol?
 
-    init(themeManager: ThemeManagerProtocol, coordinator: ThemeSelectionCoordinatorProtocol) {
+    private var dataSource: ThemeSelectionCollectionViewDataSource?
+
+    init(themeManager: ThemeManagerProtocol,
+         viewModel: ThemeSelectionViewModelProtocol,
+         coordinator: ThemeSelectionCoordinatorProtocol) {
+        self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(themeManager: themeManager)
     }
