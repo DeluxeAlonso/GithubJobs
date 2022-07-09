@@ -17,8 +17,7 @@ class ThemeSelectionViewController: ViewController {
         return collectionView
     }()
 
-    private var dataSource: ThemeSelectionCollectionViewDataSource!
-
+    private var dataSource: ThemeSelectionCollectionViewDataSource?
     private weak var coordinator: ThemeSelectionCoordinatorProtocol?
 
     init(themeManager: ThemeManagerProtocol, coordinator: ThemeSelectionCoordinatorProtocol) {
@@ -66,7 +65,7 @@ class ThemeSelectionViewController: ViewController {
             return cell
         }
 
-        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
+        dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
             let headerView = collectionView.dequeueReusableView(with: SettingsSectionHeaderView.self,
                                                                 kind: UICollectionView.elementKindSectionHeader,
                                                                 for: indexPath)
