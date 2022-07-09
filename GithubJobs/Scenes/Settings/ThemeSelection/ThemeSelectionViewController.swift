@@ -53,10 +53,10 @@ class ThemeSelectionViewController: ViewController {
     }
 
     private func configureCollectionViewDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Theme> { cell, _, item in
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Theme> { [weak self] cell, _, theme in
             var content = UIListContentConfiguration.sidebarCell()
 
-            content.text = item.title
+            content.text = self?.viewModel.title(for: theme)
             content.textToSecondaryTextVerticalPadding = 4
             content.secondaryTextProperties.numberOfLines = 0
 
