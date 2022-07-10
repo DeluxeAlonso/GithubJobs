@@ -23,4 +23,8 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
         }
     }
 
+    func headerTitle(for section: Int) -> String? {
+        return "Theme"
+    }
+
 }
