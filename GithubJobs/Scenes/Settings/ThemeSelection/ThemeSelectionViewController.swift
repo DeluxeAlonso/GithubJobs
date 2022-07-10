@@ -70,11 +70,11 @@ class ThemeSelectionViewController: ViewController {
             return cell
         }
 
-        dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
+        dataSource?.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
             let headerView = collectionView.dequeueReusableView(with: SettingsSectionHeaderView.self,
                                                                 kind: UICollectionView.elementKindSectionHeader,
                                                                 for: indexPath)
-            headerView.title = "Theme"
+            headerView.title = self?.viewModel.headerTitle(for: indexPath.section)
             return headerView
         }
     }
