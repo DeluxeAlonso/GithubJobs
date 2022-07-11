@@ -7,6 +7,8 @@
 
 protocol ThemeSelectionViewModelProtocol {
 
+    var themes: [Theme] { get }
+
     func title(for theme: Theme) -> String?
     func headerTitle(for section: Int) -> String?
 

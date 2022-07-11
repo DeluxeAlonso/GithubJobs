@@ -15,6 +15,10 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
         self.themeManager = themeManager
     }
 
+    var themes: [Theme] {
+        return Theme.allCases
+    }
+
     func title(for theme: Theme) -> String? {
         switch theme {
         case .light: return "Light"
