@@ -79,4 +79,11 @@ class ThemeSelectionViewController: ViewController {
         }
     }
 
+    private func updateUI() {
+        var snapshot = NSDiffableDataSourceSnapshot<ThemeSelectionSection, Theme>()
+        snapshot.appendSections([ThemeSelectionSection.main])
+        snapshot.appendItems(ThemeSelectionSection.main.themes, toSection: ThemeSelectionSection.main)
+        dataSource?.apply(snapshot, animatingDifferences: false)
+    }
+
 }
