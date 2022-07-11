@@ -36,6 +36,12 @@ class ThemeSelectionViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        configureUI()
+        configureCollectionViewLayout()
+        configureCollectionViewDataSource()
+
+        updateUI()
     }
 
     private func configureUI() {
@@ -82,7 +88,7 @@ class ThemeSelectionViewController: ViewController {
     private func updateUI() {
         var snapshot = NSDiffableDataSourceSnapshot<ThemeSelectionSection, Theme>()
         snapshot.appendSections([ThemeSelectionSection.main])
-        snapshot.appendItems(ThemeSelectionSection.main.themes, toSection: ThemeSelectionSection.main)
+        snapshot.appendItems(viewModel.themes, toSection: ThemeSelectionSection.main)
         dataSource?.apply(snapshot, animatingDifferences: false)
     }
 
