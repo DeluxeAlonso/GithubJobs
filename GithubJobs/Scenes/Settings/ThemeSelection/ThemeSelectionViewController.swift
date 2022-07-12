@@ -34,6 +34,8 @@ class ThemeSelectionViewController: ViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,6 +45,8 @@ class ThemeSelectionViewController: ViewController {
 
         updateUI()
     }
+
+    // MARK: - Private
 
     private func configureUI() {
         collectionView.register(viewType: SettingsSectionHeaderView.self, kind: UICollectionView.elementKindSectionHeader)
