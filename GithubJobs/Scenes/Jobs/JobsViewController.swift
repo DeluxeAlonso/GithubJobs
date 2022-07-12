@@ -10,6 +10,11 @@ import Combine
 
 final class JobsViewController: ViewController {
 
+    private lazy var themeSelectionBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem.init(systemItem: .bookmarks)
+        return barButtonItem
+    }()
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
