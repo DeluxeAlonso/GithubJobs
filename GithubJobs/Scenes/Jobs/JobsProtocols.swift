@@ -29,5 +29,6 @@ protocol JobsInteractorProtocol {
 protocol JobsCoordinatorProtocol: AnyObject {
 
     func showJobDetail(_ job: Job)
+    func showThemeSelection()
 
 }

@@ -13,6 +13,7 @@ class ThemeSelectionViewController: ViewController {
 
     lazy private var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+        collectionView.register(viewType: SettingsSectionHeaderView.self, kind: UICollectionView.elementKindSectionHeader)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -49,7 +50,10 @@ class ThemeSelectionViewController: ViewController {
     // MARK: - Private
 
     private func configureUI() {
-        collectionView.register(viewType: SettingsSectionHeaderView.self, kind: UICollectionView.elementKindSectionHeader)
+        view.backgroundColor = .systemBackground
+
+        view.addSubview(collectionView)
+        collectionView.fillSuperview(padding: .zero)
 
         configureCollectionViewLayout()
     }
