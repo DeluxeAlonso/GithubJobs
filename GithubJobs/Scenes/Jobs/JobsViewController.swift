@@ -11,7 +11,7 @@ import Combine
 final class JobsViewController: ViewController {
 
     private lazy var themeSelectionBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem.init(systemItem: .bookmarks)
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(themeSelectionAction))
         return barButtonItem
     }()
 
@@ -64,6 +64,8 @@ final class JobsViewController: ViewController {
     // MARK: - Private
 
     private func setupUI() {
+        navigationItem.rightBarButtonItem = themeSelectionBarButtonItem
+
         view.addSubview(tableView)
 
         tableView.fillSuperview()
@@ -110,6 +112,10 @@ final class JobsViewController: ViewController {
                 strongSelf.configureTableViewDataSource()
                 strongSelf.tableView.reloadData()
             }.store(in: &cancellables)
+    }
+
+    @objc private func themeSelectionAction() {
+        coordinator?.showThemeSelection()
     }
 
 }
