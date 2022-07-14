@@ -82,7 +82,7 @@ class ThemeSelectionViewController: ViewController {
         dataSource = ThemeSelectionCollectionViewDataSource(collectionView: collectionView) { collectionView, indexPath, identifier in
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
                                                                     for: indexPath, item: identifier)
-            cell.accessories = [.disclosureIndicator()]
+            cell.accessories = [.checkmark(displayed: .always, options: .init(isHidden: false))]
             return cell
         }
 
