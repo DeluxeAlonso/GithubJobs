@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataSource<ThemeSelectionSection, Theme>
 
@@ -50,11 +51,12 @@ class ThemeSelectionViewController: ViewController {
     // MARK: - Private
 
     private func configureUI() {
+        title = "Theme selection"
+
         view.backgroundColor = .systemBackground
-
         view.addSubview(collectionView)
-        collectionView.fillSuperview(padding: .zero)
 
+        collectionView.fillSuperview(padding: .zero)
         configureCollectionViewLayout()
     }
 
