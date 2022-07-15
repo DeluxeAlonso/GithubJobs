@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataSource<ThemeSelectionSection, Theme>
 
