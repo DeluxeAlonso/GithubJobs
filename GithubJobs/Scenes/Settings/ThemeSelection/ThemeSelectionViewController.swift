@@ -6,11 +6,10 @@
 //
 
 import UIKit
-import SwiftUI
 
 typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataSource<ThemeSelectionSection, Theme>
 
-class ThemeSelectionViewController: ViewController {
+final class ThemeSelectionViewController: ViewController {
 
     lazy private var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
@@ -70,7 +69,7 @@ class ThemeSelectionViewController: ViewController {
 
     private func configureCollectionViewDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Theme> { [weak self] cell, _, theme in
-            var content = UIListContentConfiguration.sidebarCell()
+            var content = UIListContentConfiguration.valueCell()
 
             content.text = self?.viewModel.title(for: theme)
             content.textToSecondaryTextVerticalPadding = 4
