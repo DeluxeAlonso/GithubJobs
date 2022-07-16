@@ -13,7 +13,7 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
         self.themeManager = themeManager
     }
 
-    var themes: [Theme] {
+    var themes: [ThemeModel] {
         return Theme.allCases
     }
 
@@ -31,7 +31,7 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     // MARK: - Theme model
 
-    struct ThemeModel: ThemeModelProtocol {
+    struct ThemeModel {
 
         let title: String
         let isSelected: Bool
@@ -42,9 +42,4 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
         }
     }
 
-}
-
-protocol ThemeModelProtocol {
-    var title: String { get }
-    var isSelected: Bool { get }
 }
