@@ -29,4 +29,22 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
         return "Theme"
     }
 
+    // MARK: - Theme model
+
+    struct ThemeModel: ThemeModelProtocol {
+
+        let title: String
+        let isSelected: Bool
+
+        init(_ title: String, isSelected: Bool) {
+            self.title = title
+            self.isSelected = isSelected
+        }
+    }
+
+}
+
+protocol ThemeModelProtocol {
+    var title: String { get }
+    var isSelected: Bool { get }
 }
