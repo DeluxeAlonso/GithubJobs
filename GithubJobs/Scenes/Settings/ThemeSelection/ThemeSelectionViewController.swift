@@ -7,7 +7,8 @@
 
 import UIKit
 
-typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataSource<ThemeSelectionSection, Theme>
+typealias ThemeModel = ThemeSelectionViewModel.ThemeModel
+typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataSource<ThemeSelectionSection, ThemeModel>
 
 final class ThemeSelectionViewController: ViewController {
 
@@ -68,20 +69,22 @@ final class ThemeSelectionViewController: ViewController {
     }
 
     private func configureCollectionViewDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Theme> { [weak self] cell, _, theme in
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, ThemeModel> { cell, _, theme in
             var content = UIListContentConfiguration.valueCell()
 
-            content.text = self?.viewModel.title(for: theme)
+            content.text = theme.title
             content.textToSecondaryTextVerticalPadding = 4
             content.secondaryTextProperties.numberOfLines = 0
 
             cell.contentConfiguration = content
         }
 
-        dataSource = ThemeSelectionCollectionViewDataSource(collectionView: collectionView) { collectionView, indexPath, identifier in
+        dataSource = ThemeSelectionCollectionViewDataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, identifier in
+            guard let self = self else { fatalError() }
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
                                                                     for: indexPath, item: identifier)
-            cell.accessories = [.checkmark(displayed: .always, options: .init(isHidden: false))]
+            let theme = self.viewModel.themes[indexPath.row]
+            cell.accessories = [.checkmark(displayed: .always, options: .init(isHidden: !theme.isSelected))]
             return cell
         }
 
@@ -95,7 +98,7 @@ final class ThemeSelectionViewController: ViewController {
     }
 
     private func updateUI() {
-        var snapshot = NSDiffableDataSourceSnapshot<ThemeSelectionSection, Theme>()
+        var snapshot = NSDiffableDataSourceSnapshot<ThemeSelectionSection, ThemeModel>()
         snapshot.appendSections([ThemeSelectionSection.main])
         snapshot.appendItems(viewModel.themes, toSection: ThemeSelectionSection.main)
         dataSource?.apply(snapshot, animatingDifferences: false)
