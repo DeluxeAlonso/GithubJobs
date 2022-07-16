@@ -79,10 +79,12 @@ final class ThemeSelectionViewController: ViewController {
             cell.contentConfiguration = content
         }
 
-        dataSource = ThemeSelectionCollectionViewDataSource(collectionView: collectionView) { collectionView, indexPath, identifier in
+        dataSource = ThemeSelectionCollectionViewDataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, identifier in
+            guard let self = self else { fatalError() }
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
                                                                     for: indexPath, item: identifier)
-            cell.accessories = [.checkmark(displayed: .always, options: .init(isHidden: false))]
+            let theme = self.viewModel.themes[indexPath.row]
+            cell.accessories = [.checkmark(displayed: .always, options: .init(isHidden: !theme.isSelected))]
             return cell
         }
 
