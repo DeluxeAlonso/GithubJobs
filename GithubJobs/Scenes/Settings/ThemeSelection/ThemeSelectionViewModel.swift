@@ -14,10 +14,14 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
     }
 
     var themes: [ThemeModel] {
-        return Theme.allCases
+        return Theme.allCases.map { theme in
+            let title = self.title(for: theme)
+            let isSelected = themeManager.interfaceStyle.value == theme.asUserInterfaceStyle()
+            return ThemeModel(title, isSelected: isSelected)
+        }
     }
 
-    func title(for theme: Theme) -> String? {
+    func title(for theme: Theme) -> String {
         switch theme {
         case .light: return "Light"
         case .dark: return "Dark"
