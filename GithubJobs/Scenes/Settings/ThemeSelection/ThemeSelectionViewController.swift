@@ -7,7 +7,8 @@
 
 import UIKit
 
-typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataSource<ThemeSelectionSection, Theme>
+typealias ThemeModel = ThemeSelectionViewModel.ThemeModel
+typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataSource<ThemeSelectionSection, ThemeModel>
 
 final class ThemeSelectionViewController: ViewController {
 
@@ -68,10 +69,10 @@ final class ThemeSelectionViewController: ViewController {
     }
 
     private func configureCollectionViewDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Theme> { [weak self] cell, _, theme in
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, ThemeModel> { cell, _, theme in
             var content = UIListContentConfiguration.valueCell()
 
-            content.text = self?.viewModel.title(for: theme)
+            content.text = theme.title
             content.textToSecondaryTextVerticalPadding = 4
             content.secondaryTextProperties.numberOfLines = 0
 
@@ -95,7 +96,7 @@ final class ThemeSelectionViewController: ViewController {
     }
 
     private func updateUI() {
-        var snapshot = NSDiffableDataSourceSnapshot<ThemeSelectionSection, Theme>()
+        var snapshot = NSDiffableDataSourceSnapshot<ThemeSelectionSection, ThemeModel>()
         snapshot.appendSections([ThemeSelectionSection.main])
         snapshot.appendItems(viewModel.themes, toSection: ThemeSelectionSection.main)
         dataSource?.apply(snapshot, animatingDifferences: false)

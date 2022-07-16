@@ -35,8 +35,7 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     // MARK: - Theme model
 
-    struct ThemeModel {
-
+    struct ThemeModel: Equatable, Hashable {
         let title: String
         let isSelected: Bool
 
