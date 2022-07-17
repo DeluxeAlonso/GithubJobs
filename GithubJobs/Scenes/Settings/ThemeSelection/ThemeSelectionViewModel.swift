@@ -5,13 +5,21 @@
 //  Created by Alonso on 7/07/22.
 //
 
+import Combine
+
 final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     private let themeManager: ThemeManagerProtocol
 
+    var didSelectTheme = PassthroughSubject<Void, Never>()
+
+    // MARK: - Initializers
+
     init(themeManager: ThemeManagerProtocol) {
         self.themeManager = themeManager
     }
+
+    // MARK: - ThemeSelectionViewModelProtocol
 
     var themes: [ThemeModel] {
         return Theme.allCases.map { theme in
@@ -36,6 +44,7 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
     func selectTheme(at index: Int) {
         let selectedTheme = Theme.allCases[index]
         themeManager.updateInterfaceStyle(selectedTheme.asUserInterfaceStyle())
+        didSelectTheme.send()
     }
 
     // MARK: - Theme model

@@ -5,6 +5,7 @@
 //  Created by Alonso on 4/07/22.
 //
 
+import Combine
 import UIKit
 
 typealias ThemeModel = ThemeSelectionViewModel.ThemeModel
@@ -29,6 +30,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
     private weak var coordinator: ThemeSelectionCoordinatorProtocol?
 
     private var dataSource: ThemeSelectionCollectionViewDataSource?
+    private var cancellables: Set<AnyCancellable> = []
 
     init(themeManager: ThemeManagerProtocol,
          viewModel: ThemeSelectionViewModelProtocol,
@@ -52,6 +54,8 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         configureCollectionViewDataSource()
 
         updateUI()
+
+        setupBindings()
     }
 
     // MARK: - Private
@@ -66,6 +70,10 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
 
         collectionView.fillSuperview(padding: .zero)
         configureCollectionViewLayout()
+    }
+
+    private func configureCollectionView() {
+        
     }
 
     private func configureCollectionViewLayout() {
@@ -110,6 +118,15 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         snapshot.appendSections([ThemeSelectionSection.main])
         snapshot.appendItems(viewModel.themes, toSection: ThemeSelectionSection.main)
         dataSource?.apply(snapshot, animatingDifferences: false)
+    }
+
+    private func setupBindings() {
+        viewModel.didSelectTheme
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.updateUI()
+            }.store(in: &cancellables)
     }
 
     // MARK: - Selectors
