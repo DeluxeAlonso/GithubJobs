@@ -20,6 +20,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
     lazy private var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         collectionView.register(viewType: SettingsSectionHeaderView.self, kind: UICollectionView.elementKindSectionHeader)
+        collectionView.delegate = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -120,7 +121,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
     // MARK: - UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+        viewModel.selectTheme(at: indexPath.row)
     }
 
 }
