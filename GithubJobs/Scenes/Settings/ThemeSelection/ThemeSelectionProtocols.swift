@@ -13,4 +13,6 @@ protocol ThemeSelectionViewModelProtocol {
 
 }
 
-protocol ThemeSelectionCoordinatorProtocol: AnyObject {}
+protocol ThemeSelectionCoordinatorProtocol: AnyObject {
+    func dismiss()
+}

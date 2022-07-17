@@ -10,7 +10,12 @@ import UIKit
 typealias ThemeModel = ThemeSelectionViewModel.ThemeModel
 typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataSource<ThemeSelectionSection, ThemeModel>
 
-final class ThemeSelectionViewController: ViewController {
+final class ThemeSelectionViewController: ViewController, UICollectionViewDelegate {
+
+    lazy private var closeBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeAction))
+        return barButtonItem
+    }()
 
     lazy private var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
@@ -52,6 +57,8 @@ final class ThemeSelectionViewController: ViewController {
 
     private func configureUI() {
         title = "Theme selection"
+
+        navigationItem.leftBarButtonItem = closeBarButtonItem
 
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
@@ -102,6 +109,18 @@ final class ThemeSelectionViewController: ViewController {
         snapshot.appendSections([ThemeSelectionSection.main])
         snapshot.appendItems(viewModel.themes, toSection: ThemeSelectionSection.main)
         dataSource?.apply(snapshot, animatingDifferences: false)
+    }
+
+    // MARK: - Selectors
+
+    @objc private func closeAction() {
+        coordinator?.dismiss()
+    }
+
+    // MARK: - UICollectionViewDelegate
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        <#code#>
     }
 
 }
