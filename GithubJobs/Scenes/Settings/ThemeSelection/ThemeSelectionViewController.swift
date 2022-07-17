@@ -50,9 +50,6 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         super.viewDidLoad()
 
         configureUI()
-        configureCollectionViewLayout()
-        configureCollectionViewDataSource()
-
         updateUI()
 
         setupBindings()
@@ -66,14 +63,16 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         navigationItem.leftBarButtonItem = closeBarButtonItem
 
         view.backgroundColor = .systemBackground
-        view.addSubview(collectionView)
 
-        collectionView.fillSuperview(padding: .zero)
-        configureCollectionViewLayout()
+        configureCollectionView()
     }
 
     private func configureCollectionView() {
-        
+        view.addSubview(collectionView)
+        collectionView.fillSuperview(padding: .zero)
+
+        configureCollectionViewLayout()
+        configureCollectionViewDataSource()
     }
 
     private func configureCollectionViewLayout() {
