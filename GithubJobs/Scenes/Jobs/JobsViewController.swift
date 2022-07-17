@@ -71,6 +71,8 @@ final class JobsViewController: ViewController {
     // MARK: - Private
 
     private func setupUI() {
+        navigationItem.rightBarButtonItem = themeSelectionBarButtonItem
+
         view.addSubview(tableView)
         tableView.fillSuperview()
     }
