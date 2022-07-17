@@ -11,12 +11,19 @@ import Combine
 final class JobsViewController: ViewController {
 
     private lazy var themeSelectionBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(themeSelectionAction))
+        let barButtonItem = UIBarButtonItem(title: "Themes", style: .plain, target: self, action: #selector(themeSelectionAction))
         return barButtonItem
     }()
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
+        tableView.register(cellType: JobTableViewCell.self)
+        tableView.dataSource = self
+        tableView.delegate = self
+
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         return tableView
@@ -64,17 +71,10 @@ final class JobsViewController: ViewController {
     // MARK: - Private
 
     private func setupUI() {
+        navigationItem.rightBarButtonItem = themeSelectionBarButtonItem
+
         view.addSubview(tableView)
-
         tableView.fillSuperview()
-
-        tableView.register(cellType: JobTableViewCell.self)
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableView.automaticDimension
     }
 
     private func configureTableViewDataSource() {

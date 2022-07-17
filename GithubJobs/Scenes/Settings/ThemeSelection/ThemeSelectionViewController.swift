@@ -5,16 +5,23 @@
 //  Created by Alonso on 4/07/22.
 //
 
+import Combine
 import UIKit
 
 typealias ThemeModel = ThemeSelectionViewModel.ThemeModel
 typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataSource<ThemeSelectionSection, ThemeModel>
 
-final class ThemeSelectionViewController: ViewController {
+final class ThemeSelectionViewController: ViewController, UICollectionViewDelegate {
+
+    lazy private var closeBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeAction))
+        return barButtonItem
+    }()
 
     lazy private var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         collectionView.register(viewType: SettingsSectionHeaderView.self, kind: UICollectionView.elementKindSectionHeader)
+        collectionView.delegate = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -23,6 +30,7 @@ final class ThemeSelectionViewController: ViewController {
     private weak var coordinator: ThemeSelectionCoordinatorProtocol?
 
     private var dataSource: ThemeSelectionCollectionViewDataSource?
+    private var cancellables: Set<AnyCancellable> = []
 
     init(themeManager: ThemeManagerProtocol,
          viewModel: ThemeSelectionViewModelProtocol,
@@ -42,10 +50,9 @@ final class ThemeSelectionViewController: ViewController {
         super.viewDidLoad()
 
         configureUI()
-        configureCollectionViewLayout()
-        configureCollectionViewDataSource()
-
         updateUI()
+
+        setupBindings()
     }
 
     // MARK: - Private
@@ -53,11 +60,19 @@ final class ThemeSelectionViewController: ViewController {
     private func configureUI() {
         title = "Theme selection"
 
-        view.backgroundColor = .systemBackground
-        view.addSubview(collectionView)
+        navigationItem.leftBarButtonItem = closeBarButtonItem
 
+        view.backgroundColor = .systemBackground
+
+        configureCollectionView()
+    }
+
+    private func configureCollectionView() {
+        view.addSubview(collectionView)
         collectionView.fillSuperview(padding: .zero)
+
         configureCollectionViewLayout()
+        configureCollectionViewDataSource()
     }
 
     private func configureCollectionViewLayout() {
@@ -102,6 +117,27 @@ final class ThemeSelectionViewController: ViewController {
         snapshot.appendSections([ThemeSelectionSection.main])
         snapshot.appendItems(viewModel.themes, toSection: ThemeSelectionSection.main)
         dataSource?.apply(snapshot, animatingDifferences: false)
+    }
+
+    private func setupBindings() {
+        viewModel.didSelectTheme
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.updateUI()
+            }.store(in: &cancellables)
+    }
+
+    // MARK: - Selectors
+
+    @objc private func closeAction() {
+        coordinator?.dismiss()
+    }
+
+    // MARK: - UICollectionViewDelegate
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.selectTheme(at: indexPath.row)
     }
 
 }
