@@ -17,6 +17,13 @@ final class JobsViewController: ViewController {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
+        tableView.register(cellType: JobTableViewCell.self)
+        tableView.dataSource = self
+        tableView.delegate = self
+
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         return tableView
@@ -65,16 +72,7 @@ final class JobsViewController: ViewController {
 
     private func setupUI() {
         view.addSubview(tableView)
-
         tableView.fillSuperview()
-
-        tableView.register(cellType: JobTableViewCell.self)
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableView.automaticDimension
     }
 
     private func configureTableViewDataSource() {
