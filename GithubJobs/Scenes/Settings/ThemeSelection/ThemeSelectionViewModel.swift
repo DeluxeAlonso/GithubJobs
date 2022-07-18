@@ -33,14 +33,14 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
     }
 
     func selectTheme(at index: Int) {
-        let selectedTheme = Theme.allCases[index]
-        themeManager.updateInterfaceStyle(selectedTheme.asUserInterfaceStyle())
+        let selectedTheme = themes[index]
+        themeManager.updateInterfaceStyle(selectedTheme.theme.asUserInterfaceStyle())
         didSelectTheme.send()
     }
 
     // MARK: - Theme model
 
-    struct ThemeModel: Equatable, Hashable {
+    struct ThemeModel: Hashable {
         let theme: Theme
         let isSelected: Bool
 
