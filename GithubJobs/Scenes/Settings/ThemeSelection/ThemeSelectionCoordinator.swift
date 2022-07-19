@@ -9,10 +9,10 @@ import UIKit
 
 final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoordinatorProtocol {
 
+    let navigationController: UINavigationController
+
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?
-    var navigationController: UINavigationController
-
     var presentingViewController: UIViewController!
 
     init(navigationController: UINavigationController) {

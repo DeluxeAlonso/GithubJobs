@@ -14,8 +14,8 @@ protocol JobCellViewModelProtocol {
 
 class JobCellViewModel: JobCellViewModelProtocol {
 
-    var title: String
-    var company: String
+    let title: String
+    let company: String
 
     init(_ job: Job) {
         self.title = job.title
