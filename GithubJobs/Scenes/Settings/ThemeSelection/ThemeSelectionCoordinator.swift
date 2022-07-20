@@ -9,11 +9,11 @@ import UIKit
 
 final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoordinatorProtocol {
 
+    let navigationController: UINavigationController
+
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?
-    var navigationController: UINavigationController
-
-    var presentingViewController: UIViewController!
+    var presentingViewController: UIViewController?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -29,7 +29,7 @@ final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoor
         navigationController.pushViewController(viewController, animated: false)
         navigationController.modalPresentationStyle = .fullScreen
 
-        presentingViewController.present(navigationController, animated: true, completion: nil)
+        presentingViewController?.present(navigationController, animated: true, completion: nil)
     }
 
     func dismiss() {
