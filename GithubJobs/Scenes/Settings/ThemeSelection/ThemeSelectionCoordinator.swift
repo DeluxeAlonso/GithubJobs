@@ -13,7 +13,7 @@ final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoor
 
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?
-    var presentingViewController: UIViewController!
+    var presentingViewController: UIViewController?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -29,7 +29,7 @@ final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoor
         navigationController.pushViewController(viewController, animated: false)
         navigationController.modalPresentationStyle = .fullScreen
 
-        presentingViewController.present(navigationController, animated: true, completion: nil)
+        presentingViewController?.present(navigationController, animated: true, completion: nil)
     }
 
     func dismiss() {
