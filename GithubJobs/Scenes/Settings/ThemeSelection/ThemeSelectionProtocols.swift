@@ -11,9 +11,11 @@ protocol ThemeSelectionViewModelProtocol {
 
     var didSelectTheme: PassthroughSubject<Void, Never> { get }
 
-    var themes: [ThemeSelectionViewModel.ThemeModel] { get }
+    var themes: [ThemeSelectionItemModel] { get }
 
+    func screenTitle() -> String?
     func headerTitle(for section: Int) -> String?
+
     func selectTheme(at index: Int)
 
 }

@@ -21,41 +21,25 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     // MARK: - ThemeSelectionViewModelProtocol
 
-    var themes: [ThemeModel] {
+    var themes: [ThemeSelectionItemModel] {
         return Theme.allCases.map { theme in
             let isSelected = themeManager.interfaceStyle.value == theme.asUserInterfaceStyle()
-            return ThemeModel(theme, isSelected: isSelected)
+            return ThemeSelectionItemModel(theme, isSelected: isSelected)
         }
     }
 
+    func screenTitle() -> String? {
+        return LocalizedStrings.themeSelectionTitle()
+    }
+
     func headerTitle(for section: Int) -> String? {
-        return "Theme"
+        return LocalizedStrings.themeSelectionHeaderTitle()
     }
 
     func selectTheme(at index: Int) {
         let selectedTheme = themes[index]
         themeManager.updateInterfaceStyle(selectedTheme.theme.asUserInterfaceStyle())
         didSelectTheme.send()
-    }
-
-    // MARK: - Theme model
-
-    struct ThemeModel: Hashable {
-        let theme: Theme
-        let isSelected: Bool
-
-        init(_ theme: Theme, isSelected: Bool) {
-            self.theme = theme
-            self.isSelected = isSelected
-        }
-
-        var title: String {
-            switch theme {
-            case .light: return "Light"
-            case .dark: return "Dark"
-            case .system: return "System"
-            }
-        }
     }
 
 }

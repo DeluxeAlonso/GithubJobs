@@ -8,8 +8,7 @@
 import Combine
 import UIKit
 
-typealias ThemeModel = ThemeSelectionViewModel.ThemeModel
-typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataSource<ThemeSelectionSection, ThemeModel>
+typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataSource<ThemeSelectionSection, ThemeSelectionItemModel>
 
 final class ThemeSelectionViewController: ViewController, UICollectionViewDelegate {
 
@@ -58,7 +57,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
     // MARK: - Private
 
     private func configureUI() {
-        title = "Theme selection"
+        title = viewModel.screenTitle()
 
         navigationItem.leftBarButtonItem = closeBarButtonItem
 
@@ -84,7 +83,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
     }
 
     private func configureCollectionViewDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, ThemeModel> { cell, _, theme in
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, ThemeSelectionItemModel> { cell, _, theme in
             var content = UIListContentConfiguration.valueCell()
 
             content.text = theme.title
@@ -113,7 +112,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
     }
 
     private func updateUI() {
-        var snapshot = NSDiffableDataSourceSnapshot<ThemeSelectionSection, ThemeModel>()
+        var snapshot = NSDiffableDataSourceSnapshot<ThemeSelectionSection, ThemeSelectionItemModel>()
         snapshot.appendSections([ThemeSelectionSection.main])
         snapshot.appendItems(viewModel.themes, toSection: ThemeSelectionSection.main)
         dataSource?.apply(snapshot, animatingDifferences: false)

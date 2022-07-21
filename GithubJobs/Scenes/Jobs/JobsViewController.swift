@@ -11,7 +11,10 @@ import Combine
 final class JobsViewController: ViewController {
 
     private lazy var themeSelectionBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: "Themes", style: .plain, target: self, action: #selector(themeSelectionAction))
+        let barButtonItem = UIBarButtonItem(title: LocalizedStrings.themeSelectionBarButtonItemTitle(),
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(themeSelectionAction))
         return barButtonItem
     }()
 
