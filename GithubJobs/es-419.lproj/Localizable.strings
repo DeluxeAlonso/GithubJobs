@@ -11,3 +11,7 @@
 
 "relatedJobsTitle" = "Empleos relacionados";
 "emptyRelatedJobsTitle" = "No hay empleos relacionados que mostrar";
+
+"themeSelectionTitle" = "Seleccion de temas";
+"themeSelectionHeaderTitle" = "Temas";
+"themeSelectionBarButtonItemTitle" = "Temas";

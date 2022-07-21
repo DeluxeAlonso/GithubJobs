@@ -32,6 +32,10 @@ enum LocalizedStrings: String, Localizable {
     case relatedJobsTitle
     case emptyRelatedJobsTitle
 
+    case themeSelectionTitle
+    case themeSelectionHeaderTitle
+    case themeSelectionBarButtonItemTitle
+
     var tableName: String {
         return "Localizable"
     }

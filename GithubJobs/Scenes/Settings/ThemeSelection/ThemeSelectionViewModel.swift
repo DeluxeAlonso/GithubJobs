@@ -29,11 +29,11 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
     }
 
     func screenTitle() -> String? {
-        return "Theme selection"
+        return LocalizedStrings.themeSelectionTitle()
     }
 
     func headerTitle(for section: Int) -> String? {
-        return "Theme"
+        return LocalizedStrings.themeSelectionHeaderTitle()
     }
 
     func selectTheme(at index: Int) {
