@@ -38,24 +38,4 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
         didSelectTheme.send()
     }
 
-    // MARK: - Theme model
-
-    struct ThemeModel: Hashable {
-        let theme: Theme
-        let isSelected: Bool
-
-        init(_ theme: Theme, isSelected: Bool) {
-            self.theme = theme
-            self.isSelected = isSelected
-        }
-
-        var title: String {
-            switch theme {
-            case .light: return "Light"
-            case .dark: return "Dark"
-            case .system: return "System"
-            }
-        }
-    }
-
 }
