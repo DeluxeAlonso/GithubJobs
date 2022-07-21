@@ -13,7 +13,9 @@ protocol ThemeSelectionViewModelProtocol {
 
     var themes: [ThemeSelectionItemModel] { get }
 
+    func screenTitle() -> String?
     func headerTitle(for section: Int) -> String?
+
     func selectTheme(at index: Int)
 
 }

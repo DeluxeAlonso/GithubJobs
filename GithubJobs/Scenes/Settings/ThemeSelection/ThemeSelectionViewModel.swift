@@ -21,11 +21,15 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     // MARK: - ThemeSelectionViewModelProtocol
 
-    var themes: [ThemeModel] {
+    var themes: [ThemeSelectionItemModel] {
         return Theme.allCases.map { theme in
             let isSelected = themeManager.interfaceStyle.value == theme.asUserInterfaceStyle()
-            return ThemeModel(theme, isSelected: isSelected)
+            return ThemeSelectionItemModel(theme, isSelected: isSelected)
         }
+    }
+
+    func screenTitle() -> String? {
+        return "Theme selection"
     }
 
     func headerTitle(for section: Int) -> String? {

@@ -57,7 +57,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
     // MARK: - Private
 
     private func configureUI() {
-        title = "Theme selection"
+        title = viewModel.screenTitle()
 
         navigationItem.leftBarButtonItem = closeBarButtonItem
 
