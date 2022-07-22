@@ -54,7 +54,7 @@
 		E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52B62557215600389043 /* JobCellViewModel.swift */; };
 		E29456C3263E6CA70011AF68 /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = E29456C2263E6CA70011AF68 /* KingfisherStatic */; };
 		E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A13FE5286D5C75001BC83D /* ViewController.swift */; };
-		E2ADF9F72873EBB800987D4D /* SettingsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9F62873EBB800987D4D /* SettingsSectionHeaderView.swift */; };
+		E2ADF9F72873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9F62873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift */; };
 		E2ADF9FA2873ECBD00987D4D /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9F92873ECBD00987D4D /* ThemeSelectionViewController.swift */; };
 		E2ADF9FC2873ECD500987D4D /* ThemeSelectionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9FB2873ECD500987D4D /* ThemeSelectionProtocols.swift */; };
 		E2ADF9FE2873ECE200987D4D /* ThemeSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9FD2873ECE200987D4D /* ThemeSelectionCoordinator.swift */; };
@@ -144,7 +144,7 @@
 		E28B52B125570D2B00389043 /* TableViewCellAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAnimator.swift; sourceTree = "<group>"; };
 		E28B52B62557215600389043 /* JobCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCellViewModel.swift; sourceTree = "<group>"; };
 		E2A13FE5286D5C75001BC83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E2ADF9F62873EBB800987D4D /* SettingsSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionHeaderView.swift; sourceTree = "<group>"; };
+		E2ADF9F62873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionSectionHeaderView.swift; sourceTree = "<group>"; };
 		E2ADF9F92873ECBD00987D4D /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		E2ADF9FB2873ECD500987D4D /* ThemeSelectionProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionProtocols.swift; sourceTree = "<group>"; };
 		E2ADF9FD2873ECE200987D4D /* ThemeSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionCoordinator.swift; sourceTree = "<group>"; };
@@ -326,7 +326,7 @@
 		E2ADF9F52873EB9F00987D4D /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
-				E2ADF9F62873EBB800987D4D /* SettingsSectionHeaderView.swift */,
+				E2ADF9F62873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -703,7 +703,7 @@
 				E2B3E72B2556DFA300B5483A /* Dictionary+Format.swift in Sources */,
 				E261F94A25583CBA00DBC582 /* BackgroundCurvedView.swift in Sources */,
 				E2B3E7372556E01400B5483A /* Job.swift in Sources */,
-				E2ADF9F72873EBB800987D4D /* SettingsSectionHeaderView.swift in Sources */,
+				E2ADF9F72873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift in Sources */,
 				E2673AE425577A0B00727460 /* DataSourcePrefetching.swift in Sources */,
 				E2641C022557C90100675868 /* String+Localized.swift in Sources */,
 				E2ADF9FA2873ECBD00987D4D /* ThemeSelectionViewController.swift in Sources */,
