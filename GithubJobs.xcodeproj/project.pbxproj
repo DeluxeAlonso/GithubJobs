@@ -214,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				E2ADF9F82873ECA800987D4D /* ThemeSelection */,
-				E2ADF9F52873EB9F00987D4D /* ViewComponents */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -334,6 +333,7 @@
 		E2ADF9F82873ECA800987D4D /* ThemeSelection */ = {
 			isa = PBXGroup;
 			children = (
+				E2ADF9F52873EB9F00987D4D /* ViewComponents */,
 				E2ADF9F92873ECBD00987D4D /* ThemeSelectionViewController.swift */,
 				E2ADF9FB2873ECD500987D4D /* ThemeSelectionProtocols.swift */,
 				E2ADF9FD2873ECE200987D4D /* ThemeSelectionCoordinator.swift */,
