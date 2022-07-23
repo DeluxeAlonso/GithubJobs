@@ -19,7 +19,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
 
     lazy private var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-        collectionView.register(viewType: SettingsSectionHeaderView.self, kind: UICollectionView.elementKindSectionHeader)
+        collectionView.register(viewType: ThemeSelectionSectionHeaderView.self, kind: UICollectionView.elementKindSectionHeader)
         collectionView.delegate = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -103,7 +103,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         }
 
         dataSource?.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
-            let headerView = collectionView.dequeueReusableView(with: SettingsSectionHeaderView.self,
+            let headerView = collectionView.dequeueReusableView(with: ThemeSelectionSectionHeaderView.self,
                                                                 kind: UICollectionView.elementKindSectionHeader,
                                                                 for: indexPath)
             headerView.title = self?.viewModel.headerTitle(for: indexPath.section)

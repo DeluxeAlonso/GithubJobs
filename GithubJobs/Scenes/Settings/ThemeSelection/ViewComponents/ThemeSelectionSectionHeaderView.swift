@@ -1,5 +1,5 @@
 //
-//  SettingsSectionHeaderView.swift
+//  ThemeSelectionSectionHeaderView.swift
 //  GithubJobs
 //
 //  Created by Alonso on 4/07/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsSectionHeaderView: UICollectionReusableView {
+class ThemeSelectionSectionHeaderView: UICollectionReusableView {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
