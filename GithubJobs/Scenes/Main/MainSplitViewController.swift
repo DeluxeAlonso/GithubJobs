@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class MainSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
+final class MainSplitViewController: SplitViewController, UISplitViewControllerDelegate {
 
     // MARK: - Initializers
 
-    init(preferredDisplayMode: UISplitViewController.DisplayMode) {
-        super.init(nibName: nil, bundle: nil)
+    init(themeManager: ThemeManagerProtocol, preferredDisplayMode: UISplitViewController.DisplayMode) {
+        super.init(themeManager: themeManager)
         self.preferredDisplayMode = preferredDisplayMode
     }
 
