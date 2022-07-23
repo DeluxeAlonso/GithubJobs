@@ -59,6 +59,7 @@
 		E2ADF9FC2873ECD500987D4D /* ThemeSelectionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9FB2873ECD500987D4D /* ThemeSelectionProtocols.swift */; };
 		E2ADF9FE2873ECE200987D4D /* ThemeSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9FD2873ECE200987D4D /* ThemeSelectionCoordinator.swift */; };
 		E2ADFA002873F18E00987D4D /* UICollectionView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9FF2873F18E00987D4D /* UICollectionView+Register.swift */; };
+		E2B2C8DC288BC39800522186 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B2C8DB288BC39800522186 /* SplitViewController.swift */; };
 		E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6AE2556D67400B5483A /* AppDelegate.swift */; };
 		E2B3E6B12556D67400B5483A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6B02556D67400B5483A /* SceneDelegate.swift */; };
 		E2B3E6B82556D67700B5483A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2B3E6B72556D67700B5483A /* Assets.xcassets */; };
@@ -149,6 +150,7 @@
 		E2ADF9FB2873ECD500987D4D /* ThemeSelectionProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionProtocols.swift; sourceTree = "<group>"; };
 		E2ADF9FD2873ECE200987D4D /* ThemeSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionCoordinator.swift; sourceTree = "<group>"; };
 		E2ADF9FF2873F18E00987D4D /* UICollectionView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Register.swift"; sourceTree = "<group>"; };
+		E2B2C8DB288BC39800522186 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		E2B3E6AB2556D67400B5483A /* GithubJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B3E6AE2556D67400B5483A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2B3E6B02556D67400B5483A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				E2A13FE5286D5C75001BC83D /* ViewController.swift */,
+				E2B2C8DB288BC39800522186 /* SplitViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -692,6 +695,7 @@
 				E2792433264786E000891120 /* MainSplitViewController.swift in Sources */,
 				E2CC32482877DFF500345569 /* ThemeSelectionViewModel.swift in Sources */,
 				E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */,
+				E2B2C8DC288BC39800522186 /* SplitViewController.swift in Sources */,
 				E2673B132557877F00727460 /* JobDetailViewModel.swift in Sources */,
 				E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */,
 				E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */,
