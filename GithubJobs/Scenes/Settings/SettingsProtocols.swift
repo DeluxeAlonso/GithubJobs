@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol SettingsViewModelProtocol {}
+
+protocol SettingsCoordinatorProtocol: AnyObject {}
