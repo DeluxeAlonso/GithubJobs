@@ -42,6 +42,10 @@
 		E27924352647873800891120 /* EmptyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27924342647873800891120 /* EmptyDetailViewController.swift */; };
 		E27E9CBD2558463A00210D1C /* Job+MockInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E9CBC2558463A00210D1C /* Job+MockInitializer.swift */; };
 		E281527F2889047B000A5C55 /* ThemeSelectionItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E281527E2889047B000A5C55 /* ThemeSelectionItemModel.swift */; };
+		E286A324288D0C54004ACF5D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286A323288D0C54004ACF5D /* SettingsViewController.swift */; };
+		E286A326288D0C63004ACF5D /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286A325288D0C63004ACF5D /* SettingsViewModel.swift */; };
+		E286A328288D0C6D004ACF5D /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286A327288D0C6D004ACF5D /* SettingsCoordinator.swift */; };
+		E286A32A288D0C79004ACF5D /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286A329288D0C79004ACF5D /* SettingsProtocols.swift */; };
 		E289EFB92634FAA600A60609 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289EFB82634FAA600A60609 /* ThemeManager.swift */; };
 		E289EFBE2634FAB200A60609 /* ThemeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289EFBD2634FAB200A60609 /* ThemeManagerProtocol.swift */; };
 		E289EFC92635170800A60609 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289EFC82635170800A60609 /* UserDefaultsStorage.swift */; };
@@ -134,6 +138,10 @@
 		E27924342647873800891120 /* EmptyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDetailViewController.swift; sourceTree = "<group>"; };
 		E27E9CBC2558463A00210D1C /* Job+MockInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job+MockInitializer.swift"; sourceTree = "<group>"; };
 		E281527E2889047B000A5C55 /* ThemeSelectionItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionItemModel.swift; sourceTree = "<group>"; };
+		E286A323288D0C54004ACF5D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E286A325288D0C63004ACF5D /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		E286A327288D0C6D004ACF5D /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		E286A329288D0C79004ACF5D /* SettingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
 		E289EFB82634FAA600A60609 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		E289EFBD2634FAB200A60609 /* ThemeManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManagerProtocol.swift; sourceTree = "<group>"; };
 		E289EFC82635170800A60609 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
@@ -216,6 +224,10 @@
 			isa = PBXGroup;
 			children = (
 				E2ADF9F82873ECA800987D4D /* ThemeSelection */,
+				E286A323288D0C54004ACF5D /* SettingsViewController.swift */,
+				E286A325288D0C63004ACF5D /* SettingsViewModel.swift */,
+				E286A327288D0C6D004ACF5D /* SettingsCoordinator.swift */,
+				E286A329288D0C79004ACF5D /* SettingsProtocols.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -693,6 +705,7 @@
 				E2673AE925577A2300727460 /* TableViewDataSourcePrefetching.swift in Sources */,
 				E2673B1925578A3200727460 /* JobDetailHeaderView.swift in Sources */,
 				E2792433264786E000891120 /* MainSplitViewController.swift in Sources */,
+				E286A328288D0C6D004ACF5D /* SettingsCoordinator.swift in Sources */,
 				E2CC32482877DFF500345569 /* ThemeSelectionViewModel.swift in Sources */,
 				E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */,
 				E2B2C8DC288BC39800522186 /* SplitViewController.swift in Sources */,
@@ -707,6 +720,7 @@
 				E2B3E72B2556DFA300B5483A /* Dictionary+Format.swift in Sources */,
 				E261F94A25583CBA00DBC582 /* BackgroundCurvedView.swift in Sources */,
 				E2B3E7372556E01400B5483A /* Job.swift in Sources */,
+				E286A32A288D0C79004ACF5D /* SettingsProtocols.swift in Sources */,
 				E2ADF9F72873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift in Sources */,
 				E2673AE425577A0B00727460 /* DataSourcePrefetching.swift in Sources */,
 				E2641C022557C90100675868 /* String+Localized.swift in Sources */,
@@ -735,6 +749,7 @@
 				E2641BFD2557C8AE00675868 /* LocalizedStrings.swift in Sources */,
 				E2641BE92557C55500675868 /* UIImageView+Kingfisher.swift in Sources */,
 				E27924352647873800891120 /* EmptyDetailViewController.swift in Sources */,
+				E286A324288D0C54004ACF5D /* SettingsViewController.swift in Sources */,
 				E2673AFF2557823F00727460 /* Coordinator.swift in Sources */,
 				E2B3E70A2556DD5700B5483A /* APIError.swift in Sources */,
 				E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */,
@@ -745,6 +760,7 @@
 				E27138AA2782384400E6F501 /* JobsInteractor.swift in Sources */,
 				E2B3E7302556DFD200B5483A /* CharacterSet+Filtering.swift in Sources */,
 				E2ADF9FE2873ECE200987D4D /* ThemeSelectionCoordinator.swift in Sources */,
+				E286A326288D0C63004ACF5D /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
