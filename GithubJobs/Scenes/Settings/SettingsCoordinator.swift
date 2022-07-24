@@ -21,10 +21,10 @@ final class SettingsCoordinator: NSObject, Coordinator, SettingsCoordinatorProto
 
     func start() {
         let themeManager = ThemeManager.shared
-        let viewModel = ThemeSelectionViewModel(themeManager: themeManager)
-        let viewController = ThemeSelectionViewController(themeManager: themeManager,
-                                                          viewModel: viewModel,
-                                                          coordinator: self)
+        let viewModel = SettingsViewModel()
+        let viewController = SettingsViewController(themeManager: themeManager,
+                                                    viewModel: viewModel,
+                                                    coordinator: self)
 
         navigationController.pushViewController(viewController, animated: false)
         navigationController.modalPresentationStyle = .fullScreen
