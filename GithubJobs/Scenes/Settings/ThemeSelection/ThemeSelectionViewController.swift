@@ -12,11 +12,6 @@ typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataS
 
 final class ThemeSelectionViewController: ViewController, UICollectionViewDelegate {
 
-    lazy private var closeBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeAction))
-        return barButtonItem
-    }()
-
     lazy private var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         collectionView.register(viewType: ThemeSelectionSectionHeaderView.self, kind: UICollectionView.elementKindSectionHeader)
@@ -56,12 +51,14 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         setupBindings()
     }
 
+    override func closeBarButtonItemTapped() {
+        coordinator?.dismiss()
+    }
+
     // MARK: - Private
 
     private func configureUI() {
         title = viewModel.screenTitle()
-
-        navigationItem.leftBarButtonItem = closeBarButtonItem
 
         view.backgroundColor = .systemBackground
 
@@ -127,12 +124,6 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
                 guard let strongSelf = self else { return }
                 strongSelf.updateUI()
             }.store(in: &cancellables)
-    }
-
-    // MARK: - Selectors
-
-    @objc private func closeAction() {
-        coordinator?.dismiss()
     }
 
     // MARK: - UICollectionViewDelegate

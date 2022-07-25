@@ -10,6 +10,11 @@ import Combine
 
 class ViewController: UIViewController {
 
+    lazy private var closeBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeBarButtonItemTapped))
+        return barButtonItem
+    }()
+
     private let themeManager: ThemeManagerProtocol
 
     private var themeCancellable: Set<AnyCancellable> = []
@@ -32,6 +37,21 @@ class ViewController: UIViewController {
                 self.navigationController?.overrideUserInterfaceStyle = userInterfaceStyle
                 self.overrideUserInterfaceStyle = userInterfaceStyle
             }.store(in: &themeCancellable)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if shouldShowCloseBarButtonItem() {
+            navigationItem.leftBarButtonItem = closeBarButtonItem
+        }
+    }
+
+    func shouldShowCloseBarButtonItem() -> Bool {
+        return isBeingPresented || navigationController?.isBeingPresented ?? false
+    }
+
+    @objc func closeBarButtonItemTapped() {
+        fatalError("Should be implemented in child class")
     }
 
 }
