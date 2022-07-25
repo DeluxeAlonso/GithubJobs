@@ -10,6 +10,11 @@ import Combine
 
 class ViewController: UIViewController {
 
+    lazy private var closeBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeAction))
+        return barButtonItem
+    }()
+
     private let themeManager: ThemeManagerProtocol
 
     private var themeCancellable: Set<AnyCancellable> = []
@@ -25,6 +30,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if shouldShowCloseBarButtonItem() {
+            navigationItem.leftBarButtonItem = closeBarButtonItem
+        }
+
         themeManager.interfaceStyle
             .receive(on: DispatchQueue.main)
             .sink { [weak self] userInterfaceStyle in
@@ -32,6 +42,18 @@ class ViewController: UIViewController {
                 self.navigationController?.overrideUserInterfaceStyle = userInterfaceStyle
                 self.overrideUserInterfaceStyle = userInterfaceStyle
             }.store(in: &themeCancellable)
+    }
+
+    @objc private func closeAction() {
+        closeBarButtonItemTapped()
+    }
+
+    func shouldShowCloseBarButtonItem() -> Bool {
+        return true
+    }
+
+    func closeBarButtonItemTapped() {
+
     }
 
 }
