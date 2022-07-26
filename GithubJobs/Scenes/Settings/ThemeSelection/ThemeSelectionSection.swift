@@ -6,6 +6,7 @@
 //
 
 enum ThemeSelectionSection {
+
     case main
 
     var title: String? {
@@ -15,10 +16,4 @@ enum ThemeSelectionSection {
         }
     }
 
-    var themes: [Theme] {
-        switch self {
-        case .main:
-            return Theme.allCases
-        }
-    }
 }
