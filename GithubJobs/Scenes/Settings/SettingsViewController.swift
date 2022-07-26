@@ -8,6 +8,8 @@
 import UIKit
 import Combine
 
+typealias SettingsCollectionViewDataSource = UICollectionViewDiffableDataSource<SettingsSection, SettingsItemModel>
+
 final class SettingsViewController: ViewController, UICollectionViewDelegate {
 
     lazy private var collectionView: UICollectionView = {

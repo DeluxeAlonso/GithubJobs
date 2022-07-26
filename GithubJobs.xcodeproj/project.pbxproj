@@ -81,6 +81,8 @@
 		E2B3E7372556E01400B5483A /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E7362556E01400B5483A /* Job.swift */; };
 		E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E73B2556E10700B5483A /* JobsResult.swift */; };
 		E2CC32482877DFF500345569 /* ThemeSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */; };
+		E2E18206288FAA790096BA7B /* SettingsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18205288FAA780096BA7B /* SettingsItemModel.swift */; };
+		E2E18208288FAAC50096BA7B /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18207288FAAC50096BA7B /* SettingsSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +184,8 @@
 		E2B3E7362556E01400B5483A /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		E2B3E73B2556E10700B5483A /* JobsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsResult.swift; sourceTree = "<group>"; };
 		E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewModel.swift; sourceTree = "<group>"; };
+		E2E18205288FAA780096BA7B /* SettingsItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemModel.swift; sourceTree = "<group>"; };
+		E2E18207288FAAC50096BA7B /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +232,8 @@
 				E286A325288D0C63004ACF5D /* SettingsViewModel.swift */,
 				E286A327288D0C6D004ACF5D /* SettingsCoordinator.swift */,
 				E286A329288D0C79004ACF5D /* SettingsProtocols.swift */,
+				E2E18205288FAA780096BA7B /* SettingsItemModel.swift */,
+				E2E18207288FAAC50096BA7B /* SettingsSection.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -716,6 +722,7 @@
 				E2673B0E2557872E00727460 /* JobDetailCoordinator.swift in Sources */,
 				E21AEC2B2556E1D000A85639 /* JobClient.swift in Sources */,
 				E28B52A725570CCF00389043 /* UIView+Layout.swift in Sources */,
+				E2E18208288FAAC50096BA7B /* SettingsSection.swift in Sources */,
 				E289EFBE2634FAB200A60609 /* ThemeManagerProtocol.swift in Sources */,
 				E2B3E72B2556DFA300B5483A /* Dictionary+Format.swift in Sources */,
 				E261F94A25583CBA00DBC582 /* BackgroundCurvedView.swift in Sources */,
@@ -751,6 +758,7 @@
 				E27924352647873800891120 /* EmptyDetailViewController.swift in Sources */,
 				E286A324288D0C54004ACF5D /* SettingsViewController.swift in Sources */,
 				E2673AFF2557823F00727460 /* Coordinator.swift in Sources */,
+				E2E18206288FAA790096BA7B /* SettingsItemModel.swift in Sources */,
 				E2B3E70A2556DD5700B5483A /* APIError.swift in Sources */,
 				E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */,
 				E28B52B225570D2B00389043 /* TableViewCellAnimator.swift in Sources */,
