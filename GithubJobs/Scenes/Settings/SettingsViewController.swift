@@ -23,6 +23,7 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     private let viewModel: SettingsViewModelProtocol
     private weak var coordinator: SettingsCoordinatorProtocol?
 
+    private var dataSource: SettingsCollectionViewDataSource?
     private var cancellables: Set<AnyCancellable> = []
 
     // MARK: - Initializers
@@ -48,7 +49,7 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     // MARK: - Private
 
     private func configureUI() {
-        //title = viewModel.screenTitle()
+        title = "Settings"
 
         view.backgroundColor = .systemBackground
 
@@ -60,7 +61,7 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
         collectionView.fillSuperview(padding: .zero)
 
         configureCollectionViewLayout()
-        //configureCollectionViewDataSource()
+        configureCollectionViewDataSource()
     }
 
     private func configureCollectionViewLayout() {
@@ -69,6 +70,34 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
 
         let layout = UICollectionViewCompositionalLayout.list(using: config)
         collectionView.collectionViewLayout = layout
+    }
+
+    private func configureCollectionViewDataSource() {
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, SettingsItemModel> { cell, _, item in
+            var content = UIListContentConfiguration.valueCell()
+
+            content.text = item.title
+            content.textToSecondaryTextVerticalPadding = 4
+            content.secondaryTextProperties.numberOfLines = 0
+
+            cell.contentConfiguration = content
+        }
+
+        dataSource = SettingsCollectionViewDataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, identifier in
+            guard let self = self else { fatalError() }
+            let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
+                                                                    for: indexPath, item: identifier)
+            cell.accessories = [.disclosureIndicator()]
+            return cell
+        }
+
+        dataSource?.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
+            let headerView = collectionView.dequeueReusableView(with: ThemeSelectionSectionHeaderView.self,
+                                                                kind: UICollectionView.elementKindSectionHeader,
+                                                                for: indexPath)
+            headerView.title = nil
+            return headerView
+        }
     }
 
     // MARK: - UICollectionViewDelegate

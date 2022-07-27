@@ -9,4 +9,11 @@ import Foundation
 
 enum SettingsItemModel {
     case themes
+
+    var title: String? {
+        switch self {
+        case .themes:
+            return "Themes"
+        }
+    }
 }
