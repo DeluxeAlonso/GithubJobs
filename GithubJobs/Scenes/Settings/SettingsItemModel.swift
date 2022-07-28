@@ -5,15 +5,9 @@
 //  Created by Alonso on 25/07/22.
 //
 
-import Foundation
+struct SettingsItemModel: Hashable {
 
-enum SettingsItemModel {
-    case themes
+    let title: String
+    let value: String?
 
-    var title: String? {
-        switch self {
-        case .themes:
-            return "Themes"
-        }
-    }
 }
