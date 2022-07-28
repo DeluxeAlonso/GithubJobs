@@ -5,13 +5,9 @@
 //  Created by Alonso on 25/07/22.
 //
 
-enum SettingsItemModel {
-    case themes
+struct SettingsItemModel: Hashable {
 
-    var title: String? {
-        switch self {
-        case .themes:
-            return "Themes"
-        }
-    }
+    let title: String
+    let value: String?
+
 }
