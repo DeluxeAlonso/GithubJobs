@@ -10,17 +10,13 @@ struct ThemeSelectionItemModel: Hashable {
     let theme: Theme
     let isSelected: Bool
 
+    var title: String {
+        theme.asUserInterfaceStyle().description
+    }
+
     init(_ theme: Theme, isSelected: Bool) {
         self.theme = theme
         self.isSelected = isSelected
-    }
-
-    var title: String {
-        switch theme {
-        case .light: return "Light"
-        case .dark: return "Dark"
-        case .system: return "System"
-        }
     }
 
 }
