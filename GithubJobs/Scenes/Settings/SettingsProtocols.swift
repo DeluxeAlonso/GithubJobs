@@ -5,6 +5,12 @@
 //  Created by Alonso on 24/07/22.
 //
 
-protocol SettingsViewModelProtocol {}
+import Combine
+
+protocol SettingsViewModelProtocol {
+
+    var itemModelsPublisher: Published<[SettingsItemModel]>.Publisher { get }
+
+}
 
 protocol SettingsCoordinatorProtocol: AnyObject {}

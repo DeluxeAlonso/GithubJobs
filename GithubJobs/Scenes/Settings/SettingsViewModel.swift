@@ -14,6 +14,10 @@ final class SettingsViewModel: SettingsViewModelProtocol {
 
     @Published var itemModels: [SettingsItemModel] = []
 
+    var itemModelsPublisher: Published<[SettingsItemModel]>.Publisher {
+        $itemModels
+    }
+
     init(themeManager: ThemeManagerProtocol) {
         self.themeManager = themeManager
 

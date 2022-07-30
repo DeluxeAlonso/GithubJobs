@@ -52,6 +52,8 @@ extension UIUserInterfaceStyle: CustomStringConvertible {
             return "Light"
         case .dark:
             return "Dark"
+        @unknown default:
+            return "Unknown"
         }
     }
 
