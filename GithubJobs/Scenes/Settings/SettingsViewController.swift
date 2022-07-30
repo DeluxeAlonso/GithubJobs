@@ -44,6 +44,8 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupBindings()
     }
 
     // MARK: - Private
@@ -98,6 +100,24 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
             headerView.title = nil
             return headerView
         }
+    }
+
+    // MARK: - Reactive Behavior
+
+    private func setupBindings() {
+        viewModel.itemModelsPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] items in
+                guard let self = self else { return }
+                self.updateUI(with: items)
+            }.store(in: &cancellables)
+    }
+
+    private func updateUI(with items: [SettingsItemModel]) {
+        var snapshot = NSDiffableDataSourceSnapshot<SettingsSection, SettingsItemModel>()
+        snapshot.appendSections([SettingsSection.main])
+        snapshot.appendItems(items, toSection: .main)
+        dataSource?.apply(snapshot, animatingDifferences: false)
     }
 
     // MARK: - UICollectionViewDelegate

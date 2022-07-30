@@ -21,7 +21,7 @@ final class SettingsCoordinator: NSObject, Coordinator, SettingsCoordinatorProto
 
     func start() {
         let themeManager = ThemeManager.shared
-        let viewModel = SettingsViewModel()
+        let viewModel = SettingsViewModel(themeManager: themeManager)
         let viewController = SettingsViewController(themeManager: themeManager,
                                                     viewModel: viewModel,
                                                     coordinator: self)
