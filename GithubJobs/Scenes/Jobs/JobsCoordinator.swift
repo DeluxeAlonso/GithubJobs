@@ -40,15 +40,6 @@ final class JobsCoordinator: NSObject, JobsCoordinatorProtocol, Coordinator, UIN
         coordinator.start()
     }
 
-    func showThemeSelection() {
-        let coordinator = ThemeSelectionCoordinator(navigationController: UINavigationController())
-        coordinator.presentingViewController = navigationController.topViewController
-        coordinator.parentCoordinator = unwrappedParentCoordinator
-
-        unwrappedParentCoordinator.childCoordinators.append(coordinator)
-        coordinator.start()
-    }
-
     func showSettings() {
         let coordinator = SettingsCoordinator(navigationController: UINavigationController())
         coordinator.presentingViewController = navigationController.topViewController
