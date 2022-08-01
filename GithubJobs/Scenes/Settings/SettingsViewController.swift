@@ -129,7 +129,7 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     // MARK: - UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        coordinator?.showThemeSelection()
     }
 
 }

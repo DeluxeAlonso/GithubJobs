@@ -14,12 +14,29 @@ final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoor
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?
     var presentingViewController: UIViewController?
+    var detailNavigationController: UINavigationController?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     func start() {
+        let themeManager = ThemeManager.shared
+        let viewModel = ThemeSelectionViewModel(themeManager: themeManager)
+        let viewController = ThemeSelectionViewController(themeManager: themeManager,
+                                                          viewModel: viewModel,
+                                                          coordinator: self)
+
+        if let detailNavigationController = detailNavigationController {
+            detailNavigationController.pushViewController(viewController, animated: false)
+            navigationController.showDetailViewController(detailNavigationController, sender: nil)
+        } else {
+            detailNavigationController = navigationController
+            navigationController.pushViewController(viewController, animated: true)
+        }
+    }
+
+    func startModally() {
         let themeManager = ThemeManager.shared
         let viewModel = ThemeSelectionViewModel(themeManager: themeManager)
         let viewController = ThemeSelectionViewController(themeManager: themeManager,
