@@ -30,5 +30,6 @@ protocol JobsCoordinatorProtocol: AnyObject {
 
     func showJobDetail(_ job: Job)
     func showThemeSelection()
+    func showSettings()
 
 }

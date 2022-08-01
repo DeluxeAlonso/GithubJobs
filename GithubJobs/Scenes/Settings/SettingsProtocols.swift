@@ -13,4 +13,8 @@ protocol SettingsViewModelProtocol {
 
 }
 
-protocol SettingsCoordinatorProtocol: AnyObject {}
+protocol SettingsCoordinatorProtocol: AnyObject {
+
+    func dismiss()
+
+}

@@ -45,7 +45,12 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureUI()
         setupBindings()
+    }
+
+    override func closeBarButtonItemTapped() {
+        coordinator?.dismiss()
     }
 
     // MARK: - Private
