@@ -111,6 +111,13 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     // MARK: - Reactive Behavior
 
     private func setupBindings() {
+        viewModel.didSelectThemeSelectionItem
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.coordinator?.showThemeSelection()
+            }.store(in: &cancellables)
+
         viewModel.itemModelsPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] items in
@@ -129,7 +136,8 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     // MARK: - UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        coordinator?.showThemeSelection()
+        collectionView.deselectItem(at: indexPath, animated: true)
+        viewModel.selectItem(at: indexPath.item)
     }
 
 }
