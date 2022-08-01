@@ -72,7 +72,7 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     }
 
     private func configureCollectionViewLayout() {
-        var config = UICollectionLayoutListConfiguration(appearance: .grouped)
+        var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         config.headerMode = .supplementary
 
         let layout = UICollectionViewCompositionalLayout.list(using: config)
@@ -84,6 +84,7 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
             var content = UIListContentConfiguration.valueCell()
 
             content.text = item.title
+            content.secondaryText = item.value
             content.textToSecondaryTextVerticalPadding = 4
             content.secondaryTextProperties.numberOfLines = 0
 
