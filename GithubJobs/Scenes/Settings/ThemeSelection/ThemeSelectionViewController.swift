@@ -74,7 +74,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
     }
 
     private func configureCollectionViewLayout() {
-        var config = UICollectionLayoutListConfiguration(appearance: .grouped)
+        var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         config.headerMode = .supplementary
 
         let layout = UICollectionViewCompositionalLayout.list(using: config)
