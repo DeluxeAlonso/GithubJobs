@@ -9,5 +9,15 @@ struct SettingsItemModel: Hashable {
 
     let title: String
     let value: String?
+    let actionHandler: (() -> Void)?
+
+    static func == (lhs: SettingsItemModel, rhs: SettingsItemModel) -> Bool {
+        return lhs.title == rhs.title && lhs.value == rhs.value
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+        hasher.combine(value)
+    }
 
 }

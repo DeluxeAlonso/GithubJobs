@@ -32,6 +32,15 @@ final class SettingsCoordinator: NSObject, Coordinator, SettingsCoordinatorProto
         presentingViewController?.present(navigationController, animated: true, completion: nil)
     }
 
+    func showThemeSelection() {
+        let coordinator = ThemeSelectionCoordinator(navigationController: navigationController)
+
+        coordinator.parentCoordinator = unwrappedParentCoordinator
+
+        unwrappedParentCoordinator.childCoordinators.append(coordinator)
+        coordinator.start()
+    }
+
     func dismiss() {
         let presentedViewController = navigationController.topViewController
         presentedViewController?.dismiss(animated: true) { [weak self] in

@@ -55,9 +55,6 @@
 		E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52B62557215600389043 /* JobCellViewModel.swift */; };
 		E29456C3263E6CA70011AF68 /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = E29456C2263E6CA70011AF68 /* KingfisherStatic */; };
 		E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A13FE5286D5C75001BC83D /* ViewController.swift */; };
-		E2A95E92289500FC008E7C7F /* ThemeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A95E8F289500FB008E7C7F /* ThemeManagerProtocol.swift */; };
-		E2A95E93289500FC008E7C7F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A95E90289500FB008E7C7F /* Theme.swift */; };
-		E2A95E94289500FC008E7C7F /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A95E91289500FB008E7C7F /* ThemeManager.swift */; };
 		E2ADF9F72873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9F62873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift */; };
 		E2ADF9FA2873ECBD00987D4D /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9F92873ECBD00987D4D /* ThemeSelectionViewController.swift */; };
 		E2ADF9FC2873ECD500987D4D /* ThemeSelectionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9FB2873ECD500987D4D /* ThemeSelectionProtocols.swift */; };
@@ -83,6 +80,9 @@
 		E2CC32482877DFF500345569 /* ThemeSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */; };
 		E2E18206288FAA790096BA7B /* SettingsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18205288FAA780096BA7B /* SettingsItemModel.swift */; };
 		E2E18208288FAAC50096BA7B /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18207288FAAC50096BA7B /* SettingsSection.swift */; };
+		E2F570A928979DE900A67593 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A628979DE900A67593 /* ThemeManager.swift */; };
+		E2F570AA28979DE900A67593 /* ThemeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A728979DE900A67593 /* ThemeManagerProtocol.swift */; };
+		E2F570AB28979DE900A67593 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A828979DE900A67593 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,9 +152,6 @@
 		E28B52B125570D2B00389043 /* TableViewCellAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAnimator.swift; sourceTree = "<group>"; };
 		E28B52B62557215600389043 /* JobCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCellViewModel.swift; sourceTree = "<group>"; };
 		E2A13FE5286D5C75001BC83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E2A95E8F289500FB008E7C7F /* ThemeManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeManagerProtocol.swift; path = GithubJobs/Helpers/Utils/Theming/ThemeManagerProtocol.swift; sourceTree = SOURCE_ROOT; };
-		E2A95E90289500FB008E7C7F /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = GithubJobs/Helpers/Utils/Theming/Theme.swift; sourceTree = SOURCE_ROOT; };
-		E2A95E91289500FB008E7C7F /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeManager.swift; path = GithubJobs/Helpers/Utils/Theming/ThemeManager.swift; sourceTree = SOURCE_ROOT; };
 		E2ADF9F62873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionSectionHeaderView.swift; sourceTree = "<group>"; };
 		E2ADF9F92873ECBD00987D4D /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		E2ADF9FB2873ECD500987D4D /* ThemeSelectionProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionProtocols.swift; sourceTree = "<group>"; };
@@ -186,6 +183,9 @@
 		E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewModel.swift; sourceTree = "<group>"; };
 		E2E18205288FAA780096BA7B /* SettingsItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemModel.swift; sourceTree = "<group>"; };
 		E2E18207288FAAC50096BA7B /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		E2F570A628979DE900A67593 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		E2F570A728979DE900A67593 /* ThemeManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManagerProtocol.swift; sourceTree = "<group>"; };
+		E2F570A828979DE900A67593 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,7 +308,7 @@
 		E28B528A2556FEE200389043 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E2B8E4002634DC180086D581 /* Theming */,
+				E2F570A528979DE900A67593 /* Theming */,
 				E28B52AB25570CF000389043 /* FontHelper.swift */,
 				E2641BFC2557C8AE00675868 /* LocalizedStrings.swift */,
 			);
@@ -524,23 +524,22 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		E2B8E4002634DC180086D581 /* Theming */ = {
-			isa = PBXGroup;
-			children = (
-				E2A95E90289500FB008E7C7F /* Theme.swift */,
-				E2A95E91289500FB008E7C7F /* ThemeManager.swift */,
-				E2A95E8F289500FB008E7C7F /* ThemeManagerProtocol.swift */,
-			);
-			name = Theming;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		E2B8E4042634DCA80086D581 /* Section */ = {
 			isa = PBXGroup;
 			children = (
 				E2673B1D25578A5E00727460 /* JobDetailSectionView.swift */,
 			);
 			path = Section;
+			sourceTree = "<group>";
+		};
+		E2F570A528979DE900A67593 /* Theming */ = {
+			isa = PBXGroup;
+			children = (
+				E2F570A628979DE900A67593 /* ThemeManager.swift */,
+				E2F570A728979DE900A67593 /* ThemeManagerProtocol.swift */,
+				E2F570A828979DE900A67593 /* Theme.swift */,
+			);
+			path = Theming;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -705,7 +704,6 @@
 				E2641C142557CE1200675868 /* Dequeuable.swift in Sources */,
 				E21AEC382556E35100A85639 /* JobsViewModel.swift in Sources */,
 				E28B52AC25570CF000389043 /* FontHelper.swift in Sources */,
-				E2A95E94289500FC008E7C7F /* ThemeManager.swift in Sources */,
 				E2673B04255782F000727460 /* JobsCoordinator.swift in Sources */,
 				E2B3E6EA2556D7BA00B5483A /* JobsViewController.swift in Sources */,
 				E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */,
@@ -718,7 +716,6 @@
 				E2B2C8DC288BC39800522186 /* SplitViewController.swift in Sources */,
 				E2673B132557877F00727460 /* JobDetailViewModel.swift in Sources */,
 				E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */,
-				E2A95E93289500FC008E7C7F /* Theme.swift in Sources */,
 				E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */,
 				E2673AFA255781A800727460 /* JobDetailViewController.swift in Sources */,
 				E2673B0E2557872E00727460 /* JobDetailCoordinator.swift in Sources */,
@@ -727,6 +724,7 @@
 				E2E18208288FAAC50096BA7B /* SettingsSection.swift in Sources */,
 				E2B3E72B2556DFA300B5483A /* Dictionary+Format.swift in Sources */,
 				E261F94A25583CBA00DBC582 /* BackgroundCurvedView.swift in Sources */,
+				E2F570AA28979DE900A67593 /* ThemeManagerProtocol.swift in Sources */,
 				E2B3E7372556E01400B5483A /* Job.swift in Sources */,
 				E286A32A288D0C79004ACF5D /* SettingsProtocols.swift in Sources */,
 				E2ADF9F72873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift in Sources */,
@@ -736,6 +734,7 @@
 				E28B5294255700F100389043 /* JobsViewState.swift in Sources */,
 				E2B3E7162556DDD200B5483A /* Endpoint.swift in Sources */,
 				E2641C0F2557CDE300675868 /* UITableView+Register.swift in Sources */,
+				E2F570A928979DE900A67593 /* ThemeManager.swift in Sources */,
 				E2ADF9FC2873ECD500987D4D /* ThemeSelectionProtocols.swift in Sources */,
 				E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */,
 				E26B97802876976D00C6D197 /* ThemeSelectionSection.swift in Sources */,
@@ -758,9 +757,9 @@
 				E27924352647873800891120 /* EmptyDetailViewController.swift in Sources */,
 				E286A324288D0C54004ACF5D /* SettingsViewController.swift in Sources */,
 				E2673AFF2557823F00727460 /* Coordinator.swift in Sources */,
-				E2A95E92289500FC008E7C7F /* ThemeManagerProtocol.swift in Sources */,
 				E2E18206288FAA790096BA7B /* SettingsItemModel.swift in Sources */,
 				E2B3E70A2556DD5700B5483A /* APIError.swift in Sources */,
+				E2F570AB28979DE900A67593 /* Theme.swift in Sources */,
 				E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */,
 				E28B52B225570D2B00389043 /* TableViewCellAnimator.swift in Sources */,
 				E2B3E6B12556D67400B5483A /* SceneDelegate.swift in Sources */,

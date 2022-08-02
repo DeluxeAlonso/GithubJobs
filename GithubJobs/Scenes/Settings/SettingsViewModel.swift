@@ -18,11 +18,21 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         $itemModels
     }
 
+    var didSelectThemeSelectionItem = PassthroughSubject<Void, Never>()
+
     init(themeManager: ThemeManagerProtocol) {
         self.themeManager = themeManager
 
         configure()
     }
+
+    // MARK: - SettingsViewModelProtocol
+
+    func selectItem(at index: Int) {
+        itemModels[index].actionHandler?()
+    }
+
+    // MARK: - Private
 
     private func configure() {
         themeManager
@@ -36,8 +46,14 @@ final class SettingsViewModel: SettingsViewModelProtocol {
 
     private func createItemModels() -> [SettingsItemModel] {
         return [
-            SettingsItemModel(title: "Themes", value: themeManager.interfaceStyle.value.description)
+            SettingsItemModel(title: "Themes",
+                              value: themeManager.interfaceStyle.value.description,
+                              actionHandler: didTapThemeSelectionItem)
         ]
+    }
+
+    private func didTapThemeSelectionItem() {
+        didSelectThemeSelectionItem.send()
     }
     
 }

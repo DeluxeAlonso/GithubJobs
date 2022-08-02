@@ -45,7 +45,12 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureUI()
         setupBindings()
+    }
+
+    override func closeBarButtonItemTapped() {
+        coordinator?.dismiss()
     }
 
     // MARK: - Private
@@ -67,7 +72,7 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     }
 
     private func configureCollectionViewLayout() {
-        var config = UICollectionLayoutListConfiguration(appearance: .grouped)
+        var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         config.headerMode = .supplementary
 
         let layout = UICollectionViewCompositionalLayout.list(using: config)
@@ -79,6 +84,7 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
             var content = UIListContentConfiguration.valueCell()
 
             content.text = item.title
+            content.secondaryText = item.value
             content.textToSecondaryTextVerticalPadding = 4
             content.secondaryTextProperties.numberOfLines = 0
 
@@ -105,6 +111,13 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     // MARK: - Reactive Behavior
 
     private func setupBindings() {
+        viewModel.didSelectThemeSelectionItem
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.coordinator?.showThemeSelection()
+            }.store(in: &cancellables)
+
         viewModel.itemModelsPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] items in
@@ -123,7 +136,8 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     // MARK: - UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        collectionView.deselectItem(at: indexPath, animated: true)
+        viewModel.selectItem(at: indexPath.item)
     }
 
 }
