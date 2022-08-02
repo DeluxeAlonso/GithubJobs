@@ -91,19 +91,17 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
             cell.contentConfiguration = content
         }
 
-        dataSource = SettingsCollectionViewDataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, identifier in
-            guard let self = self else { fatalError() }
+        dataSource = SettingsCollectionViewDataSource(collectionView: collectionView) { collectionView, indexPath, identifier in
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
                                                                     for: indexPath, item: identifier)
             cell.accessories = [.disclosureIndicator()]
             return cell
         }
 
-        dataSource?.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
+        dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
             let headerView = collectionView.dequeueReusableView(with: ThemeSelectionSectionHeaderView.self,
                                                                 kind: UICollectionView.elementKindSectionHeader,
                                                                 for: indexPath)
-            headerView.title = nil
             return headerView
         }
     }
