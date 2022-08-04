@@ -15,7 +15,7 @@ final class JobsViewController: ViewController {
                                             landscapeImagePhone: .init(systemName: "gearshape.2"),
                                             style: .plain,
                                             target: self,
-                                            action: #selector(themeSelectionAction))
+                                            action: #selector(settingsAction))
         return barButtonItem
     }()
 
@@ -116,7 +116,7 @@ final class JobsViewController: ViewController {
             }.store(in: &cancellables)
     }
 
-    @objc private func themeSelectionAction() {
+    @objc private func settingsAction() {
         coordinator?.showSettings()
     }
 
