@@ -109,10 +109,10 @@ final class JobsViewController: ViewController {
         viewModel.viewStatePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
-                guard let strongSelf = self else { return }
-                strongSelf.configureView(with: state)
-                strongSelf.configureTableViewDataSource()
-                strongSelf.tableView.reloadData()
+                guard let self = self else { return }
+                self.configureView(with: state)
+                self.configureTableViewDataSource()
+                self.tableView.reloadData()
             }.store(in: &cancellables)
     }
 

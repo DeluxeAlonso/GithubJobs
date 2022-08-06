@@ -121,8 +121,8 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         viewModel.didSelectTheme
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.updateUI()
+                guard let self = self else { return }
+                self.updateUI()
             }.store(in: &cancellables)
     }
 
