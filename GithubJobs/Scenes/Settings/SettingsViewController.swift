@@ -56,7 +56,7 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     // MARK: - Private
 
     private func configureUI() {
-        title = LocalizedStrings.settingsTitle()
+        title = viewModel.screenTitle()
 
         view.backgroundColor = .systemBackground
 

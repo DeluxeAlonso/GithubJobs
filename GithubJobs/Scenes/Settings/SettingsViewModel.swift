@@ -27,6 +27,10 @@ final class SettingsViewModel: SettingsViewModelProtocol {
 
     // MARK: - SettingsViewModelProtocol
 
+    func screenTitle() -> String? {
+        return LocalizedStrings.settingsTitle()
+    }
+
     func selectItem(at index: Int) {
         itemModels[index].actionHandler?()
     }
