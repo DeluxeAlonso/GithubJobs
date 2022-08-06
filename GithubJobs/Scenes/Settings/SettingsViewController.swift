@@ -56,7 +56,7 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     // MARK: - Private
 
     private func configureUI() {
-        title = LocalizedStrings.settingsTitle()
+        title = viewModel.screenTitle()
 
         view.backgroundColor = .systemBackground
 
@@ -112,8 +112,8 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
         viewModel.didSelectThemeSelectionItem
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.coordinator?.showThemeSelection()
+                guard let self = self else { return }
+                self.coordinator?.showThemeSelection()
             }.store(in: &cancellables)
 
         viewModel.itemModelsPublisher

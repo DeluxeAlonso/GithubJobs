@@ -12,6 +12,7 @@ protocol SettingsViewModelProtocol {
     var itemModelsPublisher: Published<[SettingsItemModel]>.Publisher { get }
     var didSelectThemeSelectionItem: PassthroughSubject<Void, Never> { get }
 
+    func screenTitle() -> String?
     func selectItem(at index: Int)
 
 }
