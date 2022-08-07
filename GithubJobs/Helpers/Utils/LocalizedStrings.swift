@@ -37,6 +37,7 @@ enum LocalizedStrings: String, Localizable {
     case themeSelectionBarButtonItemTitle
 
     case settingsTitle
+    case settingThemeSelectionRowTitle
 
     var tableName: String {
         return "Localizable"
