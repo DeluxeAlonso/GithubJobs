@@ -49,7 +49,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
 
     private func createItemModels() -> [SettingsItemModel] {
         return [
-            SettingsItemModel(title: "Themes",
+            SettingsItemModel(title: LocalizedStrings.settingThemeSelectionRowTitle(),
                               value: themeManager.interfaceStyle.value.description,
                               actionHandler: didTapThemeSelectionItem)
         ]
