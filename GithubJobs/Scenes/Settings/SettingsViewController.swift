@@ -141,7 +141,6 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     // MARK: - UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
         viewModel.selectItem(at: indexPath.item)
     }
 
