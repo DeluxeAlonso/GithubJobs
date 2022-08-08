@@ -49,6 +49,13 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
         setupBindings()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let indexPathsForSelectedItem = collectionView.indexPathsForSelectedItems?.first {
+            collectionView.deselectItem(at: indexPathsForSelectedItem, animated: true)
+        }
+    }
+
     override func closeBarButtonItemTapped() {
         coordinator?.dismiss()
     }
