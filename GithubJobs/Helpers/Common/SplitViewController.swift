@@ -31,6 +31,7 @@ class SplitViewController: UISplitViewController {
 
         themeManager.interfaceStyle
             .dropFirst()
+            .removeDuplicates()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] userInterfaceStyle in
                 guard let self = self else { return }
