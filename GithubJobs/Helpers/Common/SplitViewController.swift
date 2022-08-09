@@ -25,12 +25,24 @@ class SplitViewController: UISplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationController?.overrideUserInterfaceStyle = themeManager.interfaceStyle.value
+        overrideUserInterfaceStyle = themeManager.interfaceStyle.value
+
         themeManager.interfaceStyle
+            .dropFirst()
+            .removeDuplicates()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] userInterfaceStyle in
                 guard let self = self else { return }
-                self.navigationController?.overrideUserInterfaceStyle = userInterfaceStyle
-                self.overrideUserInterfaceStyle = userInterfaceStyle
+                UIView.transition(with: self.view, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                    self.overrideUserInterfaceStyle = userInterfaceStyle
+                }, completion: nil)
+
+                guard let navigationControllerView = self.navigationController?.view else { return }
+                UIView.transition(with: navigationControllerView, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                    self.navigationController?.overrideUserInterfaceStyle = userInterfaceStyle
+                }, completion: nil)
             }.store(in: &themeCancellable)
     }
 
