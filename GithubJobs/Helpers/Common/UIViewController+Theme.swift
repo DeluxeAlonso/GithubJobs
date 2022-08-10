@@ -13,19 +13,22 @@ protocol Themeable {
 
 }
 
-extension Themeable where Self: UIViewController  {
+extension Themeable where Self: UIViewController {
 
     func updateUserInterfaceStyle(_ userInterfaceStyle: UIUserInterfaceStyle, animated: Bool) {
-        let animationDuration = animated ? 0.2 : 0.0
+        if animated {
+            UIView.transition(with: view, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.overrideUserInterfaceStyle = userInterfaceStyle
+            }, completion: nil)
 
-        UIView.transition(with: view, duration: animationDuration, options: .transitionCrossDissolve, animations: {
-            self.overrideUserInterfaceStyle = userInterfaceStyle
-        }, completion: nil)
-
-        guard let navigationControllerView = navigationController?.view else { return }
-        UIView.transition(with: navigationControllerView, duration: animationDuration, options: .transitionCrossDissolve, animations: {
-            self.navigationController?.overrideUserInterfaceStyle = userInterfaceStyle
-        }, completion: nil)
+            guard let navigationControllerView = navigationController?.view else { return }
+            UIView.transition(with: navigationControllerView, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.navigationController?.overrideUserInterfaceStyle = userInterfaceStyle
+            }, completion: nil)
+        } else {
+            overrideUserInterfaceStyle = userInterfaceStyle
+            navigationController?.overrideUserInterfaceStyle = userInterfaceStyle
+        }
     }
     
 }
