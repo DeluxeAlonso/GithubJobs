@@ -17,6 +17,7 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
         collectionView.register(viewType: ThemeSelectionSectionHeaderView.self, kind: UICollectionView.elementKindSectionHeader)
         collectionView.delegate = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+
         return collectionView
     }()
 
