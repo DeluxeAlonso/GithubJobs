@@ -31,8 +31,7 @@ class ViewController: UIViewController, Themeable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.overrideUserInterfaceStyle = themeManager.interfaceStyle.value
-        overrideUserInterfaceStyle = themeManager.interfaceStyle.value
+        updateUserInterfaceStyle(themeManager.interfaceStyle.value, animated: false)
 
         themeManager.interfaceStyle
             .dropFirst()
