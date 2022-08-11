@@ -17,7 +17,13 @@ final class JobDetailViewController: ViewController {
         return tableView
     }()
 
-    private var headerView: JobDetailHeaderView!
+    private lazy var headerView: JobDetailHeaderView = {
+        let headerView = JobDetailHeaderView()
+        headerView.viewModel = viewModel.makeJobDetailHeaderViewModel()
+
+        return headerView
+    }()
+
     private var displayedCellsIndexPaths = Set<IndexPath>()
     private var cancellables: Set<AnyCancellable> = []
 
@@ -93,11 +99,7 @@ final class JobDetailViewController: ViewController {
     }
 
     private func configureHeaderView() {
-        headerView = JobDetailHeaderView()
-        headerView.viewModel = viewModel.makeJobDetailHeaderViewModel()
-
         headerView.frame = .init(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-
         tableView.tableHeaderView = headerView
     }
 
