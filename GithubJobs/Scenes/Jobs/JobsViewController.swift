@@ -34,7 +34,7 @@ final class JobsViewController: ViewController {
     }()
 
     private var displayedCellsIndexPaths = Set<IndexPath>()
-    private var prefetchDataSource: TableViewDataSourcePrefetching!
+    private var prefetchDataSource: TableViewDataSourcePrefetching?
     private var cancellables: Set<AnyCancellable> = []
 
     private let viewModel: JobsViewModelProtocol
