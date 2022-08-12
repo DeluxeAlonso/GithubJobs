@@ -19,6 +19,14 @@ final class JobsViewController: ViewController {
         return barButtonItem
     }()
 
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
+        refreshControl.backgroundColor = .systemBackground
+        return refreshControl
+    }()
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.register(cellType: JobTableViewCell.self)
@@ -27,6 +35,8 @@ final class JobsViewController: ViewController {
 
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
+
+        tableView.refreshControl = refreshControl
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -112,12 +122,19 @@ final class JobsViewController: ViewController {
                 guard let self = self else { return }
                 self.configureView(with: state)
                 self.configureTableViewDataSource()
+                self.refreshControl.endRefreshing()
                 self.tableView.reloadData()
             }.store(in: &cancellables)
     }
 
+    // MARK: - Selectors
+
     @objc private func settingsAction() {
         coordinator?.showSettings()
+    }
+
+    @objc private func refreshControlAction() {
+        viewModel.getJobs()
     }
 
 }
