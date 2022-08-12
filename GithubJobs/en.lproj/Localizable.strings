@@ -18,3 +18,5 @@
 
 "settingsTitle" = "Settings";
 "settingThemeSelectionRowTitle" = "Themes";
+
+"refreshControlTitle" = "Pull to refresh";
