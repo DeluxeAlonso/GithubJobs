@@ -21,7 +21,7 @@ final class JobsViewController: ViewController {
 
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: LocalizedStrings.refreshControlTitle())
         refreshControl.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
         refreshControl.backgroundColor = .systemBackground
         return refreshControl
