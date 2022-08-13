@@ -71,7 +71,6 @@
 		E2B3E6F82556DAE100B5483A /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E6F72556DAE100B5483A /* JobTableViewCell.swift */; };
 		E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E7002556DCB900B5483A /* APIClient.swift */; };
 		E2B3E70A2556DD5700B5483A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E7092556DD5600B5483A /* APIError.swift */; };
-		E2B3E7112556DDB600B5483A /* Descriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E7102556DDB600B5483A /* Descriptable.swift */; };
 		E2B3E7162556DDD200B5483A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E7152556DDD200B5483A /* Endpoint.swift */; };
 		E2B3E7232556DF8000B5483A /* URLRequest+Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E7222556DF8000B5483A /* URLRequest+Headers.swift */; };
 		E2B3E72B2556DFA300B5483A /* Dictionary+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E72A2556DFA300B5483A /* Dictionary+Format.swift */; };
@@ -175,7 +174,6 @@
 		E2B3E6F72556DAE100B5483A /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		E2B3E7002556DCB900B5483A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		E2B3E7092556DD5600B5483A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		E2B3E7102556DDB600B5483A /* Descriptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Descriptable.swift; sourceTree = "<group>"; };
 		E2B3E7152556DDD200B5483A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E2B3E7222556DF8000B5483A /* URLRequest+Headers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Headers.swift"; sourceTree = "<group>"; };
 		E2B3E72A2556DFA300B5483A /* Dictionary+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Format.swift"; sourceTree = "<group>"; };
@@ -488,7 +486,6 @@
 		E2B3E70F2556DD9E00B5483A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				E2B3E7102556DDB600B5483A /* Descriptable.swift */,
 				E2673AFE2557823F00727460 /* Coordinator.swift */,
 				E2641C132557CE1200675868 /* Dequeuable.swift */,
 			);
@@ -753,7 +750,6 @@
 				E21AEC332556E1E600A85639 /* JobProvider.swift in Sources */,
 				E281527F2889047B000A5C55 /* ThemeSelectionItemModel.swift in Sources */,
 				E2ADFA002873F18E00987D4D /* UICollectionView+Register.swift in Sources */,
-				E2B3E7112556DDB600B5483A /* Descriptable.swift in Sources */,
 				E2641BD72557C04900675868 /* String+HTML.swift in Sources */,
 				E2673B09255786F000727460 /* JobDetailProtocols.swift in Sources */,
 				E2641BFD2557C8AE00675868 /* LocalizedStrings.swift in Sources */,
