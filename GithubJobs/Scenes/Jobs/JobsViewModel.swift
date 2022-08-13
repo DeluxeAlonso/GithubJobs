@@ -55,7 +55,7 @@ final class JobsViewModel: JobsViewModelProtocol {
                 guard let self = self else { fatalError() }
                 return self.processResult(jobResult.jobs, currentPage: currentPage, currentJobs: self.jobs)
             }.catch { error -> Just<JobsViewState> in
-                return Just(.error(error))
+                return Just(.error(message: error.description))
             }.assign(to: &$viewState)
     }
 

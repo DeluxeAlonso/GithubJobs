@@ -10,7 +10,7 @@ enum JobDetailViewState: Equatable {
     case initial
     case empty
     case populated([Job])
-    case error(ErrorDescriptable)
+    case error(message: String)
 
     static func == (lhs: JobDetailViewState, rhs: JobDetailViewState) -> Bool {
         switch (lhs, rhs) {

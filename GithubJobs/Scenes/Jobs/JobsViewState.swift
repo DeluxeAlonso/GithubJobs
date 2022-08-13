@@ -11,7 +11,7 @@ enum JobsViewState: Equatable {
     case empty
     case paging([Job], next: Int)
     case populated([Job])
-    case error(ErrorDescriptable)
+    case error(message: String)
 
     static func == (lhs: JobsViewState, rhs: JobsViewState) -> Bool {
         switch (lhs, rhs) {
