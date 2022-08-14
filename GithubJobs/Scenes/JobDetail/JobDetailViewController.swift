@@ -17,11 +17,8 @@ final class JobDetailViewController: ViewController {
         return headerView
     }()
 
-    private lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: LocalizedStrings.refreshControlTitle())
-        refreshControl.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
-        refreshControl.backgroundColor = .systemBackground
+    private lazy var refreshControl: RefreshControl = {
+        let refreshControl = RefreshControl(title: LocalizedStrings.refreshControlTitle(), backgroundColor: .systemBackground)
         return refreshControl
     }()
 
@@ -93,6 +90,8 @@ final class JobDetailViewController: ViewController {
 
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
+
+        configureHeaderView()
     }
 
     private func configureView(with state: JobDetailViewState) {
@@ -118,7 +117,13 @@ final class JobDetailViewController: ViewController {
     private func setupBindings() {
         title = viewModel.jobTitle
 
-        configureHeaderView()
+        refreshControl
+            .valueChanged
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                guard let self = self else { return }
+                self.viewModel.getRelatedJobs()
+            }.store(in: &cancellables)
 
         viewModel.viewStatePublisher
             .receive(on: DispatchQueue.main)
@@ -128,12 +133,6 @@ final class JobDetailViewController: ViewController {
                 self.refreshControl.endRefreshing()
                 self.tableView.reloadData()
             }.store(in: &cancellables)
-    }
-
-    // MARK: - Selectors
-
-    @objc private func refreshControlAction() {
-        viewModel.getRelatedJobs()
     }
 
 }
