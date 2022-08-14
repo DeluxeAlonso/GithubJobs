@@ -83,7 +83,7 @@ class JobDetailTests: XCTestCase {
         let expectation = XCTestExpectation(description: "State is set to error")
         // Act
         viewModelToTest.$viewState.dropFirst().sink { state in
-            state == .error(errorToTest) ? expectation.fulfill() : XCTFail("State wasn't set to error")
+            state == .error(message: errorToTest.description) ? expectation.fulfill() : XCTFail("State wasn't set to error")
         }.store(in: &cancellables)
         jobsInteractor.getJobResult = Result<JobsResult, APIError>.failure(APIError.badRequest).publisher.eraseToAnyPublisher()
         viewModelToTest.getRelatedJobs()
