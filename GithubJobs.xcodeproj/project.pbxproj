@@ -80,6 +80,7 @@
 		E2CC32482877DFF500345569 /* ThemeSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */; };
 		E2E18206288FAA790096BA7B /* SettingsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18205288FAA780096BA7B /* SettingsItemModel.swift */; };
 		E2E18208288FAAC50096BA7B /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18207288FAAC50096BA7B /* SettingsSection.swift */; };
+		E2E6DCFD28A8CE2C0022547B /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E6DCFC28A8CE2C0022547B /* RefreshControl.swift */; };
 		E2F570A928979DE900A67593 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A628979DE900A67593 /* ThemeManager.swift */; };
 		E2F570AA28979DE900A67593 /* ThemeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A728979DE900A67593 /* ThemeManagerProtocol.swift */; };
 		E2F570AB28979DE900A67593 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A828979DE900A67593 /* Theme.swift */; };
@@ -183,6 +184,7 @@
 		E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewModel.swift; sourceTree = "<group>"; };
 		E2E18205288FAA780096BA7B /* SettingsItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemModel.swift; sourceTree = "<group>"; };
 		E2E18207288FAAC50096BA7B /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		E2E6DCFC28A8CE2C0022547B /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		E2F570A628979DE900A67593 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		E2F570A728979DE900A67593 /* ThemeManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManagerProtocol.swift; sourceTree = "<group>"; };
 		E2F570A828979DE900A67593 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				E28B52B025570D1A00389043 /* Animations */,
 				E28B529925570C3F00389043 /* LoadingFooterView.swift */,
 				E28B52A125570C9000389043 /* CustomFooterView.swift */,
+				E2E6DCFC28A8CE2C0022547B /* RefreshControl.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -704,6 +707,7 @@
 				E2641C142557CE1200675868 /* Dequeuable.swift in Sources */,
 				E21AEC382556E35100A85639 /* JobsViewModel.swift in Sources */,
 				E28B52AC25570CF000389043 /* FontHelper.swift in Sources */,
+				E2E6DCFD28A8CE2C0022547B /* RefreshControl.swift in Sources */,
 				E2673B04255782F000727460 /* JobsCoordinator.swift in Sources */,
 				E2B3E6EA2556D7BA00B5483A /* JobsViewController.swift in Sources */,
 				E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */,
