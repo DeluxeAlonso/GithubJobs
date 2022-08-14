@@ -339,7 +339,6 @@
 			children = (
 				E2A13FE5286D5C75001BC83D /* ViewController.swift */,
 				E2B2C8DB288BC39800522186 /* SplitViewController.swift */,
-				E261EF2928A30F3400F577AD /* Themeable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -488,6 +487,7 @@
 			children = (
 				E2673AFE2557823F00727460 /* Coordinator.swift */,
 				E2641C132557CE1200675868 /* Dequeuable.swift */,
+				E261EF2928A30F3400F577AD /* Themeable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
