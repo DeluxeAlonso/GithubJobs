@@ -10,7 +10,7 @@ import Combine
 
 class RefreshControl: UIRefreshControl {
 
-    var valueChanged = PassthroughSubject<Void, Never>()
+    private(set) var valueChanged = PassthroughSubject<Void, Never>()
 
     init(title: String, backgroundColor: UIColor = .systemBackground) {
         super.init()

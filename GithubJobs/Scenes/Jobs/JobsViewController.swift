@@ -19,11 +19,8 @@ final class JobsViewController: ViewController {
         return barButtonItem
     }()
 
-    private lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: LocalizedStrings.refreshControlTitle())
-        refreshControl.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
-        refreshControl.backgroundColor = .systemBackground
+    private lazy var refreshControl: RefreshControl = {
+        let refreshControl = RefreshControl(title: LocalizedStrings.refreshControlTitle(), backgroundColor: .systemBackground)
         return refreshControl
     }()
 
@@ -116,7 +113,16 @@ final class JobsViewController: ViewController {
     // MARK: - Reactive Behavior
 
     private func setupBindings() {
-        viewModel.viewStatePublisher
+        refreshControl
+            .valueChanged
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                guard let self = self else { return }
+                self.viewModel.getJobs()
+            }.store(in: &cancellables)
+
+        viewModel
+            .viewStatePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
                 guard let self = self else { return }
@@ -131,10 +137,6 @@ final class JobsViewController: ViewController {
 
     @objc private func settingsAction() {
         coordinator?.showSettings()
-    }
-
-    @objc private func refreshControlAction() {
-        viewModel.getJobs()
     }
 
 }
