@@ -1,5 +1,5 @@
 //
-//  JobDetailTests.swift
+//  JobDetailViewModelTests.swift
 //  GithubJobsTests
 //
 //  Created by Alonso on 11/8/20.
@@ -9,7 +9,7 @@ import XCTest
 import Combine
 @testable import GithubJobs
 
-class JobDetailTests: XCTestCase {
+class JobDetailViewModelTests: XCTestCase {
 
     private var jobsInteractor: MockJobsInteractor!
     private var viewModelToTest: JobDetailViewModel!

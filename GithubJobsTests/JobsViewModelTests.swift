@@ -1,5 +1,5 @@
 //
-//  JobsTests.swift
+//  JobsViewModelTests.swift
 //  GithubJobsTests
 //
 //  Created by Alonso on 11/8/20.
