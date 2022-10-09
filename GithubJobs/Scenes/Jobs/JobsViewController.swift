@@ -67,6 +67,17 @@ final class JobsViewController: ViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = LocalizedStrings.jobsTitle()
+
+        let title = UILabel()
+        title.text = "TITLE"
+        let spacer = UIView()
+        let constraint = spacer.widthAnchor.constraint(greaterThanOrEqualToConstant: UIScreen.main.bounds.width)
+        constraint.isActive = true
+        constraint.priority = .defaultLow
+        let stack = UIStackView(arrangedSubviews: [title, spacer])
+        stack.axis = .horizontal
+        navigationItem.titleView = stack
+
         setupUI()
         setupBindings()
         viewModel.getJobs()
