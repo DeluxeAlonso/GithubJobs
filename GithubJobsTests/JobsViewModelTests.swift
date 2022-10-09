@@ -122,4 +122,15 @@ class JobsViewModelTests: XCTestCase {
         XCTAssertEqual(jobsToTest.count, viewModelToTest.jobsCells.count)
     }
 
+    func testJobAtIndex() {
+        // Arrange
+        let jobsToTest = [Job.with(id: "1"), Job.with(id: "2")]
+        let viewState = JobsViewState.populated(jobsToTest)
+        Just(viewState).assign(to: &viewModelToTest.$viewState)
+        // Act
+        let job = viewModelToTest.job(at: 0)
+        // Assert
+        XCTAssertEqual(job.id, jobsToTest.first?.id)
+    }
+
 }
