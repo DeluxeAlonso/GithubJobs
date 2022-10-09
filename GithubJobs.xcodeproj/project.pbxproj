@@ -21,7 +21,7 @@
 		E2641BF22557C82900675868 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2641BF42557C82900675868 /* Localizable.strings */; };
 		E2641BFD2557C8AE00675868 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641BFC2557C8AE00675868 /* LocalizedStrings.swift */; };
 		E2641C022557C90100675868 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641C012557C90100675868 /* String+Localized.swift */; };
-		E2641C072557CB1E00675868 /* JobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641C062557CB1E00675868 /* JobsTests.swift */; };
+		E2641C072557CB1E00675868 /* JobsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641C062557CB1E00675868 /* JobsViewModelTests.swift */; };
 		E2641C0F2557CDE300675868 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641C0E2557CDE300675868 /* UITableView+Register.swift */; };
 		E2641C142557CE1200675868 /* Dequeuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2641C132557CE1200675868 /* Dequeuable.swift */; };
 		E2673AE425577A0B00727460 /* DataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2673AE325577A0B00727460 /* DataSourcePrefetching.swift */; };
@@ -120,7 +120,7 @@
 		E2641BF82557C85E00675868 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E2641BFC2557C8AE00675868 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		E2641C012557C90100675868 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
-		E2641C062557CB1E00675868 /* JobsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTests.swift; sourceTree = "<group>"; };
+		E2641C062557CB1E00675868 /* JobsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewModelTests.swift; sourceTree = "<group>"; };
 		E2641C0E2557CDE300675868 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 		E2641C132557CE1200675868 /* Dequeuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dequeuable.swift; sourceTree = "<group>"; };
 		E2673AE325577A0B00727460 /* DataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcePrefetching.swift; sourceTree = "<group>"; };
@@ -411,7 +411,7 @@
 			children = (
 				E27E9CAD2558457200210D1C /* Mocks */,
 				E2B3E6C72556D67700B5483A /* Info.plist */,
-				E2641C062557CB1E00675868 /* JobsTests.swift */,
+				E2641C062557CB1E00675868 /* JobsViewModelTests.swift */,
 				E23930DD25585D8000E7C4ED /* JobDetailTests.swift */,
 			);
 			path = GithubJobsTests;
@@ -780,7 +780,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E23930DE25585D8000E7C4ED /* JobDetailTests.swift in Sources */,
-				E2641C072557CB1E00675868 /* JobsTests.swift in Sources */,
+				E2641C072557CB1E00675868 /* JobsViewModelTests.swift in Sources */,
 				E26FD26C2784088A00AAEBCD /* MockJobsInteractor.swift in Sources */,
 				E27E9CBD2558463A00210D1C /* Job+MockInitializer.swift in Sources */,
 			);
@@ -1119,7 +1119,7 @@
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.13.0;
+				minimumVersion = 5.14.0;
 			};
 		};
 		E29456DC263E709F0011AF68 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
