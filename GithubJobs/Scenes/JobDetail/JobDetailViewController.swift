@@ -75,26 +75,12 @@ final class JobDetailViewController: ViewController {
 
     private func setupUI() {
         setupTableView()
-
-//        let title = UILabel()
-//        title.text = "TITLE"
-//        let spacer = UIView()
-//        let constraint = spacer.widthAnchor.constraint(greaterThanOrEqualToConstant: UIScreen.main.bounds.width)
-//        constraint.isActive = true
-//        constraint.priority = .defaultLow
-//        let stack = UIStackView(arrangedSubviews: [title, spacer])
-//        stack.axis = .horizontal
-        let view = UIView(frame: .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 150))
-        view.backgroundColor = .blue
-        navigationItem.titleView = view
     }
 
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.fillSuperview()
-
-        tableView.backgroundColor = .blue
-
+        
         tableView.register(cellType: JobTableViewCell.self)
 
         tableView.dataSource = self
