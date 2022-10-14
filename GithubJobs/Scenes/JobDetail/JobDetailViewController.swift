@@ -80,9 +80,7 @@ final class JobDetailViewController: ViewController {
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.fillSuperview()
-
-        tableView.backgroundColor = .blue
-
+        
         tableView.register(cellType: JobTableViewCell.self)
 
         tableView.dataSource = self
