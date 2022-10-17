@@ -45,13 +45,13 @@ class ViewController: UIViewController, Themeable {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if shouldShowCloseBarButtonItem() {
+        if shouldShowCloseBarButtonItem {
             navigationItem.leftBarButtonItem = closeBarButtonItem
         }
     }
 
-    func shouldShowCloseBarButtonItem() -> Bool {
-        return isBeingPresented || navigationController?.isBeingPresented ?? false
+    var shouldShowCloseBarButtonItem: Bool {
+        isBeingPresented || navigationController?.isBeingPresented ?? false
     }
 
     @objc func closeBarButtonItemTapped() {
