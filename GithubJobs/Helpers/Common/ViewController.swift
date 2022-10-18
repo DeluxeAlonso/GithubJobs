@@ -55,6 +55,12 @@ class ViewController: UIViewController, Themeable {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configureCloseBarButtonItem()
+    }
+
+    // MARK: - Private
+
+    private func configureCloseBarButtonItem() {
         if shouldShowCloseBarButtonItem {
             navigationItem.leftBarButtonItem = closeBarButtonItem
         }
