@@ -10,14 +10,22 @@ import Combine
 
 class ViewController: UIViewController, Themeable {
 
+    private let themeManager: ThemeManagerProtocol
+
+    private var themeCancellable: Set<AnyCancellable> = []
+
     lazy private var closeBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeBarButtonItemTapped))
         return barButtonItem
     }()
 
-    private let themeManager: ThemeManagerProtocol
+    // MARK: - Computed properties
 
-    private var themeCancellable: Set<AnyCancellable> = []
+    var shouldShowCloseBarButtonItem: Bool {
+        isBeingPresented || navigationController?.isBeingPresented ?? false
+    }
+
+    // MARK: - Initializers
 
     init(themeManager: ThemeManagerProtocol) {
         self.themeManager = themeManager
@@ -27,6 +35,8 @@ class ViewController: UIViewController, Themeable {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +55,18 @@ class ViewController: UIViewController, Themeable {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configureCloseBarButtonItem()
+    }
+
+    // MARK: - Private
+
+    private func configureCloseBarButtonItem() {
         if shouldShowCloseBarButtonItem {
             navigationItem.leftBarButtonItem = closeBarButtonItem
         }
     }
 
-    var shouldShowCloseBarButtonItem: Bool {
-        isBeingPresented || navigationController?.isBeingPresented ?? false
-    }
+    // MARK: - Selectors
 
     @objc func closeBarButtonItemTapped() {
         fatalError("Should be implemented in child class")

@@ -14,6 +14,8 @@ class SplitViewController: UISplitViewController, Themeable {
 
     private var themeCancellable: Set<AnyCancellable> = []
 
+    // MARK: - Initializers
+
     init(themeManager: ThemeManagerProtocol) {
         self.themeManager = themeManager
         super.init(nibName: nil, bundle: nil)
@@ -22,6 +24,8 @@ class SplitViewController: UISplitViewController, Themeable {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
