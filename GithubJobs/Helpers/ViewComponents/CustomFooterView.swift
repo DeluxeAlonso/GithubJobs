@@ -32,8 +32,8 @@ class CustomFooterView: UIView {
 
     // MARK: - Initializers
 
-    init(message: String) {
-        super.init(frame: CustomFooterView.recommendedFrame)
+    init(message: String, frame: CGRect = CustomFooterView.recommendedFrame) {
+        super.init(frame: frame)
         setupUI()
         messageLabel.text = message
     }
