@@ -42,6 +42,7 @@
 		E27924352647873800891120 /* EmptyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27924342647873800891120 /* EmptyDetailViewController.swift */; };
 		E27E9CBD2558463A00210D1C /* Job+MockInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E9CBC2558463A00210D1C /* Job+MockInitializer.swift */; };
 		E281527F2889047B000A5C55 /* ThemeSelectionItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E281527E2889047B000A5C55 /* ThemeSelectionItemModel.swift */; };
+		E28270532902516800C02624 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28270522902516800C02624 /* Animator.swift */; };
 		E286A324288D0C54004ACF5D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286A323288D0C54004ACF5D /* SettingsViewController.swift */; };
 		E286A326288D0C63004ACF5D /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286A325288D0C63004ACF5D /* SettingsViewModel.swift */; };
 		E286A328288D0C6D004ACF5D /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286A327288D0C6D004ACF5D /* SettingsCoordinator.swift */; };
@@ -141,6 +142,7 @@
 		E27924342647873800891120 /* EmptyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDetailViewController.swift; sourceTree = "<group>"; };
 		E27E9CBC2558463A00210D1C /* Job+MockInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job+MockInitializer.swift"; sourceTree = "<group>"; };
 		E281527E2889047B000A5C55 /* ThemeSelectionItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionItemModel.swift; sourceTree = "<group>"; };
+		E28270522902516800C02624 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		E286A323288D0C54004ACF5D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E286A325288D0C63004ACF5D /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		E286A327288D0C6D004ACF5D /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				E28B52B125570D2B00389043 /* TableViewCellAnimator.swift */,
+				E28270522902516800C02624 /* Animator.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				E2673B0E2557872E00727460 /* JobDetailCoordinator.swift in Sources */,
 				E21AEC2B2556E1D000A85639 /* JobClient.swift in Sources */,
 				E28B52A725570CCF00389043 /* UIView+Layout.swift in Sources */,
+				E28270532902516800C02624 /* Animator.swift in Sources */,
 				E2E18208288FAAC50096BA7B /* SettingsSection.swift in Sources */,
 				E2B3E72B2556DFA300B5483A /* Dictionary+Format.swift in Sources */,
 				E261F94A25583CBA00DBC582 /* BackgroundCurvedView.swift in Sources */,
