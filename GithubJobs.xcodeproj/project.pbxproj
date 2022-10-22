@@ -53,7 +53,6 @@
 		E28B52A225570C9000389043 /* CustomFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52A125570C9000389043 /* CustomFooterView.swift */; };
 		E28B52A725570CCF00389043 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52A625570CCF00389043 /* UIView+Layout.swift */; };
 		E28B52AC25570CF000389043 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52AB25570CF000389043 /* FontHelper.swift */; };
-		E28B52B225570D2B00389043 /* TableViewCellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52B125570D2B00389043 /* TableViewCellAnimator.swift */; };
 		E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52B62557215600389043 /* JobCellViewModel.swift */; };
 		E29456C3263E6CA70011AF68 /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = E29456C2263E6CA70011AF68 /* KingfisherStatic */; };
 		E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A13FE5286D5C75001BC83D /* ViewController.swift */; };
@@ -153,7 +152,6 @@
 		E28B52A125570C9000389043 /* CustomFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterView.swift; sourceTree = "<group>"; };
 		E28B52A625570CCF00389043 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		E28B52AB25570CF000389043 /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
-		E28B52B125570D2B00389043 /* TableViewCellAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAnimator.swift; sourceTree = "<group>"; };
 		E28B52B62557215600389043 /* JobCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCellViewModel.swift; sourceTree = "<group>"; };
 		E2A13FE5286D5C75001BC83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2ADF9F62873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionSectionHeaderView.swift; sourceTree = "<group>"; };
@@ -334,7 +332,6 @@
 		E28B52B025570D1A00389043 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				E28B52B125570D2B00389043 /* TableViewCellAnimator.swift */,
 				E28270522902516800C02624 /* Animator.swift */,
 			);
 			path = Animations;
@@ -769,7 +766,6 @@
 				E2B3E70A2556DD5700B5483A /* APIError.swift in Sources */,
 				E2F570AB28979DE900A67593 /* Theme.swift in Sources */,
 				E2B3E6AF2556D67400B5483A /* AppDelegate.swift in Sources */,
-				E28B52B225570D2B00389043 /* TableViewCellAnimator.swift in Sources */,
 				E2B3E6B12556D67400B5483A /* SceneDelegate.swift in Sources */,
 				E2B3E7232556DF8000B5483A /* URLRequest+Headers.swift in Sources */,
 				E27138AA2782384400E6F501 /* JobsInteractor.swift in Sources */,
