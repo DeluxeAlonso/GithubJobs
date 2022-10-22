@@ -166,7 +166,7 @@ extension JobsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if !displayedCellsIndexPaths.contains(indexPath) {
             displayedCellsIndexPaths.insert(indexPath)
-            TableViewCellAnimator.fadeAnimate(cell: cell)
+            Animator.fade(tableViewCell: cell)
         }
     }
 
