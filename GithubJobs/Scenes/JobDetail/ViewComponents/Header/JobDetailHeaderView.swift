@@ -29,6 +29,8 @@ class JobDetailHeaderView: UIView {
         label.setContentHuggingPriority(.required, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         label.numberOfLines = 0
+        label.font = FontHelper.dynamic(.body)
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
