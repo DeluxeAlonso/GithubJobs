@@ -31,9 +31,11 @@ class JobTableViewCell: UITableViewCell {
     private func setupUI() {
         accessoryType = .disclosureIndicator
         textLabel?.numberOfLines = 2
+        textLabel?.font = FontHelper.dynamicHeadline()
 
         detailTextLabel?.numberOfLines = 2
         detailTextLabel?.textColor = .systemGray
+        detailTextLabel?.font = FontHelper.dynamicBody()
     }
 
     private func setupBindables() {

@@ -33,21 +33,12 @@ struct FontHelper {
 
     // MARK: - Dynamic fonts
 
-    static func dynamicHeadline(_ fontToUpdate: UIFont? = nil) -> UIFont {
-        guard let fontToUpdate = fontToUpdate else {
-            return .preferredFont(forTextStyle: .headline)
+    static func dynamic(_ font: UIFont? = nil, _ textStyle: UIFont.TextStyle) -> UIFont {
+        guard let font = font else {
+            return .preferredFont(forTextStyle: textStyle)
         }
-
-        let fontMetrics = UIFontMetrics(forTextStyle: .headline)
-        return fontMetrics.scaledFont(for: fontToUpdate)
-    }
-
-    static func dynamicBody(_ fontToUpdate: UIFont? = nil) -> UIFont {
-        guard let fontToUpdate = fontToUpdate else {
-            return .preferredFont(forTextStyle: .body)
-        }
-        let fontMetrics = UIFontMetrics(forTextStyle: .body)
-        return fontMetrics.scaledFont(for: fontToUpdate)
+        let fontMetrics = UIFontMetrics(forTextStyle: textStyle)
+        return fontMetrics.scaledFont(for: font)
     }
 
 }
