@@ -16,12 +16,12 @@ class Animator {
         }, completion: completion)
     }
 
-    class func fade(tableViewCell: UITableViewCell, completion: ((Bool) -> Void)? = nil) {
-        fade(view: tableViewCell.contentView, completion: completion)
+    class func fade(tableViewCell: UITableViewCell) {
+        fade(view: tableViewCell.contentView)
     }
 
-    class func fade(collectionViewCell: UICollectionViewCell, completion: ((Bool) -> Void)? = nil) {
-        fade(view: collectionViewCell.contentView, completion: completion)
+    class func fade(collectionViewCell: UICollectionViewCell) {
+        fade(view: collectionViewCell.contentView)
     }
 
 }
