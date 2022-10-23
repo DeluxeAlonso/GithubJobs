@@ -16,12 +16,12 @@ class Animator {
         }, completion: completion)
     }
 
-    class func fade(tableViewCell: UITableViewCell, completion: ((Bool) -> Void)? = nil) {
-        let view = tableViewCell.contentView
-        view.layer.opacity = 0.1
-        UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: .allowUserInteraction, animations: {
-            view.layer.opacity = 1
-        }, completion: completion)
+    class func fade(tableViewCell: UITableViewCell) {
+        fade(view: tableViewCell.contentView)
+    }
+
+    class func fade(collectionViewCell: UICollectionViewCell) {
+        fade(view: collectionViewCell.contentView)
     }
 
 }
