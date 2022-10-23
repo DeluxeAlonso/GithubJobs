@@ -24,6 +24,9 @@ final class JobDetailViewController: ViewController {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = .zero
+        }
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         return tableView

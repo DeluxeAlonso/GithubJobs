@@ -102,8 +102,8 @@ class JobDetailHeaderView: UIView {
         leadingContraint.priority = .init(999)
 
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: companyLogoContainerView.bottomAnchor, constant: 8),
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            titleLabel.topAnchor.constraint(equalTo: companyLogoContainerView.bottomAnchor, constant: 16),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             leadingContraint,
             trailingContraint
         ])
