@@ -33,7 +33,7 @@ struct FontHelper {
 
     // MARK: - Dynamic fonts
 
-    static func dynamic(_ font: UIFont? = nil, _ textStyle: UIFont.TextStyle) -> UIFont {
+    static func dynamic(_ textStyle: UIFont.TextStyle, font: UIFont? = nil) -> UIFont {
         guard let font = font else {
             return .preferredFont(forTextStyle: textStyle)
         }
