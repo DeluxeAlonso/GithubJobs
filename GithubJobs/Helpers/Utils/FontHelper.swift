@@ -31,6 +31,16 @@ struct FontHelper {
         return UIFont.systemFont(ofSize: size, weight: UIFont.Weight.regular)
     }
 
+    // MARK: - Dynamic fonts
+
+    static func dynamic(_ textStyle: UIFont.TextStyle, font: UIFont? = nil) -> UIFont {
+        guard let font = font else {
+            return .preferredFont(forTextStyle: textStyle)
+        }
+        let fontMetrics = UIFontMetrics(forTextStyle: textStyle)
+        return fontMetrics.scaledFont(for: font)
+    }
+
 }
 
 extension FontHelper {
