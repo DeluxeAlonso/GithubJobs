@@ -40,11 +40,10 @@ final class JobDetailViewModel: JobDetailViewModelProtocol {
 
     func getRelatedJobs() {
         interactor.getJobs(description: job.title)
-            .map { jobResult -> JobDetailViewState in
-                return self.processResult(jobResult.jobs)
-            }.catch { error -> Just<JobDetailViewState> in
-                return Just(.error(message: error.description))
-            }.assign(to: &$viewState)
+            .map { $0.jobs }
+            .map(processResult)
+            .catch { Just(.error(message: $0.description)) }
+            .assign(to: &$viewState)
     }
 
     func job(at index: Int) -> Job {
