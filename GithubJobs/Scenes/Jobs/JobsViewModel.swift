@@ -51,8 +51,7 @@ final class JobsViewModel: JobsViewModelProtocol {
 
     private func fetchJobs(currentPage: Int) {
         interactor.getJobs(page: currentPage)
-            .map { [weak self] jobResult -> JobsViewState in
-                guard let self = self else { fatalError() }
+            .map { jobResult -> JobsViewState in
                 return self.processResult(jobResult.jobs, currentPage: currentPage, currentJobs: self.jobs)
             }.catch { error -> Just<JobsViewState> in
                 return Just(.error(message: error.description))
