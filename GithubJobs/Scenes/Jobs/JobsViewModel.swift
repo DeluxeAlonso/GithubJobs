@@ -19,7 +19,7 @@ final class JobsViewModel: JobsViewModelProtocol {
 
     // MARK: - Computed Properties
 
-    private var jobs: [Job] {
+    private var currentJobs: [Job] {
         return viewState.currentJobs
     }
 
@@ -28,7 +28,7 @@ final class JobsViewModel: JobsViewModelProtocol {
     }
 
     var jobsCells: [JobCellViewModel] {
-        return jobs.map { JobCellViewModel($0) }
+        return currentJobs.map { JobCellViewModel($0) }
     }
 
     // MARK: - Initializers
@@ -44,21 +44,21 @@ final class JobsViewModel: JobsViewModelProtocol {
     }
 
     func job(at index: Int) -> Job {
-        return jobs[index]
+        return currentJobs[index]
     }
 
     // MARK: - Private
 
     private func fetchJobs(currentPage: Int) {
         interactor.getJobs(page: currentPage)
-            .map { jobResult -> JobsViewState in
-                return self.processResult(jobResult.jobs, currentPage: currentPage, currentJobs: self.jobs)
-            }.catch { error -> Just<JobsViewState> in
-                return Just(.error(message: error.description))
-            }.assign(to: &$viewState)
+            .map { ($0.jobs, currentPage, self.currentJobs) }
+            .map(processResult)
+            .catch { Just(.error(message: $0.description)) }
+            .assign(to: &$viewState)
     }
 
-    private func processResult(_ jobs: [Job], currentPage: Int,
+    private func processResult(_ jobs: [Job],
+                               currentPage: Int,
                                currentJobs: [Job]) -> JobsViewState {
         var allJobs = currentPage == 1 ? [] : currentJobs
         allJobs.append(contentsOf: jobs)
