@@ -11,7 +11,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
 
     private let themeManager: ThemeManagerProtocol
 
-    @Published var itemModels: [SettingsItemModel] = []
+    @Published private var itemModels: [SettingsItemModel] = []
 
     var itemModelsPublisher: Published<[SettingsItemModel]>.Publisher {
         $itemModels
