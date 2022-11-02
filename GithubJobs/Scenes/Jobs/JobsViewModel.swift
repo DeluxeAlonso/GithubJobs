@@ -11,7 +11,7 @@ final class JobsViewModel: JobsViewModelProtocol {
 
     private let interactor: JobsInteractorProtocol
 
-    @Published var viewState: JobsViewState = .initial
+    @Published private var viewState: JobsViewState = .initial
 
     var viewStatePublisher: Published<JobsViewState>.Publisher {
         $viewState
