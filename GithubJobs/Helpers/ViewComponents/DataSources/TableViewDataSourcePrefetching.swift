@@ -9,9 +9,9 @@ import UIKit
 
 final class TableViewDataSourcePrefetching: NSObject, DataSourcePrefetching, UITableViewDataSourcePrefetching {
 
-    let cellCount: Int
-    let needsPrefetch: Bool
-    let prefetchHandler: (() -> Void)
+    private let cellCount: Int
+    private let needsPrefetch: Bool
+    private let prefetchHandler: (() -> Void)
 
     init(cellCount: Int, needsPrefetch: Bool, prefetchHandler: @escaping (() -> Void)) {
         self.cellCount = cellCount
