@@ -21,14 +21,13 @@ class LoadingFooterView: UIView {
 
     // MARK: - Initializers
 
-    init() {
-        super.init(frame: LoadingFooterView.recommendedFrame)
-        setupUI()
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+    }
+
+    convenience init() {
+        self.init(frame: LoadingFooterView.recommendedFrame)
     }
 
     required init?(coder aDecoder: NSCoder) {
