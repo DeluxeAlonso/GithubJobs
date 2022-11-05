@@ -9,11 +9,13 @@ import Foundation
 
 extension String {
 
-    func localized(bundle: Bundle = .main, tableName: String = "Localizable") -> String {
+    func localized(bundle: Bundle = .main,
+                   tableName: String = "Localizable",
+                   comment: String = "") -> String {
         return NSLocalizedString(self,
                                  tableName: tableName,
                                  value: self,
-                                 comment: "")
+                                 comment: comment)
     }
 
 }
