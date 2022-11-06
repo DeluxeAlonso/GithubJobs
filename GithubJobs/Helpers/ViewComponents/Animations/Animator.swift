@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Animator {
+final class Animator {
 
     class func fade(view: UIView, completion: ((Bool) -> Void)? = nil) {
         view.layer.opacity = 0.1
