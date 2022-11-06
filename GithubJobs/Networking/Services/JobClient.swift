@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class JobClient: JobClientProtocol, APIClient {
+final class JobClient: JobClientProtocol, APIClient {
 
     let session: URLSession
 

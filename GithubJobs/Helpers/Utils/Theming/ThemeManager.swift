@@ -42,6 +42,8 @@ final class ThemeManager: ThemeManagerProtocol {
 
 }
 
+// MARK: - CustomStringConvertible
+
 extension UIUserInterfaceStyle: CustomStringConvertible {
 
     public var description: String {
