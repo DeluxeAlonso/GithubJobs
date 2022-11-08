@@ -37,7 +37,7 @@ class JobsViewModelTests: XCTestCase {
             state == .paging(jobsToTest, next: 2) ? expectation.fulfill() : XCTFail("State wasn't set to paging")
         }.store(in: &cancellables)
         mockJobsInteractor.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
-        viewModelToTest.getJobs(shouldRefresh: false)
+        viewModelToTest.getJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
     }
@@ -52,10 +52,10 @@ class JobsViewModelTests: XCTestCase {
         }.store(in: &cancellables)
 
         mockJobsInteractor.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
-        viewModelToTest.getJobs(shouldRefresh: false)
+        viewModelToTest.getJobs()
 
         mockJobsInteractor.getJobResult = Result.success(JobsResult(jobs: [])).publisher.eraseToAnyPublisher()
-        viewModelToTest.getJobs(shouldRefresh: false)
+        viewModelToTest.getJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
     }
@@ -69,7 +69,7 @@ class JobsViewModelTests: XCTestCase {
             state == .empty ? expectation.fulfill() : XCTFail("State wasn't set to populated")
         }.store(in: &cancellables)
         mockJobsInteractor.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
-        viewModelToTest.getJobs(shouldRefresh: false)
+        viewModelToTest.getJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
     }
@@ -83,7 +83,7 @@ class JobsViewModelTests: XCTestCase {
             state == .error(message: APIError.badRequest.description) ? expectation.fulfill() : XCTFail("State wasn't set to error")
         }.store(in: &cancellables)
         mockJobsInteractor.getJobResult = Result.failure(errorToTest).publisher.eraseToAnyPublisher()
-        viewModelToTest.getJobs(shouldRefresh: false)
+        viewModelToTest.getJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
     }
@@ -97,7 +97,7 @@ class JobsViewModelTests: XCTestCase {
             state == .paging(jobsToTest, next: 2) ? expectation.fulfill() : XCTFail("State wasn't set to paging")
         }.store(in: &cancellables)
         mockJobsInteractor.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
-        viewModelToTest.getJobs(shouldRefresh: false)
+        viewModelToTest.getJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
         XCTAssertEqual(jobsToTest.count, viewModelToTest.jobsCells.count)
@@ -113,10 +113,10 @@ class JobsViewModelTests: XCTestCase {
         }.store(in: &cancellables)
 
         mockJobsInteractor.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
-        viewModelToTest.getJobs(shouldRefresh: false)
+        viewModelToTest.getJobs()
 
         mockJobsInteractor.getJobResult = Result.success(JobsResult(jobs: [])).publisher.eraseToAnyPublisher()
-        viewModelToTest.getJobs(shouldRefresh: false)
+        viewModelToTest.getJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
         XCTAssertEqual(jobsToTest.count, viewModelToTest.jobsCells.count)
