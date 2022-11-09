@@ -123,15 +123,20 @@ class JobsViewModelTests: XCTestCase {
     }
 
     // TODO - Fix unit test
-//    func testJobAtIndex() {
-//        // Arrange
-//        let jobsToTest = [Job.with(id: "1"), Job.with(id: "2")]
-//        let viewState = JobsViewState.populated(jobsToTest)
-//        Just(viewState).assign(to: &viewModelToTest.viewStatePublisher)
-//        // Act
-//        let job = viewModelToTest.job(at: 0)
-//        // Assert
-//        XCTAssertEqual(job.id, jobsToTest.first?.id)
-//    }
+    func testJobAtIndex() {
+        // Arrange
+        let jobsToTest = [Job.with(id: "1"), Job.with(id: "2")]
+        let expectation = XCTestExpectation(description: "State is set to paging")
+        // Act
+        viewModelToTest.viewStatePublisher.dropFirst().sink { state in
+            state == .paging(jobsToTest, next: 2) ? expectation.fulfill() : XCTFail("State wasn't set to paging")
+        }.store(in: &cancellables)
+        mockJobsInteractor.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
+        viewModelToTest.getJobs()
+        // Assert
+        wait(for: [expectation], timeout: 1)
+        let job = viewModelToTest.job(at: 0)
+        XCTAssertEqual(job.id, jobsToTest.first?.id)
+    }
 
 }
