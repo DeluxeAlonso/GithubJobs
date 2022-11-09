@@ -122,7 +122,6 @@ class JobsViewModelTests: XCTestCase {
         XCTAssertEqual(jobsToTest.count, viewModelToTest.jobsCells.count)
     }
 
-    // TODO - Fix unit test
     func testJobAtIndex() {
         // Arrange
         let jobsToTest = [Job.with(id: "1"), Job.with(id: "2")]
