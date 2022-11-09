@@ -14,7 +14,9 @@ protocol JobsViewModelProtocol {
 
     var jobsCells: [JobCellViewModel] { get }
 
-    func getJobs(shouldRefresh: Bool)
+    func getJobs()
+    func refreshJobs()
+
     func job(at index: Int) -> Job
 
 }

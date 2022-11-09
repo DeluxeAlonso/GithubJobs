@@ -70,7 +70,7 @@ final class JobsViewController: ViewController {
 
         setupUI()
         setupBindings()
-        viewModel.getJobs(shouldRefresh: true)
+        viewModel.getJobs()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -93,7 +93,7 @@ final class JobsViewController: ViewController {
         prefetchDataSource = TableViewDataSourcePrefetching(cellCount: viewModel.jobsCells.count,
                                                             needsPrefetch: viewModel.needsPrefetch,
                                                             prefetchHandler: { [weak self] in
-            self?.viewModel.getJobs(shouldRefresh: false)
+            self?.viewModel.refreshJobs()
         })
         tableView.prefetchDataSource = prefetchDataSource
     }
@@ -119,7 +119,7 @@ final class JobsViewController: ViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
                 guard let self = self else { return }
-                self.viewModel.getJobs(shouldRefresh: true)
+                self.viewModel.getJobs()
             }.store(in: &cancellables)
 
         viewModel

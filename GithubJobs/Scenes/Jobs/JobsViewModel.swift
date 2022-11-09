@@ -39,9 +39,12 @@ final class JobsViewModel: JobsViewModelProtocol {
 
     // MARK: - JobsViewModelProtocol
 
-    func getJobs(shouldRefresh: Bool) {
-        let currentPage = shouldRefresh ? .zero : viewState.currentPage
-        fetchJobs(currentPage: currentPage)
+    func getJobs() {
+        fetchJobs(currentPage: viewState.currentPage)
+    }
+
+    func refreshJobs() {
+        fetchJobs(currentPage: .zero)
     }
 
     func job(at index: Int) -> Job {
