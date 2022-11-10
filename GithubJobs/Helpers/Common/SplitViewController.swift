@@ -12,7 +12,7 @@ class SplitViewController: UISplitViewController, Themeable {
 
     private let themeManager: ThemeManagerProtocol
 
-    private var themeCancellable: Set<AnyCancellable> = []
+    private var cancellables: Set<AnyCancellable> = []
 
     // MARK: - Initializers
 
@@ -39,7 +39,7 @@ class SplitViewController: UISplitViewController, Themeable {
             .sink { [weak self] userInterfaceStyle in
                 guard let self = self else { return }
                 self.updateUserInterfaceStyle(userInterfaceStyle, animated: true)
-            }.store(in: &themeCancellable)
+            }.store(in: &cancellables)
     }
 
 }
