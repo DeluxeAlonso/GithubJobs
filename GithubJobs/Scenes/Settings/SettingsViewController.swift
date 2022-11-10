@@ -25,7 +25,6 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     private weak var coordinator: SettingsCoordinatorProtocol?
 
     private var dataSource: SettingsCollectionViewDataSource?
-    private var cancellables: Set<AnyCancellable> = []
 
     // MARK: - Initializers
 
