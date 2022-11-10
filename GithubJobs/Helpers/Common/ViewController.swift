@@ -14,6 +14,8 @@ class ViewController: UIViewController, Themeable {
 
     var cancellables: Set<AnyCancellable> = []
 
+    // MARK: - Lazy properties
+
     lazy private var closeBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeBarButtonItemTapped))
         return barButtonItem
