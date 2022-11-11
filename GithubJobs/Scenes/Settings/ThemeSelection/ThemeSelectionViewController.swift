@@ -24,7 +24,6 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
     private weak var coordinator: ThemeSelectionCoordinatorProtocol?
 
     private var dataSource: ThemeSelectionCollectionViewDataSource?
-    private var cancellables: Set<AnyCancellable> = []
 
     // MARK: - Initializers
 

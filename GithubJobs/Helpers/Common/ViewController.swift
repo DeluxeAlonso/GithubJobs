@@ -12,7 +12,9 @@ class ViewController: UIViewController, Themeable {
 
     private let themeManager: ThemeManagerProtocol
 
-    private var themeCancellable: Set<AnyCancellable> = []
+    var cancellables: Set<AnyCancellable> = []
+
+    // MARK: - Lazy properties
 
     lazy private var closeBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeBarButtonItemTapped))
@@ -50,7 +52,7 @@ class ViewController: UIViewController, Themeable {
             .sink { [weak self] userInterfaceStyle in
                 guard let self = self else { return }
                 self.updateUserInterfaceStyle(userInterfaceStyle, animated: true)
-            }.store(in: &themeCancellable)
+            }.store(in: &cancellables)
     }
 
     override func viewWillAppear(_ animated: Bool) {

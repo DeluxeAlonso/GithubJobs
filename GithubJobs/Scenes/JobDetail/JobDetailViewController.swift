@@ -33,7 +33,6 @@ final class JobDetailViewController: ViewController {
     }()
 
     private var displayedCellsIndexPaths = Set<IndexPath>()
-    private var cancellables: Set<AnyCancellable> = []
 
     private let viewModel: JobDetailViewModelProtocol
     private weak var coordinator: JobDetailCoordinatorProtocol?
