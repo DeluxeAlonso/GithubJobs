@@ -30,7 +30,9 @@ final class SettingsCoordinator: NSObject, Coordinator, SettingsCoordinatorProto
         navigationController.modalPresentationStyle = .fullScreen
 
         presentingViewController?.present(navigationController, animated: true, completion: {
-            self.navigationController.delegate = self
+            if self.navigationController.delegate == nil {
+                self.navigationController.delegate = self
+            }
         })
     }
 

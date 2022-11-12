@@ -25,7 +25,9 @@ final class JobsCoordinator: NSObject, JobsCoordinatorProtocol, Coordinator, UIN
                                                 viewModel: viewModel,
                                                 coordinator: self)
 
-        navigationController.delegate = self
+        if navigationController.delegate == nil {
+            navigationController.delegate = self
+        }
         navigationController.pushViewController(viewController, animated: true)
     }
 
