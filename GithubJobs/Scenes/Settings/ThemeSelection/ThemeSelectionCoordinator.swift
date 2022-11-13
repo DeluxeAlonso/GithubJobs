@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoordinatorProtocol {
+final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoordinatorProtocol, UINavigationControllerDelegate {
 
     let navigationController: UINavigationController
 
@@ -34,6 +34,9 @@ final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoor
             detailNavigationController = navigationController
             navigationController.pushViewController(viewController, animated: true)
         }
+        if navigationController.delegate == nil {
+            navigationController.delegate = self
+        }
     }
 
     func startModally() {
@@ -54,6 +57,20 @@ final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoor
         presentedViewController?.dismiss(animated: true) { [weak self] in
             self?.parentCoordinator?.childDidFinish()
         }
+    }
+
+    // MARK: - UINavigationControllerDelegate
+
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
+            return
+        }
+        // Check whether our view controller array already contains that view controller.
+        // If it does it means we’re pushing a different view controller on top rather than popping it, so exit.
+        if navigationController.viewControllers.contains(fromViewController) {
+            return
+        }
+        unwrappedParentCoordinator.childDidFinish()
     }
 
 }
