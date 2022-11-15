@@ -40,7 +40,7 @@ extension Coordinator {
 
 extension Coordinator where Self: UINavigationControllerDelegate {
 
-    func finishChildOnPopIfneeded() {
+    func finishChildIfNeeded() {
         guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
             return
         }
