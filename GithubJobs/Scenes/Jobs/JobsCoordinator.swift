@@ -52,7 +52,7 @@ final class JobsCoordinator: NSObject, JobsCoordinatorProtocol, Coordinator, UIN
     }
 
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        finishChildOnPopIfneeded()
+        finishChildIfNeeded()
     }
 
 }

@@ -62,7 +62,7 @@ final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoor
     // MARK: - UINavigationControllerDelegate
 
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        finishChildOnPopIfneeded()
+        finishChildIfNeeded()
     }
 
 }

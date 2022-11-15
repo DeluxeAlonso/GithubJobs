@@ -53,7 +53,7 @@ final class JobDetailCoordinator: NSObject, JobDetailCoordinatorProtocol, Coordi
     // MARK: - UINavigationControllerDelegate
 
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        finishChildOnPopIfneeded()
+        finishChildIfNeeded()
     }
 
 }
