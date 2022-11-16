@@ -7,17 +7,9 @@
 
 import UIKit
 
-final class JobsCoordinator: NSObject, JobsCoordinatorProtocol, Coordinator, UINavigationControllerDelegate {
+final class JobsCoordinator: BaseCoordinator, JobsCoordinatorProtocol {
 
-    var childCoordinators: [Coordinator] = []
-    var parentCoordinator: Coordinator?
-    var navigationController: UINavigationController
-
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-
-    func start() {
+    override func start() {
         let interactor = JobsInteractor(jobClient: JobClient())
         let viewModel = JobsViewModel(interactor: interactor)
 
@@ -30,6 +22,8 @@ final class JobsCoordinator: NSObject, JobsCoordinatorProtocol, Coordinator, UIN
         }
         navigationController.pushViewController(viewController, animated: true)
     }
+
+    // MARK: - JobsCoordinatorProtocol
 
     func showJobDetail(_ job: Job) {
         let coordinator = JobDetailCoordinator(navigationController: navigationController)
@@ -50,9 +44,5 @@ final class JobsCoordinator: NSObject, JobsCoordinatorProtocol, Coordinator, UIN
         unwrappedParentCoordinator.childCoordinators.append(coordinator)
         coordinator.start()
     }
-
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        finishChildIfNeeded()
-    }
-
+    
 }
