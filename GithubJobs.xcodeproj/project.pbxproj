@@ -238,6 +238,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		E258C107292484A90027484A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E2B2C8DB288BC39800522186 /* SplitViewController.swift */,
+				E2A13FE5286D5C75001BC83D /* ViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		E2609A3A25583718008002BA /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,8 +346,7 @@
 		E2A13FE4286D5C57001BC83D /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				E2A13FE5286D5C75001BC83D /* ViewController.swift */,
-				E2B2C8DB288BC39800522186 /* SplitViewController.swift */,
+				E258C107292484A90027484A /* UI */,
 			);
 			path = Base;
 			sourceTree = "<group>";
