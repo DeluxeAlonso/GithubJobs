@@ -334,13 +334,13 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		E2A13FE4286D5C57001BC83D /* Common */ = {
+		E2A13FE4286D5C57001BC83D /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				E2A13FE5286D5C75001BC83D /* ViewController.swift */,
 				E2B2C8DB288BC39800522186 /* SplitViewController.swift */,
 			);
-			path = Common;
+			path = Base;
 			sourceTree = "<group>";
 		};
 		E2ADF9F52873EB9F00987D4D /* ViewComponents */ = {
@@ -472,7 +472,7 @@
 		E2B3E70E2556DD8400B5483A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E2A13FE4286D5C57001BC83D /* Common */,
+				E2A13FE4286D5C57001BC83D /* Base */,
 				E2B3E7212556DF6500B5483A /* Extensions */,
 				E2B3E70F2556DD9E00B5483A /* Protocols */,
 				E289EFC7263516D700A60609 /* PropertyWrappers */,
