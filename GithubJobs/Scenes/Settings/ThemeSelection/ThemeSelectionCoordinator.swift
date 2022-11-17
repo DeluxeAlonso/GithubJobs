@@ -7,20 +7,12 @@
 
 import UIKit
 
-final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoordinatorProtocol, UINavigationControllerDelegate {
+final class ThemeSelectionCoordinator: BaseCoordinator, ThemeSelectionCoordinatorProtocol {
 
-    let navigationController: UINavigationController
-
-    var childCoordinators: [Coordinator] = []
-    var parentCoordinator: Coordinator?
     var presentingViewController: UIViewController?
     var detailNavigationController: UINavigationController?
 
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-
-    func start() {
+    override func start() {
         let themeManager = ThemeManager.shared
         let viewModel = ThemeSelectionViewModel(themeManager: themeManager)
         let viewController = ThemeSelectionViewController(themeManager: themeManager,
@@ -38,6 +30,8 @@ final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoor
             navigationController.delegate = self
         }
     }
+
+    // MARK: - ThemeSelectionCoordinatorProtocol
 
     func startModally() {
         let themeManager = ThemeManager.shared
@@ -57,12 +51,6 @@ final class ThemeSelectionCoordinator: NSObject, Coordinator, ThemeSelectionCoor
         presentedViewController?.dismiss(animated: true) { [weak self] in
             self?.parentCoordinator?.childDidFinish()
         }
-    }
-
-    // MARK: - UINavigationControllerDelegate
-
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        finishChildIfNeeded()
     }
 
 }
