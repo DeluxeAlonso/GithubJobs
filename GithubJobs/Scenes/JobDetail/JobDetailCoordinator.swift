@@ -7,20 +7,12 @@
 
 import UIKit
 
-final class JobDetailCoordinator: NSObject, JobDetailCoordinatorProtocol, Coordinator, UINavigationControllerDelegate {
+final class JobDetailCoordinator: BaseCoordinator, JobDetailCoordinatorProtocol {
 
-    var childCoordinators: [Coordinator] = []
-    var parentCoordinator: Coordinator?
-    var navigationController: UINavigationController
     var detailNavigationController: UINavigationController?
-
     var job: Job!
 
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-
-    func start() {
+    override func start() {
         let interactor = JobsInteractor(jobClient: JobClient())
         let viewModel = JobDetailViewModel(job, interactor: interactor)
         let viewController = JobDetailViewController(themeManager: ThemeManager.shared,
@@ -39,6 +31,8 @@ final class JobDetailCoordinator: NSObject, JobDetailCoordinatorProtocol, Coordi
         }
     }
 
+    // MARK: - JobDetailCoordinatorProtocol
+
     func showJobDetail(_ job: Job) {
         let navController = detailNavigationController != nil ? detailNavigationController! : navigationController
         let coordinator = JobDetailCoordinator(navigationController: navController)
@@ -48,12 +42,6 @@ final class JobDetailCoordinator: NSObject, JobDetailCoordinatorProtocol, Coordi
 
         unwrappedParentCoordinator.childCoordinators.append(coordinator)
         coordinator.start()
-    }
-
-    // MARK: - UINavigationControllerDelegate
-
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        finishChildIfNeeded()
     }
 
 }
