@@ -7,19 +7,11 @@
 
 import UIKit
 
-final class SettingsCoordinator: NSObject, Coordinator, SettingsCoordinatorProtocol, UINavigationControllerDelegate {
+final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
 
-    let navigationController: UINavigationController
-
-    var childCoordinators: [Coordinator] = []
-    var parentCoordinator: Coordinator?
     var presentingViewController: UIViewController?
 
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-
-    func start() {
+    override func start() {
         let themeManager = ThemeManager.shared
         let viewModel = SettingsViewModel(themeManager: themeManager)
         let viewController = SettingsViewController(themeManager: themeManager,
@@ -36,6 +28,8 @@ final class SettingsCoordinator: NSObject, Coordinator, SettingsCoordinatorProto
         })
     }
 
+    // MARK: - SettingsCoordinatorProtocol
+
     func showThemeSelection() {
         let coordinator = ThemeSelectionCoordinator(navigationController: navigationController)
 
@@ -50,12 +44,6 @@ final class SettingsCoordinator: NSObject, Coordinator, SettingsCoordinatorProto
         presentedViewController?.dismiss(animated: true) { [weak self] in
             self?.parentCoordinator?.childDidFinish()
         }
-    }
-
-    // MARK: - UINavigationControllerDelegate
-
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        finishChildIfNeeded()
     }
 
 }
