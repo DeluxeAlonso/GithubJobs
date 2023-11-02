@@ -16,3 +16,18 @@ identifier_name:
   - id
 nesting:
   type_level: 3
+opt_in_rules:
+    - explicit_init
+    - fatal_error_message
+    - force_unwrapping
+    - implicit_return
+    - operator_usage_whitespace
+    - optional_enum_case_matching
+    - overridden_super_call
+    - override_in_extension
+    - reduce_into
+    - redundant_nil_coalescing
+    - untyped_error_in_catch
+    - unused_control_flow_label
+    - unused_declaration
+    - unused_import

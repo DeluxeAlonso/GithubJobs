@@ -32,7 +32,9 @@ protocol Endpoint {
 extension Endpoint {
 
     var urlComponents: URLComponents {
-        var components = URLComponents(string: base)!
+        guard var components = URLComponents(string: base) else {
+            fatalError("Invalid Base URL")
+        }
         components.path = path
         var queryItems: [URLQueryItem] = []
         switch parameterEncoding {
@@ -58,7 +60,9 @@ extension Endpoint {
     }
 
     var request: URLRequest {
-        let url = urlComponents.url!
+        guard let url = urlComponents.url else {
+            fatalError("Invalid URL components")
+        }
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
 
