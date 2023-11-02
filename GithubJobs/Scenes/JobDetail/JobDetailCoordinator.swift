@@ -34,7 +34,12 @@ final class JobDetailCoordinator: BaseCoordinator, JobDetailCoordinatorProtocol 
     // MARK: - JobDetailCoordinatorProtocol
 
     func showJobDetail(_ job: Job) {
-        let navController = detailNavigationController != nil ? detailNavigationController! : navigationController
+        let navController: UINavigationController
+        if let detailNavigationController {
+            navController = detailNavigationController
+        } else {
+            navController = navigationController
+        }
         let coordinator = JobDetailCoordinator(navigationController: navController)
         coordinator.job = job
 
