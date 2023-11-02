@@ -16,3 +16,5 @@ identifier_name:
   - id
 nesting:
   type_level: 3
+opt_in_rules:
+  - implicit_return
