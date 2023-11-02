@@ -27,7 +27,6 @@ opt_in_rules:
     - override_in_extension
     - reduce_into
     - redundant_nil_coalescing
-    - unavailable_function
     - untyped_error_in_catch
     - unused_control_flow_label
     - unused_declaration

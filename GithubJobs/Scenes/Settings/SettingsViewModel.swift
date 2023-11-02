@@ -41,7 +41,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         themeManager
             .interfaceStyle
             .map { [weak self] _ -> [SettingsItemModel] in
-                guard let self = self else { fatalError() }
+                guard let self = self else { fatalError("Inconsistent state") }
                 return self.createItemModels()
             }
             .assign(to: &$itemModels)
