@@ -25,13 +25,13 @@ extension UICollectionView {
     func dequeueReusableView<T: UICollectionReusableView>(with type: T.Type,
                                                           kind: String,
                                                           for indexPath: IndexPath) -> T {
-        return dequeueReusableSupplementaryView(ofKind: kind,
+        dequeueReusableSupplementaryView(ofKind: kind,
                                                 withReuseIdentifier: kind,
                                                 for: indexPath) as! T
     }
 
     func dequeueReusableCell<T: UICollectionViewCell>(with type: T.Type, for indexPath: IndexPath) -> T {
-        return self.dequeueReusableCell(withReuseIdentifier: type.dequeueIdentifier, for: indexPath) as! T
+        dequeueReusableCell(withReuseIdentifier: type.dequeueIdentifier, for: indexPath) as! T
     }
 
 }
