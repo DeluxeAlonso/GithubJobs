@@ -11,9 +11,7 @@ enum JobProvider {
 
 extension JobProvider: Endpoint {
 
-    var base: String {
-        return "https://private-45833-githubjobsapi.apiary-mock.com"
-    }
+    var base: String { "https://private-45833-githubjobsapi.apiary-mock.com" }
 
     var path: String {
         switch self {
@@ -44,7 +42,7 @@ extension JobProvider: Endpoint {
     }
 
     var headers: [String: String]? {
-        return nil
+        nil
     }
 
 }
