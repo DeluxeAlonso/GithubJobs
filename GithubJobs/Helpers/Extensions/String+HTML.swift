@@ -20,7 +20,7 @@ extension String {
     }
     
     var htmlToString: String {
-        return htmlToAttributedString?.string.trailingNewLinesTrimmed ?? ""
+        htmlToAttributedString?.string.trailingNewLinesTrimmed ?? ""
     }
     
     var trailingNewLinesTrimmed: String {

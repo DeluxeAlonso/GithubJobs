@@ -15,11 +15,11 @@ protocol Localizable {
 extension Localizable where Self: RawRepresentable, Self.RawValue == String {
 
     var localized: String {
-        return rawValue.localized(tableName: tableName)
+        rawValue.localized(tableName: tableName)
     }
 
     func callAsFunction() -> String {
-        return self.localized
+        localized
     }
 
 }
@@ -41,8 +41,6 @@ enum LocalizedStrings: String, Localizable {
 
     case refreshControlTitle
 
-    var tableName: String {
-        return "Localizable"
-    }
+    var tableName: String { "Localizable" }
 
 }

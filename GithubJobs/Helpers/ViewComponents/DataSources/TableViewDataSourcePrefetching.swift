@@ -22,7 +22,7 @@ final class TableViewDataSourcePrefetching: NSObject, UITableViewDataSourcePrefe
     // MARK: - Private
 
     private func isLoadingCell(for indexPath: IndexPath) -> Bool {
-        return indexPath.row >= cellCount - 1
+        indexPath.row >= cellCount - 1
     }
 
     private func prefetchIfNeeded(for indexPaths: [IndexPath]) {
