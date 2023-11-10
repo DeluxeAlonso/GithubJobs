@@ -20,7 +20,7 @@ final class ThemeManager: ThemeManagerProtocol {
     // MARK: - ThemeManagerProtocol
 
     lazy private(set) var interfaceStyle: CurrentValueSubject<UIUserInterfaceStyle, Never> = {
-        return CurrentValueSubject<UIUserInterfaceStyle, Never>(storedInterfaceStyle)
+        CurrentValueSubject<UIUserInterfaceStyle, Never>(storedInterfaceStyle)
     }()
 
     func updateInterfaceStyle(_ userInterfaceStyle: UIUserInterfaceStyle) {
@@ -31,7 +31,7 @@ final class ThemeManager: ThemeManagerProtocol {
 
     private var storedInterfaceStyle: UIUserInterfaceStyle {
         get {
-            return UIUserInterfaceStyle(rawValue: userInterfaceStyleRawValue) ?? .unspecified
+            UIUserInterfaceStyle(rawValue: userInterfaceStyleRawValue) ?? .unspecified
         }
         set {
             userInterfaceStyleRawValue = newValue.rawValue
