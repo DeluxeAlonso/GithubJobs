@@ -48,13 +48,13 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     }
 
     private func createItemModels() -> [SettingsItemModel] {
-        return [
+        [
             SettingsItemModel(title: LocalizedStrings.settingThemeSelectionRowTitle(),
                               value: themeManager.interfaceStyle.value.description,
                               actionHandler: didTapThemeSelectionItem)
         ]
     }
-
+    
     private func didTapThemeSelectionItem() {
         didSelectThemeSelectionItem.send()
     }
