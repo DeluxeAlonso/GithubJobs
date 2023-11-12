@@ -21,7 +21,7 @@ final class JobDetailViewModel: JobDetailViewModelProtocol {
     // MARK: - Computed Properties
 
     var jobTitle: String? {
-        return job.title
+        job.title
     }
 
     var jobsCells: [JobCellViewModel] {
@@ -52,7 +52,7 @@ final class JobDetailViewModel: JobDetailViewModelProtocol {
     }
 
     func makeJobDetailHeaderViewModel() -> JobDetailHeaderViewModelProtocol {
-        return JobDetailHeaderViewModel(job)
+        JobDetailHeaderViewModel(job)
     }
 
     // MARK: - Private
