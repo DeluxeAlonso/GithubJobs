@@ -7,7 +7,7 @@
 
 import UIKit
 
-class JobTableViewCell: UITableViewCell {
+final class JobTableViewCell: UITableViewCell {
 
     var viewModel: JobCellViewModel? {
         didSet {
