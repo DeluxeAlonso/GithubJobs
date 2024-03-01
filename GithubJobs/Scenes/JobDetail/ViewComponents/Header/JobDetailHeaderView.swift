@@ -7,7 +7,7 @@
 
 import UIKit
 
-class JobDetailHeaderView: UIView {
+final class JobDetailHeaderView: UIView {
 
     private lazy var companyLogoContainerView: BackgroundCurvedView = {
         let view = BackgroundCurvedView()

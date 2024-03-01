@@ -7,7 +7,7 @@
 
 import UIKit
 
-class JobDetailSectionView: UIView {
+final class JobDetailSectionView: UIView {
 
     lazy private var titleLabel: UILabel = {
         let label = UILabel()

@@ -12,7 +12,7 @@ protocol JobCellViewModelProtocol {
 
 }
 
-class JobCellViewModel: JobCellViewModelProtocol {
+final class JobCellViewModel: JobCellViewModelProtocol {
 
     let title: String
     let company: String
