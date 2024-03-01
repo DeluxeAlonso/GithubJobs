@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ThemeSelectionSectionHeaderView: UICollectionReusableView {
+final class ThemeSelectionSectionHeaderView: UICollectionReusableView {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
