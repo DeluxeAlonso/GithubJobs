@@ -19,7 +19,7 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
                                                     coordinator: self)
 
         navigationController.pushViewController(viewController, animated: false)
-        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.modalPresentationStyle = .automatic
 
         presentingViewController?.present(navigationController, animated: true, completion: {
             if self.navigationController.delegate == nil {
