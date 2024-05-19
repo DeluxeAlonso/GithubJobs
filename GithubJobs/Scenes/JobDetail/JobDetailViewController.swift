@@ -61,6 +61,13 @@ final class JobDetailViewController: ViewController {
         viewModel.getRelatedJobs()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let indexPathForSelectedRow = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPathForSelectedRow, animated: true)
+        }
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         // Recalculate header height if needed
@@ -161,7 +168,6 @@ extension JobDetailViewController: UITableViewDataSource {
 extension JobDetailViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         coordinator?.showJobDetail(viewModel.job(at: indexPath.row))
     }
 
