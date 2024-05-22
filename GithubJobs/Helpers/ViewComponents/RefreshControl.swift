@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class RefreshControl: UIRefreshControl {
+final class RefreshControl: UIRefreshControl {
 
     private(set) var valueChanged = PassthroughSubject<Void, Never>()
 
