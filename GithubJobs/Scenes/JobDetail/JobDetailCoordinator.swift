@@ -10,7 +10,12 @@ import UIKit
 final class JobDetailCoordinator: BaseCoordinator, JobDetailCoordinatorProtocol {
 
     var detailNavigationController: UINavigationController?
-    var job: Job!
+    private let job: Job
+
+    init(navigationController: UINavigationController, job: Job) {
+        self.job = job
+        super.init(navigationController: navigationController)
+    }
 
     override func start() {
         let interactor = JobsInteractor(jobClient: JobClient())
@@ -40,9 +45,7 @@ final class JobDetailCoordinator: BaseCoordinator, JobDetailCoordinatorProtocol 
         } else {
             navController = navigationController
         }
-        let coordinator = JobDetailCoordinator(navigationController: navController)
-        coordinator.job = job
-
+        let coordinator = JobDetailCoordinator(navigationController: navController, job: job)
         coordinator.parentCoordinator = unwrappedParentCoordinator
 
         unwrappedParentCoordinator.childCoordinators.append(coordinator)
