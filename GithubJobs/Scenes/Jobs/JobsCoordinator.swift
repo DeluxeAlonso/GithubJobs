@@ -26,10 +26,9 @@ final class JobsCoordinator: BaseCoordinator, JobsCoordinatorProtocol {
     // MARK: - JobsCoordinatorProtocol
 
     func showJobDetail(_ job: Job) {
-        let coordinator = JobDetailCoordinator(navigationController: navigationController)
-        coordinator.job = job
-        coordinator.detailNavigationController = UINavigationController()
-
+        let coordinator = JobDetailCoordinator(navigationController: navigationController,
+                                               detailNavigationController: UINavigationController(),
+                                               job: job)
         coordinator.parentCoordinator = unwrappedParentCoordinator
 
         unwrappedParentCoordinator.childCoordinators.append(coordinator)
