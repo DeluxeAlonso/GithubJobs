@@ -9,11 +9,14 @@ import UIKit
 
 final class JobDetailCoordinator: BaseCoordinator, JobDetailCoordinatorProtocol {
 
-    var detailNavigationController: UINavigationController?
     private let job: Job
+    private(set) var detailNavigationController: UINavigationController?
 
-    init(navigationController: UINavigationController, job: Job) {
+    init(navigationController: UINavigationController,
+         detailNavigationController: UINavigationController? = nil,
+         job: Job) {
         self.job = job
+        self.detailNavigationController = detailNavigationController
         super.init(navigationController: navigationController)
     }
 
