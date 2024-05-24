@@ -11,7 +11,7 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     private let themeManager: ThemeManagerProtocol
 
-    var didSelectTheme = PassthroughSubject<Void, Never>()
+    private(set) var didSelectTheme = PassthroughSubject<Void, Never>()
 
     // MARK: - Initializers
 
