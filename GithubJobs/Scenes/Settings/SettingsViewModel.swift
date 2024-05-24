@@ -17,7 +17,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         $itemModels
     }
 
-    var didSelectThemeSelectionItem = PassthroughSubject<Void, Never>()
+    private(set) var didSelectThemeSelectionItem = PassthroughSubject<Void, Never>()
 
     init(themeManager: ThemeManagerProtocol) {
         self.themeManager = themeManager
