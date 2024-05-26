@@ -19,7 +19,7 @@ final class ThemeManager: ThemeManagerProtocol {
 
     // MARK: - ThemeManagerProtocol
 
-    lazy private(set) var interfaceStyle: CurrentValueSubject<UIUserInterfaceStyle, Never> = {
+    private(set) lazy var interfaceStyle: CurrentValueSubject<UIUserInterfaceStyle, Never> = {
         CurrentValueSubject<UIUserInterfaceStyle, Never>(storedInterfaceStyle)
     }()
 

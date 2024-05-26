@@ -12,7 +12,7 @@ typealias ThemeSelectionCollectionViewDataSource = UICollectionViewDiffableDataS
 
 final class ThemeSelectionViewController: ViewController, UICollectionViewDelegate {
 
-    lazy private var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         collectionView.register(viewType: ThemeSelectionSectionHeaderView.self, kind: UICollectionView.elementKindSectionHeader)
         collectionView.delegate = self

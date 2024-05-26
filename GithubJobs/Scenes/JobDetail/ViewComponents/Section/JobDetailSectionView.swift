@@ -9,7 +9,7 @@ import UIKit
 
 final class JobDetailSectionView: UIView {
 
-    lazy private var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
