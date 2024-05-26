@@ -23,14 +23,6 @@ final class CustomFooterView: UIView {
         return label
     }()
 
-    // MARK: - Public
-
-    var message: String? {
-        didSet {
-            messageLabel.text = message
-        }
-    }
-
     // MARK: - Initializers
 
     init(message: String, frame: CGRect = CustomFooterView.recommendedFrame) {
