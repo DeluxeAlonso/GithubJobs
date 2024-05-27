@@ -45,7 +45,7 @@ final class CustomFooterView: UIView {
 
     // MARK: - Constants
 
-    struct Constants {
+    private struct Constants {
         static let horizontalMargin: CGFloat = 8.0
     }
 
