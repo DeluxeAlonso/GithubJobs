@@ -19,26 +19,13 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         var anchoredConstraints = AnchoredConstraints()
 
-        if let top {
-            anchoredConstraints.top = topAnchor.constraint(equalTo: top, constant: padding.top)
-        }
+        anchoredConstraints.top = top.flatMap { topAnchor.constraint(equalTo: $0, constant: padding.top) }
+        anchoredConstraints.leading = leading.flatMap { leadingAnchor.constraint(equalTo: $0, constant: padding.left) }
+        anchoredConstraints.bottom = bottom.flatMap { bottomAnchor.constraint(equalTo: $0, constant: -padding.bottom) }
+        anchoredConstraints.trailing = trailing.flatMap { trailingAnchor.constraint(equalTo: $0, constant: -padding.right) }
 
-        if let leading {
-            anchoredConstraints.leading = leadingAnchor.constraint(equalTo: leading, constant: padding.left)
-        }
-
-        if let bottom {
-            anchoredConstraints.bottom = bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom)
-        }
-
-        if let trailing {
-            anchoredConstraints.trailing = trailingAnchor.constraint(equalTo: trailing, constant: -padding.right)
-        }
-
-        if let size {
-            anchoredConstraints.width = widthAnchor.constraint(equalToConstant: size.width)
-            anchoredConstraints.height = heightAnchor.constraint(equalToConstant: size.height)
-        }
+        anchoredConstraints.width = size.flatMap { widthAnchor.constraint(equalToConstant: $0.width) }
+        anchoredConstraints.height = size.flatMap { heightAnchor.constraint(equalToConstant: $0.height) }
 
         [anchoredConstraints.top,
          anchoredConstraints.leading,
