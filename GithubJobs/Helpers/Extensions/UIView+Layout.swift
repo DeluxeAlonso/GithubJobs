@@ -10,32 +10,22 @@ import UIKit
 extension UIView {
 
     @discardableResult
-    func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?,
-                bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?,
-                padding: UIEdgeInsets = .zero, size: CGSize? = nil) -> AnchoredConstraints {
+    func anchor(top: NSLayoutYAxisAnchor?,
+                leading: NSLayoutXAxisAnchor?,
+                bottom: NSLayoutYAxisAnchor?,
+                trailing: NSLayoutXAxisAnchor?,
+                padding: UIEdgeInsets = .zero,
+                size: CGSize? = nil) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
         var anchoredConstraints = AnchoredConstraints()
 
-        if let top = top {
-            anchoredConstraints.top = topAnchor.constraint(equalTo: top, constant: padding.top)
-        }
+        anchoredConstraints.top = top.flatMap { topAnchor.constraint(equalTo: $0, constant: padding.top) }
+        anchoredConstraints.leading = leading.flatMap { leadingAnchor.constraint(equalTo: $0, constant: padding.left) }
+        anchoredConstraints.bottom = bottom.flatMap { bottomAnchor.constraint(equalTo: $0, constant: -padding.bottom) }
+        anchoredConstraints.trailing = trailing.flatMap { trailingAnchor.constraint(equalTo: $0, constant: -padding.right) }
 
-        if let leading = leading {
-            anchoredConstraints.leading = leadingAnchor.constraint(equalTo: leading, constant: padding.left)
-        }
-
-        if let bottom = bottom {
-            anchoredConstraints.bottom = bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom)
-        }
-
-        if let trailing = trailing {
-            anchoredConstraints.trailing = trailingAnchor.constraint(equalTo: trailing, constant: -padding.right)
-        }
-
-        if let size = size {
-            anchoredConstraints.width = widthAnchor.constraint(equalToConstant: size.width)
-            anchoredConstraints.height = heightAnchor.constraint(equalToConstant: size.height)
-        }
+        anchoredConstraints.width = size.flatMap { widthAnchor.constraint(equalToConstant: $0.width) }
+        anchoredConstraints.height = size.flatMap { heightAnchor.constraint(equalToConstant: $0.height) }
 
         [anchoredConstraints.top,
          anchoredConstraints.leading,
