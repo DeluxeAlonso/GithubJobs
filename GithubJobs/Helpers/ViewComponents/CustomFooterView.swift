@@ -23,14 +23,6 @@ final class CustomFooterView: UIView {
         return label
     }()
 
-    // MARK: - Public
-
-    var message: String? {
-        didSet {
-            messageLabel.text = message
-        }
-    }
-
     // MARK: - Initializers
 
     init(message: String, frame: CGRect = CustomFooterView.recommendedFrame) {
@@ -53,7 +45,7 @@ final class CustomFooterView: UIView {
 
     // MARK: - Constants
 
-    struct Constants {
+    private struct Constants {
         static let horizontalMargin: CGFloat = 8.0
     }
 
