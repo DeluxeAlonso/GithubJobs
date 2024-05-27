@@ -16,7 +16,7 @@ class ViewController: UIViewController, Themeable {
 
     // MARK: - Lazy properties
 
-    lazy private var closeBarButtonItem: UIBarButtonItem = {
+    private lazy var closeBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeBarButtonItemTapped))
         return barButtonItem
     }()
