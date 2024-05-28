@@ -38,22 +38,14 @@ extension UIView {
     }
 
     func fillSuperview(padding: UIEdgeInsets = .zero) {
+        guard let superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
-        if let superviewTopAnchor = superview?.safeAreaLayoutGuide.topAnchor {
-            topAnchor.constraint(equalTo: superviewTopAnchor, constant: padding.top).isActive = true
-        }
 
-        if let superviewBottomAnchor = superview?.safeAreaLayoutGuide.bottomAnchor {
-            bottomAnchor.constraint(equalTo: superviewBottomAnchor, constant: -padding.bottom).isActive = true
-        }
-
-        if let superviewLeadingAnchor = superview?.safeAreaLayoutGuide.leadingAnchor {
-            leadingAnchor.constraint(equalTo: superviewLeadingAnchor, constant: padding.left).isActive = true
-        }
-
-        if let superviewTrailingAnchor = superview?.safeAreaLayoutGuide.trailingAnchor {
-            trailingAnchor.constraint(equalTo: superviewTrailingAnchor, constant: -padding.right).isActive = true
-        }
+        let safeAreaLayoutGuide = superview.safeAreaLayoutGuide
+        topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: padding.top).isActive = true
+        bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -padding.bottom).isActive = true
+        leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding.left).isActive = true
+        trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -padding.right).isActive = true
     }
 
     func centerInSuperview(size: CGSize? = nil) {
