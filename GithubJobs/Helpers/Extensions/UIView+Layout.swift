@@ -68,10 +68,9 @@ extension UIView {
     }
 
     func centerYInSuperview() {
+        guard let superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
-        if let centerY = superview?.centerYAnchor {
-            centerYAnchor.constraint(equalTo: centerY).isActive = true
-        }
+        centerYAnchor.constraint(equalTo: superview.centerYAnchor).isActive = true
     }
 
     func constraintWidth(constant: CGFloat) {
