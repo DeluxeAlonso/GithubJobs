@@ -29,7 +29,7 @@ final class JobClient: JobClientProtocol, APIClient {
         getJobs(page: 0, description: description)
     }
 
-    func getJobs(page: Int, description: String) -> AnyPublisher<JobsResult, APIError> {
+    private func getJobs(page: Int, description: String) -> AnyPublisher<JobsResult, APIError> {
         let request = JobProvider.getAll(page: page, description: description).request
         return fetch(with: request) { json -> JobsResult? in
             guard let jobsResult = json as? JobsResult else { return  nil }
