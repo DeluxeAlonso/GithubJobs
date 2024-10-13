@@ -22,15 +22,15 @@ final class JobClient: JobClientProtocol, APIClient {
     }
 
     func getJobs(page: Int) -> AnyPublisher<JobsResult, APIError> {
-        let request = JobProvider.getAll(page: page, description: "").request
-        return fetch(with: request) { json -> JobsResult? in
-            guard let jobsResult = json as? JobsResult else { return  nil }
-            return jobsResult
-        }.eraseToAnyPublisher()
+        getJobs(page: page, description: "")
     }
 
     func getJobs(description: String) -> AnyPublisher<JobsResult, APIError> {
-        let request = JobProvider.getAll(page: 0, description: description).request
+        getJobs(page: 0, description: description)
+    }
+
+    func getJobs(page: Int, description: String) -> AnyPublisher<JobsResult, APIError> {
+        let request = JobProvider.getAll(page: page, description: description).request
         return fetch(with: request) { json -> JobsResult? in
             guard let jobsResult = json as? JobsResult else { return  nil }
             return jobsResult
