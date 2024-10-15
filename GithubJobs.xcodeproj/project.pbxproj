@@ -47,7 +47,6 @@
 		E286A326288D0C63004ACF5D /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286A325288D0C63004ACF5D /* SettingsViewModel.swift */; };
 		E286A328288D0C6D004ACF5D /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286A327288D0C6D004ACF5D /* SettingsCoordinator.swift */; };
 		E286A32A288D0C79004ACF5D /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286A329288D0C79004ACF5D /* SettingsProtocols.swift */; };
-		E289EFC92635170800A60609 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289EFC82635170800A60609 /* UserDefaultsStorage.swift */; };
 		E28B5294255700F100389043 /* JobsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B5293255700F100389043 /* JobsViewState.swift */; };
 		E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B529925570C3F00389043 /* LoadingFooterView.swift */; };
 		E28B52A225570C9000389043 /* CustomFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52A125570C9000389043 /* CustomFooterView.swift */; };
@@ -146,7 +145,6 @@
 		E286A325288D0C63004ACF5D /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		E286A327288D0C6D004ACF5D /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		E286A329288D0C79004ACF5D /* SettingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
-		E289EFC82635170800A60609 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		E28B5293255700F100389043 /* JobsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewState.swift; sourceTree = "<group>"; };
 		E28B529925570C3F00389043 /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
 		E28B52A125570C9000389043 /* CustomFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterView.swift; sourceTree = "<group>"; };
@@ -305,14 +303,6 @@
 				E26FD26B2784088A00AAEBCD /* MockJobsInteractor.swift */,
 			);
 			path = Mocks;
-			sourceTree = "<group>";
-		};
-		E289EFC7263516D700A60609 /* PropertyWrappers */ = {
-			isa = PBXGroup;
-			children = (
-				E289EFC82635170800A60609 /* UserDefaultsStorage.swift */,
-			);
-			path = PropertyWrappers;
 			sourceTree = "<group>";
 		};
 		E28B528A2556FEE200389043 /* Utils */ = {
@@ -486,7 +476,6 @@
 				E2A13FE4286D5C57001BC83D /* Base */,
 				E2B3E7212556DF6500B5483A /* Extensions */,
 				E2B3E70F2556DD9E00B5483A /* Protocols */,
-				E289EFC7263516D700A60609 /* PropertyWrappers */,
 				E28B528A2556FEE200389043 /* Utils */,
 				E28B529825570C3300389043 /* ViewComponents */,
 			);
@@ -755,7 +744,6 @@
 				E261EF2A28A30F3400F577AD /* Themeable.swift in Sources */,
 				E2641BD22557AA9100675868 /* JobDetailViewState.swift in Sources */,
 				E28B52A225570C9000389043 /* CustomFooterView.swift in Sources */,
-				E289EFC92635170800A60609 /* UserDefaultsStorage.swift in Sources */,
 				E2B3E6F82556DAE100B5483A /* JobTableViewCell.swift in Sources */,
 				E21AEC3E2556E3B800A85639 /* JobClientProtocol.swift in Sources */,
 				E2609A36255836E5008002BA /* JobDetailHeaderViewModel.swift in Sources */,
