@@ -7,13 +7,14 @@
 
 import UIKit
 import Combine
+import SwiftUI
 
 final class ThemeManager: ThemeManagerProtocol {
 
     static let shared = ThemeManager()
 
-    @UserDefaultsStorage(key: "UserInterfaceStyle", defaultValue: UIUserInterfaceStyle.unspecified.rawValue)
-    private var userInterfaceStyleRawValue: Int
+    @AppStorage("UserInterfaceStyle")
+    private var userInterfaceStyleRawValue: Int = UIUserInterfaceStyle.unspecified.rawValue
 
     init() {}
 
