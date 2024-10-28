@@ -52,8 +52,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         [
             SettingsItemModel(title: LocalizedStrings.settingThemeSelectionRowTitle(),
                               value: themeManager.interfaceStyle.value.description,
-                              actionHandler: didTapThemeSelectionItem),
-            SettingsItemModel(title: "Colors", value: nil, actionHandler: didTapColorSelectionItem)
+                              actionHandler: didTapThemeSelectionItem)
         ]
     }
 
