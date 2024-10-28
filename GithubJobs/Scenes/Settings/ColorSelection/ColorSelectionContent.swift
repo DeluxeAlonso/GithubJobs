@@ -18,6 +18,6 @@ struct ColorSelectionContent: View {
 // swiftlint:disable type_name
 struct ColorSelectionContent_Previews: PreviewProvider {
     static var previews: some View {
-        ColorSelectionContent(viewModel: ColorSelectionViewModel())
+        ColorSelectionContent(viewModel: ColorSelectionViewModel(colorManager: ColorManager.shared))
     }
 }
