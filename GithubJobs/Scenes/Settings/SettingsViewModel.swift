@@ -18,6 +18,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     }
 
     private(set) var didSelectThemeSelectionItem = PassthroughSubject<Void, Never>()
+    private(set) var didSelectColorSelectionItem = PassthroughSubject<Void, Never>()
 
     init(themeManager: ThemeManagerProtocol) {
         self.themeManager = themeManager
@@ -53,6 +54,10 @@ final class SettingsViewModel: SettingsViewModelProtocol {
                               value: themeManager.interfaceStyle.value.description,
                               actionHandler: didTapThemeSelectionItem)
         ]
+    }
+
+    private func didTapColorSelectionItem() {
+        didSelectColorSelectionItem.send()
     }
     
     private func didTapThemeSelectionItem() {
