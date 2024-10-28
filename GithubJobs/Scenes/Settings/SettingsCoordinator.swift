@@ -39,6 +39,15 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
         coordinator.start()
     }
 
+    func showColorSelection() {
+        let coordinator = ColorSelectionCoordinator(navigationController: navigationController)
+
+        coordinator.parentCoordinator = unwrappedParentCoordinator
+
+        unwrappedParentCoordinator.childCoordinators.append(coordinator)
+        coordinator.start()
+    }
+
     func dismiss() {
         let presentedViewController = navigationController.topViewController
         presentedViewController?.dismiss(animated: true) { [weak self] in

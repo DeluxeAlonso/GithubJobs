@@ -123,6 +123,13 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
                 self.coordinator?.showThemeSelection()
             }.store(in: &cancellables)
 
+        viewModel.didSelectColorSelectionItem
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                guard let self = self else { return }
+                self.coordinator?.showColorSelection()
+            }.store(in: &cancellables)
+
         viewModel.itemModelsPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] items in
