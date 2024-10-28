@@ -85,6 +85,8 @@
 		E2F570AB28979DE900A67593 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A828979DE900A67593 /* Theme.swift */; };
 		E2FCD6CB2CCF436F00B05FB8 /* ColorSelectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD6CA2CCF436F00B05FB8 /* ColorSelectionContent.swift */; };
 		E2FCD6CD2CCF4AF000B05FB8 /* ColorSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD6CC2CCF4AF000B05FB8 /* ColorSelectionViewModel.swift */; };
+		E2FCD6CF2CCF4C5600B05FB8 /* ColorSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD6CE2CCF4C5600B05FB8 /* ColorSelectionCoordinator.swift */; };
+		E2FCD6D22CCF4DE000B05FB8 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD6D12CCF4DE000B05FB8 /* ColorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +192,8 @@
 		E2F570A828979DE900A67593 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		E2FCD6CA2CCF436F00B05FB8 /* ColorSelectionContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionContent.swift; sourceTree = "<group>"; };
 		E2FCD6CC2CCF4AF000B05FB8 /* ColorSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionViewModel.swift; sourceTree = "<group>"; };
+		E2FCD6CE2CCF4C5600B05FB8 /* ColorSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionCoordinator.swift; sourceTree = "<group>"; };
+		E2FCD6D12CCF4DE000B05FB8 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +317,7 @@
 		E28B528A2556FEE200389043 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E2FCD6D02CCF4DD400B05FB8 /* Color */,
 				E2F570A528979DE900A67593 /* Theming */,
 				E28B52AB25570CF000389043 /* FontHelper.swift */,
 				E2641BFC2557C8AE00675868 /* LocalizedStrings.swift */,
@@ -552,8 +557,17 @@
 			children = (
 				E2FCD6CA2CCF436F00B05FB8 /* ColorSelectionContent.swift */,
 				E2FCD6CC2CCF4AF000B05FB8 /* ColorSelectionViewModel.swift */,
+				E2FCD6CE2CCF4C5600B05FB8 /* ColorSelectionCoordinator.swift */,
 			);
 			path = ColorSelection;
+			sourceTree = "<group>";
+		};
+		E2FCD6D02CCF4DD400B05FB8 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				E2FCD6D12CCF4DE000B05FB8 /* ColorManager.swift */,
+			);
+			path = Color;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -716,6 +730,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2641C142557CE1200675868 /* Dequeuable.swift in Sources */,
+				E2FCD6CF2CCF4C5600B05FB8 /* ColorSelectionCoordinator.swift in Sources */,
 				E21AEC382556E35100A85639 /* JobsViewModel.swift in Sources */,
 				E28B52AC25570CF000389043 /* FontHelper.swift in Sources */,
 				E2E6DCFD28A8CE2C0022547B /* RefreshControl.swift in Sources */,
@@ -744,6 +759,7 @@
 				E2F570AA28979DE900A67593 /* ThemeManagerProtocol.swift in Sources */,
 				E2B3E7372556E01400B5483A /* Job.swift in Sources */,
 				E286A32A288D0C79004ACF5D /* SettingsProtocols.swift in Sources */,
+				E2FCD6D22CCF4DE000B05FB8 /* ColorManager.swift in Sources */,
 				E2ADF9F72873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift in Sources */,
 				E2641C022557C90100675868 /* String+Localized.swift in Sources */,
 				E2ADF9FA2873ECBD00987D4D /* ThemeSelectionViewController.swift in Sources */,

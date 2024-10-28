@@ -8,5 +8,11 @@
 import Combine
 
 final class ColorSelectionViewModel: ObservableObject {
-    
+
+    let colorManager: ColorManager
+
+    init(colorManager: ColorManager) {
+        self.colorManager = colorManager
+    }
+
 }
