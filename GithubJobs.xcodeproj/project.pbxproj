@@ -83,6 +83,8 @@
 		E2F570A928979DE900A67593 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A628979DE900A67593 /* ThemeManager.swift */; };
 		E2F570AA28979DE900A67593 /* ThemeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A728979DE900A67593 /* ThemeManagerProtocol.swift */; };
 		E2F570AB28979DE900A67593 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A828979DE900A67593 /* Theme.swift */; };
+		E2FCD6CB2CCF436F00B05FB8 /* ColorSelectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD6CA2CCF436F00B05FB8 /* ColorSelectionContent.swift */; };
+		E2FCD6CD2CCF4AF000B05FB8 /* ColorSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD6CC2CCF4AF000B05FB8 /* ColorSelectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +188,8 @@
 		E2F570A628979DE900A67593 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		E2F570A728979DE900A67593 /* ThemeManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManagerProtocol.swift; sourceTree = "<group>"; };
 		E2F570A828979DE900A67593 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		E2FCD6CA2CCF436F00B05FB8 /* ColorSelectionContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionContent.swift; sourceTree = "<group>"; };
+		E2FCD6CC2CCF4AF000B05FB8 /* ColorSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,7 @@
 		E234A012287298C20086F353 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				E2FCD6C92CCF435900B05FB8 /* ColorSelection */,
 				E2ADF9F82873ECA800987D4D /* ThemeSelection */,
 				E286A323288D0C54004ACF5D /* SettingsViewController.swift */,
 				E286A325288D0C63004ACF5D /* SettingsViewModel.swift */,
@@ -542,6 +547,15 @@
 			path = Theming;
 			sourceTree = "<group>";
 		};
+		E2FCD6C92CCF435900B05FB8 /* ColorSelection */ = {
+			isa = PBXGroup;
+			children = (
+				E2FCD6CA2CCF436F00B05FB8 /* ColorSelectionContent.swift */,
+				E2FCD6CC2CCF4AF000B05FB8 /* ColorSelectionViewModel.swift */,
+			);
+			path = ColorSelection;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -743,10 +757,12 @@
 				E2673AF42557817B00727460 /* JobsProtocols.swift in Sources */,
 				E261EF2A28A30F3400F577AD /* Themeable.swift in Sources */,
 				E2641BD22557AA9100675868 /* JobDetailViewState.swift in Sources */,
+				E2FCD6CB2CCF436F00B05FB8 /* ColorSelectionContent.swift in Sources */,
 				E28B52A225570C9000389043 /* CustomFooterView.swift in Sources */,
 				E2B3E6F82556DAE100B5483A /* JobTableViewCell.swift in Sources */,
 				E21AEC3E2556E3B800A85639 /* JobClientProtocol.swift in Sources */,
 				E2609A36255836E5008002BA /* JobDetailHeaderViewModel.swift in Sources */,
+				E2FCD6CD2CCF4AF000B05FB8 /* ColorSelectionViewModel.swift in Sources */,
 				E2673B1E25578A5E00727460 /* JobDetailSectionView.swift in Sources */,
 				E21AEC332556E1E600A85639 /* JobProvider.swift in Sources */,
 				E281527F2889047B000A5C55 /* ThemeSelectionItemModel.swift in Sources */,
