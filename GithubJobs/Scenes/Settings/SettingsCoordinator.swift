@@ -39,8 +39,8 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
         coordinator.start()
     }
 
-    func showColorSelection() {
-        let coordinator = ColorSelectionCoordinator(navigationController: navigationController)
+    func showFeatureFlags() {
+        let coordinator = FeatureFlagsCoordinator(navigationController: navigationController)
 
         coordinator.parentCoordinator = unwrappedParentCoordinator
 

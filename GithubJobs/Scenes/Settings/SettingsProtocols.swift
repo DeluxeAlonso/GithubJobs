@@ -11,7 +11,7 @@ protocol SettingsViewModelProtocol {
 
     var itemModelsPublisher: Published<[SettingsItemModel]>.Publisher { get }
     var didSelectThemeSelectionItem: PassthroughSubject<Void, Never> { get }
-    var didSelectColorSelectionItem: PassthroughSubject<Void, Never> { get }
+    var didSelectFeatureFlagsItem: PassthroughSubject<Void, Never> { get }
 
     func screenTitle() -> String?
     func selectItem(at index: Int)
@@ -21,7 +21,7 @@ protocol SettingsViewModelProtocol {
 protocol SettingsCoordinatorProtocol: AnyObject {
 
     func showThemeSelection()
-    func showColorSelection()
+    func showFeatureFlags()
     func dismiss()
 
 }

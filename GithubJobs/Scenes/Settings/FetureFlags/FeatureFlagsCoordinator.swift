@@ -8,15 +8,15 @@
 import UIKit
 import SwiftUI
 
-final class ColorSelectionCoordinator: BaseCoordinator {
+final class FeatureFlagsCoordinator: BaseCoordinator {
 
     var presentingViewController: UIViewController?
     var detailNavigationController: UINavigationController?
 
     override func start() {
-        let colorManager = ColorManager.shared
-        let viewModel = ColorSelectionViewModel(colorManager: colorManager)
-        let view = ColorSelectionContent(viewModel: viewModel)
+        let colorManager = FeatureFlagsManager.shared
+        let viewModel = FeatureFlagsViewModel(colorManager: colorManager)
+        let view = FeatureFlagsContent(viewModel: viewModel)
         let viewController = UIHostingController(rootView: view)
 
         if let detailNavigationController = detailNavigationController {
@@ -34,9 +34,9 @@ final class ColorSelectionCoordinator: BaseCoordinator {
     // MARK: - ThemeSelectionCoordinatorProtocol
 
     func startModally() {
-        let colorManager = ColorManager.shared
-        let viewModel = ColorSelectionViewModel(colorManager: colorManager)
-        let view = ColorSelectionContent(viewModel: viewModel)
+        let colorManager = FeatureFlagsManager.shared
+        let viewModel = FeatureFlagsViewModel(colorManager: colorManager)
+        let view = FeatureFlagsContent(viewModel: viewModel)
         let viewController = UIHostingController(rootView: view)
 
         navigationController.pushViewController(viewController, animated: false)
