@@ -7,11 +7,11 @@
 
 import Combine
 
-final class ColorSelectionViewModel: ObservableObject {
+final class FeatureFlagsViewModel: ObservableObject {
 
-    let colorManager: ColorManager
+    let colorManager: FeatureFlagsManager
 
-    init(colorManager: ColorManager) {
+    init(colorManager: FeatureFlagsManager) {
         self.colorManager = colorManager
     }
 

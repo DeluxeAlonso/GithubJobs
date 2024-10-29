@@ -7,9 +7,9 @@
 
 import Foundation
 
-final class ColorManager {
+final class FeatureFlagsManager {
 
-    static let shared = ColorManager()
+    static let shared = FeatureFlagsManager()
 
     init() {}
 
