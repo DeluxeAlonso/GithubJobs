@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct FeatureFlag {
+    let title: String
+    let value: Bool
+}
+
 final class FeatureFlagsManager {
 
     static let shared = FeatureFlagsManager()
