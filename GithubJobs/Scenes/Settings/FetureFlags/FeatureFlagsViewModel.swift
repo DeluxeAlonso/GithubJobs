@@ -7,12 +7,35 @@
 
 import Combine
 
-final class FeatureFlagsViewModel: ObservableObject {
+@MainActor
+protocol FeatureFlagsViewModelProtocol: ObservableObject {
+
+    var items: [FeatureFlagItemViewModel] { get }
+
+}
+
+final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
+
+    @Published var items: [FeatureFlagItemViewModel] = []
 
     let colorManager: FeatureFlagsManager
 
     init(colorManager: FeatureFlagsManager) {
         self.colorManager = colorManager
+    }
+
+}
+
+// MARK: - Item
+
+struct FeatureFlagItemViewModel {
+
+    let title: String
+    let value: Bool
+
+    init(_ featureFlag: FeatureFlag) {
+        self.title = featureFlag.title
+        self.value = featureFlag.value
     }
 
 }
