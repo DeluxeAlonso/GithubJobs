@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+protocol FeatureFlagProtocol {
+
+    associatedtype Value
+
+    var title: String { get }
+    var value: Value { get }
+
+}
+
 // TODO: - Move AppStorage here
 struct FeatureFlag {
     let title: String
