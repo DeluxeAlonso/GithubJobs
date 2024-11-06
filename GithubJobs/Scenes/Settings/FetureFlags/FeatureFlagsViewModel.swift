@@ -33,7 +33,7 @@ struct FeatureFlagItemViewModel {
     let title: String
     let value: Bool
 
-    init(_ featureFlag: FeatureFlag) {
+    init(_ featureFlag: FeatureFlagProtocol) {
         self.title = featureFlag.title
         self.value = featureFlag.value
     }
