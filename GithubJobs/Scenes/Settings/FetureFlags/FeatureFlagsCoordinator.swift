@@ -15,7 +15,7 @@ final class FeatureFlagsCoordinator: BaseCoordinator {
 
     override func start() {
         let colorManager = FeatureFlagsManager.shared
-        let viewModel = FeatureFlagsViewModel(colorManager: colorManager)
+        let viewModel = FeatureFlagsViewModel(featureFlagsManager: colorManager)
         let view = FeatureFlagsContent(viewModel: viewModel)
         let viewController = UIHostingController(rootView: view)
 
@@ -35,7 +35,7 @@ final class FeatureFlagsCoordinator: BaseCoordinator {
 
     func startModally() {
         let colorManager = FeatureFlagsManager.shared
-        let viewModel = FeatureFlagsViewModel(colorManager: colorManager)
+        let viewModel = FeatureFlagsViewModel(featureFlagsManager: colorManager)
         let view = FeatureFlagsContent(viewModel: viewModel)
         let viewController = UIHostingController(rootView: view)
 

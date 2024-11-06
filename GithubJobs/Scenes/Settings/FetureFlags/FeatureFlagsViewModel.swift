@@ -10,30 +10,46 @@ import Combine
 @MainActor
 protocol FeatureFlagsViewModelProtocol: ObservableObject {
 
-    var items: [FeatureFlagItemViewModel] { get }
+    var toggles: [FeatureFlagToggleViewModel] { get }
 
 }
 
 final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
-    @Published var items: [FeatureFlagItemViewModel] = []
+    @Published var toggles: [FeatureFlagToggleViewModel] = []
 
-    let colorManager: FeatureFlagsManager
+    let featureFlagsManager: FeatureFlagsManagerProtocol
 
-    init(colorManager: FeatureFlagsManager) {
-        self.colorManager = colorManager
+    init(featureFlagsManager: FeatureFlagsManagerProtocol) {
+        self.featureFlagsManager = featureFlagsManager
+
+        Task {
+            let flags = await featureFlagsManager.allFlags
+            self.toggles = flags.map { FeatureFlagToggleViewModel($0) }
+        }
     }
 
 }
 
-// MARK: - Item
+// MARK: - Toggle
 
-struct FeatureFlagItemViewModel {
+@MainActor
+protocol FeatureFlagToggleViewModelProtocol: ObservableObject {
 
+    var identifier: String { get }
+    var title: String { get }
+    var value: Bool { get set }
+
+}
+
+final class FeatureFlagToggleViewModel: FeatureFlagToggleViewModelProtocol {
+
+    let identifier: String
     let title: String
-    let value: Bool
+    @Published var value: Bool
 
     init(_ featureFlag: FeatureFlagProtocol) {
+        self.identifier = featureFlag.identifier
         self.title = featureFlag.title
         self.value = featureFlag.value
     }
