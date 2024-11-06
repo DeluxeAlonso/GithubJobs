@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct FeatureFlagToggleView: View {
-//    let viewModel: ViewModel
+struct FeatureFlagToggleView<ViewModel: FeatureFlagToggleViewModelProtocol>: View {
+    @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Toggle(viewModel.title, isOn: $viewModel.value)
     }
 }
 
 // swiftlint:disable type_name
 struct FeatureFlagToggleView_Previews: PreviewProvider {
     static var previews: some View {
-        FeatureFlagToggleView(viewModel: FeatureFlagsViewModel(featureFlagsManager: FeatureFlagsManager.shared))
+        FeatureFlagToggleView(viewModel: FeatureFlagToggleViewModel(CustomChevronFeatureFlag()))
     }
 }

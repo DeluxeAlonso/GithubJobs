@@ -31,14 +31,25 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
 }
 
-// MARK: - Item
+// MARK: - Toggle
 
-struct FeatureFlagToggleViewModel {
+@MainActor
+protocol FeatureFlagToggleViewModelProtocol: ObservableObject {
 
+    var identifier: String { get }
+    var title: String { get }
+    var value: Bool { get set }
+
+}
+
+final class FeatureFlagToggleViewModel: FeatureFlagToggleViewModelProtocol {
+
+    let identifier: String
     let title: String
-    let value: Bool
+    @Published var value: Bool
 
     init(_ featureFlag: FeatureFlagProtocol) {
+        self.identifier = featureFlag.identifier
         self.title = featureFlag.title
         self.value = featureFlag.value
     }
