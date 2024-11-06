@@ -18,9 +18,9 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
     @Published var items: [FeatureFlagItemViewModel] = []
 
-    let colorManager: FeatureFlagsManager
+    let colorManager: FeatureFlagsManagerProtocol
 
-    init(colorManager: FeatureFlagsManager) {
+    init(colorManager: FeatureFlagsManagerProtocol) {
         self.colorManager = colorManager
     }
 
