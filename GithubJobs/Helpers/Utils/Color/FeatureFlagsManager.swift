@@ -23,7 +23,13 @@ struct CustomChevronFeatureFlag: FeatureFlagProtocol {
 
 }
 
-@globalActor actor FeatureFlagsManager {
+protocol FeatureFlagsManagerProtocol: Actor {
+    var allFlags: [FeatureFlagProtocol] { get }
+
+    func updateUseCustomChevron(_ value: Bool) 
+}
+
+@globalActor actor FeatureFlagsManager: FeatureFlagsManagerProtocol {
 
     static let shared = FeatureFlagsManager()
 
