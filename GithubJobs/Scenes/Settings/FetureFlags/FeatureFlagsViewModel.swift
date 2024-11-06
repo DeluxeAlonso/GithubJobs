@@ -18,10 +18,15 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
     @Published var items: [FeatureFlagItemViewModel] = []
 
-    let colorManager: FeatureFlagsManagerProtocol
+    let featureFlagsManager: FeatureFlagsManagerProtocol
 
-    init(colorManager: FeatureFlagsManagerProtocol) {
-        self.colorManager = colorManager
+    init(featureFlagsManager: FeatureFlagsManagerProtocol) {
+        self.featureFlagsManager = featureFlagsManager
+
+        Task {
+            let flags = await featureFlagsManager.allFlags
+            self.items = flags.map { FeatureFlagItemViewModel($0) }
+        }
     }
 
 }

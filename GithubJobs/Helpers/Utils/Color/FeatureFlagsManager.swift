@@ -9,6 +9,7 @@ import SwiftUI
 
 protocol FeatureFlagProtocol {
 
+    var identifier: String { get }
     var title: String { get }
     var value: Bool { get set }
 
@@ -16,6 +17,7 @@ protocol FeatureFlagProtocol {
 
 struct CustomChevronFeatureFlag: FeatureFlagProtocol {
 
+    let identifier: String = "UseCustomChevron"
     let title: String = "User custom chevron view"
 
     @AppStorage("GithubJobs_UseCustomChevron")
@@ -26,7 +28,7 @@ struct CustomChevronFeatureFlag: FeatureFlagProtocol {
 protocol FeatureFlagsManagerProtocol: Actor {
     var allFlags: [FeatureFlagProtocol] { get }
 
-    func updateUseCustomChevron(_ value: Bool) 
+    func updateUseCustomChevron(_ value: Bool)
 }
 
 @globalActor actor FeatureFlagsManager: FeatureFlagsManagerProtocol {
