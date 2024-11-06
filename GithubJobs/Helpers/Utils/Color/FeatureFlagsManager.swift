@@ -31,6 +31,10 @@ struct CustomChevronFeatureFlag: FeatureFlagProtocol {
 
     private var useCustomChevron: FeatureFlagProtocol = CustomChevronFeatureFlag()
 
+    var allFlags: [FeatureFlagProtocol] {
+        [useCustomChevron]
+    }
+
     func updateUseCustomChevron(_ value: Bool) {
         self.useCustomChevron.value = value
     }
