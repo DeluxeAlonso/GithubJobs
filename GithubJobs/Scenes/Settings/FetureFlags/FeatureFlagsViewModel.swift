@@ -10,13 +10,13 @@ import Combine
 @MainActor
 protocol FeatureFlagsViewModelProtocol: ObservableObject {
 
-    var items: [FeatureFlagItemViewModel] { get }
+    var toggles: [FeatureFlagToggleViewModel] { get }
 
 }
 
 final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
-    @Published var items: [FeatureFlagItemViewModel] = []
+    @Published var toggles: [FeatureFlagToggleViewModel] = []
 
     let featureFlagsManager: FeatureFlagsManagerProtocol
 
@@ -25,7 +25,7 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
         Task {
             let flags = await featureFlagsManager.allFlags
-            self.items = flags.map { FeatureFlagItemViewModel($0) }
+            self.toggles = flags.map { FeatureFlagToggleViewModel($0) }
         }
     }
 
@@ -33,7 +33,7 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
 // MARK: - Item
 
-struct FeatureFlagItemViewModel {
+struct FeatureFlagToggleViewModel {
 
     let title: String
     let value: Bool
