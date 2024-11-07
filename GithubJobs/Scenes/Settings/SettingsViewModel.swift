@@ -54,7 +54,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
                               value: themeManager.interfaceStyle.value.description,
                               actionHandler: didTapThemeSelectionItem),
             SettingsItemModel(title: "Feature Flags",
-                              value: "",
+                              value: nil,
                               actionHandler: didTapFeatureFlagsItem)
         ]
     }
