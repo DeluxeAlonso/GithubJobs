@@ -18,5 +18,6 @@
 
 "settingsTitle" = "Settings";
 "settingThemeSelectionRowTitle" = "Themes";
+"settingFeatureFlagRowTitle" = "Feature Flags";
 
 "refreshControlTitle" = "Pull to refresh";
