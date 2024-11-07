@@ -14,7 +14,9 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
         VStack {
             ForEach(viewModel.toggles, id: \.identifier) {
                 FeatureFlagToggleView(viewModel: $0)
+                    .padding()
             }
+            Spacer()
         }
     }
 }

@@ -18,6 +18,8 @@ final class FeatureFlagsCoordinator: BaseCoordinator {
         let viewModel = FeatureFlagsViewModel(featureFlagsManager: colorManager)
         let view = FeatureFlagsContent(viewModel: viewModel)
         let viewController = UIHostingController(rootView: view)
+        // TODO: - This should be updated from view model if possible
+        viewController.title = "Feature Flags"
 
         if let detailNavigationController = detailNavigationController {
             detailNavigationController.pushViewController(viewController, animated: false)
@@ -38,6 +40,7 @@ final class FeatureFlagsCoordinator: BaseCoordinator {
         let viewModel = FeatureFlagsViewModel(featureFlagsManager: colorManager)
         let view = FeatureFlagsContent(viewModel: viewModel)
         let viewController = UIHostingController(rootView: view)
+        viewController.title = "Feature Flags"
 
         navigationController.pushViewController(viewController, animated: false)
         navigationController.modalPresentationStyle = .fullScreen

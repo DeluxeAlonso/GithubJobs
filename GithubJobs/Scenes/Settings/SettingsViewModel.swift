@@ -52,11 +52,14 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         [
             SettingsItemModel(title: LocalizedStrings.settingThemeSelectionRowTitle(),
                               value: themeManager.interfaceStyle.value.description,
-                              actionHandler: didTapThemeSelectionItem)
+                              actionHandler: didTapThemeSelectionItem),
+            SettingsItemModel(title: "Feature Flags",
+                              value: "",
+                              actionHandler: didTapFeatureFlagsItem)
         ]
     }
 
-    private func didTapColorSelectionItem() {
+    private func didTapFeatureFlagsItem() {
         didSelectFeatureFlagsItem.send()
     }
     
