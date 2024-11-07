@@ -11,7 +11,11 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ForEach(viewModel.toggles, id: \.identifier) {
+                FeatureFlagToggleView(viewModel: $0)
+            }
+        }
     }
 }
 
