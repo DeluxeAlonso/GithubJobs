@@ -12,6 +12,8 @@ protocol FeatureFlagsViewModelProtocol: ObservableObject {
 
     var toggles: [FeatureFlagToggleViewModel] { get }
 
+    func load() async
+
 }
 
 final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
@@ -27,6 +29,11 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
             let flags = await featureFlagsManager.allFlags
             self.toggles = flags.map { FeatureFlagToggleViewModel($0) }
         }
+    }
+
+    func load() async {
+        let flags = await featureFlagsManager.allFlags
+        self.toggles = flags.map { FeatureFlagToggleViewModel($0) }
     }
 
 }
