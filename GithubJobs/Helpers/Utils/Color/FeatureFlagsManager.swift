@@ -15,7 +15,7 @@ protocol FeatureFlagProtocol {
 
 }
 
-struct CustomChevronFeatureFlag: FeatureFlagProtocol {
+class CustomChevronFeatureFlag: FeatureFlagProtocol {
 
     let identifier: String = "UseCustomChevron"
     let title: String = "User custom chevron view"
@@ -28,7 +28,7 @@ struct CustomChevronFeatureFlag: FeatureFlagProtocol {
 protocol FeatureFlagsManagerProtocol: Actor {
     var allFlags: [FeatureFlagProtocol] { get }
 
-    func updateUseCustomChevron(_ value: Bool)
+    func updateFlag(identifier: String, value: Bool)
 }
 
 @globalActor actor FeatureFlagsManager: FeatureFlagsManagerProtocol {
@@ -43,8 +43,9 @@ protocol FeatureFlagsManagerProtocol: Actor {
         [useCustomChevron]
     }
 
-    func updateUseCustomChevron(_ value: Bool) {
-        self.useCustomChevron.value = value
+    func updateFlag(identifier: String, value: Bool) {
+        var flagToUpdate = allFlags.first(where: { $0.identifier == identifier })
+        flagToUpdate?.value = value
     }
 
 }
