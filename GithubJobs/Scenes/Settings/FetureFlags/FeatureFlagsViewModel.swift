@@ -24,11 +24,6 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
     init(featureFlagsManager: FeatureFlagsManagerProtocol) {
         self.featureFlagsManager = featureFlagsManager
-
-        Task {
-            let flags = await featureFlagsManager.allFlags
-            self.toggles = flags.map { FeatureFlagToggleViewModel($0) }
-        }
     }
 
     func load() async {
