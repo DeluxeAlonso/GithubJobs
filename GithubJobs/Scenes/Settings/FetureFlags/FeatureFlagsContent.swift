@@ -18,6 +18,9 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
             }
             Spacer()
         }
+        .task {
+            await viewModel.load()
+        }
     }
 }
 
