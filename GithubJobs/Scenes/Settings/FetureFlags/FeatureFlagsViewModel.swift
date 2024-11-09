@@ -28,7 +28,13 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
     func load() async {
         let flags = await featureFlagsManager.allFlags
-        self.toggles = flags.map { FeatureFlagToggleViewModel($0) }
+        self.toggles = flags.map {
+            FeatureFlagToggleViewModel($0) { [weak self] identifier, value in
+                Task {
+                    await self?.featureFlagsManager.updateFlag(identifier: identifier, value: value)
+                }
+            }
+        }
     }
 
 }
@@ -50,7 +56,9 @@ final class FeatureFlagToggleViewModel: FeatureFlagToggleViewModelProtocol {
     let title: String
     @Published var value: Bool
 
-    init(_ featureFlag: FeatureFlagProtocol) {
+    typealias OnTapHandler = (String, Bool) -> Void
+
+    init(_ featureFlag: FeatureFlagProtocol, onTapHandler: OnTapHandler? = nil) {
         self.identifier = featureFlag.identifier
         self.title = featureFlag.title
         self.value = featureFlag.value
