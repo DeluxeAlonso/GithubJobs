@@ -55,13 +55,28 @@ final class FeatureFlagToggleViewModel: FeatureFlagToggleViewModelProtocol {
     let identifier: String
     let title: String
     @Published var value: Bool
-
+    let onTapHandler: OnTapHandler?
     typealias OnTapHandler = (String, Bool) -> Void
+
+    private var cancellables: Set<AnyCancellable> = []
 
     init(_ featureFlag: FeatureFlagProtocol, onTapHandler: OnTapHandler? = nil) {
         self.identifier = featureFlag.identifier
         self.title = featureFlag.title
         self.value = featureFlag.value
+        self.onTapHandler = onTapHandler
+
+        setupBindables()
+    }
+
+    private func setupBindables() {
+        $value
+            .dropFirst()
+            .sink { [weak self] value in
+                guard let self else { return }
+                self.onTapHandler?(self.identifier, value)
+            }
+            .store(in: &cancellables)
     }
 
 }
