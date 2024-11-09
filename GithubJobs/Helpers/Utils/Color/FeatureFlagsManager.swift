@@ -15,7 +15,7 @@ protocol FeatureFlagProtocol {
 
 }
 
-class CustomChevronFeatureFlag: FeatureFlagProtocol {
+final class CustomChevronFeatureFlag: FeatureFlagProtocol {
 
     let identifier: String = "UseCustomChevron"
     let title: String = "User custom chevron view"
