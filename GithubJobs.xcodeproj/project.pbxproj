@@ -57,6 +57,9 @@
 		E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A13FE5286D5C75001BC83D /* ViewController.swift */; };
 		E2AA59FA2CE1B985008877DA /* FAQsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA59F92CE1B985008877DA /* FAQsContent.swift */; };
 		E2AA59FC2CE1B993008877DA /* FAQsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA59FB2CE1B993008877DA /* FAQsViewModel.swift */; };
+		E2AA59FF2CE1BF3F008877DA /* ExpandCollapseControlContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA59FE2CE1BF3F008877DA /* ExpandCollapseControlContent.swift */; };
+		E2AA5A012CE1BF78008877DA /* ExpandCollapseControlConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA5A002CE1BF78008877DA /* ExpandCollapseControlConfiguration.swift */; };
+		E2AA5A032CE1C0DF008877DA /* ExpandCollapseControlDisclosureStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA5A022CE1C0DF008877DA /* ExpandCollapseControlDisclosureStyle.swift */; };
 		E2ADF9F72873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9F62873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift */; };
 		E2ADF9FA2873ECBD00987D4D /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9F92873ECBD00987D4D /* ThemeSelectionViewController.swift */; };
 		E2ADF9FC2873ECD500987D4D /* ThemeSelectionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9FB2873ECD500987D4D /* ThemeSelectionProtocols.swift */; };
@@ -161,6 +164,9 @@
 		E2A13FE5286D5C75001BC83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2AA59F92CE1B985008877DA /* FAQsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsContent.swift; sourceTree = "<group>"; };
 		E2AA59FB2CE1B993008877DA /* FAQsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsViewModel.swift; sourceTree = "<group>"; };
+		E2AA59FE2CE1BF3F008877DA /* ExpandCollapseControlContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandCollapseControlContent.swift; sourceTree = "<group>"; };
+		E2AA5A002CE1BF78008877DA /* ExpandCollapseControlConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandCollapseControlConfiguration.swift; sourceTree = "<group>"; };
+		E2AA5A022CE1C0DF008877DA /* ExpandCollapseControlDisclosureStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandCollapseControlDisclosureStyle.swift; sourceTree = "<group>"; };
 		E2ADF9F62873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionSectionHeaderView.swift; sourceTree = "<group>"; };
 		E2ADF9F92873ECBD00987D4D /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		E2ADF9FB2873ECD500987D4D /* ThemeSelectionProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionProtocols.swift; sourceTree = "<group>"; };
@@ -335,6 +341,7 @@
 		E28B529825570C3300389043 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E2AA59FD2CE1BF18008877DA /* ExpandCollapseControl */,
 				E2673AE2255779A400727460 /* DataSources */,
 				E28B52B025570D1A00389043 /* Animations */,
 				E28B529925570C3F00389043 /* LoadingFooterView.swift */,
@@ -368,6 +375,16 @@
 				E2AA59FB2CE1B993008877DA /* FAQsViewModel.swift */,
 			);
 			path = FAQs;
+			sourceTree = "<group>";
+		};
+		E2AA59FD2CE1BF18008877DA /* ExpandCollapseControl */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA59FE2CE1BF3F008877DA /* ExpandCollapseControlContent.swift */,
+				E2AA5A002CE1BF78008877DA /* ExpandCollapseControlConfiguration.swift */,
+				E2AA5A022CE1C0DF008877DA /* ExpandCollapseControlDisclosureStyle.swift */,
+			);
+			path = ExpandCollapseControl;
 			sourceTree = "<group>";
 		};
 		E2ADF9F52873EB9F00987D4D /* ViewComponents */ = {
@@ -763,6 +780,7 @@
 				E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */,
 				E2B2C8DC288BC39800522186 /* SplitViewController.swift in Sources */,
 				E2673B132557877F00727460 /* JobDetailViewModel.swift in Sources */,
+				E2AA5A032CE1C0DF008877DA /* ExpandCollapseControlDisclosureStyle.swift in Sources */,
 				E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */,
 				E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */,
 				E2673AFA255781A800727460 /* JobDetailViewController.swift in Sources */,
@@ -784,10 +802,12 @@
 				E2F03E552CDB2BA6005B62D5 /* FeatureFlagToggleView.swift in Sources */,
 				E2ADF9FA2873ECBD00987D4D /* ThemeSelectionViewController.swift in Sources */,
 				E28B5294255700F100389043 /* JobsViewState.swift in Sources */,
+				E2AA59FF2CE1BF3F008877DA /* ExpandCollapseControlContent.swift in Sources */,
 				E2B3E7162556DDD200B5483A /* Endpoint.swift in Sources */,
 				E2641C0F2557CDE300675868 /* UITableView+Register.swift in Sources */,
 				E2F570A928979DE900A67593 /* ThemeManager.swift in Sources */,
 				E2ADF9FC2873ECD500987D4D /* ThemeSelectionProtocols.swift in Sources */,
+				E2AA5A012CE1BF78008877DA /* ExpandCollapseControlConfiguration.swift in Sources */,
 				E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */,
 				E26B97802876976D00C6D197 /* ThemeSelectionSection.swift in Sources */,
 				E2673AF42557817B00727460 /* JobsProtocols.swift in Sources */,
