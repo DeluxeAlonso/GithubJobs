@@ -16,5 +16,3 @@ final class FAQsViewModel: FAQsViewModelProtocol {
 
 }
 
-// MARK: - Items
-
