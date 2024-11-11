@@ -55,6 +55,8 @@
 		E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52B62557215600389043 /* JobCellViewModel.swift */; };
 		E29456C3263E6CA70011AF68 /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = E29456C2263E6CA70011AF68 /* KingfisherStatic */; };
 		E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A13FE5286D5C75001BC83D /* ViewController.swift */; };
+		E2AA59FA2CE1B985008877DA /* FAQsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA59F92CE1B985008877DA /* FAQsContent.swift */; };
+		E2AA59FC2CE1B993008877DA /* FAQsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA59FB2CE1B993008877DA /* FAQsViewModel.swift */; };
 		E2ADF9F72873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9F62873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift */; };
 		E2ADF9FA2873ECBD00987D4D /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9F92873ECBD00987D4D /* ThemeSelectionViewController.swift */; };
 		E2ADF9FC2873ECD500987D4D /* ThemeSelectionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADF9FB2873ECD500987D4D /* ThemeSelectionProtocols.swift */; };
@@ -157,6 +159,8 @@
 		E28B52AB25570CF000389043 /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		E28B52B62557215600389043 /* JobCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCellViewModel.swift; sourceTree = "<group>"; };
 		E2A13FE5286D5C75001BC83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E2AA59F92CE1B985008877DA /* FAQsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsContent.swift; sourceTree = "<group>"; };
+		E2AA59FB2CE1B993008877DA /* FAQsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsViewModel.swift; sourceTree = "<group>"; };
 		E2ADF9F62873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionSectionHeaderView.swift; sourceTree = "<group>"; };
 		E2ADF9F92873ECBD00987D4D /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		E2ADF9FB2873ECD500987D4D /* ThemeSelectionProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionProtocols.swift; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 		E234A012287298C20086F353 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				E2AA59F82CE1B96E008877DA /* FAQs */,
 				E2FCD6C92CCF435900B05FB8 /* FetureFlags */,
 				E2ADF9F82873ECA800987D4D /* ThemeSelection */,
 				E286A323288D0C54004ACF5D /* SettingsViewController.swift */,
@@ -354,6 +359,15 @@
 				E258C108292484E40027484A /* BaseCoordinator.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		E2AA59F82CE1B96E008877DA /* FAQs */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA59F92CE1B985008877DA /* FAQsContent.swift */,
+				E2AA59FB2CE1B993008877DA /* FAQsViewModel.swift */,
+			);
+			path = FAQs;
 			sourceTree = "<group>";
 		};
 		E2ADF9F52873EB9F00987D4D /* ViewComponents */ = {
@@ -741,6 +755,7 @@
 				E2B3E6EA2556D7BA00B5483A /* JobsViewController.swift in Sources */,
 				E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */,
 				E2673AE925577A2300727460 /* TableViewDataSourcePrefetching.swift in Sources */,
+				E2AA59FA2CE1B985008877DA /* FAQsContent.swift in Sources */,
 				E2673B1925578A3200727460 /* JobDetailHeaderView.swift in Sources */,
 				E2792433264786E000891120 /* MainSplitViewController.swift in Sources */,
 				E286A328288D0C6D004ACF5D /* SettingsCoordinator.swift in Sources */,
@@ -758,6 +773,7 @@
 				E2E18208288FAAC50096BA7B /* SettingsSection.swift in Sources */,
 				E258C109292484E40027484A /* BaseCoordinator.swift in Sources */,
 				E2B3E72B2556DFA300B5483A /* Dictionary+Format.swift in Sources */,
+				E2AA59FC2CE1B993008877DA /* FAQsViewModel.swift in Sources */,
 				E261F94A25583CBA00DBC582 /* BackgroundCurvedView.swift in Sources */,
 				E2F570AA28979DE900A67593 /* ThemeManagerProtocol.swift in Sources */,
 				E2B3E7372556E01400B5483A /* Job.swift in Sources */,
