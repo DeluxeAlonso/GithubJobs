@@ -27,6 +27,8 @@ struct ExpandCollapseControlContent<CollapsedContent: View, ExpandedContent: Vie
     }
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        DisclosureGroup(isExpanded: $isExpanded, content: expandedContent, label: collapsedContent)
+            .disclosureGroupStyle(ExpandCollapseControlDisclosureStyle(expandCollapseControlConfiguration: configuration))
     }
+
 }
