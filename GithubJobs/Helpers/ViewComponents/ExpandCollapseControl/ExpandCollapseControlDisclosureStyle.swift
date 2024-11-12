@@ -13,16 +13,19 @@ struct ExpandCollapseControlDisclosureStyle: DisclosureGroupStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         VStack(alignment: .leading, spacing: 0.0) {
-            configuration.label
-            Spacer()
-            Image(uiImage: .checkmark)
-                .resizable()
-                .renderingMode(.template)
-        }
-        .contentShape(Rectangle())
-        .onTapGesture {
-            withAnimation {
-                configuration.isExpanded.toggle()
+            HStack(alignment: .center) {
+                configuration.label
+                Spacer()
+                Image(uiImage: .remove)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24.0, height: 24.0)
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                withAnimation {
+                    configuration.isExpanded.toggle()
+                }
             }
         }
         if configuration.isExpanded {

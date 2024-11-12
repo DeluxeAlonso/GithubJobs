@@ -11,13 +11,17 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: View {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ForEach(viewModel.items, id: \.title) {
+                FAQsItemContent(viewModel: $0)
+            }
+        }
     }
 }
 
 // swiftlint:disable type_name
 struct FAQsContent_Previews: PreviewProvider {
     static var previews: some View {
-        FAQsContent(viewModel: FAQsViewModel())
+        FAQsContent(viewModel: FAQsViewModel(items: [.init(title: "Title", subtitles: ["Subtitle"])]))
     }
 }
