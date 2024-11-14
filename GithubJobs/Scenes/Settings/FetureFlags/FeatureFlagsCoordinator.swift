@@ -33,21 +33,6 @@ final class FeatureFlagsCoordinator: BaseCoordinator {
         }
     }
 
-    // MARK: - ThemeSelectionCoordinatorProtocol
-
-    func startModally() {
-        let colorManager = FeatureFlagsManager.shared
-        let viewModel = FeatureFlagsViewModel(featureFlagsManager: colorManager)
-        let view = FeatureFlagsContent(viewModel: viewModel)
-        let viewController = UIHostingController(rootView: view)
-        viewController.title = "Feature Flags"
-
-        navigationController.pushViewController(viewController, animated: false)
-        navigationController.modalPresentationStyle = .fullScreen
-
-        presentingViewController?.present(navigationController, animated: true, completion: nil)
-    }
-
     func dismiss() {
         let presentedViewController = navigationController.topViewController
         presentedViewController?.dismiss(animated: true) { [weak self] in

@@ -55,6 +55,7 @@
 		E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52B62557215600389043 /* JobCellViewModel.swift */; };
 		E29456C3263E6CA70011AF68 /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = E29456C2263E6CA70011AF68 /* KingfisherStatic */; };
 		E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A13FE5286D5C75001BC83D /* ViewController.swift */; };
+		E2A638A42CE66604008C8AAF /* FAQsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A638A32CE66604008C8AAF /* FAQsCoordinator.swift */; };
 		E2AA59FA2CE1B985008877DA /* FAQsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA59F92CE1B985008877DA /* FAQsContent.swift */; };
 		E2AA59FC2CE1B993008877DA /* FAQsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA59FB2CE1B993008877DA /* FAQsViewModel.swift */; };
 		E2AA59FF2CE1BF3F008877DA /* ExpandCollapseControlContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA59FE2CE1BF3F008877DA /* ExpandCollapseControlContent.swift */; };
@@ -163,6 +164,7 @@
 		E28B52AB25570CF000389043 /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		E28B52B62557215600389043 /* JobCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCellViewModel.swift; sourceTree = "<group>"; };
 		E2A13FE5286D5C75001BC83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E2A638A32CE66604008C8AAF /* FAQsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsCoordinator.swift; sourceTree = "<group>"; };
 		E2AA59F92CE1B985008877DA /* FAQsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsContent.swift; sourceTree = "<group>"; };
 		E2AA59FB2CE1B993008877DA /* FAQsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsViewModel.swift; sourceTree = "<group>"; };
 		E2AA59FE2CE1BF3F008877DA /* ExpandCollapseControlContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandCollapseControlContent.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				E2AA59F92CE1B985008877DA /* FAQsContent.swift */,
 				E2AA59FB2CE1B993008877DA /* FAQsViewModel.swift */,
 				E2DFC1492CE31499002ACA77 /* FAQsItemContent.swift */,
+				E2A638A32CE66604008C8AAF /* FAQsCoordinator.swift */,
 			);
 			path = FAQs;
 			sourceTree = "<group>";
@@ -784,6 +787,7 @@
 				E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */,
 				E2B2C8DC288BC39800522186 /* SplitViewController.swift in Sources */,
 				E2673B132557877F00727460 /* JobDetailViewModel.swift in Sources */,
+				E2A638A42CE66604008C8AAF /* FAQsCoordinator.swift in Sources */,
 				E2AA5A032CE1C0DF008877DA /* ExpandCollapseControlDisclosureStyle.swift in Sources */,
 				E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */,
 				E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */,
