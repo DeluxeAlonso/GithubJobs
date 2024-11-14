@@ -8,5 +8,8 @@
 import Foundation
 
 struct ExpandCollapseControlConfiguration {
-    
+
+    let expandedIconName: String
+    let collapsedIconName: String
+
 }
