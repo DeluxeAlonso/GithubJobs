@@ -28,7 +28,7 @@ struct ExpandCollapseControlContent<CollapsedContent: View, ExpandedContent: Vie
 
     var body: some View {
         DisclosureGroup(isExpanded: $isExpanded, content: expandedContent, label: collapsedContent)
-            .disclosureGroupStyle(ExpandCollapseControlDisclosureStyle(expandCollapseControlConfiguration: configuration))
+            .disclosureGroupStyle(ExpandCollapseControlDisclosureStyle(styleConfiguration: configuration))
     }
 
 }
