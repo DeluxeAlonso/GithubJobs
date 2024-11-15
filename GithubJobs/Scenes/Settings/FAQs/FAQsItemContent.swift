@@ -18,7 +18,7 @@ struct FAQsItemContent<ViewModel: FAQsItemViewModelProtocol>: View {
                 ForEach(viewModel.subtitles, id: \.self) {
                     Text($0)
                 }
-            }, configuration: viewModel.expandCollapseConfiguration)
+            }, styleConfiguration: viewModel.expandCollapseStyleConfiguration)
         }
     }
 }
