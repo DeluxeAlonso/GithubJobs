@@ -21,9 +21,12 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
     @Published var toggles: [FeatureFlagToggleViewModel] = []
 
     let featureFlagsManager: FeatureFlagsManagerProtocol
+    let interactor: FeatureFlagsInteractorProtocol
 
-    init(featureFlagsManager: FeatureFlagsManagerProtocol) {
+    init(featureFlagsManager: FeatureFlagsManagerProtocol,
+         interactor: FeatureFlagsInteractorProtocol) {
         self.featureFlagsManager = featureFlagsManager
+        self.interactor = interactor
     }
 
     func load() async {
