@@ -20,27 +20,30 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
     @Published var toggles: [FeatureFlagToggleViewModel] = []
 
-    let featureFlagsManager: FeatureFlagsManagerProtocol
     let interactor: FeatureFlagsInteractorProtocol
 
-    init(featureFlagsManager: FeatureFlagsManagerProtocol,
-         interactor: FeatureFlagsInteractorProtocol) {
-        self.featureFlagsManager = featureFlagsManager
+    init(interactor: FeatureFlagsInteractorProtocol) {
         self.interactor = interactor
     }
 
     func load() async {
-        let flags = await featureFlagsManager.allFlags
-        self.toggles = flags.map {
-            FeatureFlagToggleViewModel($0) { [weak self] identifier, value in
-                self?.updateFeatureFlag(identifier: identifier, value: value)
+        let flagsResponse = await interactor.getAllFeatureFlags()
+        switch flagsResponse {
+        case .success(let flags):
+            self.toggles = flags.map {
+                FeatureFlagToggleViewModel($0) { [weak self] identifier, value in
+                    self?.updateFeatureFlag(identifier: identifier, value: value)
+                }
             }
+        case .failure(let failure):
+            break
         }
+
     }
 
     private func updateFeatureFlag(identifier: String, value: Bool) {
         Task {
-            await featureFlagsManager.updateFlag(identifier: identifier, value: value)
+            await interactor.updateFeatureFlag(identifier: identifier, value: value)
         }
     }
 
