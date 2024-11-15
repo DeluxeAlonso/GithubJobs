@@ -83,6 +83,7 @@
 		E2B3E7372556E01400B5483A /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E7362556E01400B5483A /* Job.swift */; };
 		E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E73B2556E10700B5483A /* JobsResult.swift */; };
 		E2CC32482877DFF500345569 /* ThemeSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */; };
+		E2D19FB92CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FB82CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift */; };
 		E2DFC14A2CE31499002ACA77 /* FAQsItemContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFC1492CE31499002ACA77 /* FAQsItemContent.swift */; };
 		E2E18206288FAA790096BA7B /* SettingsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18205288FAA780096BA7B /* SettingsItemModel.swift */; };
 		E2E18208288FAAC50096BA7B /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18207288FAAC50096BA7B /* SettingsSection.swift */; };
@@ -198,6 +199,7 @@
 		E2B3E7362556E01400B5483A /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		E2B3E73B2556E10700B5483A /* JobsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsResult.swift; sourceTree = "<group>"; };
 		E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewModel.swift; sourceTree = "<group>"; };
+		E2D19FB82CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagsInteractor.swift; sourceTree = "<group>"; };
 		E2DFC1492CE31499002ACA77 /* FAQsItemContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsItemContent.swift; sourceTree = "<group>"; };
 		E2E18205288FAA780096BA7B /* SettingsItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemModel.swift; sourceTree = "<group>"; };
 		E2E18207288FAAC50096BA7B /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
@@ -598,6 +600,7 @@
 				E2FCD6CC2CCF4AF000B05FB8 /* FeatureFlagsViewModel.swift */,
 				E2FCD6CE2CCF4C5600B05FB8 /* FeatureFlagsCoordinator.swift */,
 				E2F03E542CDB2BA6005B62D5 /* FeatureFlagToggleView.swift */,
+				E2D19FB82CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift */,
 			);
 			path = FetureFlags;
 			sourceTree = "<group>";
@@ -828,6 +831,7 @@
 				E2609A36255836E5008002BA /* JobDetailHeaderViewModel.swift in Sources */,
 				E2FCD6CD2CCF4AF000B05FB8 /* FeatureFlagsViewModel.swift in Sources */,
 				E2673B1E25578A5E00727460 /* JobDetailSectionView.swift in Sources */,
+				E2D19FB92CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift in Sources */,
 				E21AEC332556E1E600A85639 /* JobProvider.swift in Sources */,
 				E281527F2889047B000A5C55 /* ThemeSelectionItemModel.swift in Sources */,
 				E2ADFA002873F18E00987D4D /* UICollectionView+Register.swift in Sources */,

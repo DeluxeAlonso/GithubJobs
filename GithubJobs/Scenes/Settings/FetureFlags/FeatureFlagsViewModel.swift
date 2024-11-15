@@ -30,10 +30,14 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
         let flags = await featureFlagsManager.allFlags
         self.toggles = flags.map {
             FeatureFlagToggleViewModel($0) { [weak self] identifier, value in
-                Task {
-                    await self?.featureFlagsManager.updateFlag(identifier: identifier, value: value)
-                }
+                self?.updateFeatureFlag(identifier: identifier, value: value)
             }
+        }
+    }
+
+    private func updateFeatureFlag(identifier: String, value: Bool) {
+        Task {
+            await featureFlagsManager.updateFlag(identifier: identifier, value: value)
         }
     }
 
