@@ -14,8 +14,8 @@ final class FeatureFlagsCoordinator: BaseCoordinator {
     var detailNavigationController: UINavigationController?
 
     override func start() {
-        let colorManager = FeatureFlagsManager.shared
-        let viewModel = FeatureFlagsViewModel(featureFlagsManager: colorManager, interactor: <#FeatureFlagsInteractorProtocol#>)
+        let interactor = FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared)
+        let viewModel = FeatureFlagsViewModel(interactor: interactor)
         let view = FeatureFlagsContent(viewModel: viewModel)
         let viewController = UIHostingController(rootView: view)
         // TODO: - This should be updated from view model if possible
