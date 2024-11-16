@@ -29,7 +29,7 @@ protocol FAQsItemViewModelProtocol: ObservableObject {
     var title: String { get }
     var subtitles: [String] { get }
     var expanded: Bool { get set }
-    var expandCollapseConfiguration: ExpandCollapseControlConfiguration { get }
+    var expandCollapseStyleConfiguration: ExpandCollapseControlStyleConfiguration { get }
 
 }
 
@@ -39,8 +39,8 @@ final class FAQsItemViewModel: FAQsItemViewModelProtocol {
     let subtitles: [String]
     @Published var expanded: Bool = false
 
-    var expandCollapseConfiguration: ExpandCollapseControlConfiguration {
-        ExpandCollapseControlConfiguration(expandedIconName: "plus", collapsedIconName: "minus")
+    var expandCollapseStyleConfiguration: ExpandCollapseControlStyleConfiguration {
+        ExpandCollapseControlStyleConfiguration(expandedIconName: "plus", collapsedIconName: "minus")
     }
 
     init(title: String,

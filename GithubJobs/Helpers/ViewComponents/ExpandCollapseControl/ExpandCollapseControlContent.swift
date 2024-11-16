@@ -14,21 +14,21 @@ struct ExpandCollapseControlContent<CollapsedContent: View, ExpandedContent: Vie
     @ViewBuilder private var collapsedContent: () -> CollapsedContent
     @ViewBuilder private var expandedContent: () -> ExpandedContent
 
-    private let configuration: ExpandCollapseControlConfiguration
+    private let styleConfiguration: ExpandCollapseControlStyleConfiguration
 
     init(isExpanded: Binding<Bool>,
          collapsedContent: @escaping () -> CollapsedContent,
          expandedContent: @escaping () -> ExpandedContent,
-         configuration: ExpandCollapseControlConfiguration) {
+         styleConfiguration: ExpandCollapseControlStyleConfiguration) {
         _isExpanded = isExpanded
         self.collapsedContent = collapsedContent
         self.expandedContent = expandedContent
-        self.configuration = configuration
+        self.styleConfiguration = styleConfiguration
     }
 
     var body: some View {
         DisclosureGroup(isExpanded: $isExpanded, content: expandedContent, label: collapsedContent)
-            .disclosureGroupStyle(ExpandCollapseControlDisclosureStyle(styleConfiguration: configuration))
+            .disclosureGroupStyle(ExpandCollapseControlDisclosureStyle(styleConfiguration: styleConfiguration))
     }
 
 }

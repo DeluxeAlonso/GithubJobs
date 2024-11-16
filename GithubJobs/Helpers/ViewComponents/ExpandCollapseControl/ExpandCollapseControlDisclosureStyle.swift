@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExpandCollapseControlDisclosureStyle: DisclosureGroupStyle {
 
-    let styleConfiguration: ExpandCollapseControlConfiguration
+    let styleConfiguration: ExpandCollapseControlStyleConfiguration
 
     func makeBody(configuration: Configuration) -> some View {
         VStack(alignment: .leading, spacing: 0.0) {

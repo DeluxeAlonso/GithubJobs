@@ -14,8 +14,8 @@ final class FeatureFlagsCoordinator: BaseCoordinator {
     var detailNavigationController: UINavigationController?
 
     override func start() {
-        let colorManager = FeatureFlagsManager.shared
-        let viewModel = FeatureFlagsViewModel(featureFlagsManager: colorManager)
+        let interactor = FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared)
+        let viewModel = FeatureFlagsViewModel(interactor: interactor)
         let view = FeatureFlagsContent(viewModel: viewModel)
         let viewController = UIHostingController(rootView: view)
         // TODO: - This should be updated from view model if possible
@@ -31,21 +31,6 @@ final class FeatureFlagsCoordinator: BaseCoordinator {
         if navigationController.delegate == nil {
             navigationController.delegate = self
         }
-    }
-
-    // MARK: - ThemeSelectionCoordinatorProtocol
-
-    func startModally() {
-        let colorManager = FeatureFlagsManager.shared
-        let viewModel = FeatureFlagsViewModel(featureFlagsManager: colorManager)
-        let view = FeatureFlagsContent(viewModel: viewModel)
-        let viewController = UIHostingController(rootView: view)
-        viewController.title = "Feature Flags"
-
-        navigationController.pushViewController(viewController, animated: false)
-        navigationController.modalPresentationStyle = .fullScreen
-
-        presentingViewController?.present(navigationController, animated: true, completion: nil)
     }
 
     func dismiss() {

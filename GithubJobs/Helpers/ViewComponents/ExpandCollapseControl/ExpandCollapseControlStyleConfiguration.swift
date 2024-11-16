@@ -1,5 +1,5 @@
 //
-//  ExpandCollapseControlConfiguration.swift
+//  ExpandCollapseControlStyleConfiguration.swift
 //  GithubJobs
 //
 //  Created by Alonso on 10/11/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExpandCollapseControlConfiguration {
+struct ExpandCollapseControlStyleConfiguration {
 
     let expandedIconName: String
     let collapsedIconName: String

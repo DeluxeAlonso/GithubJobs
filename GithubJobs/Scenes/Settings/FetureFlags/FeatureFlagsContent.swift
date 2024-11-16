@@ -27,6 +27,6 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
 // swiftlint:disable type_name
 struct FeatureFlagsContent_Previews: PreviewProvider {
     static var previews: some View {
-        FeatureFlagsContent(viewModel: FeatureFlagsViewModel(featureFlagsManager: FeatureFlagsManager.shared))
+        FeatureFlagsContent(viewModel: FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared)))
     }
 }
