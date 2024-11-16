@@ -34,8 +34,7 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
     func load() async {
         viewState = .loading
-        let flagsResponse = await interactor.getAllFeatureFlags()
-        switch flagsResponse {
+        switch await interactor.getAllFeatureFlags() {
         case .success(let flags):
             self.toggles = flags.map {
                 FeatureFlagToggleViewModel($0) { [weak self] identifier, value in

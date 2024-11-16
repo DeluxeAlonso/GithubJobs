@@ -11,25 +11,31 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        root
+        content
             .task {
                 await viewModel.load()
             }
     }
 
     @ViewBuilder
-    private var root: some View {
+    private var content: some View {
         switch viewModel.viewState {
-        case .loading:
-            content
-        case .populated:
-            content
-        case .error:
-            error
+        case .loading: loading
+        case .populated: populated
+        case .error: error
         }
     }
 
-    private var content: some View {
+    private var loading: some View {
+        VStack {
+            Spacer()
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle())
+            Spacer()
+        }
+    }
+
+    private var populated: some View {
         VStack {
             ForEach(viewModel.toggles, id: \.identifier) {
                 FeatureFlagToggleView(viewModel: $0)
