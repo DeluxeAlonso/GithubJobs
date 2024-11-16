@@ -11,14 +11,33 @@ struct ErrorView: View {
     let viewModel: ErrorViewModelProtocol
 
     var body: some View {
-        VStack {
-            viewModel.title.flatMap {
-                Text($0)
+        VStack(spacing: 16.0) {
+            icon
+            VStack(spacing: 8.0) {
+                title
+                subtitles
             }
-            ForEach(viewModel.subtitles, id: \.self) {
-                Text($0)
-            }
+        }
+    }
 
+    private var icon: some View {
+        Image("errorIcon")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 64.0, height: 64.0)
+    }
+
+    private var title: some View {
+        viewModel.title.flatMap {
+            Text($0)
+                .font(.headline)
+        }
+    }
+
+    private var subtitles: some View {
+        ForEach(viewModel.subtitles, id: \.self) {
+            Text($0)
+                .font(.subheadline)
         }
     }
 }
@@ -26,7 +45,7 @@ struct ErrorView: View {
 // swiftlint:disable type_name
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = ErrorViewModel(title: "Title", subtitles: ["Subtitles"])
+        let viewModel = ErrorViewModel(title: "Title", subtitles: ["Subtitle1", "Subtitle 2"])
         return ErrorView(viewModel: viewModel)
     }
 }
