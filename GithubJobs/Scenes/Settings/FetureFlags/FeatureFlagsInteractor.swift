@@ -8,6 +8,7 @@
 import Foundation
 
 protocol FeatureFlagsInteractorProtocol {
+
     func getAllFeatureFlags() async -> Result<[FeatureFlagProtocol], Error>
 
     func updateFeatureFlag(identifier: String, value: Bool) async
