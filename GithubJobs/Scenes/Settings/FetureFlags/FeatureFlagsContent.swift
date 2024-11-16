@@ -11,6 +11,25 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
+        root
+            .task {
+                await viewModel.load()
+            }
+    }
+
+    @ViewBuilder
+    private var root: some View {
+        switch viewModel.viewState {
+        case .loading:
+            content
+        case .populated:
+            content
+        case .error:
+            error
+        }
+    }
+
+    private var content: some View {
         VStack {
             ForEach(viewModel.toggles, id: \.identifier) {
                 FeatureFlagToggleView(viewModel: $0)
@@ -18,8 +37,15 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
             }
             Spacer()
         }
-        .task {
-            await viewModel.load()
+    }
+
+    private var error: some View {
+        VStack {
+            Spacer()
+            viewModel.errorViewModel.flatMap {
+                ErrorView(viewModel: $0)
+            }
+            Spacer()
         }
     }
 }

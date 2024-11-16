@@ -21,3 +21,5 @@
 "settingFeatureFlagRowTitle" = "Feature Flags";
 
 "refreshControlTitle" = "Refrescar";
+
+"errorTitle" = "Error";

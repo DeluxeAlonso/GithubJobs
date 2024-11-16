@@ -86,7 +86,8 @@
 		E2D19FB92CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FB82CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift */; };
 		E2D19FC32CE822E200BC0F45 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC22CE822E200BC0F45 /* ErrorView.swift */; };
 		E2D19FC52CE8231500BC0F45 /* ErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC42CE8231500BC0F45 /* ErrorViewModel.swift */; };
-		E2D19FC72CE8239A00BC0F45 /* ErrorViewModel+APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC62CE8239A00BC0F45 /* ErrorViewModel+APIError.swift */; };
+		E2D19FC72CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC62CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift */; };
+		E2D19FC92CE8479F00BC0F45 /* FeatureFlagsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC82CE8479F00BC0F45 /* FeatureFlagsViewState.swift */; };
 		E2DFC14A2CE31499002ACA77 /* FAQsItemContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFC1492CE31499002ACA77 /* FAQsItemContent.swift */; };
 		E2E18206288FAA790096BA7B /* SettingsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18205288FAA780096BA7B /* SettingsItemModel.swift */; };
 		E2E18208288FAAC50096BA7B /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18207288FAAC50096BA7B /* SettingsSection.swift */; };
@@ -205,7 +206,8 @@
 		E2D19FB82CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagsInteractor.swift; sourceTree = "<group>"; };
 		E2D19FC22CE822E200BC0F45 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		E2D19FC42CE8231500BC0F45 /* ErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewModel.swift; sourceTree = "<group>"; };
-		E2D19FC62CE8239A00BC0F45 /* ErrorViewModel+APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorViewModel+APIError.swift"; sourceTree = "<group>"; };
+		E2D19FC62CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorViewModel+LocalizedError.swift"; sourceTree = "<group>"; };
+		E2D19FC82CE8479F00BC0F45 /* FeatureFlagsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagsViewState.swift; sourceTree = "<group>"; };
 		E2DFC1492CE31499002ACA77 /* FAQsItemContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsItemContent.swift; sourceTree = "<group>"; };
 		E2E18205288FAA780096BA7B /* SettingsItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemModel.swift; sourceTree = "<group>"; };
 		E2E18207288FAAC50096BA7B /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
@@ -595,7 +597,7 @@
 			children = (
 				E2D19FC22CE822E200BC0F45 /* ErrorView.swift */,
 				E2D19FC42CE8231500BC0F45 /* ErrorViewModel.swift */,
-				E2D19FC62CE8239A00BC0F45 /* ErrorViewModel+APIError.swift */,
+				E2D19FC62CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift */,
 			);
 			path = ErrorView;
 			sourceTree = "<group>";
@@ -618,6 +620,7 @@
 				E2FCD6CE2CCF4C5600B05FB8 /* FeatureFlagsCoordinator.swift */,
 				E2F03E542CDB2BA6005B62D5 /* FeatureFlagToggleView.swift */,
 				E2D19FB82CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift */,
+				E2D19FC82CE8479F00BC0F45 /* FeatureFlagsViewState.swift */,
 			);
 			path = FetureFlags;
 			sourceTree = "<group>";
@@ -814,7 +817,7 @@
 				E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */,
 				E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */,
 				E2673AFA255781A800727460 /* JobDetailViewController.swift in Sources */,
-				E2D19FC72CE8239A00BC0F45 /* ErrorViewModel+APIError.swift in Sources */,
+				E2D19FC72CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift in Sources */,
 				E2673B0E2557872E00727460 /* JobDetailCoordinator.swift in Sources */,
 				E21AEC2B2556E1D000A85639 /* JobClient.swift in Sources */,
 				E28B52A725570CCF00389043 /* UIView+Layout.swift in Sources */,
@@ -840,6 +843,7 @@
 				E2ADF9FC2873ECD500987D4D /* ThemeSelectionProtocols.swift in Sources */,
 				E2AA5A012CE1BF78008877DA /* ExpandCollapseControlStyleConfiguration.swift in Sources */,
 				E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */,
+				E2D19FC92CE8479F00BC0F45 /* FeatureFlagsViewState.swift in Sources */,
 				E26B97802876976D00C6D197 /* ThemeSelectionSection.swift in Sources */,
 				E2673AF42557817B00727460 /* JobsProtocols.swift in Sources */,
 				E261EF2A28A30F3400F577AD /* Themeable.swift in Sources */,

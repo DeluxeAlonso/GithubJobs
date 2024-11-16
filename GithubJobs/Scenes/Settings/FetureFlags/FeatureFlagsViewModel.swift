@@ -11,6 +11,9 @@ import Combine
 protocol FeatureFlagsViewModelProtocol: ObservableObject {
 
     var toggles: [FeatureFlagToggleViewModel] { get }
+    var errorViewModel: ErrorViewModel? { get }
+
+    var viewState: FeatureFlagsViewState { get }
 
     func load() async
 
@@ -19,6 +22,9 @@ protocol FeatureFlagsViewModelProtocol: ObservableObject {
 final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
     @Published var toggles: [FeatureFlagToggleViewModel] = []
+    @Published var errorViewModel: ErrorViewModel?
+
+    @Published var viewState: FeatureFlagsViewState = .loading
 
     let interactor: FeatureFlagsInteractorProtocol
 
@@ -27,6 +33,7 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
     }
 
     func load() async {
+        viewState = .loading
         let flagsResponse = await interactor.getAllFeatureFlags()
         switch flagsResponse {
         case .success(let flags):
@@ -35,8 +42,10 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
                     self?.updateFeatureFlag(identifier: identifier, value: value)
                 }
             }
-        case .failure(let failure):
-            break
+            self.viewState = .populated
+        case .failure(let error):
+            self.errorViewModel = ErrorViewModel(localizedError: error)
+            self.viewState = .error
         }
 
     }
