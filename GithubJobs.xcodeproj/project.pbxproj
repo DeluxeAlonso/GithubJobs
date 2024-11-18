@@ -84,6 +84,10 @@
 		E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E73B2556E10700B5483A /* JobsResult.swift */; };
 		E2CC32482877DFF500345569 /* ThemeSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */; };
 		E2D19FB92CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FB82CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift */; };
+		E2D19FC32CE822E200BC0F45 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC22CE822E200BC0F45 /* ErrorView.swift */; };
+		E2D19FC52CE8231500BC0F45 /* ErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC42CE8231500BC0F45 /* ErrorViewModel.swift */; };
+		E2D19FC72CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC62CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift */; };
+		E2D19FC92CE8479F00BC0F45 /* FeatureFlagsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC82CE8479F00BC0F45 /* FeatureFlagsViewState.swift */; };
 		E2DFC14A2CE31499002ACA77 /* FAQsItemContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFC1492CE31499002ACA77 /* FAQsItemContent.swift */; };
 		E2E18206288FAA790096BA7B /* SettingsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18205288FAA780096BA7B /* SettingsItemModel.swift */; };
 		E2E18208288FAAC50096BA7B /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18207288FAAC50096BA7B /* SettingsSection.swift */; };
@@ -200,6 +204,10 @@
 		E2B3E73B2556E10700B5483A /* JobsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsResult.swift; sourceTree = "<group>"; };
 		E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewModel.swift; sourceTree = "<group>"; };
 		E2D19FB82CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagsInteractor.swift; sourceTree = "<group>"; };
+		E2D19FC22CE822E200BC0F45 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		E2D19FC42CE8231500BC0F45 /* ErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewModel.swift; sourceTree = "<group>"; };
+		E2D19FC62CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorViewModel+LocalizedError.swift"; sourceTree = "<group>"; };
+		E2D19FC82CE8479F00BC0F45 /* FeatureFlagsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagsViewState.swift; sourceTree = "<group>"; };
 		E2DFC1492CE31499002ACA77 /* FAQsItemContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsItemContent.swift; sourceTree = "<group>"; };
 		E2E18205288FAA780096BA7B /* SettingsItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemModel.swift; sourceTree = "<group>"; };
 		E2E18207288FAAC50096BA7B /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
@@ -347,6 +355,7 @@
 		E28B529825570C3300389043 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E2D19FC12CE822D600BC0F45 /* ErrorView */,
 				E2AA59FD2CE1BF18008877DA /* ExpandCollapseControl */,
 				E2673AE2255779A400727460 /* DataSources */,
 				E28B52B025570D1A00389043 /* Animations */,
@@ -583,6 +592,16 @@
 			path = Section;
 			sourceTree = "<group>";
 		};
+		E2D19FC12CE822D600BC0F45 /* ErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				E2D19FC22CE822E200BC0F45 /* ErrorView.swift */,
+				E2D19FC42CE8231500BC0F45 /* ErrorViewModel.swift */,
+				E2D19FC62CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift */,
+			);
+			path = ErrorView;
+			sourceTree = "<group>";
+		};
 		E2F570A528979DE900A67593 /* Theming */ = {
 			isa = PBXGroup;
 			children = (
@@ -601,6 +620,7 @@
 				E2FCD6CE2CCF4C5600B05FB8 /* FeatureFlagsCoordinator.swift */,
 				E2F03E542CDB2BA6005B62D5 /* FeatureFlagToggleView.swift */,
 				E2D19FB82CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift */,
+				E2D19FC82CE8479F00BC0F45 /* FeatureFlagsViewState.swift */,
 			);
 			path = FetureFlags;
 			sourceTree = "<group>";
@@ -775,10 +795,12 @@
 				E2641C142557CE1200675868 /* Dequeuable.swift in Sources */,
 				E2FCD6CF2CCF4C5600B05FB8 /* FeatureFlagsCoordinator.swift in Sources */,
 				E21AEC382556E35100A85639 /* JobsViewModel.swift in Sources */,
+				E2D19FC52CE8231500BC0F45 /* ErrorViewModel.swift in Sources */,
 				E28B52AC25570CF000389043 /* FontHelper.swift in Sources */,
 				E2E6DCFD28A8CE2C0022547B /* RefreshControl.swift in Sources */,
 				E2673B04255782F000727460 /* JobsCoordinator.swift in Sources */,
 				E2B3E6EA2556D7BA00B5483A /* JobsViewController.swift in Sources */,
+				E2D19FC32CE822E200BC0F45 /* ErrorView.swift in Sources */,
 				E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */,
 				E2673AE925577A2300727460 /* TableViewDataSourcePrefetching.swift in Sources */,
 				E2DFC14A2CE31499002ACA77 /* FAQsItemContent.swift in Sources */,
@@ -795,6 +817,7 @@
 				E2B3E7012556DCB900B5483A /* APIClient.swift in Sources */,
 				E28B529A25570C3F00389043 /* LoadingFooterView.swift in Sources */,
 				E2673AFA255781A800727460 /* JobDetailViewController.swift in Sources */,
+				E2D19FC72CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift in Sources */,
 				E2673B0E2557872E00727460 /* JobDetailCoordinator.swift in Sources */,
 				E21AEC2B2556E1D000A85639 /* JobClient.swift in Sources */,
 				E28B52A725570CCF00389043 /* UIView+Layout.swift in Sources */,
@@ -820,6 +843,7 @@
 				E2ADF9FC2873ECD500987D4D /* ThemeSelectionProtocols.swift in Sources */,
 				E2AA5A012CE1BF78008877DA /* ExpandCollapseControlStyleConfiguration.swift in Sources */,
 				E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */,
+				E2D19FC92CE8479F00BC0F45 /* FeatureFlagsViewState.swift in Sources */,
 				E26B97802876976D00C6D197 /* ThemeSelectionSection.swift in Sources */,
 				E2673AF42557817B00727460 /* JobsProtocols.swift in Sources */,
 				E261EF2A28A30F3400F577AD /* Themeable.swift in Sources */,

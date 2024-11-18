@@ -42,6 +42,8 @@ enum LocalizedStrings: String, Localizable {
 
     case refreshControlTitle
 
+    case errorTitle
+
     var tableName: String { "Localizable" }
 
 }
