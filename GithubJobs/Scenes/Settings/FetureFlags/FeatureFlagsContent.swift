@@ -58,7 +58,14 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
 
 // swiftlint:disable type_name
 struct FeatureFlagsContent_Previews: PreviewProvider {
+    static var populatedViewModel: FeatureFlagsViewModel {
+        let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared))
+        viewModel.viewState = .populated
+        return viewModel
+    }
+
     static var previews: some View {
-        FeatureFlagsContent(viewModel: FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared)))
+        FeatureFlagsContent(viewModel: populatedViewModel)
+            .previewDisplayName("Populated")
     }
 }
