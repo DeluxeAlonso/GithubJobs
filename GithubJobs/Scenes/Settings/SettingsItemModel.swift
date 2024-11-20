@@ -21,3 +21,14 @@ struct SettingsItemModel: Hashable {
     }
 
 }
+
+extension SettingsItemModel {
+
+    init?(featureFlagValue: Bool, title: String, value: String?, actionHandler: ( () -> Void)?) {
+        guard featureFlagValue else { return nil }
+        self.title = title
+        self.value = value
+        self.actionHandler = actionHandler
+    }
+
+}
