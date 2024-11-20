@@ -48,9 +48,10 @@ protocol FeatureFlagsManagerProtocol: Actor {
     init() {}
 
     private var useCustomChevron: FeatureFlagProtocol = CustomChevronFeatureFlag()
+    private var displayFaqs: FeatureFlagProtocol = DisplayFAQsFeatureFlag()
 
     var allFlags: [FeatureFlagProtocol] {
-        [useCustomChevron]
+        [useCustomChevron, displayFaqs]
     }
 
     func updateFlag(identifier: String, value: Bool) {
