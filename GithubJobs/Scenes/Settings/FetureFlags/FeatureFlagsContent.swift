@@ -58,8 +58,16 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
 
 // swiftlint:disable type_name
 struct FeatureFlagsContent_Previews: PreviewProvider {
+
+    static func viewModel(with state: FeatureFlagsViewState) -> FeatureFlagsViewModel {
+        let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared))
+        viewModel.viewState = state
+        return viewModel
+    }
+
     static var populatedViewModel: FeatureFlagsViewModel {
         let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared))
+        viewModel.toggles = [FeatureFlagToggleViewModel(CustomChevronFeatureFlag())]
         viewModel.viewState = .populated
         return viewModel
     }
@@ -67,5 +75,11 @@ struct FeatureFlagsContent_Previews: PreviewProvider {
     static var previews: some View {
         FeatureFlagsContent(viewModel: populatedViewModel)
             .previewDisplayName("Populated")
+
+        FeatureFlagsContent(viewModel: viewModel(with: .loading))
+            .previewDisplayName("Loading")
+
+        FeatureFlagsContent(viewModel: viewModel(with: .error))
+            .previewDisplayName("Error")
     }
 }
