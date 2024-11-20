@@ -58,7 +58,35 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
 
 // swiftlint:disable type_name
 struct FeatureFlagsContent_Previews: PreviewProvider {
+
+    static var loadingViewModel: FeatureFlagsViewModel {
+        let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared))
+        viewModel.viewState = .loading
+        return viewModel
+    }
+
+    static var populatedViewModel: FeatureFlagsViewModel {
+        let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared))
+        viewModel.toggles = [FeatureFlagToggleViewModel(CustomChevronFeatureFlag())]
+        viewModel.viewState = .populated
+        return viewModel
+    }
+
+    static var errorViewModel: FeatureFlagsViewModel {
+        let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared))
+        viewModel.errorViewModel = ErrorViewModel(title: "Error", subtitles: ["Error Subtitle"])
+        viewModel.viewState = .error
+        return viewModel
+    }
+
     static var previews: some View {
-        FeatureFlagsContent(viewModel: FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared)))
+        FeatureFlagsContent(viewModel: populatedViewModel)
+            .previewDisplayName("Populated")
+
+        FeatureFlagsContent(viewModel: loadingViewModel)
+            .previewDisplayName("Loading")
+
+        FeatureFlagsContent(viewModel: errorViewModel)
+            .previewDisplayName("Error")
     }
 }
