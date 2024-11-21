@@ -35,20 +35,21 @@ final class DisplayFAQsFeatureFlag: FeatureFlagProtocol {
 
 }
 
-protocol FeatureFlagsManagerProtocol: Actor {
+protocol FeatureFlagsManagerProtocol {
     var allFlags: [FeatureFlagProtocol] { get }
 
     func updateFlag(identifier: String, value: Bool)
 }
 
-@globalActor actor FeatureFlagsManager: FeatureFlagsManagerProtocol {
+// TODO: - Convert back this to a @globalActor actor
+final class FeatureFlagsManager: FeatureFlagsManagerProtocol {
 
     static let shared = FeatureFlagsManager()
 
     init() {}
 
-    private var useCustomChevron: FeatureFlagProtocol = CustomChevronFeatureFlag()
-    private var displayFaqs: FeatureFlagProtocol = DisplayFAQsFeatureFlag()
+    private(set) var useCustomChevron: FeatureFlagProtocol = CustomChevronFeatureFlag()
+    private(set) var displayFaqs: FeatureFlagProtocol = DisplayFAQsFeatureFlag()
 
     var allFlags: [FeatureFlagProtocol] {
         [useCustomChevron, displayFaqs]

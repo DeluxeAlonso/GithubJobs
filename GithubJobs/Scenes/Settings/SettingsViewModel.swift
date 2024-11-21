@@ -19,6 +19,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
 
     private(set) var didSelectThemeSelectionItem = PassthroughSubject<Void, Never>()
     private(set) var didSelectFeatureFlagsItem = PassthroughSubject<Void, Never>()
+    private(set) var didSelectFAQsItem = PassthroughSubject<Void, Never>()
 
     init(themeManager: ThemeManagerProtocol) {
         self.themeManager = themeManager
@@ -53,10 +54,14 @@ final class SettingsViewModel: SettingsViewModelProtocol {
             SettingsItemModel(title: LocalizedStrings.settingThemeSelectionRowTitle(),
                               value: themeManager.interfaceStyle.value.description,
                               actionHandler: didTapThemeSelectionItem),
+            SettingsItemModel(featureFlagValue: FeatureFlagsManager.shared.displayFaqs.value,
+                              title: "FAQs",
+                              value: nil,
+                              actionHandler: didTapFAQsSelectionItem),
             SettingsItemModel(title: LocalizedStrings.settingFeatureFlagRowTitle(),
                               value: nil,
                               actionHandler: didTapFeatureFlagsItem)
-        ]
+        ].compactMap { $0 }
     }
 
     private func didTapFeatureFlagsItem() {
@@ -65,6 +70,10 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     
     private func didTapThemeSelectionItem() {
         didSelectThemeSelectionItem.send()
+    }
+
+    private func didTapFAQsSelectionItem() {
+        didSelectFAQsItem.send()
     }
     
 }
