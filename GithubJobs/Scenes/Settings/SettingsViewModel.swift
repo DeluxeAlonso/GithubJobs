@@ -54,10 +54,6 @@ final class SettingsViewModel: SettingsViewModelProtocol {
             SettingsItemModel(title: LocalizedStrings.settingThemeSelectionRowTitle(),
                               value: themeManager.interfaceStyle.value.description,
                               actionHandler: didTapThemeSelectionItem),
-            SettingsItemModel(featureFlagValue: FeatureFlagsManager.shared.displayFaqs.value,
-                              title: "FAQs",
-                              value: nil,
-                              actionHandler: didTapFAQsSelectionItem),
             SettingsItemModel(title: LocalizedStrings.settingFeatureFlagRowTitle(),
                               value: nil,
                               actionHandler: didTapFeatureFlagsItem)
