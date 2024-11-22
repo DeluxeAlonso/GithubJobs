@@ -17,16 +17,12 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         $itemModels
     }
 
-    private var cancellables: Set<AnyCancellable> = []
-
     private(set) var didSelectThemeSelectionItem = PassthroughSubject<Void, Never>()
     private(set) var didSelectFeatureFlagsItem = PassthroughSubject<Void, Never>()
     private(set) var didSelectFAQsItem = PassthroughSubject<Void, Never>()
 
     init(themeManager: ThemeManagerProtocol) {
         self.themeManager = themeManager
-
-        configure()
     }
 
     // MARK: - SettingsViewModelProtocol
@@ -39,24 +35,13 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         itemModels[index].actionHandler?()
     }
 
-    // MARK: - Private
-
-    private func configure() {
-        // TODO: - Skip first one and move updateItemModels to viewWillAppear
-        themeManager
-            .interfaceStyle
-            .sink(receiveValue: { [weak self] _ in
-                guard let self else { fatalError("Inconsistent state") }
-                self.loadItems()
-            })
-            .store(in: &cancellables)
-    }
-
-    private func loadItems() {
+    func loadItems() {
         Task {
             itemModels = await createItemModels()
         }
     }
+
+    // MARK: - Private
 
     private func createItemModels() async -> [SettingsItemModel] {
         [
