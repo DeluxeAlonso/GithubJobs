@@ -47,12 +47,12 @@ final class SettingsViewModel: SettingsViewModelProtocol {
             .interfaceStyle
             .sink(receiveValue: { [weak self] _ in
                 guard let self else { fatalError("Inconsistent state") }
-                self.updateItemModels()
+                self.loadItems()
             })
             .store(in: &cancellables)
     }
 
-    private func updateItemModels() {
+    private func loadItems() {
         Task {
             itemModels = await createItemModels()
         }

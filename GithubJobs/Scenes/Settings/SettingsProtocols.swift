@@ -13,6 +13,8 @@ protocol SettingsViewModelProtocol {
     var didSelectThemeSelectionItem: PassthroughSubject<Void, Never> { get }
     var didSelectFeatureFlagsItem: PassthroughSubject<Void, Never> { get }
 
+    func loadItems()
+
     func screenTitle() -> String?
     func selectItem(at index: Int)
 
