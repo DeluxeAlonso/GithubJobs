@@ -44,6 +44,7 @@ protocol FeatureFlagsManagerProtocol: Actor {
     var allFlags: [FeatureFlagProtocol] { get }
 
     func updateFlag(identifier: String, value: Bool)
+    func value(for identifier: FeatureFlagIdentifier) -> Bool
 }
 
 @globalActor actor FeatureFlagsManager: FeatureFlagsManagerProtocol {
@@ -64,8 +65,8 @@ protocol FeatureFlagsManagerProtocol: Actor {
         flagToUpdate?.value = value
     }
 
-    nonisolated func value(for identifier: String) -> Bool {
-        allFlags.first(where: { $0.identifier == identifier })?.value ?? false
+    func value(for identifier: FeatureFlagIdentifier) -> Bool {
+        allFlags.first(where: { $0.identifier == identifier.rawValue })?.value ?? false
     }
 
 }
