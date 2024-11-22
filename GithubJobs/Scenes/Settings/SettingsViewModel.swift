@@ -10,6 +10,7 @@ import Combine
 final class SettingsViewModel: SettingsViewModelProtocol {
 
     private let themeManager: ThemeManagerProtocol
+    private let featureFlagsManager: FeatureFlagsManagerProtocol
 
     @Published private var itemModels: [SettingsItemModel] = []
 
@@ -21,8 +22,10 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     private(set) var didSelectFeatureFlagsItem = PassthroughSubject<Void, Never>()
     private(set) var didSelectFAQsItem = PassthroughSubject<Void, Never>()
 
-    init(themeManager: ThemeManagerProtocol) {
+    init(themeManager: ThemeManagerProtocol,
+         featureFlagsManager: FeatureFlagsManagerProtocol) {
         self.themeManager = themeManager
+        self.featureFlagsManager = featureFlagsManager
     }
 
     // MARK: - SettingsViewModelProtocol
@@ -48,7 +51,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
             SettingsItemModel(title: LocalizedStrings.settingThemeSelectionRowTitle(),
                               value: themeManager.interfaceStyle.value.description,
                               actionHandler: didTapThemeSelectionItem),
-            SettingsItemModel(featureFlagValue: await FeatureFlagsManager.shared.value(for: .displayFAQs),
+            SettingsItemModel(featureFlagValue: await featureFlagsManager.value(for: .displayFAQs),
                               title: "FAQs",
                               value: nil,
                               actionHandler: didTapFAQsSelectionItem),
