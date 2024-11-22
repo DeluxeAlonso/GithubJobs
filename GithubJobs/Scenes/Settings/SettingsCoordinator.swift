@@ -13,7 +13,8 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
 
     override func start() {
         let themeManager = ThemeManager.shared
-        let viewModel = SettingsViewModel(themeManager: themeManager)
+        let featureFlagsManager = FeatureFlagsManager.shared
+        let viewModel = SettingsViewModel(themeManager: themeManager, featureFlagsManager: featureFlagsManager)
         let viewController = SettingsViewController(themeManager: themeManager,
                                                     viewModel: viewModel,
                                                     coordinator: self)

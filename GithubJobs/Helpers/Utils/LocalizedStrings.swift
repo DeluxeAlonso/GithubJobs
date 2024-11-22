@@ -37,8 +37,9 @@ enum LocalizedStrings: String, Localizable {
     case themeSelectionBarButtonItemTitle
 
     case settingsTitle
-    case settingThemeSelectionRowTitle
-    case settingFeatureFlagRowTitle
+    case settingsThemeSelectionRowTitle
+    case settingsFeatureFlagRowTitle
+    case settingsFAQsRowTitle
 
     case refreshControlTitle
 

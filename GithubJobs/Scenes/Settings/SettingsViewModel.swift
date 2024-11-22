@@ -10,6 +10,7 @@ import Combine
 final class SettingsViewModel: SettingsViewModelProtocol {
 
     private let themeManager: ThemeManagerProtocol
+    private let featureFlagsManager: FeatureFlagsManagerProtocol
 
     @Published private var itemModels: [SettingsItemModel] = []
 
@@ -17,16 +18,14 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         $itemModels
     }
 
-    private var cancellables: Set<AnyCancellable> = []
-
     private(set) var didSelectThemeSelectionItem = PassthroughSubject<Void, Never>()
     private(set) var didSelectFeatureFlagsItem = PassthroughSubject<Void, Never>()
     private(set) var didSelectFAQsItem = PassthroughSubject<Void, Never>()
 
-    init(themeManager: ThemeManagerProtocol) {
+    init(themeManager: ThemeManagerProtocol,
+         featureFlagsManager: FeatureFlagsManagerProtocol) {
         self.themeManager = themeManager
-
-        configure()
+        self.featureFlagsManager = featureFlagsManager
     }
 
     // MARK: - SettingsViewModelProtocol
@@ -39,35 +38,24 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         itemModels[index].actionHandler?()
     }
 
-    // MARK: - Private
-
-    private func configure() {
-        // TODO: - Skip first one and move updateItemModels to viewWillAppear
-        themeManager
-            .interfaceStyle
-            .sink(receiveValue: { [weak self] _ in
-                guard let self else { fatalError("Inconsistent state") }
-                self.updateItemModels()
-            })
-            .store(in: &cancellables)
-    }
-
-    private func updateItemModels() {
+    func loadItems() {
         Task {
             itemModels = await createItemModels()
         }
     }
 
+    // MARK: - Private
+
     private func createItemModels() async -> [SettingsItemModel] {
         [
-            SettingsItemModel(title: LocalizedStrings.settingThemeSelectionRowTitle(),
+            SettingsItemModel(title: LocalizedStrings.settingsThemeSelectionRowTitle(),
                               value: themeManager.interfaceStyle.value.description,
                               actionHandler: didTapThemeSelectionItem),
-            SettingsItemModel(featureFlagValue: await FeatureFlagsManager.shared.value(for: .displayFAQs),
-                              title: "FAQs",
+            SettingsItemModel(featureFlagValue: await featureFlagsManager.value(for: .displayFAQs),
+                              title: LocalizedStrings.settingsFAQsRowTitle(),
                               value: nil,
                               actionHandler: didTapFAQsSelectionItem),
-            SettingsItemModel(title: LocalizedStrings.settingFeatureFlagRowTitle(),
+            SettingsItemModel(title: LocalizedStrings.settingsFeatureFlagRowTitle(),
                               value: nil,
                               actionHandler: didTapFeatureFlagsItem)
         ].compactMap { $0 }
