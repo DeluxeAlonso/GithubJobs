@@ -48,14 +48,14 @@ final class SettingsViewModel: SettingsViewModelProtocol {
 
     private func createItemModels() async -> [SettingsItemModel] {
         [
-            SettingsItemModel(title: LocalizedStrings.settingThemeSelectionRowTitle(),
+            SettingsItemModel(title: LocalizedStrings.settingsThemeSelectionRowTitle(),
                               value: themeManager.interfaceStyle.value.description,
                               actionHandler: didTapThemeSelectionItem),
             SettingsItemModel(featureFlagValue: await featureFlagsManager.value(for: .displayFAQs),
-                              title: "FAQs",
+                              title: LocalizedStrings.settingsFAQsRowTitle(),
                               value: nil,
                               actionHandler: didTapFAQsSelectionItem),
-            SettingsItemModel(title: LocalizedStrings.settingFeatureFlagRowTitle(),
+            SettingsItemModel(title: LocalizedStrings.settingsFeatureFlagRowTitle(),
                               value: nil,
                               actionHandler: didTapFeatureFlagsItem)
         ].compactMap { $0 }

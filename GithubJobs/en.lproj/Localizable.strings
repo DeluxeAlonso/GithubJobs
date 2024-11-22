@@ -17,8 +17,9 @@
 "themeSelectionBarButtonItemTitle" = "Themes";
 
 "settingsTitle" = "Settings";
-"settingThemeSelectionRowTitle" = "Themes";
-"settingFeatureFlagRowTitle" = "Feature Flags";
+"settingsThemeSelectionRowTitle" = "Themes";
+"settingsFeatureFlagRowTitle" = "Feature Flags";
+"settingsFAQsRowTitle" = "FAQs";
 
 "refreshControlTitle" = "Pull to refresh";
 
