@@ -18,9 +18,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         $itemModels
     }
 
-    private(set) var didSelectThemeSelectionItem = PassthroughSubject<Void, Never>()
-    private(set) var didSelectFeatureFlagsItem = PassthroughSubject<Void, Never>()
-    private(set) var didSelectFAQsItem = PassthroughSubject<Void, Never>()
+    private(set) var didUpdateNavigation = PassthroughSubject<SettingsNavigation, Never>()
 
     init(themeManager: ThemeManagerProtocol,
          featureFlagsManager: FeatureFlagsManagerProtocol) {
@@ -50,27 +48,19 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         [
             SettingsItemModel(title: LocalizedStrings.settingsThemeSelectionRowTitle(),
                               value: themeManager.interfaceStyle.value.description,
-                              actionHandler: didTapThemeSelectionItem),
+                              actionHandler: { self.navigate(to: .theme) }),
             SettingsItemModel(featureFlagValue: await featureFlagsManager.value(for: .displayFAQs),
                               title: LocalizedStrings.settingsFAQsRowTitle(),
                               value: nil,
-                              actionHandler: didTapFAQsSelectionItem),
+                              actionHandler: { self.navigate(to: .faqs) }),
             SettingsItemModel(title: LocalizedStrings.settingsFeatureFlagRowTitle(),
                               value: nil,
-                              actionHandler: didTapFeatureFlagsItem)
+                              actionHandler: { self.navigate(to: .featureFlags) })
         ].compactMap { $0 }
     }
 
-    private func didTapFeatureFlagsItem() {
-        didSelectFeatureFlagsItem.send()
-    }
-    
-    private func didTapThemeSelectionItem() {
-        didSelectThemeSelectionItem.send()
+    private func navigate(to navigation: SettingsNavigation) {
+        didUpdateNavigation.send(navigation)
     }
 
-    private func didTapFAQsSelectionItem() {
-        didSelectFAQsItem.send()
-    }
-    
 }

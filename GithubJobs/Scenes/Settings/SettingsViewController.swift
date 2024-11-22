@@ -117,18 +117,11 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
     // MARK: - Reactive Behavior
 
     private func setupBindings() {
-        viewModel.didSelectThemeSelectionItem
+        viewModel.didUpdateNavigation
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] in
+            .sink { [weak self] navigation in
                 guard let self = self else { return }
-                self.coordinator?.showThemeSelection()
-            }.store(in: &cancellables)
-
-        viewModel.didSelectFeatureFlagsItem
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] in
-                guard let self = self else { return }
-                self.coordinator?.showFeatureFlags()
+                self.coordinator?.startNavigation(for: navigation)
             }.store(in: &cancellables)
 
         viewModel.itemModelsPublisher
