@@ -22,8 +22,7 @@ protocol SettingsViewModelProtocol {
 
 protocol SettingsCoordinatorProtocol: AnyObject {
 
-    func showThemeSelection()
-    func showFeatureFlags()
+    func startNavigation(for navigation: SettingsNavigation)
     func dismiss()
 
 }
