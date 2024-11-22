@@ -25,22 +25,34 @@ final class CustomChevronFeatureFlag: FeatureFlagProtocol {
 
 }
 
-protocol FeatureFlagsManagerProtocol: Actor {
+final class DisplayFAQsFeatureFlag: FeatureFlagProtocol {
+
+    let identifier: String = "DisplayFAQs"
+    let title: String = "Displays FAQs screen"
+
+    @AppStorage("GithubJobs_DisplayFAQs")
+    var value: Bool = false
+
+}
+
+protocol FeatureFlagsManagerProtocol {
     var allFlags: [FeatureFlagProtocol] { get }
 
     func updateFlag(identifier: String, value: Bool)
 }
 
-@globalActor actor FeatureFlagsManager: FeatureFlagsManagerProtocol {
+// TODO: - Convert back this to a @globalActor actor
+final class FeatureFlagsManager: FeatureFlagsManagerProtocol {
 
     static let shared = FeatureFlagsManager()
 
     init() {}
 
-    private var useCustomChevron: FeatureFlagProtocol = CustomChevronFeatureFlag()
+    private(set) var useCustomChevron: FeatureFlagProtocol = CustomChevronFeatureFlag()
+    private(set) var displayFaqs: FeatureFlagProtocol = DisplayFAQsFeatureFlag()
 
     var allFlags: [FeatureFlagProtocol] {
-        [useCustomChevron]
+        [useCustomChevron, displayFaqs]
     }
 
     func updateFlag(identifier: String, value: Bool) {
