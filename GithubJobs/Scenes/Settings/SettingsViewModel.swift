@@ -18,6 +18,10 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         $itemModels
     }
 
+    deinit {
+        print("SettingsViewModel")
+    }
+
     private(set) var didUpdateNavigation = PassthroughSubject<SettingsNavigation, Never>()
 
     init(themeManager: ThemeManagerProtocol,
@@ -33,7 +37,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     }
 
     func selectItem(at index: Int) {
-        itemModels[index].actionHandler?()
+        itemModels[index].actionHandler()
     }
 
     func loadItems() {
@@ -48,14 +52,14 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         [
             SettingsItemModel(title: LocalizedStrings.settingsThemeSelectionRowTitle(),
                               value: themeManager.interfaceStyle.value.description,
-                              actionHandler: { self.navigate(to: .theme) }),
+                              actionHandler: { [weak self] in self?.navigate(to: .theme) }),
             SettingsItemModel(featureFlagValue: await featureFlagsManager.value(for: .displayFAQs),
                               title: LocalizedStrings.settingsFAQsRowTitle(),
                               value: nil,
-                              actionHandler: { self.navigate(to: .faqs) }),
+                              actionHandler: { [weak self] in self?.navigate(to: .faqs) }),
             SettingsItemModel(title: LocalizedStrings.settingsFeatureFlagRowTitle(),
                               value: nil,
-                              actionHandler: { self.navigate(to: .featureFlags) })
+                              actionHandler: { [weak self] in self?.navigate(to: .featureFlags) })
         ].compactMap { $0 }
     }
 
