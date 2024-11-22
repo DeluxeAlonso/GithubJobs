@@ -26,10 +26,6 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
 
     private var dataSource: SettingsCollectionViewDataSource?
 
-    deinit {
-        print("SettingsViewController")
-    }
-
     // MARK: - Initializers
 
     init(themeManager: ThemeManagerProtocol,

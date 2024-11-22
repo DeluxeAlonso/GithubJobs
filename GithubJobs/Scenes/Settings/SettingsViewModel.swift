@@ -18,10 +18,6 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         $itemModels
     }
 
-    deinit {
-        print("SettingsViewModel")
-    }
-
     private(set) var didUpdateNavigation = PassthroughSubject<SettingsNavigation, Never>()
 
     init(themeManager: ThemeManagerProtocol,
