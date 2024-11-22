@@ -42,6 +42,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     // MARK: - Private
 
     private func configure() {
+        // TODO: - Skip first one and move updateItemModels to viewWillAppear
         themeManager
             .interfaceStyle
             .sink(receiveValue: { [weak self] _ in
