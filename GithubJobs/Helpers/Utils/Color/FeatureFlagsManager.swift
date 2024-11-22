@@ -15,9 +15,14 @@ protocol FeatureFlagProtocol {
 
 }
 
+enum FeatureFlagIdentifier: String {
+    case displayFAQs = "DisplayFAQs"
+    case customChevron = "UseCustomChevron"
+}
+
 final class CustomChevronFeatureFlag: FeatureFlagProtocol {
 
-    let identifier: String = "UseCustomChevron"
+    let identifier: String = FeatureFlagIdentifier.customChevron.rawValue
     let title: String = "User custom chevron view"
 
     @AppStorage("GithubJobs_UseCustomChevron")
@@ -27,7 +32,7 @@ final class CustomChevronFeatureFlag: FeatureFlagProtocol {
 
 final class DisplayFAQsFeatureFlag: FeatureFlagProtocol {
 
-    let identifier: String = "DisplayFAQs"
+    let identifier: String = FeatureFlagIdentifier.displayFAQs.rawValue
     let title: String = "Displays FAQs screen"
 
     @AppStorage("GithubJobs_DisplayFAQs")
@@ -35,29 +40,33 @@ final class DisplayFAQsFeatureFlag: FeatureFlagProtocol {
 
 }
 
-protocol FeatureFlagsManagerProtocol {
+protocol FeatureFlagsManagerProtocol: Actor {
     var allFlags: [FeatureFlagProtocol] { get }
 
     func updateFlag(identifier: String, value: Bool)
+    func value(for identifier: FeatureFlagIdentifier) -> Bool
 }
 
-// TODO: - Convert back this to a @globalActor actor
-final class FeatureFlagsManager: FeatureFlagsManagerProtocol {
+@globalActor actor FeatureFlagsManager: FeatureFlagsManagerProtocol {
 
     static let shared = FeatureFlagsManager()
 
     init() {}
 
-    private(set) var useCustomChevron: FeatureFlagProtocol = CustomChevronFeatureFlag()
-    private(set) var displayFaqs: FeatureFlagProtocol = DisplayFAQsFeatureFlag()
+    let useCustomChevron: FeatureFlagProtocol = CustomChevronFeatureFlag()
+    let displayFaqs: FeatureFlagProtocol = DisplayFAQsFeatureFlag()
 
-    var allFlags: [FeatureFlagProtocol] {
+    nonisolated var allFlags: [FeatureFlagProtocol] {
         [useCustomChevron, displayFaqs]
     }
 
     func updateFlag(identifier: String, value: Bool) {
         var flagToUpdate = allFlags.first(where: { $0.identifier == identifier })
         flagToUpdate?.value = value
+    }
+
+    func value(for identifier: FeatureFlagIdentifier) -> Bool {
+        allFlags.first(where: { $0.identifier == identifier.rawValue })?.value ?? false
     }
 
 }

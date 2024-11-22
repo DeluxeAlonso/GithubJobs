@@ -17,6 +17,8 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         $itemModels
     }
 
+    private var cancellables: Set<AnyCancellable> = []
+
     private(set) var didSelectThemeSelectionItem = PassthroughSubject<Void, Never>()
     private(set) var didSelectFeatureFlagsItem = PassthroughSubject<Void, Never>()
     private(set) var didSelectFAQsItem = PassthroughSubject<Void, Never>()
@@ -40,21 +42,28 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     // MARK: - Private
 
     private func configure() {
+        // TODO: - Skip first one and move updateItemModels to viewWillAppear
         themeManager
             .interfaceStyle
-            .map { [weak self] _ -> [SettingsItemModel] in
-                guard let self = self else { fatalError("Inconsistent state") }
-                return self.createItemModels()
-            }
-            .assign(to: &$itemModels)
+            .sink(receiveValue: { [weak self] _ in
+                guard let self else { fatalError("Inconsistent state") }
+                self.updateItemModels()
+            })
+            .store(in: &cancellables)
     }
 
-    private func createItemModels() -> [SettingsItemModel] {
+    private func updateItemModels() {
+        Task {
+            itemModels = await createItemModels()
+        }
+    }
+
+    private func createItemModels() async -> [SettingsItemModel] {
         [
             SettingsItemModel(title: LocalizedStrings.settingThemeSelectionRowTitle(),
                               value: themeManager.interfaceStyle.value.description,
                               actionHandler: didTapThemeSelectionItem),
-            SettingsItemModel(featureFlagValue: FeatureFlagsManager.shared.displayFaqs.value,
+            SettingsItemModel(featureFlagValue: await FeatureFlagsManager.shared.value(for: .displayFAQs),
                               title: "FAQs",
                               value: nil,
                               actionHandler: didTapFAQsSelectionItem),
