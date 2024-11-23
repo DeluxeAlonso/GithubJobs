@@ -14,24 +14,7 @@ final class FAQsCoordinator: BaseCoordinator {
     var detailNavigationController: UINavigationController?
 
     override func start() {
-//        let colorManager = FeatureFlagsManager.shared
-//        // Pass interactor here here
-//        let viewModel = FAQsViewModel(items: <#T##[FAQsItemViewModel]#>)
-//        let view = FeatureFlagsContent(viewModel: viewModel)
-//        let viewController = UIHostingController(rootView: view)
-//        // TODO: - This should be updated from view model if possible
-//        viewController.title = "Feature Flags"
-//
-//        if let detailNavigationController = detailNavigationController {
-//            detailNavigationController.pushViewController(viewController, animated: false)
-//            navigationController.showDetailViewController(detailNavigationController, sender: nil)
-//        } else {
-//            detailNavigationController = navigationController
-//            navigationController.pushViewController(viewController, animated: true)
-//        }
-//        if navigationController.delegate == nil {
-//            navigationController.delegate = self
-//        }
+        // TODO
     }
 
     func dismiss() {
