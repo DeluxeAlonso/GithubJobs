@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum SettingsNavigation {
+    case theme
+    case faqs
+    case featureFlags
+}
+
 final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
 
     var presentingViewController: UIViewController?
@@ -31,7 +37,18 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
 
     // MARK: - SettingsCoordinatorProtocol
 
-    func showThemeSelection() {
+    func startNavigation(for navigation: SettingsNavigation) {
+        switch navigation {
+        case .theme:
+            showThemeSelection()
+        case .faqs:
+            break
+        case .featureFlags:
+            showFeatureFlags()
+        }
+    }
+
+    private func showThemeSelection() {
         let coordinator = ThemeSelectionCoordinator(navigationController: navigationController)
 
         coordinator.parentCoordinator = unwrappedParentCoordinator
@@ -40,7 +57,7 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
         coordinator.start()
     }
 
-    func showFeatureFlags() {
+    private func showFeatureFlags() {
         let coordinator = FeatureFlagsCoordinator(navigationController: navigationController)
 
         coordinator.parentCoordinator = unwrappedParentCoordinator

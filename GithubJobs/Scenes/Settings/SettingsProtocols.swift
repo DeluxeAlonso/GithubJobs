@@ -10,8 +10,7 @@ import Combine
 protocol SettingsViewModelProtocol {
 
     var itemModelsPublisher: Published<[SettingsItemModel]>.Publisher { get }
-    var didSelectThemeSelectionItem: PassthroughSubject<Void, Never> { get }
-    var didSelectFeatureFlagsItem: PassthroughSubject<Void, Never> { get }
+    var didUpdateNavigation: PassthroughSubject<SettingsNavigation, Never> { get }
 
     func loadItems()
 
@@ -22,8 +21,7 @@ protocol SettingsViewModelProtocol {
 
 protocol SettingsCoordinatorProtocol: AnyObject {
 
-    func showThemeSelection()
-    func showFeatureFlags()
+    func startNavigation(for navigation: SettingsNavigation)
     func dismiss()
 
 }
