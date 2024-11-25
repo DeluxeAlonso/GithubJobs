@@ -6,6 +6,7 @@
 //
 
 import Combine
+import UIKit
 
 protocol SettingsViewModelProtocol {
 
@@ -24,4 +25,9 @@ protocol SettingsCoordinatorProtocol: AnyObject {
     func startNavigation(for navigation: SettingsNavigation)
     func dismiss()
 
+}
+
+protocol SettingsInteractorProtocol {
+    func getFeatureFlagValue(for identifier: FeatureFlagIdentifier) async -> Bool
+    func getCurrentInterfaceStyle() async -> UIUserInterfaceStyle
 }
