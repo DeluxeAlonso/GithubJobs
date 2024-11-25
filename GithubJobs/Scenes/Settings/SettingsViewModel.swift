@@ -9,8 +9,7 @@ import Combine
 
 final class SettingsViewModel: SettingsViewModelProtocol {
 
-    private let themeManager: ThemeManagerProtocol
-    private let featureFlagsManager: FeatureFlagsManagerProtocol
+    private let interactor: SettingsInteractorProtocol
 
     @Published private var itemModels: [SettingsItemModel] = []
 
@@ -20,10 +19,8 @@ final class SettingsViewModel: SettingsViewModelProtocol {
 
     private(set) var didUpdateNavigation = PassthroughSubject<SettingsNavigation, Never>()
 
-    init(themeManager: ThemeManagerProtocol,
-         featureFlagsManager: FeatureFlagsManagerProtocol) {
-        self.themeManager = themeManager
-        self.featureFlagsManager = featureFlagsManager
+    init(interactor: SettingsInteractorProtocol) {
+        self.interactor = interactor
     }
 
     // MARK: - SettingsViewModelProtocol
@@ -47,9 +44,9 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     private func createItemModels() async -> [SettingsItemModel] {
         [
             SettingsItemModel(title: LocalizedStrings.settingsThemeSelectionRowTitle(),
-                              value: themeManager.interfaceStyle.value.description,
+                              value: await interactor.getCurrentInterfaceStyle().description,
                               actionHandler: { [weak self] in self?.navigate(to: .theme) }),
-            SettingsItemModel(featureFlagValue: await featureFlagsManager.value(for: .displayFAQs),
+            SettingsItemModel(featureFlagValue: await interactor.getFeatureFlagValue(for: .displayFAQs),
                               title: LocalizedStrings.settingsFAQsRowTitle(),
                               value: nil,
                               actionHandler: { [weak self] in self?.navigate(to: .faqs) }),
