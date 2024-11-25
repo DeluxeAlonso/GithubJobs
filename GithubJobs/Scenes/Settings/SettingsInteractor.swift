@@ -7,6 +7,6 @@
 
 import Foundation
 
-final class SettingsInteractor {
+final class SettingsInteractor: SettingsInteractorProtocol {
     
 }
