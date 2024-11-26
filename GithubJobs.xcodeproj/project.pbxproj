@@ -56,6 +56,7 @@
 		E28B52B72557215600389043 /* JobCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B52B62557215600389043 /* JobCellViewModel.swift */; };
 		E29456C3263E6CA70011AF68 /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = E29456C2263E6CA70011AF68 /* KingfisherStatic */; };
 		E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A13FE5286D5C75001BC83D /* ViewController.swift */; };
+		E2A32B342CF622FD00C094F9 /* MockSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A32B332CF622FD00C094F9 /* MockSettingsInteractor.swift */; };
 		E2A638A42CE66604008C8AAF /* FAQsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A638A32CE66604008C8AAF /* FAQsCoordinator.swift */; };
 		E2AA59FA2CE1B985008877DA /* FAQsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA59F92CE1B985008877DA /* FAQsContent.swift */; };
 		E2AA59FC2CE1B993008877DA /* FAQsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA59FB2CE1B993008877DA /* FAQsViewModel.swift */; };
@@ -172,6 +173,7 @@
 		E28B52AB25570CF000389043 /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		E28B52B62557215600389043 /* JobCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCellViewModel.swift; sourceTree = "<group>"; };
 		E2A13FE5286D5C75001BC83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E2A32B332CF622FD00C094F9 /* MockSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSettingsInteractor.swift; sourceTree = "<group>"; };
 		E2A638A32CE66604008C8AAF /* FAQsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsCoordinator.swift; sourceTree = "<group>"; };
 		E2AA59F92CE1B985008877DA /* FAQsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsContent.swift; sourceTree = "<group>"; };
 		E2AA59FB2CE1B993008877DA /* FAQsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsViewModel.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 			children = (
 				E27E9CBC2558463A00210D1C /* Job+MockInitializer.swift */,
 				E26FD26B2784088A00AAEBCD /* MockJobsInteractor.swift */,
+				E2A32B332CF622FD00C094F9 /* MockSettingsInteractor.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -891,6 +894,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E23930DE25585D8000E7C4ED /* JobDetailViewModelTests.swift in Sources */,
+				E2A32B342CF622FD00C094F9 /* MockSettingsInteractor.swift in Sources */,
 				E2641C072557CB1E00675868 /* JobsViewModelTests.swift in Sources */,
 				E2B844982CF19D670079A7C2 /* SettingsViewModelTests.swift in Sources */,
 				E26FD26C2784088A00AAEBCD /* MockJobsInteractor.swift in Sources */,
