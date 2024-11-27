@@ -33,10 +33,8 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         itemModels[index].actionHandler()
     }
 
-    func loadItems() {
-        Task {
-            itemModels = await createItemModels()
-        }
+    func loadItems() async {
+        itemModels = await createItemModels()
     }
 
     // MARK: - Private

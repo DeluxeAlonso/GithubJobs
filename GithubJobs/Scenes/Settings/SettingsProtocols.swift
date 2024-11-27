@@ -13,7 +13,7 @@ protocol SettingsViewModelProtocol {
     var itemModelsPublisher: Published<[SettingsItemModel]>.Publisher { get }
     var didUpdateNavigation: PassthroughSubject<SettingsNavigation, Never> { get }
 
-    func loadItems()
+    func loadItems() async
 
     func screenTitle() -> String?
     func selectItem(at index: Int)
