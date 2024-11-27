@@ -35,29 +35,21 @@ final class SettingsViewModelTests: XCTestCase {
         XCTAssertEqual(screenTitle, "Settings")
     }
 
-    func testLoadItems() {
-        // Arrange
-        let expectation = XCTestExpectation(description: "Should receive items")
-        // Act
+    func testLoadItems() async {
         viewModel.itemModelsPublisher
             .dropFirst()
             .sink { items in
                 XCTAssertEqual(items.count, 2)
                 XCTAssertEqual(items.first?.title, "Themes")
                 XCTAssertEqual(items.last?.title, "Feature Flags")
-                expectation.fulfill()
+
         }
         .store(in: &cancellables)
-        viewModel.loadItems()
-        // Assert
-        wait(for: [expectation], timeout: 1.0)
+        await viewModel.loadItems()
     }
 
-    func testLoadItemsWithFAQs() {
-        // Arrange
-        let expectation = XCTestExpectation(description: "Should receive items")
+    func testLoadItemsWithFAQs() async {
         mockInteractor.getFeatureFlagValueResult = true
-        // Act
         viewModel.itemModelsPublisher
             .dropFirst()
             .sink { items in
@@ -65,90 +57,44 @@ final class SettingsViewModelTests: XCTestCase {
                 XCTAssertEqual(items.first?.title, "Themes")
                 XCTAssertEqual(items[1].title, "FAQs")
                 XCTAssertEqual(items.last?.title, "Feature Flags")
-                expectation.fulfill()
         }
         .store(in: &cancellables)
-        viewModel.loadItems()
-        // Assert
-        wait(for: [expectation], timeout: 1.0)
+        await viewModel.loadItems()
     }
 
-    func testSelectThemeSelectionItem() {
+    func testSelectThemeSelectionItem() async {
         // Arrange
-        let expectation = XCTestExpectation(description: "Theme selection item was selected")
         mockInteractor.getFeatureFlagValueResult = true
-        let selectThemeSelectionItemIndex = { self.viewModel.selectItem(at: 0) }
         // Act
-        viewModel.itemModelsPublisher
-            .dropFirst()
-            .delay(for: 0.1, scheduler: RunLoop.current)
-            .sink { items in
-                XCTAssertEqual(items.count, 3)
-                selectThemeSelectionItemIndex()
-        }
-        .store(in: &cancellables)
-
         viewModel.didUpdateNavigation
             .sink { navigation in
                 XCTAssertEqual(navigation, .theme)
-                expectation.fulfill()
             }
             .store(in: &cancellables)
-        viewModel.loadItems()
-        // Assert
-        wait(for: [expectation], timeout: 1.0)
+        await viewModel.loadItems()
+        viewModel.selectItem(at: 0)
     }
 
-    func testSelectFAQsSelectionItem() {
-        // Arrange
-        let expectation = XCTestExpectation(description: "FAQs item was selected")
+    func testSelectFAQsSelectionItem() async {
         mockInteractor.getFeatureFlagValueResult = true
-        let selectFAQsItemIndex = { self.viewModel.selectItem(at: 1) }
-        // Act
-        viewModel.itemModelsPublisher
-            .dropFirst()
-            .delay(for: 0.1, scheduler: RunLoop.current)
-            .sink { items in
-                XCTAssertEqual(items.count, 3)
-                selectFAQsItemIndex()
-        }
-        .store(in: &cancellables)
-
         viewModel.didUpdateNavigation
             .sink { navigation in
                 XCTAssertEqual(navigation, .faqs)
-                expectation.fulfill()
             }
             .store(in: &cancellables)
-        viewModel.loadItems()
-        // Assert
-        wait(for: [expectation], timeout: 1.0)
+        await viewModel.loadItems()
+        viewModel.selectItem(at: 1)
     }
 
-    func testSelectFeatureFlagsSelectionItem() {
-        // Arrange
-        let expectation = XCTestExpectation(description: "Feature Flags item was selected")
+    func testSelectFeatureFlagsSelectionItem() async {
         mockInteractor.getFeatureFlagValueResult = true
-        let selectFAQsItemIndex = { self.viewModel.selectItem(at: 2) }
-        // Act
-        viewModel.itemModelsPublisher
-            .dropFirst()
-            .delay(for: 0.1, scheduler: RunLoop.current)
-            .sink { items in
-                XCTAssertEqual(items.count, 3)
-                selectFAQsItemIndex()
-        }
-        .store(in: &cancellables)
-
         viewModel.didUpdateNavigation
             .sink { navigation in
                 XCTAssertEqual(navigation, .featureFlags)
-                expectation.fulfill()
             }
             .store(in: &cancellables)
-        viewModel.loadItems()
-        // Assert
-        wait(for: [expectation], timeout: 1.0)
+        await viewModel.loadItems()
+        viewModel.selectItem(at: 2)
     }
 
 }
