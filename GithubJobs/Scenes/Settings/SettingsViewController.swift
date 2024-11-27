@@ -51,7 +51,9 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.loadItems()
+        Task {
+            await viewModel.loadItems()
+        }
         if let indexPathsForSelectedItem = collectionView.indexPathsForSelectedItems?.first {
             collectionView.deselectItem(at: indexPathsForSelectedItem, animated: true)
         }
