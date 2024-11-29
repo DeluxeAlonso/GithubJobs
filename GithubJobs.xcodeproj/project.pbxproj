@@ -94,6 +94,7 @@
 		E2DFC14A2CE31499002ACA77 /* FAQsItemContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFC1492CE31499002ACA77 /* FAQsItemContent.swift */; };
 		E2E18206288FAA790096BA7B /* SettingsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18205288FAA780096BA7B /* SettingsItemModel.swift */; };
 		E2E18208288FAAC50096BA7B /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18207288FAAC50096BA7B /* SettingsSection.swift */; };
+		E2E457242CF96FF30045F7C9 /* MockThemeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E457232CF96FF30045F7C9 /* MockThemeManagerProtocol.swift */; };
 		E2E6DCFD28A8CE2C0022547B /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E6DCFC28A8CE2C0022547B /* RefreshControl.swift */; };
 		E2F03E552CDB2BA6005B62D5 /* FeatureFlagToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F03E542CDB2BA6005B62D5 /* FeatureFlagToggleView.swift */; };
 		E2F570A928979DE900A67593 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A628979DE900A67593 /* ThemeManager.swift */; };
@@ -217,6 +218,7 @@
 		E2DFC1492CE31499002ACA77 /* FAQsItemContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsItemContent.swift; sourceTree = "<group>"; };
 		E2E18205288FAA780096BA7B /* SettingsItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemModel.swift; sourceTree = "<group>"; };
 		E2E18207288FAAC50096BA7B /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		E2E457232CF96FF30045F7C9 /* MockThemeManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockThemeManagerProtocol.swift; sourceTree = "<group>"; };
 		E2E6DCFC28A8CE2C0022547B /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		E2F03E542CDB2BA6005B62D5 /* FeatureFlagToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagToggleView.swift; sourceTree = "<group>"; };
 		E2F570A628979DE900A67593 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				E27E9CBC2558463A00210D1C /* Job+MockInitializer.swift */,
 				E26FD26B2784088A00AAEBCD /* MockJobsInteractor.swift */,
 				E2A32B332CF622FD00C094F9 /* MockSettingsInteractor.swift */,
+				E2E457232CF96FF30045F7C9 /* MockThemeManagerProtocol.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -895,6 +898,7 @@
 			files = (
 				E23930DE25585D8000E7C4ED /* JobDetailViewModelTests.swift in Sources */,
 				E2A32B342CF622FD00C094F9 /* MockSettingsInteractor.swift in Sources */,
+				E2E457242CF96FF30045F7C9 /* MockThemeManagerProtocol.swift in Sources */,
 				E2641C072557CB1E00675868 /* JobsViewModelTests.swift in Sources */,
 				E2B844982CF19D670079A7C2 /* SettingsViewModelTests.swift in Sources */,
 				E26FD26C2784088A00AAEBCD /* MockJobsInteractor.swift in Sources */,
