@@ -1,0 +1,27 @@
+//
+//  MockFeatureFlagsManagerProtocol.swift
+//  GithubJobsTests
+//
+//  Created by Alonso on 28/11/24.
+//
+
+@testable import GithubJobs
+import Foundation
+
+final actor MockFeatureFlagsManagerProtocol: FeatureFlagsManagerProtocol {
+    
+    var allFlags: [FeatureFlagProtocol] = []
+
+    private(set) var updateFlagCallCount = 0
+    func updateFlag(identifier: String, value: Bool) {
+        updateFlagCallCount += 1
+    }
+
+    var valueForIdentifierResult = false
+    private(set) var valueForIdentifierCallCount = 0
+    func value(for identifier: FeatureFlagIdentifier) -> Bool {
+        valueForIdentifierCallCount += 1
+        return valueForIdentifierResult
+    }
+
+}
