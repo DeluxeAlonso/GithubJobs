@@ -58,6 +58,7 @@
 		E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A13FE5286D5C75001BC83D /* ViewController.swift */; };
 		E2A32B342CF622FD00C094F9 /* MockSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A32B332CF622FD00C094F9 /* MockSettingsInteractor.swift */; };
 		E2A638A42CE66604008C8AAF /* FAQsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A638A32CE66604008C8AAF /* FAQsCoordinator.swift */; };
+		E2A8F4DB2CFAAB2400B07BF7 /* SettingsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8F4DA2CFAAB2400B07BF7 /* SettingsInteractorTests.swift */; };
 		E2AA59FA2CE1B985008877DA /* FAQsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA59F92CE1B985008877DA /* FAQsContent.swift */; };
 		E2AA59FC2CE1B993008877DA /* FAQsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA59FB2CE1B993008877DA /* FAQsViewModel.swift */; };
 		E2AA59FF2CE1BF3F008877DA /* ExpandCollapseControlContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA59FE2CE1BF3F008877DA /* ExpandCollapseControlContent.swift */; };
@@ -177,6 +178,7 @@
 		E2A13FE5286D5C75001BC83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2A32B332CF622FD00C094F9 /* MockSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSettingsInteractor.swift; sourceTree = "<group>"; };
 		E2A638A32CE66604008C8AAF /* FAQsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsCoordinator.swift; sourceTree = "<group>"; };
+		E2A8F4DA2CFAAB2400B07BF7 /* SettingsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractorTests.swift; sourceTree = "<group>"; };
 		E2AA59F92CE1B985008877DA /* FAQsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsContent.swift; sourceTree = "<group>"; };
 		E2AA59FB2CE1B993008877DA /* FAQsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsViewModel.swift; sourceTree = "<group>"; };
 		E2AA59FE2CE1BF3F008877DA /* ExpandCollapseControlContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandCollapseControlContent.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 				E2641C062557CB1E00675868 /* JobsViewModelTests.swift */,
 				E23930DD25585D8000E7C4ED /* JobDetailViewModelTests.swift */,
 				E2B844972CF19D670079A7C2 /* SettingsViewModelTests.swift */,
+				E2A8F4DA2CFAAB2400B07BF7 /* SettingsInteractorTests.swift */,
 			);
 			path = GithubJobsTests;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2E457262CF97AD10045F7C9 /* MockFeatureFlagsManagerProtocol.swift in Sources */,
+				E2A8F4DB2CFAAB2400B07BF7 /* SettingsInteractorTests.swift in Sources */,
 				E23930DE25585D8000E7C4ED /* JobDetailViewModelTests.swift in Sources */,
 				E2A32B342CF622FD00C094F9 /* MockSettingsInteractor.swift in Sources */,
 				E2E457242CF96FF30045F7C9 /* MockThemeManagerProtocol.swift in Sources */,
