@@ -17,7 +17,11 @@ final actor MockFeatureFlagsManagerProtocol: FeatureFlagsManagerProtocol {
         updateFlagCallCount += 1
     }
 
-    var valueForIdentifierResult = false
+    private(set) var valueForIdentifierResult = false
+    func setValueForIdentifierResult(_ value: Bool) {
+        valueForIdentifierResult = value
+    }
+
     private(set) var valueForIdentifierCallCount = 0
     func value(for identifier: FeatureFlagIdentifier) -> Bool {
         valueForIdentifierCallCount += 1
