@@ -15,10 +15,13 @@ protocol FAQsViewModelProtocol: ObservableObject {
 }
 
 final class FAQsViewModel: FAQsViewModelProtocol {
-    @Published var items: [FAQsItemViewModel]
 
-    init(items: [FAQsItemViewModel]) {
-        self.items = items
+    private let interactor: FAQsInteractorProtocol
+
+    @Published var items: [FAQsItemViewModel] = []
+
+    init(interactor: FAQsInteractorProtocol) {
+        self.interactor = interactor
     }
 }
 

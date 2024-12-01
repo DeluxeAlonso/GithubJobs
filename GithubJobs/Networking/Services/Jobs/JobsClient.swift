@@ -1,5 +1,5 @@
 //
-//  JobClient.swift
+//  JobsClient.swift
 //  GithubJobs
 //
 //  Created by Alonso on 11/7/20.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class JobClient: JobClientProtocol, APIClient {
+final class JobsClient: JobsClientProtocol, APIClient {
 
     let session: URLSession
 
@@ -30,7 +30,7 @@ final class JobClient: JobClientProtocol, APIClient {
     }
 
     private func getJobs(page: Int, description: String) -> AnyPublisher<JobsResult, APIError> {
-        let request = JobProvider.getAll(page: page, description: description).request
+        let request = JobsProvider.getAll(page: page, description: description).request
         return fetch(with: request) { json -> JobsResult? in
             guard let jobsResult = json as? JobsResult else { return  nil }
             return jobsResult

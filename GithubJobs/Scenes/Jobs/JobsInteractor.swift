@@ -9,9 +9,9 @@ import Combine
 
 final class JobsInteractor: JobsInteractorProtocol {
 
-    private let jobClient: JobClientProtocol
+    private let jobClient: JobsClientProtocol
 
-    init(jobClient: JobClientProtocol) {
+    init(jobClient: JobsClientProtocol) {
         self.jobClient = jobClient
     }
 

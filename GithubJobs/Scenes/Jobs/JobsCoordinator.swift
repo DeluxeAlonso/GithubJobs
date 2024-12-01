@@ -10,7 +10,7 @@ import UIKit
 final class JobsCoordinator: BaseCoordinator, JobsCoordinatorProtocol {
 
     override func start() {
-        let interactor = JobsInteractor(jobClient: JobClient())
+        let interactor = JobsInteractor(jobClient: JobsClient())
         let viewModel = JobsViewModel(interactor: interactor)
 
         let viewController = JobsViewController(themeManager: ThemeManager.shared,
