@@ -15,8 +15,14 @@ protocol FAQsInteractorProtocol {
 
 final class FAQsInteractor: FAQsInteractorProtocol {
 
-    func getAllFlags() async -> [FeatureFlagProtocol] {
+    private let featureFlagsManager: FeatureFlagsManagerProtocol
 
+    init(featureFlagsManager: FeatureFlagsManagerProtocol) {
+        self.featureFlagsManager = featureFlagsManager
+    }
+
+    func getAllFlags() async -> [FeatureFlagProtocol] {
+        await featureFlagsManager.allFlags
     }
 
 }
