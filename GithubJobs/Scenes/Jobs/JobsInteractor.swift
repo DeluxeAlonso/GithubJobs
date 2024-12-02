@@ -9,18 +9,18 @@ import Combine
 
 final class JobsInteractor: JobsInteractorProtocol {
 
-    private let jobClient: JobsClientProtocol
+    private let jobsClient: JobsClientProtocol
 
-    init(jobClient: JobsClientProtocol) {
-        self.jobClient = jobClient
+    init(jobsClient: JobsClientProtocol) {
+        self.jobsClient = jobsClient
     }
 
     func getJobs(page: Int) -> AnyPublisher<JobsResult, APIError> {
-        jobClient.getJobs(page: page)
+        jobsClient.getJobs(page: page)
     }
 
     func getJobs(description: String) -> AnyPublisher<JobsResult, APIError> {
-        jobClient.getJobs(description: description)
+        jobsClient.getJobs(description: description)
     }
 
 }
