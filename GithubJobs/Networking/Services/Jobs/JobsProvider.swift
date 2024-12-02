@@ -1,15 +1,15 @@
 //
-//  JobProvider.swift
+//  JobsProvider.swift
 //  GithubJobs
 //
 //  Created by Alonso on 11/7/20.
 //
 
-enum JobProvider {
+enum JobsProvider {
     case getAll(page: Int, description: String)
 }
 
-extension JobProvider: Endpoint {
+extension JobsProvider: Endpoint {
 
     var base: String { "https://private-45833-githubjobsapi.apiary-mock.com" }
 

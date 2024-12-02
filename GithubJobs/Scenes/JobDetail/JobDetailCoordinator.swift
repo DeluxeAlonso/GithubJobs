@@ -21,7 +21,7 @@ final class JobDetailCoordinator: BaseCoordinator, JobDetailCoordinatorProtocol 
     }
 
     override func start() {
-        let interactor = JobsInteractor(jobClient: JobClient())
+        let interactor = JobsInteractor(jobsClient: JobsClient())
         let viewModel = JobDetailViewModel(job, interactor: interactor)
         let viewController = JobDetailViewController(themeManager: ThemeManager.shared,
                                                      viewModel: viewModel,
