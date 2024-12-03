@@ -94,6 +94,10 @@
 		E2D19FC52CE8231500BC0F45 /* ErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC42CE8231500BC0F45 /* ErrorViewModel.swift */; };
 		E2D19FC72CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC62CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift */; };
 		E2D19FC92CE8479F00BC0F45 /* FeatureFlagsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC82CE8479F00BC0F45 /* FeatureFlagsViewState.swift */; };
+		E2D2DC682CFE60E3009CDACE /* FAQsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D2DC672CFE60E3009CDACE /* FAQsProvider.swift */; };
+		E2D2DC6A2CFE6140009CDACE /* FAQsClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D2DC692CFE6140009CDACE /* FAQsClientProtocol.swift */; };
+		E2D2DC6C2CFE62EE009CDACE /* FAQsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D2DC6B2CFE62EE009CDACE /* FAQsResult.swift */; };
+		E2D2DC6E2CFE8DA5009CDACE /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D2DC6D2CFE8DA5009CDACE /* FAQ.swift */; };
 		E2DFC14A2CE31499002ACA77 /* FAQsItemContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DFC1492CE31499002ACA77 /* FAQsItemContent.swift */; };
 		E2E18206288FAA790096BA7B /* SettingsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18205288FAA780096BA7B /* SettingsItemModel.swift */; };
 		E2E18208288FAAC50096BA7B /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E18207288FAAC50096BA7B /* SettingsSection.swift */; };
@@ -222,6 +226,10 @@
 		E2D19FC42CE8231500BC0F45 /* ErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewModel.swift; sourceTree = "<group>"; };
 		E2D19FC62CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorViewModel+LocalizedError.swift"; sourceTree = "<group>"; };
 		E2D19FC82CE8479F00BC0F45 /* FeatureFlagsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagsViewState.swift; sourceTree = "<group>"; };
+		E2D2DC672CFE60E3009CDACE /* FAQsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsProvider.swift; sourceTree = "<group>"; };
+		E2D2DC692CFE6140009CDACE /* FAQsClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsClientProtocol.swift; sourceTree = "<group>"; };
+		E2D2DC6B2CFE62EE009CDACE /* FAQsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsResult.swift; sourceTree = "<group>"; };
+		E2D2DC6D2CFE8DA5009CDACE /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		E2DFC1492CE31499002ACA77 /* FAQsItemContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsItemContent.swift; sourceTree = "<group>"; };
 		E2E18205288FAA780096BA7B /* SettingsItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemModel.swift; sourceTree = "<group>"; };
 		E2E18207288FAAC50096BA7B /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
@@ -406,6 +414,8 @@
 			isa = PBXGroup;
 			children = (
 				E2A668B72CFCD14C000A7C44 /* FAQsClient.swift */,
+				E2D2DC672CFE60E3009CDACE /* FAQsProvider.swift */,
+				E2D2DC692CFE6140009CDACE /* FAQsClientProtocol.swift */,
 			);
 			path = FAQs;
 			sourceTree = "<group>";
@@ -612,6 +622,7 @@
 			isa = PBXGroup;
 			children = (
 				E2B3E73B2556E10700B5483A /* JobsResult.swift */,
+				E2D2DC6B2CFE62EE009CDACE /* FAQsResult.swift */,
 			);
 			path = FeedResults;
 			sourceTree = "<group>";
@@ -620,6 +631,7 @@
 			isa = PBXGroup;
 			children = (
 				E2B3E7362556E01400B5483A /* Job.swift */,
+				E2D2DC6D2CFE8DA5009CDACE /* FAQ.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -841,6 +853,7 @@
 				E2E6DCFD28A8CE2C0022547B /* RefreshControl.swift in Sources */,
 				E2673B04255782F000727460 /* JobsCoordinator.swift in Sources */,
 				E2B3E6EA2556D7BA00B5483A /* JobsViewController.swift in Sources */,
+				E2D2DC6C2CFE62EE009CDACE /* FAQsResult.swift in Sources */,
 				E2D19FC32CE822E200BC0F45 /* ErrorView.swift in Sources */,
 				E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */,
 				E2673AE925577A2300727460 /* TableViewDataSourcePrefetching.swift in Sources */,
@@ -891,6 +904,7 @@
 				E2673AF42557817B00727460 /* JobsProtocols.swift in Sources */,
 				E261EF2A28A30F3400F577AD /* Themeable.swift in Sources */,
 				E2641BD22557AA9100675868 /* JobDetailViewState.swift in Sources */,
+				E2D2DC682CFE60E3009CDACE /* FAQsProvider.swift in Sources */,
 				E2FCD6CB2CCF436F00B05FB8 /* FeatureFlagsContent.swift in Sources */,
 				E28B52A225570C9000389043 /* CustomFooterView.swift in Sources */,
 				E2B3E6F82556DAE100B5483A /* JobTableViewCell.swift in Sources */,
@@ -904,6 +918,7 @@
 				E2ADFA002873F18E00987D4D /* UICollectionView+Register.swift in Sources */,
 				E2641BD72557C04900675868 /* String+HTML.swift in Sources */,
 				E2673B09255786F000727460 /* JobDetailProtocols.swift in Sources */,
+				E2D2DC6E2CFE8DA5009CDACE /* FAQ.swift in Sources */,
 				E2641BFD2557C8AE00675868 /* LocalizedStrings.swift in Sources */,
 				E2641BE92557C55500675868 /* UIImageView+Kingfisher.swift in Sources */,
 				E27924352647873800891120 /* EmptyDetailViewController.swift in Sources */,
@@ -917,6 +932,7 @@
 				E2B3E7232556DF8000B5483A /* URLRequest+Headers.swift in Sources */,
 				E27138AA2782384400E6F501 /* JobsInteractor.swift in Sources */,
 				E2B3E7302556DFD200B5483A /* CharacterSet+Filtering.swift in Sources */,
+				E2D2DC6A2CFE6140009CDACE /* FAQsClientProtocol.swift in Sources */,
 				E2ADF9FE2873ECE200987D4D /* ThemeSelectionCoordinator.swift in Sources */,
 				E286A326288D0C63004ACF5D /* SettingsViewModel.swift in Sources */,
 			);
