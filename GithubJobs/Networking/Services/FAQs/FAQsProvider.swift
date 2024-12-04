@@ -24,7 +24,8 @@ extension FAQsProvider: Endpoint {
 
     var params: [String: Any]? {
         switch self {
-        case .getAll: return nil
+        case .getAll:
+            return nil
         }
     }
 
