@@ -20,8 +20,15 @@ final class FAQsClient: FAQsClientProtocol, APIClient {
         self.init(configuration: .default)
     }
 
-    func getFAQs() async -> Result<JobsResult, APIError> {
-
+    func getFAQs() async -> Result<FAQsResult, APIError> {
+        let request = FAQsProvider.getAll.request
+        do {
+            let result = try await fetch(with: request, decodingType: FAQsResult.self)
+            return .success(result)
+        } catch {
+            guard let apiError = error as? APIError else { return .failure(.invalidData) }
+            return .failure(apiError)
+        }
     }
 
 }

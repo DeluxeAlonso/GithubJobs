@@ -9,6 +9,6 @@ import Foundation
 
 protocol FAQsClientProtocol {
 
-    func getFAQs() async -> Result<JobsResult, APIError>
+    func getFAQs() async -> Result<FAQsResult, APIError>
 
 }
