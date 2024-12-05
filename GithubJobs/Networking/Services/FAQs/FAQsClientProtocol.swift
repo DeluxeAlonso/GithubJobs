@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+protocol FAQsClientProtocol {
+
+    func getFAQs() async -> Result<FAQsResult, APIError>
+
+}
