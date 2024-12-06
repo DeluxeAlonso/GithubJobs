@@ -9,20 +9,20 @@ import Foundation
 
 protocol FAQsInteractorProtocol {
 
-    func getAllFlags() async -> [FeatureFlagProtocol]
+    func getAllFAQs() async -> Result<FAQsResult, APIError>
 
 }
 
 final class FAQsInteractor: FAQsInteractorProtocol {
 
-    private let featureFlagsManager: FeatureFlagsManagerProtocol
+    private let faqsClient: FAQsClientProtocol
 
-    init(featureFlagsManager: FeatureFlagsManagerProtocol) {
-        self.featureFlagsManager = featureFlagsManager
+    init(faqsClient: FAQsClientProtocol) {
+        self.faqsClient = faqsClient
     }
 
-    func getAllFlags() async -> [FeatureFlagProtocol] {
-        await featureFlagsManager.allFlags
+    func getAllFAQs() async -> Result<FAQsResult, APIError> {
+        await faqsClient.getFAQs()
     }
 
 }
