@@ -12,6 +12,8 @@ protocol FAQsViewModelProtocol: ObservableObject {
 
     var items: [FAQsItemViewModel] { get }
 
+    func load() async
+
 }
 
 final class FAQsViewModel: FAQsViewModelProtocol {
@@ -22,6 +24,10 @@ final class FAQsViewModel: FAQsViewModelProtocol {
 
     init(interactor: FAQsInteractorProtocol) {
         self.interactor = interactor
+    }
+
+    func load() async {
+        
     }
 }
 
