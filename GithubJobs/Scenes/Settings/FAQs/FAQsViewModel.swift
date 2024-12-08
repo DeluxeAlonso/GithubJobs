@@ -11,6 +11,9 @@ import Combine
 protocol FAQsViewModelProtocol: ObservableObject {
 
     var items: [FAQsItemViewModel] { get }
+    var errorViewModel: ErrorViewModel? { get }
+
+    var viewState: FAQsViewState { get }
 
     func load() async
 
@@ -21,6 +24,9 @@ final class FAQsViewModel: FAQsViewModelProtocol {
     private let interactor: FAQsInteractorProtocol
 
     @Published var items: [FAQsItemViewModel] = []
+    @Published var errorViewModel: ErrorViewModel?
+
+    @Published var viewState: FAQsViewState = .loading
 
     init(interactor: FAQsInteractorProtocol) {
         self.interactor = interactor
