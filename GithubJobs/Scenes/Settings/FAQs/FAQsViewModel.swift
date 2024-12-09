@@ -73,4 +73,10 @@ final class FAQsItemViewModel: FAQsItemViewModelProtocol {
         self.subtitles = subtitles
         self.expanded = expanded
     }
+
+    init(faq: FAQ) {
+        self.title = faq.title
+        self.subtitles = [faq.description]
+        self.expanded = false
+    }
 }
