@@ -43,7 +43,7 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
         case .theme:
             showThemeSelection()
         case .faqs:
-            break
+            showFAQs()
         case .featureFlags:
             showFeatureFlags()
         }
@@ -51,6 +51,15 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
 
     private func showThemeSelection() {
         let coordinator = ThemeSelectionCoordinator(navigationController: navigationController)
+
+        coordinator.parentCoordinator = unwrappedParentCoordinator
+
+        unwrappedParentCoordinator.childCoordinators.append(coordinator)
+        coordinator.start()
+    }
+
+    private func showFAQs() {
+        let coordinator = FAQsCoordinator(navigationController: navigationController)
 
         coordinator.parentCoordinator = unwrappedParentCoordinator
 
