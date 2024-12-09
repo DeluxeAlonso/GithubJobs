@@ -33,7 +33,14 @@ final class FAQsViewModel: FAQsViewModelProtocol {
     }
 
     func load() async {
-        
+        viewState = .loading
+        switch await interactor.getAllFAQs() {
+        case .success(let faqs):
+            self.viewState = .populated
+        case .failure(let error):
+            self.errorViewModel = ErrorViewModel(localizedError: error)
+            self.viewState = .error
+        }
     }
 }
 
