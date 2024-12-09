@@ -9,7 +9,7 @@ import Foundation
 
 protocol FAQsInteractorProtocol {
 
-    func getAllFAQs() async -> Result<FAQsResult, APIError>
+    func getAllFAQs() async -> Result<[FAQ], APIError>
 
 }
 
@@ -21,8 +21,13 @@ final class FAQsInteractor: FAQsInteractorProtocol {
         self.faqsClient = faqsClient
     }
 
-    func getAllFAQs() async -> Result<FAQsResult, APIError> {
-        await faqsClient.getFAQs()
+    func getAllFAQs() async -> Result<[FAQ], APIError> {
+        switch await faqsClient.getFAQs() {
+        case .success(let result):
+            return .success(result.faqs)
+        case .failure(let error):
+            return .failure(error)
+        }
     }
 
 }
