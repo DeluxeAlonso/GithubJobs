@@ -36,6 +36,7 @@ final class FAQsViewModel: FAQsViewModelProtocol {
         viewState = .loading
         switch await interactor.getAllFAQs() {
         case .success(let faqs):
+            // TODO: - Populate items
             self.viewState = .populated
         case .failure(let error):
             self.errorViewModel = ErrorViewModel(localizedError: error)
