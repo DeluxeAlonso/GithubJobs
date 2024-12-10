@@ -12,4 +12,3 @@ enum FAQsViewState {
     case populated
     case error
 }
-
