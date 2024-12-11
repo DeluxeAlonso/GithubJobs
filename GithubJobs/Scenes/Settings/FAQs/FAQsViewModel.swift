@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 @MainActor
 protocol FAQsViewModelProtocol: ObservableObject {
@@ -36,7 +37,7 @@ final class FAQsViewModel: FAQsViewModelProtocol {
         viewState = .loading
         switch await interactor.getAllFAQs() {
         case .success(let faqs):
-            // TODO: - Populate items
+            self.items = faqs.map { FAQsItemViewModel(faq: $0) }
             self.viewState = .populated
         case .failure(let error):
             self.errorViewModel = ErrorViewModel(localizedError: error)
@@ -63,7 +64,10 @@ final class FAQsItemViewModel: FAQsItemViewModelProtocol {
     @Published var expanded: Bool = false
 
     var expandCollapseStyleConfiguration: ExpandCollapseControlStyleConfiguration {
-        ExpandCollapseControlStyleConfiguration(expandedIconName: "plus", collapsedIconName: "minus")
+        ExpandCollapseControlStyleConfiguration(expandedIconName: "minus",
+                                                collapsedIconName: "plus",
+                                                iconSize: CGSize(width: 16.0, height: 16.0),
+                                                iconTrailingPadding: 16.0)
     }
 
     init(title: String,
@@ -72,5 +76,11 @@ final class FAQsItemViewModel: FAQsItemViewModelProtocol {
         self.title = title
         self.subtitles = subtitles
         self.expanded = expanded
+    }
+
+    init(faq: FAQ) {
+        self.title = faq.title
+        self.subtitles = [faq.description]
+        self.expanded = false
     }
 }
