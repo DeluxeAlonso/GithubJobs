@@ -19,7 +19,8 @@ struct ExpandCollapseControlDisclosureStyle: DisclosureGroupStyle {
                 Image(systemName: configuration.isExpanded ? styleConfiguration.expandedIconName : styleConfiguration.collapsedIconName)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 24.0, height: 24.0)
+                    .frame(width: styleConfiguration.iconSize.width, height: styleConfiguration.iconSize.height)
+                    .padding(.trailing, styleConfiguration.iconTrailingPadding)
             }
             .contentShape(Rectangle())
             .onTapGesture {

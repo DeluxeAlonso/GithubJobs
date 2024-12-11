@@ -12,4 +12,7 @@ struct ExpandCollapseControlStyleConfiguration {
     let expandedIconName: String
     let collapsedIconName: String
 
+    let iconSize: CGSize
+    let iconTrailingPadding: CGFloat
+
 }
