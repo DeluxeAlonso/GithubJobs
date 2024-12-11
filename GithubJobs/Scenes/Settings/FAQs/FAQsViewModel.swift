@@ -63,7 +63,7 @@ final class FAQsItemViewModel: FAQsItemViewModelProtocol {
     @Published var expanded: Bool = false
 
     var expandCollapseStyleConfiguration: ExpandCollapseControlStyleConfiguration {
-        ExpandCollapseControlStyleConfiguration(expandedIconName: "plus", collapsedIconName: "minus")
+        ExpandCollapseControlStyleConfiguration(expandedIconName: "minus", collapsedIconName: "plus")
     }
 
     init(title: String,

@@ -14,9 +14,15 @@ struct FAQsItemContent<ViewModel: FAQsItemViewModelProtocol>: View {
         VStack {
             ExpandCollapseControlContent(isExpanded: $viewModel.expanded, collapsedContent: {
                 Text(viewModel.title)
+                    .font(.headline)
+                    .multilineTextAlignment(.leading)
+                    .padding()
             }, expandedContent: {
                 ForEach(viewModel.subtitles, id: \.self) {
                     Text($0)
+                        .font(.body)
+                        .multilineTextAlignment(.leading)
+                        .padding()
                 }
             }, styleConfiguration: viewModel.expandCollapseStyleConfiguration)
         }
