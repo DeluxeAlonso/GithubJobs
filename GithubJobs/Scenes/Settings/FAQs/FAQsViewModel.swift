@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 @MainActor
 protocol FAQsViewModelProtocol: ObservableObject {
@@ -63,7 +64,10 @@ final class FAQsItemViewModel: FAQsItemViewModelProtocol {
     @Published var expanded: Bool = false
 
     var expandCollapseStyleConfiguration: ExpandCollapseControlStyleConfiguration {
-        ExpandCollapseControlStyleConfiguration(expandedIconName: "minus", collapsedIconName: "plus")
+        ExpandCollapseControlStyleConfiguration(expandedIconName: "minus",
+                                                collapsedIconName: "plus",
+                                                iconSize: CGSize(width: 16.0, height: 16.0),
+                                                iconTrailingPadding: 16.0)
     }
 
     init(title: String,
