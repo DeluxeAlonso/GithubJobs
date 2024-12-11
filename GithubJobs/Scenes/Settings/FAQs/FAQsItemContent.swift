@@ -9,24 +9,22 @@ import SwiftUI
 
 struct FAQsItemContent<ViewModel: FAQsItemViewModelProtocol>: View {
     @ObservedObject var viewModel: ViewModel
-
+    
     var body: some View {
-        VStack {
-            ExpandCollapseControlContent(isExpanded: $viewModel.expanded, collapsedContent: {
-                Text(viewModel.title)
-                    .font(.headline)
+        ExpandCollapseControlContent(isExpanded: $viewModel.expanded, collapsedContent: {
+            Text(viewModel.title)
+                .font(.headline)
+                .multilineTextAlignment(.leading)
+                .padding(.horizontal, 16.0)
+        }, expandedContent: {
+            ForEach(viewModel.subtitles, id: \.self) {
+                Text($0)
+                    .font(.body)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
-                    .padding(16.0)
-            }, expandedContent: {
-                ForEach(viewModel.subtitles, id: \.self) {
-                    Text($0)
-                        .font(.body)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .multilineTextAlignment(.leading)
-                        .padding(.horizontal, 16.0)
-                }
-            }, styleConfiguration: viewModel.expandCollapseStyleConfiguration)
-        }
+                    .padding(.horizontal, 16.0)
+            }
+        }, styleConfiguration: viewModel.expandCollapseStyleConfiguration)
     }
 }
 
