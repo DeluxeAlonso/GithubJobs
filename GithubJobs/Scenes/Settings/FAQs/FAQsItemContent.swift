@@ -16,13 +16,14 @@ struct FAQsItemContent<ViewModel: FAQsItemViewModelProtocol>: View {
                 Text(viewModel.title)
                     .font(.headline)
                     .multilineTextAlignment(.leading)
-                    .padding()
+                    .padding(16.0)
             }, expandedContent: {
                 ForEach(viewModel.subtitles, id: \.self) {
                     Text($0)
                         .font(.body)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .multilineTextAlignment(.leading)
-                        .padding()
+                        .padding(.horizontal, 16.0)
                 }
             }, styleConfiguration: viewModel.expandCollapseStyleConfiguration)
         }
