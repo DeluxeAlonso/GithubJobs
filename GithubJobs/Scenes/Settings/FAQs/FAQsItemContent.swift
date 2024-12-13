@@ -11,21 +11,29 @@ struct FAQsItemContent<ViewModel: FAQsItemViewModelProtocol>: View {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        VStack {
-            ExpandCollapseControlContent(isExpanded: $viewModel.expanded, collapsedContent: {
-                Text(viewModel.title)
-                    .font(.headline)
-                    .multilineTextAlignment(.leading)
-                    .padding()
-            }, expandedContent: {
-                ForEach(viewModel.subtitles, id: \.self) {
-                    Text($0)
-                        .font(.body)
-                        .multilineTextAlignment(.leading)
-                        .padding()
-                }
-            }, styleConfiguration: viewModel.expandCollapseStyleConfiguration)
+        ZStack {
+            Color(.systemGroupedBackground)
+            VStack {
+                expandCollapseControl
+            }
+            .padding(16.0)
         }
+        .padding(.horizontal, 8.0)
+    }
+
+    private var expandCollapseControl: some View {
+        ExpandCollapseControlContent(isExpanded: $viewModel.expanded, collapsedContent: {
+            Text(viewModel.title)
+                .font(.headline)
+                .multilineTextAlignment(.leading)
+        }, expandedContent: {
+            ForEach(viewModel.subtitles, id: \.self) {
+                Text($0)
+                    .font(.body)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .multilineTextAlignment(.leading)
+            }
+        }, styleConfiguration: viewModel.expandCollapseStyleConfiguration)
     }
 }
 

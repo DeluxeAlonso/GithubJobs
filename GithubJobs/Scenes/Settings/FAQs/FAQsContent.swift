@@ -43,6 +43,7 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: View {
                 }
                 Spacer()
             }
+            .padding(.top, 24.0)
         }
     }
 
