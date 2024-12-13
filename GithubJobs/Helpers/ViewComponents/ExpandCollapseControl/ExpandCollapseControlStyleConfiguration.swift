@@ -15,4 +15,6 @@ struct ExpandCollapseControlStyleConfiguration {
     let iconSize: CGSize
     let iconTrailingPadding: CGFloat
 
+    let horizontalSpacing: CGFloat
+
 }
