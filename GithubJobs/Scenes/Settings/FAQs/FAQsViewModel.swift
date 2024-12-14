@@ -67,7 +67,8 @@ final class FAQsItemViewModel: FAQsItemViewModelProtocol {
         ExpandCollapseControlStyleConfiguration(expandedIconName: "minus",
                                                 collapsedIconName: "plus",
                                                 iconSize: CGSize(width: 16.0, height: 16.0),
-                                                iconTrailingPadding: 16.0)
+                                                iconTrailingPadding: 16.0,
+                                                horizontalSpacing: 8.0)
     }
 
     init(title: String,

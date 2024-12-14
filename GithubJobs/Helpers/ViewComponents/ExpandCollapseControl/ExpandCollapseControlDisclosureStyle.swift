@@ -13,7 +13,7 @@ struct ExpandCollapseControlDisclosureStyle: DisclosureGroupStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         VStack(alignment: .leading, spacing: 0.0) {
-            HStack(alignment: .center) {
+            HStack(alignment: .center, spacing: styleConfiguration.horizontalSpacing) {
                 configuration.label
                 Spacer()
                 Image(systemName: configuration.isExpanded ? styleConfiguration.expandedIconName : styleConfiguration.collapsedIconName)

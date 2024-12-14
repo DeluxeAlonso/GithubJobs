@@ -18,7 +18,9 @@ struct FAQsItemContent<ViewModel: FAQsItemViewModelProtocol>: View {
             }
             .padding(16.0)
         }
+        .cornerRadius(16.0)
         .padding(.horizontal, 8.0)
+
     }
 
     private var expandCollapseControl: some View {
