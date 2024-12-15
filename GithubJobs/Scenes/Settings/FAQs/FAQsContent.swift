@@ -37,7 +37,7 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: View {
 
     private var populated: some View {
         ScrollView {
-            VStack {
+            VStack(spacing: 16.0) {
                 ForEach(viewModel.items, id: \.title) {
                     FAQsItemContent(viewModel: $0)
                 }
