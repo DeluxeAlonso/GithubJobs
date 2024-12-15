@@ -16,11 +16,10 @@ struct FAQsItemContent<ViewModel: FAQsItemViewModelProtocol>: View {
             VStack {
                 expandCollapseControl
             }
-            .padding(16.0)
+            .padding(viewModel.padding)
         }
-        .cornerRadius(16.0)
-        .padding(.horizontal, 8.0)
-
+        .cornerRadius(viewModel.padding)
+        .padding(.horizontal, viewModel.padding)
     }
 
     private var expandCollapseControl: some View {
