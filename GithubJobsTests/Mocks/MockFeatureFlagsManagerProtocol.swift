@@ -6,7 +6,6 @@
 //
 
 @testable import GithubJobs
-import Foundation
 
 final actor MockFeatureFlagsManagerProtocol: FeatureFlagsManagerProtocol {
     
