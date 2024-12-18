@@ -8,5 +8,6 @@
 enum SettingsSection {
 
     case main
+    case debug
 
 }
