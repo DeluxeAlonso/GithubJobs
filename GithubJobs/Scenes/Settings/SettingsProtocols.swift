@@ -10,7 +10,7 @@ import UIKit
 
 protocol SettingsViewModelProtocol {
 
-    var itemModelsPublisher: Published<[SettingsItemModel]>.Publisher { get }
+    var sectionModelsPublisher: Published<[SettingsSection]>.Publisher { get }
     var didUpdateNavigation: PassthroughSubject<SettingsNavigation, Never> { get }
 
     func loadItems() async

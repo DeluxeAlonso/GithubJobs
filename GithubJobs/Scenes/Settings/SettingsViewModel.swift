@@ -11,10 +11,10 @@ final class SettingsViewModel: SettingsViewModelProtocol {
 
     private let interactor: SettingsInteractorProtocol
 
-    @Published private var itemModels: [SettingsItemModel] = []
+    @Published private var sectionModels: [SettingsSection] = []
 
     var itemModelsPublisher: Published<[SettingsItemModel]>.Publisher {
-        $itemModels
+        $sectionModels
     }
 
     private(set) var didUpdateNavigation = PassthroughSubject<SettingsNavigation, Never>()
@@ -30,11 +30,11 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     }
 
     func selectItem(at index: Int) {
-        itemModels[index].actionHandler()
+        sectionModels[index].actionHandler()
     }
 
     func loadItems() async {
-        itemModels = await createItemModels()
+        sectionModels = await createItemModels()
     }
 
     // MARK: - Private
