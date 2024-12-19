@@ -10,4 +10,13 @@ enum SettingsSection: Hashable {
     case main(items: [SettingsItemModel])
     case debug(items: [SettingsItemModel])
 
+    var items: [SettingsItemModel] {
+        switch self {
+        case .main(let items):
+            return items
+        case .debug(let items):
+            return items
+        }
+    }
+
 }
