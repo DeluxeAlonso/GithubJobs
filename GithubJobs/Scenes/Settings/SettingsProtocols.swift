@@ -16,7 +16,7 @@ protocol SettingsViewModelProtocol {
     func loadItems() async
 
     func screenTitle() -> String?
-    func selectItem(at index: Int)
+    func selectItem(at index: Int, and section: Int)
 
 }
 

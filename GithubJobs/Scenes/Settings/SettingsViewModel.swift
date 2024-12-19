@@ -13,7 +13,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
 
     @Published private var sectionModels: [SettingsSection] = []
 
-    var itemModelsPublisher: Published<[SettingsItemModel]>.Publisher {
+    var sectionModelsPublisher: Published<[SettingsSection]>.Publisher {
         $sectionModels
     }
 
@@ -29,8 +29,9 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         return LocalizedStrings.settingsTitle()
     }
 
-    func selectItem(at index: Int) {
-        sectionModels[index].actionHandler()
+    func selectItem(at index: Int, and section: Int) {
+        let section = sectionModels[section]
+        section.items[index].actionHandler()
     }
 
     func loadItems() async {
