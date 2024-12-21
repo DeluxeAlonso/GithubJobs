@@ -36,13 +36,18 @@ final class SettingsViewModelTests: XCTestCase {
     }
 
     func testLoadItems() async {
-        viewModel.itemModelsPublisher
+        viewModel.sectionModelsPublisher
             .dropFirst()
-            .sink { items in
-                XCTAssertEqual(items.count, 2)
-                XCTAssertEqual(items.first?.title, "Themes")
-                XCTAssertEqual(items.last?.title, "Feature Flags")
+            .sink { sections in
+                XCTAssertEqual(sections.count, 2)
+                let mainSection = sections.first
+                XCTAssertEqual(mainSection?.items.count, 2)
+                XCTAssertEqual(mainSection?.items.first?.title, "Themes")
+                XCTAssertEqual(mainSection?.items.last?.title, "")
 
+                let debugSection = sections.last
+                XCTAssertEqual(debugSection?.items.count, 1)
+                XCTAssertEqual(debugSection?.items.first?.title, "Themes")
         }
         .store(in: &cancellables)
         await viewModel.loadItems()
