@@ -126,25 +126,27 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
                 self.coordinator?.startNavigation(for: navigation)
             }.store(in: &cancellables)
 
-        viewModel.itemModelsPublisher
+        viewModel.sectionModelsPublisher
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] items in
+            .sink { [weak self] sections in
                 guard let self = self else { return }
-                self.updateUI(with: items)
+                self.updateUI(with: sections)
             }.store(in: &cancellables)
     }
 
-    private func updateUI(with items: [SettingsItemModel]) {
+    private func updateUI(with sections: [SettingsSection]) {
         var snapshot = NSDiffableDataSourceSnapshot<SettingsSection, SettingsItemModel>()
-        snapshot.appendSections([SettingsSection.main])
-        snapshot.appendItems(items, toSection: .main)
+        for section in sections {
+            snapshot.appendSections([section])
+            snapshot.appendItems(section.items, toSection: section)
+        }
         dataSource?.apply(snapshot, animatingDifferences: false)
     }
 
     // MARK: - UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.selectItem(at: indexPath.item)
+        viewModel.selectItem(at: indexPath.item, and: indexPath.section)
     }
 
 }
