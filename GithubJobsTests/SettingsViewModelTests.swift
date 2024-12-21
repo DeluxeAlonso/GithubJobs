@@ -103,7 +103,7 @@ final class SettingsViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
         await viewModel.loadItems()
-        viewModel.selectItem(at: 2, and: 0)
+        viewModel.selectItem(at: 0, and: 1)
     }
 
 }
