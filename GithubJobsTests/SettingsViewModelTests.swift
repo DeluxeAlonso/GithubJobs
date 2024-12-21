@@ -46,7 +46,7 @@ final class SettingsViewModelTests: XCTestCase {
 
                 let debugSection = sections.last
                 XCTAssertEqual(debugSection?.items.count, 1)
-                XCTAssertEqual(debugSection?.items.first?.title, "Themes")
+                XCTAssertEqual(debugSection?.items.first?.title, "Feature Flags")
         }
         .store(in: &cancellables)
         await viewModel.loadItems()

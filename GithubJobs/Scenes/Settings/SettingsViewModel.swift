@@ -35,10 +35,11 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     }
 
     func loadItems() async {
-        sectionModels = [await createMainSection()]
+        var sections = [await createMainSection()]
         #if DEBUG
-        sectionModels.append(await createDebugSection())
+        sections.append(await createDebugSection())
         #endif
+        sectionModels = sections
     }
 
     // MARK: - Private
