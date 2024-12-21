@@ -35,24 +35,32 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     }
 
     func loadItems() async {
-        sectionModels = await createItemModels()
+        sectionModels = [await createMainSection(),
+                         await createDebugSection()]
     }
 
     // MARK: - Private
 
-    private func createItemModels() async -> [SettingsItemModel] {
-        [
+    private func createMainSection() async -> SettingsSection {
+        let items = [
             SettingsItemModel(title: LocalizedStrings.settingsThemeSelectionRowTitle(),
                               value: await interactor.getCurrentInterfaceStyle().description,
                               actionHandler: { [weak self] in self?.navigate(to: .theme) }),
-            SettingsItemModel(featureFlagValue: await interactor.getFeatureFlagValue(for: .displayFAQs),
-                              title: LocalizedStrings.settingsFAQsRowTitle(),
-                              value: nil,
-                              actionHandler: { [weak self] in self?.navigate(to: .faqs) }),
             SettingsItemModel(title: LocalizedStrings.settingsFeatureFlagRowTitle(),
                               value: nil,
                               actionHandler: { [weak self] in self?.navigate(to: .featureFlags) })
         ].compactMap { $0 }
+        return .main(items: items)
+    }
+
+    private func createDebugSection() async -> SettingsSection {
+        let items = [
+            SettingsItemModel(featureFlagValue: await interactor.getFeatureFlagValue(for: .displayFAQs),
+                              title: LocalizedStrings.settingsFAQsRowTitle(),
+                              value: nil,
+                              actionHandler: { [weak self] in self?.navigate(to: .faqs) })
+        ].compactMap { $0 }
+        return .debug(items: items)
     }
 
     private func navigate(to navigation: SettingsNavigation) {
