@@ -46,19 +46,19 @@ final class SettingsViewModel: SettingsViewModelProtocol {
             SettingsItemModel(title: LocalizedStrings.settingsThemeSelectionRowTitle(),
                               value: await interactor.getCurrentInterfaceStyle().description,
                               actionHandler: { [weak self] in self?.navigate(to: .theme) }),
-            SettingsItemModel(title: LocalizedStrings.settingsFeatureFlagRowTitle(),
+            SettingsItemModel(featureFlagValue: await interactor.getFeatureFlagValue(for: .displayFAQs),
+                              title: LocalizedStrings.settingsFAQsRowTitle(),
                               value: nil,
-                              actionHandler: { [weak self] in self?.navigate(to: .featureFlags) })
+                              actionHandler: { [weak self] in self?.navigate(to: .faqs) })
         ].compactMap { $0 }
         return .main(items: items)
     }
 
     private func createDebugSection() async -> SettingsSection {
         let items = [
-            SettingsItemModel(featureFlagValue: await interactor.getFeatureFlagValue(for: .displayFAQs),
-                              title: LocalizedStrings.settingsFAQsRowTitle(),
+            SettingsItemModel(title: LocalizedStrings.settingsFeatureFlagRowTitle(),
                               value: nil,
-                              actionHandler: { [weak self] in self?.navigate(to: .faqs) })
+                              actionHandler: { [weak self] in self?.navigate(to: .featureFlags) })
         ].compactMap { $0 }
         return .debug(items: items)
     }
