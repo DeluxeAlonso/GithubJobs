@@ -5,9 +5,18 @@
 //  Created by Alonso on 25/07/22.
 //
 
-enum SettingsSection {
+enum SettingsSection: Hashable {
 
-    case main
-    case debug
+    case main(items: [SettingsItemModel] = [])
+    case debug(items: [SettingsItemModel] = [])
+
+    var items: [SettingsItemModel] {
+        switch self {
+        case .main(let items):
+            return items
+        case .debug(let items):
+            return items
+        }
+    }
 
 }

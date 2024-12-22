@@ -36,13 +36,17 @@ final class SettingsViewModelTests: XCTestCase {
     }
 
     func testLoadItems() async {
-        viewModel.itemModelsPublisher
+        viewModel.sectionModelsPublisher
             .dropFirst()
-            .sink { items in
-                XCTAssertEqual(items.count, 2)
-                XCTAssertEqual(items.first?.title, "Themes")
-                XCTAssertEqual(items.last?.title, "Feature Flags")
+            .sink { sections in
+                XCTAssertEqual(sections.count, 2)
+                let mainSection = sections.first
+                XCTAssertEqual(mainSection?.items.count, 1)
+                XCTAssertEqual(mainSection?.items.first?.title, "Themes")
 
+                let debugSection = sections.last
+                XCTAssertEqual(debugSection?.items.count, 1)
+                XCTAssertEqual(debugSection?.items.first?.title, "Feature Flags")
         }
         .store(in: &cancellables)
         await viewModel.loadItems()
@@ -50,13 +54,18 @@ final class SettingsViewModelTests: XCTestCase {
 
     func testLoadItemsWithFAQs() async {
         mockInteractor.getFeatureFlagValueResult = true
-        viewModel.itemModelsPublisher
+        viewModel.sectionModelsPublisher
             .dropFirst()
-            .sink { items in
-                XCTAssertEqual(items.count, 3)
-                XCTAssertEqual(items.first?.title, "Themes")
-                XCTAssertEqual(items[1].title, "FAQs")
-                XCTAssertEqual(items.last?.title, "Feature Flags")
+            .sink { sections in
+                XCTAssertEqual(sections.count, 2)
+                let mainSection = sections.first
+                XCTAssertEqual(mainSection?.items.count, 2)
+                XCTAssertEqual(mainSection?.items.first?.title, "Themes")
+                XCTAssertEqual(mainSection?.items.last?.title, "FAQs")
+
+                let debugSection = sections.last
+                XCTAssertEqual(debugSection?.items.count, 1)
+                XCTAssertEqual(debugSection?.items.first?.title, "Feature Flags")
         }
         .store(in: &cancellables)
         await viewModel.loadItems()
@@ -72,7 +81,7 @@ final class SettingsViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
         await viewModel.loadItems()
-        viewModel.selectItem(at: 0)
+        viewModel.selectItem(at: 0, and: 0)
     }
 
     func testSelectFAQsSelectionItem() async {
@@ -83,7 +92,7 @@ final class SettingsViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
         await viewModel.loadItems()
-        viewModel.selectItem(at: 1)
+        viewModel.selectItem(at: 1, and: 0)
     }
 
     func testSelectFeatureFlagsSelectionItem() async {
@@ -94,7 +103,7 @@ final class SettingsViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
         await viewModel.loadItems()
-        viewModel.selectItem(at: 2)
+        viewModel.selectItem(at: 0, and: 1)
     }
 
 }

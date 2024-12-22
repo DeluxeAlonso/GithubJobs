@@ -11,10 +11,10 @@ final class SettingsViewModel: SettingsViewModelProtocol {
 
     private let interactor: SettingsInteractorProtocol
 
-    @Published private var itemModels: [SettingsItemModel] = []
+    @Published private var sectionModels: [SettingsSection] = []
 
-    var itemModelsPublisher: Published<[SettingsItemModel]>.Publisher {
-        $itemModels
+    var sectionModelsPublisher: Published<[SettingsSection]>.Publisher {
+        $sectionModels
     }
 
     private(set) var didUpdateNavigation = PassthroughSubject<SettingsNavigation, Never>()
@@ -29,29 +29,41 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         return LocalizedStrings.settingsTitle()
     }
 
-    func selectItem(at index: Int) {
-        itemModels[index].actionHandler()
+    func selectItem(at index: Int, and section: Int) {
+        let section = sectionModels[section]
+        section.items[index].actionHandler()
     }
 
     func loadItems() async {
-        itemModels = await createItemModels()
+        var sections = [await createMainSection()]
+        #if DEBUG
+        sections.append(await createDebugSection())
+        #endif
+        sectionModels = sections
     }
 
     // MARK: - Private
 
-    private func createItemModels() async -> [SettingsItemModel] {
-        [
+    private func createMainSection() async -> SettingsSection {
+        let items = [
             SettingsItemModel(title: LocalizedStrings.settingsThemeSelectionRowTitle(),
                               value: await interactor.getCurrentInterfaceStyle().description,
                               actionHandler: { [weak self] in self?.navigate(to: .theme) }),
             SettingsItemModel(featureFlagValue: await interactor.getFeatureFlagValue(for: .displayFAQs),
                               title: LocalizedStrings.settingsFAQsRowTitle(),
                               value: nil,
-                              actionHandler: { [weak self] in self?.navigate(to: .faqs) }),
+                              actionHandler: { [weak self] in self?.navigate(to: .faqs) })
+        ].compactMap { $0 }
+        return .main(items: items)
+    }
+
+    private func createDebugSection() async -> SettingsSection {
+        let items = [
             SettingsItemModel(title: LocalizedStrings.settingsFeatureFlagRowTitle(),
                               value: nil,
                               actionHandler: { [weak self] in self?.navigate(to: .featureFlags) })
         ].compactMap { $0 }
+        return .debug(items: items)
     }
 
     private func navigate(to navigation: SettingsNavigation) {
