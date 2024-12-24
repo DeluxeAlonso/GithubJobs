@@ -36,12 +36,12 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
     }
 
     private var populated: some View {
-        VStack {
+        List {
             ForEach(viewModel.toggles, id: \.identifier) {
                 FeatureFlagToggleView(viewModel: $0)
                     .padding()
             }
-            Spacer()
+            //Spacer()
         }
     }
 
