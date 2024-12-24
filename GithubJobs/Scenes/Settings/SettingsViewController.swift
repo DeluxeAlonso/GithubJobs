@@ -158,7 +158,7 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
 extension SettingsViewController: UIAdaptivePresentationControllerDelegate {
 
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        print("====== presentationControllerDidDismiss")
+        coordinator?.dismiss()
     }
 
 }
