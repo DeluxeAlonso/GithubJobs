@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 @MainActor
 protocol FeatureFlagsViewModelProtocol: ObservableObject {
