@@ -66,6 +66,8 @@ protocol FeatureFlagToggleViewModelProtocol: ObservableObject {
     var title: String { get }
     var value: Bool { get set }
 
+    var verticalPadding: CGFloat { get }
+
 }
 
 final class FeatureFlagToggleViewModel: FeatureFlagToggleViewModelProtocol {
@@ -78,6 +80,10 @@ final class FeatureFlagToggleViewModel: FeatureFlagToggleViewModelProtocol {
     typealias OnTapHandler = (String, Bool) -> Void
 
     private var cancellables: Set<AnyCancellable> = []
+
+    var verticalPadding: CGFloat {
+        8.0
+    }
 
     init(_ featureFlag: FeatureFlagProtocol, onTapHandler: OnTapHandler? = nil) {
         self.identifier = featureFlag.identifier
