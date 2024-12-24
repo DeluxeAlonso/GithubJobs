@@ -70,6 +70,8 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
 
         view.backgroundColor = .systemBackground
 
+        navigationController?.presentationController?.delegate = self
+
         configureCollectionView()
     }
 
@@ -147,6 +149,16 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.selectItem(at: indexPath.item, and: indexPath.section)
+    }
+
+}
+
+// MARK: - UIAdaptivePresentationControllerDelegate
+
+extension SettingsViewController: UIAdaptivePresentationControllerDelegate {
+
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print("====== presentationControllerDidDismiss")
     }
 
 }
