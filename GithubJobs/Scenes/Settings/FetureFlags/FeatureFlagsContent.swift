@@ -39,9 +39,7 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
         List {
             ForEach(viewModel.toggles, id: \.identifier) {
                 FeatureFlagToggleView(viewModel: $0)
-                    .padding()
             }
-            //Spacer()
         }
     }
 
