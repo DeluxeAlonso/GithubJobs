@@ -83,7 +83,7 @@ final class FeatureFlagToggleViewModel: FeatureFlagToggleViewModelProtocol {
     private var cancellables: Set<AnyCancellable> = []
 
     var verticalPadding: CGFloat {
-        8.0
+        4.0
     }
 
     init(_ featureFlag: FeatureFlagProtocol, onTapHandler: OnTapHandler? = nil) {
