@@ -12,6 +12,7 @@ struct FeatureFlagToggleView<ViewModel: FeatureFlagToggleViewModelProtocol>: Vie
 
     var body: some View {
         Toggle(viewModel.title, isOn: $viewModel.value)
+            .padding(.vertical, viewModel.verticalPadding)
     }
 }
 
