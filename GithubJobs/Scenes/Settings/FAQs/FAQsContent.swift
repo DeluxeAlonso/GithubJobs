@@ -31,6 +31,7 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: View {
             Spacer()
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle())
+                .controlSize(.large)
             Spacer()
         }
     }
