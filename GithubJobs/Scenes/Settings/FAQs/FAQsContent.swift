@@ -28,10 +28,10 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: View {
 
     private var loading: some View {
         VStack {
-            Spacer()
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle())
                 .controlSize(.large)
+                .padding(.top, 24.0)
             Spacer()
         }
     }
