@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FAQsContent<ViewModel: FAQsViewModelProtocol>: View {
+struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
@@ -26,7 +26,7 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: View {
         }
     }
 
-    private var loading: some View {
+    var loading: some View {
         VStack {
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle())
@@ -36,7 +36,7 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: View {
         }
     }
 
-    private var populated: some View {
+    var populated: some View {
         ScrollView {
             VStack(spacing: 16.0) {
                 ForEach(viewModel.items, id: \.title) {
@@ -48,7 +48,7 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: View {
         }
     }
 
-    private var error: some View {
+    var error: some View {
         VStack {
             Spacer()
             viewModel.errorViewModel.flatMap {
