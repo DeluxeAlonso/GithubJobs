@@ -8,11 +8,11 @@
 import SwiftUI
 
 protocol BaseView: View {
-    associatedtype LoadingView: View
-    associatedtype PopulatedView: View
-    associatedtype ErrorView: View
+    associatedtype LoadingContent: View
+    associatedtype PopulatedContent: View
+    associatedtype ErroContent: View
 
-    var loading: LoadingView { get }
+    var loading: LoadingContent { get }
     var populated: PopulatedView { get }
-    var error: ErrorView { get }
+    var error: ErroContent { get }
 }
