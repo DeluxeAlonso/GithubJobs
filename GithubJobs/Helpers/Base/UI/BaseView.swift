@@ -13,6 +13,6 @@ protocol BaseView: View {
     associatedtype ErroContent: View
 
     var loading: LoadingContent { get }
-    var populated: PopulatedView { get }
+    var populated: PopulatedContent { get }
     var error: ErroContent { get }
 }

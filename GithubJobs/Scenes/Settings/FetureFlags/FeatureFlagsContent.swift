@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
+struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: BaseView {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
@@ -26,7 +26,7 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
         }
     }
 
-    private var loading: some View {
+    var loading: some View {
         VStack {
             Spacer()
             ProgressView()
@@ -35,7 +35,7 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
         }
     }
 
-    private var populated: some View {
+    var populated: some View {
         List {
             ForEach(viewModel.toggles, id: \.identifier) {
                 FeatureFlagToggleView(viewModel: $0)
@@ -43,7 +43,7 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: View {
         }
     }
 
-    private var error: some View {
+    var error: some View {
         VStack {
             Spacer()
             viewModel.errorViewModel.flatMap {
