@@ -26,15 +26,6 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: BaseView {
         }
     }
 
-    var loading: some View {
-        VStack {
-            Spacer()
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle())
-            Spacer()
-        }
-    }
-
     var populated: some View {
         List {
             ForEach(viewModel.toggles, id: \.identifier) {

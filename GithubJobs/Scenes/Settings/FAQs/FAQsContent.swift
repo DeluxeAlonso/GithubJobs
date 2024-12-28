@@ -26,16 +26,6 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
         }
     }
 
-    var loading: some View {
-        VStack {
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle())
-                .controlSize(.large)
-                .padding(.top, 24.0)
-            Spacer()
-        }
-    }
-
     var populated: some View {
         ScrollView {
             VStack(spacing: 16.0) {

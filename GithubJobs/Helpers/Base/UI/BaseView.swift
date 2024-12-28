@@ -20,3 +20,15 @@ protocol BaseView: View {
 
     var content: MainContent { get }
 }
+
+extension BaseView {
+    var loading: some View {
+        VStack {
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle())
+                .controlSize(.large)
+                .padding(.top, 24.0)
+            Spacer()
+        }
+    }
+}
