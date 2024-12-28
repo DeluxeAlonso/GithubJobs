@@ -18,7 +18,7 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: BaseView {
     }
 
     @ViewBuilder
-    private var content: some View {
+    var content: some View {
         switch viewModel.viewState {
         case .loading: loading
         case .populated: populated
