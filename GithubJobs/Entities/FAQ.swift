@@ -11,6 +11,6 @@ struct FAQ: Decodable, Equatable {
 
     let id: String
     let title: String
-    let description: String
+    let descriptions: [String]
 
 }

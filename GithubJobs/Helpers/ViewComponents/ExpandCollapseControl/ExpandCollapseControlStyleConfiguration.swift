@@ -15,6 +15,8 @@ struct ExpandCollapseControlStyleConfiguration {
     let iconSize: CGSize
     let iconTrailingPadding: CGFloat
 
+    /// Vertical spacing between the collapsed and expanded content.
+    let verticalSpacing: CGFloat
     let horizontalSpacing: CGFloat
 
 }
