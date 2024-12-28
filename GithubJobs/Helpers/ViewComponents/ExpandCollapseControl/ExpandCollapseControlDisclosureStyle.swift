@@ -12,7 +12,7 @@ struct ExpandCollapseControlDisclosureStyle: DisclosureGroupStyle {
     let styleConfiguration: ExpandCollapseControlStyleConfiguration
 
     func makeBody(configuration: Configuration) -> some View {
-        VStack(alignment: .leading, spacing: 0.0) {
+        VStack(alignment: .leading, spacing: styleConfiguration.verticalSpacing) {
             HStack(alignment: .center, spacing: styleConfiguration.horizontalSpacing) {
                 configuration.label
                 Spacer()

@@ -69,6 +69,7 @@ final class FAQsItemViewModel: FAQsItemViewModelProtocol {
                                                 collapsedIconName: "plus",
                                                 iconSize: CGSize(width: 16.0, height: 16.0),
                                                 iconTrailingPadding: 16.0,
+                                                verticalSpacing: 8.0,
                                                 horizontalSpacing: 8.0)
     }
 
