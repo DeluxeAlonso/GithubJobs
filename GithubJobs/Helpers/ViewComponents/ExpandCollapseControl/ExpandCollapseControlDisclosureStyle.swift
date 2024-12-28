@@ -28,9 +28,9 @@ struct ExpandCollapseControlDisclosureStyle: DisclosureGroupStyle {
                     configuration.isExpanded.toggle()
                 }
             }
-        }
-        if configuration.isExpanded {
-            configuration.content
+            if configuration.isExpanded {
+                configuration.content
+            }
         }
     }
 

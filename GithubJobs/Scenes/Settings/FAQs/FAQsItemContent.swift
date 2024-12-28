@@ -13,10 +13,8 @@ struct FAQsItemContent<ViewModel: FAQsItemViewModelProtocol>: View {
     var body: some View {
         ZStack {
             Color(.systemGroupedBackground)
-            VStack {
-                expandCollapseControl
-            }
-            .padding(viewModel.padding)
+            expandCollapseControl
+                .padding(viewModel.padding)
         }
         .cornerRadius(viewModel.padding)
         .padding(.horizontal, viewModel.padding)
@@ -28,11 +26,13 @@ struct FAQsItemContent<ViewModel: FAQsItemViewModelProtocol>: View {
                 .font(.headline)
                 .multilineTextAlignment(.leading)
         }, expandedContent: {
-            ForEach(viewModel.subtitles, id: \.self) {
-                Text($0)
-                    .font(.body)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .multilineTextAlignment(.leading)
+            VStack(spacing: 8.0) {
+                ForEach(viewModel.subtitles, id: \.self) {
+                    Text($0)
+                        .font(.body)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .multilineTextAlignment(.leading)
+                }
             }
         }, styleConfiguration: viewModel.expandCollapseStyleConfiguration)
     }
