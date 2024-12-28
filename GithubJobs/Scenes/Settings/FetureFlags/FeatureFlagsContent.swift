@@ -18,20 +18,11 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: BaseView {
     }
 
     @ViewBuilder
-    private var content: some View {
+    var content: some View {
         switch viewModel.viewState {
         case .loading: loading
         case .populated: populated
         case .error: error
-        }
-    }
-
-    var loading: some View {
-        VStack {
-            Spacer()
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle())
-            Spacer()
         }
     }
 

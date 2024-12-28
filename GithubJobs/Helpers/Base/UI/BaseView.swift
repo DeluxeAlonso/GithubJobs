@@ -8,11 +8,27 @@
 import SwiftUI
 
 protocol BaseView: View {
+    associatedtype MainContent: View
+
     associatedtype LoadingContent: View
     associatedtype PopulatedContent: View
-    associatedtype ErroContent: View
+    associatedtype ErrorContent: View
 
     var loading: LoadingContent { get }
     var populated: PopulatedContent { get }
-    var error: ErroContent { get }
+    var error: ErrorContent { get }
+
+    var content: MainContent { get }
+}
+
+extension BaseView {
+    var loading: some View {
+        VStack {
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle())
+                .controlSize(.large)
+                .padding(.top, 24.0)
+            Spacer()
+        }
+    }
 }

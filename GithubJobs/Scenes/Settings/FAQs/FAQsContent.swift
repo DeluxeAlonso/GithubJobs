@@ -18,21 +18,11 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
     }
 
     @ViewBuilder
-    private var content: some View {
+    var content: some View {
         switch viewModel.viewState {
         case .loading: loading
         case .populated: populated
         case .error: error
-        }
-    }
-
-    var loading: some View {
-        VStack {
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle())
-                .controlSize(.large)
-                .padding(.top, 24.0)
-            Spacer()
         }
     }
 
