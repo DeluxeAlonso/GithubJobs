@@ -9,7 +9,10 @@ import SwiftUI
 
 class HostingController<Content>: UIHostingController<Content> where Content: View {
 
-    override init(rootView: Content) {
+    private let configuration: HostingConfiguration
+
+    init(rootView: Content, configuration: HostingConfiguration) {
+        self.configuration = configuration
         super.init(rootView: rootView)
     }
 

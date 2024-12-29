@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E20116472CFC0E2000A2B1C5 /* FAQsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20116462CFC0E2000A2B1C5 /* FAQsInteractor.swift */; };
 		E2063A612D2112CE004AC666 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2063A602D2112CE004AC666 /* HostingController.swift */; };
+		E2063A642D211F97004AC666 /* HostingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2063A632D211F97004AC666 /* HostingConfiguration.swift */; };
 		E21AEC2B2556E1D000A85639 /* JobsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC2A2556E1D000A85639 /* JobsClient.swift */; };
 		E21AEC332556E1E600A85639 /* JobsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC322556E1E600A85639 /* JobsProvider.swift */; };
 		E21AEC382556E35100A85639 /* JobsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC372556E35100A85639 /* JobsViewModel.swift */; };
@@ -137,6 +138,7 @@
 /* Begin PBXFileReference section */
 		E20116462CFC0E2000A2B1C5 /* FAQsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsInteractor.swift; sourceTree = "<group>"; };
 		E2063A602D2112CE004AC666 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		E2063A632D211F97004AC666 /* HostingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingConfiguration.swift; sourceTree = "<group>"; };
 		E21AEC2A2556E1D000A85639 /* JobsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsClient.swift; sourceTree = "<group>"; };
 		E21AEC322556E1E600A85639 /* JobsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsProvider.swift; sourceTree = "<group>"; };
 		E21AEC372556E35100A85639 /* JobsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewModel.swift; sourceTree = "<group>"; };
@@ -278,6 +280,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2063A622D211F7A004AC666 /* HostingController */ = {
+			isa = PBXGroup;
+			children = (
+				E2063A602D2112CE004AC666 /* HostingController.swift */,
+				E2063A632D211F97004AC666 /* HostingConfiguration.swift */,
+			);
+			path = HostingController;
+			sourceTree = "<group>";
+		};
 		E21AEC292556E1C200A85639 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,10 +318,10 @@
 		E258C107292484A90027484A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E2063A622D211F7A004AC666 /* HostingController */,
 				E2B2C8DB288BC39800522186 /* SplitViewController.swift */,
 				E2A13FE5286D5C75001BC83D /* ViewController.swift */,
 				E2DA93632D1D3CD400C94A26 /* BaseView.swift */,
-				E2063A602D2112CE004AC666 /* HostingController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -862,6 +873,7 @@
 				E2E6DCFD28A8CE2C0022547B /* RefreshControl.swift in Sources */,
 				E2673B04255782F000727460 /* JobsCoordinator.swift in Sources */,
 				E2B3E6EA2556D7BA00B5483A /* JobsViewController.swift in Sources */,
+				E2063A642D211F97004AC666 /* HostingConfiguration.swift in Sources */,
 				E2D2DC6C2CFE62EE009CDACE /* FAQsResult.swift in Sources */,
 				E2D19FC32CE822E200BC0F45 /* ErrorView.swift in Sources */,
 				E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */,
