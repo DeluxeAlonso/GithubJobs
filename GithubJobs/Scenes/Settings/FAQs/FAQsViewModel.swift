@@ -29,8 +29,13 @@ final class FAQsViewModel: FAQsViewModelProtocol {
 
     @Published var viewState: FAQsViewState = .loading
 
-    init(interactor: FAQsInteractorProtocol) {
+    weak var hostingConfiguration: HostingConfiguration?
+
+    init(interactor: FAQsInteractorProtocol,
+         hostingConfiguration: HostingConfiguration) {
         self.interactor = interactor
+        self.hostingConfiguration = hostingConfiguration
+        self.hostingConfiguration?.title = "FAQs"
     }
 
     func load() async {
