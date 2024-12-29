@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E20116472CFC0E2000A2B1C5 /* FAQsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20116462CFC0E2000A2B1C5 /* FAQsInteractor.swift */; };
+		E2063A612D2112CE004AC666 /* BaseHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2063A602D2112CE004AC666 /* BaseHostingController.swift */; };
 		E21AEC2B2556E1D000A85639 /* JobsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC2A2556E1D000A85639 /* JobsClient.swift */; };
 		E21AEC332556E1E600A85639 /* JobsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC322556E1E600A85639 /* JobsProvider.swift */; };
 		E21AEC382556E35100A85639 /* JobsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC372556E35100A85639 /* JobsViewModel.swift */; };
@@ -135,6 +136,7 @@
 
 /* Begin PBXFileReference section */
 		E20116462CFC0E2000A2B1C5 /* FAQsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsInteractor.swift; sourceTree = "<group>"; };
+		E2063A602D2112CE004AC666 /* BaseHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingController.swift; sourceTree = "<group>"; };
 		E21AEC2A2556E1D000A85639 /* JobsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsClient.swift; sourceTree = "<group>"; };
 		E21AEC322556E1E600A85639 /* JobsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsProvider.swift; sourceTree = "<group>"; };
 		E21AEC372556E35100A85639 /* JobsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewModel.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				E2B2C8DB288BC39800522186 /* SplitViewController.swift */,
 				E2A13FE5286D5C75001BC83D /* ViewController.swift */,
 				E2DA93632D1D3CD400C94A26 /* BaseView.swift */,
+				E2063A602D2112CE004AC666 /* BaseHostingController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -939,6 +942,7 @@
 				E2B3E6B12556D67400B5483A /* SceneDelegate.swift in Sources */,
 				E2B3E7232556DF8000B5483A /* URLRequest+Headers.swift in Sources */,
 				E27138AA2782384400E6F501 /* JobsInteractor.swift in Sources */,
+				E2063A612D2112CE004AC666 /* BaseHostingController.swift in Sources */,
 				E2B3E7302556DFD200B5483A /* CharacterSet+Filtering.swift in Sources */,
 				E2D2DC6A2CFE6140009CDACE /* FAQsClientProtocol.swift in Sources */,
 				E2ADF9FE2873ECE200987D4D /* ThemeSelectionCoordinator.swift in Sources */,
