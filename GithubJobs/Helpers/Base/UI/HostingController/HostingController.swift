@@ -5,15 +5,26 @@
 //  Created by Alonso on 29/12/24.
 //
 
+import Combine
 import SwiftUI
 
-class HostingController<Content>: UIHostingController<Content> where Content: View {
+final class HostingController<Content>: UIHostingController<Content> where Content: View {
 
     private let configuration: HostingConfiguration
+
+    private var cancellables: Set<AnyCancellable> = []
 
     init(rootView: Content, configuration: HostingConfiguration) {
         self.configuration = configuration
         super.init(rootView: rootView)
+
+        configuration
+            .$title
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] title in
+                guard let self = self else { return }
+                self.title = title
+            }.store(in: &cancellables)
     }
 
     @MainActor

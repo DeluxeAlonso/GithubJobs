@@ -8,7 +8,7 @@
 import Foundation
 
 final class HostingConfiguration {
-    
-    @Published private var title: String?
+
+    @Published var title: String?
 
 }
