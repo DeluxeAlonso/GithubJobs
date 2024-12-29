@@ -14,13 +14,13 @@ final class FAQsCoordinator: BaseCoordinator {
     var detailNavigationController: UINavigationController?
 
     override func start() {
+        let hostingConfiguration = HostingConfiguration()
+
         let faqsClient = FAQsClient()
         let interactor = FAQsInteractor(faqsClient: faqsClient)
-        let viewModel = FAQsViewModel(interactor: interactor)
+        let viewModel = FAQsViewModel(interactor: interactor, hostingConfiguration: hostingConfiguration)
         let view = FAQsContent(viewModel: viewModel)
-        let viewController = UIHostingController(rootView: view)
-        // TODO: - This should be updated from view model if possible
-        viewController.title = "FAQs"
+        let viewController = HostingController(rootView: view, configuration: hostingConfiguration)
 
         if let detailNavigationController = detailNavigationController {
             detailNavigationController.pushViewController(viewController, animated: false)
