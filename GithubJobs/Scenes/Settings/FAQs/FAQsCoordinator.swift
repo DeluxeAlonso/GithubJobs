@@ -16,9 +16,7 @@ final class FAQsCoordinator: BaseCoordinator {
     override func start() {
         let hostingConfiguration = HostingConfiguration()
 
-        let faqsClient = FAQsClient()
-        let interactor = FAQsInteractor(faqsClient: faqsClient)
-        let viewModel = FAQsViewModel(interactor: interactor, hostingConfiguration: hostingConfiguration)
+        let viewModel = makeViewModel(hostingConfiguration: hostingConfiguration)
         let view = FAQsContent(viewModel: viewModel)
         let viewController = HostingController(rootView: view, configuration: hostingConfiguration)
 
@@ -39,6 +37,18 @@ final class FAQsCoordinator: BaseCoordinator {
         presentedViewController?.dismiss(animated: true) { [weak self] in
             self?.parentCoordinator?.childDidFinish()
         }
+    }
+
+    // MARK: - Builders
+
+    private func makeInteractor() -> FAQsInteractorProtocol {
+        let faqsClient = FAQsClient()
+        return FAQsInteractor(faqsClient: faqsClient)
+    }
+
+    private func makeViewModel(hostingConfiguration: HostingConfiguration) -> some FAQsViewModelProtocol {
+        FAQsViewModel(interactor: makeInteractor(),
+                      hostingConfiguration: hostingConfiguration)
     }
 
 }
