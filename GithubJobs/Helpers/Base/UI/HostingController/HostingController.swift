@@ -17,7 +17,10 @@ final class HostingController<Content>: UIHostingController<Content> where Conte
     init(rootView: Content, configuration: HostingConfiguration) {
         self.configuration = configuration
         super.init(rootView: rootView)
+    }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
         configuration
             .$title
             .receive(on: DispatchQueue.main)

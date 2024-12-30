@@ -29,8 +29,13 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
     let interactor: FeatureFlagsInteractorProtocol
 
-    init(interactor: FeatureFlagsInteractorProtocol) {
+    weak var hostingConfiguration: HostingConfiguration?
+
+    init(interactor: FeatureFlagsInteractorProtocol,
+         hostingConfiguration: HostingConfiguration) {
         self.interactor = interactor
+        self.hostingConfiguration = hostingConfiguration
+        self.hostingConfiguration?.title = "Feature Flags"
     }
 
     func load() async {
