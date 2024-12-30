@@ -49,20 +49,20 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: BaseView {
 struct FeatureFlagsContent_Previews: PreviewProvider {
 
     static var loadingViewModel: FeatureFlagsViewModel {
-        let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared))
+        let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared), hostingConfiguration: HostingConfiguration())
         viewModel.viewState = .loading
         return viewModel
     }
 
     static var populatedViewModel: FeatureFlagsViewModel {
-        let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared))
+        let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared), hostingConfiguration: HostingConfiguration())
         viewModel.toggles = [FeatureFlagToggleViewModel(CustomChevronFeatureFlag())]
         viewModel.viewState = .populated
         return viewModel
     }
 
     static var errorViewModel: FeatureFlagsViewModel {
-        let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared))
+        let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared), hostingConfiguration: HostingConfiguration())
         viewModel.errorViewModel = ErrorViewModel(title: "Error", subtitles: ["Error Subtitle"])
         viewModel.viewState = .error
         return viewModel

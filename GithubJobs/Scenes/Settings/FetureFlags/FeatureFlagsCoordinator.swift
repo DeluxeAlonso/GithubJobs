@@ -16,12 +16,9 @@ final class FeatureFlagsCoordinator: BaseCoordinator {
     override func start() {
         let hostingConfiguration = HostingConfiguration()
 
-        let interactor = FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared)
-        let viewModel = FeatureFlagsViewModel(interactor: interactor, hostingConfiguration: hostingConfiguration)
+        let viewModel = makeViewModel(hostingConfiguration: hostingConfiguration)
         let view = FeatureFlagsContent(viewModel: viewModel)
-        let viewController = UIHostingController(rootView: view)
-        // TODO: - This should be updated from view model if possible
-        viewController.title = "Feature Flags"
+        let viewController = HostingController(rootView: view, configuration: hostingConfiguration)
 
         if let detailNavigationController = detailNavigationController {
             detailNavigationController.pushViewController(viewController, animated: false)
@@ -46,8 +43,9 @@ final class FeatureFlagsCoordinator: BaseCoordinator {
         FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared)
     }
 
-    private func makeViewModel() -> some FeatureFlagsViewModelProtocol {
-
+    private func makeViewModel(hostingConfiguration: HostingConfiguration) -> some FeatureFlagsViewModelProtocol {
+        FeatureFlagsViewModel(interactor: makeInteractort(),
+                              hostingConfiguration: hostingConfiguration)
     }
 
 }
