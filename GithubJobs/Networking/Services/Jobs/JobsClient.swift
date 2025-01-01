@@ -12,6 +12,8 @@ final class JobsClient: JobsClientProtocol, APIClient {
 
     let session: URLSession
 
+    // MARK: - Initializers
+
     init(configuration: URLSessionConfiguration) {
         configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         self.session = URLSession(configuration: configuration)
@@ -20,6 +22,8 @@ final class JobsClient: JobsClientProtocol, APIClient {
     convenience init() {
         self.init(configuration: .default)
     }
+
+    // MARK: - JobsClientProtocol
 
     func getJobs(page: Int) -> AnyPublisher<JobsResult, APIError> {
         getJobs(page: page, description: "")

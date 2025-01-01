@@ -11,6 +11,8 @@ final class FAQsClient: FAQsClientProtocol, APIClient {
 
     let session: URLSession
 
+    // MARK: - Initializers
+
     init(configuration: URLSessionConfiguration) {
         configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         self.session = URLSession(configuration: configuration)
@@ -19,6 +21,8 @@ final class FAQsClient: FAQsClientProtocol, APIClient {
     convenience init() {
         self.init(configuration: .default)
     }
+
+    // MARK: - FAQsClientProtocol
 
     func getFAQs() async -> Result<FAQsResult, APIError> {
         let request = FAQsProvider.getAll.request
