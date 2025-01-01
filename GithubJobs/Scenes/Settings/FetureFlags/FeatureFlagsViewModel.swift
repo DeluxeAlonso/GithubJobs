@@ -35,7 +35,7 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
          hostingConfiguration: HostingConfiguration) {
         self.interactor = interactor
         self.hostingConfiguration = hostingConfiguration
-        self.hostingConfiguration?.title = "Feature Flags"
+        self.hostingConfiguration?.title = "Flags"
     }
 
     func load() async {
