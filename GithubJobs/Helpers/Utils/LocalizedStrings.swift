@@ -40,4 +40,6 @@ enum LocalizedStrings: String, Localizable {
 	case settingsFAQsRowTitle
 	case refreshControlTitle
 	case errorTitle
+	case faqsTitle
+	case featureFlagsTitle
 }

@@ -35,7 +35,7 @@ final class FAQsViewModel: FAQsViewModelProtocol {
          hostingConfiguration: HostingConfiguration) {
         self.interactor = interactor
         self.hostingConfiguration = hostingConfiguration
-        self.hostingConfiguration?.title = "FAQs"
+        self.hostingConfiguration?.title = LocalizedStrings.faqsTitle()
     }
 
     func load() async {
