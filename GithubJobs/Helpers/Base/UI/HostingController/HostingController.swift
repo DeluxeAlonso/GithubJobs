@@ -25,7 +25,7 @@ final class HostingController<Content>: UIHostingController<Content> where Conte
             .$title
             .receive(on: DispatchQueue.main)
             .sink { [weak self] title in
-                guard let self = self else { return }
+                guard let self else { return }
                 self.title = title
             }.store(in: &cancellables)
     }
