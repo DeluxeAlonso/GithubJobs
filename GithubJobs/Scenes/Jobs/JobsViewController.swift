@@ -117,7 +117,7 @@ final class JobsViewController: ViewController {
             .valueChanged
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
-                guard let self = self else { return }
+                guard let self else { return }
                 self.viewModel.getJobs()
             }.store(in: &cancellables)
 
@@ -125,7 +125,7 @@ final class JobsViewController: ViewController {
             .viewStatePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
-                guard let self = self else { return }
+                guard let self else { return }
                 self.configureView(with: state)
                 self.configureTableViewDataSource()
                 self.refreshControl.endRefreshing()

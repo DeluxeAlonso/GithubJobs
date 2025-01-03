@@ -37,7 +37,7 @@ class SplitViewController: UISplitViewController, Themeable {
             .removeDuplicates()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] userInterfaceStyle in
-                guard let self = self else { return }
+                guard let self else { return }
                 self.updateUserInterfaceStyle(userInterfaceStyle, animated: true)
             }.store(in: &cancellables)
     }
