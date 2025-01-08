@@ -11,7 +11,6 @@ import SwiftUI
 final class HostingController<Content>: UIHostingController<Content> where Content: View {
 
     private let configuration: HostingConfiguration
-
     private var cancellables: Set<AnyCancellable> = []
 
     init(rootView: Content, configuration: HostingConfiguration) {
