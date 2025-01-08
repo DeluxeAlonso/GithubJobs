@@ -313,13 +313,21 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		E241F7D02D2E31E100CB968B /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				E2DA93632D1D3CD400C94A26 /* BaseView.swift */,
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
 		E258C107292484A90027484A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E241F7D02D2E31E100CB968B /* BaseView */,
 				E2063A622D211F7A004AC666 /* HostingController */,
 				E2B2C8DB288BC39800522186 /* SplitViewController.swift */,
 				E2A13FE5286D5C75001BC83D /* ViewController.swift */,
-				E2DA93632D1D3CD400C94A26 /* BaseView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";

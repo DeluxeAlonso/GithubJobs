@@ -16,7 +16,9 @@ protocol BaseView: View {
 
     var loading: LoadingContent { get }
     var populated: PopulatedContent { get }
+
     var error: ErrorContent { get }
+    var errorViewModel: ErrorViewModel? { get }
 
     var content: MainContent { get }
 }
@@ -28,6 +30,16 @@ extension BaseView {
                 .progressViewStyle(CircularProgressViewStyle())
                 .controlSize(.large)
                 .padding(.top, 24.0)
+            Spacer()
+        }
+    }
+
+    var error: some View {
+        VStack {
+            Spacer()
+            errorViewModel.flatMap {
+                ErrorView(viewModel: $0)
+            }
             Spacer()
         }
     }
