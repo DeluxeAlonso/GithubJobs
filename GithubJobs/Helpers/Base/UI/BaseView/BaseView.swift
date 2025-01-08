@@ -31,4 +31,14 @@ extension BaseView {
             Spacer()
         }
     }
+
+    var error: some View {
+        VStack {
+            Spacer()
+            viewModel.errorViewModel.flatMap {
+                ErrorView(viewModel: $0)
+            }
+            Spacer()
+        }
+    }
 }

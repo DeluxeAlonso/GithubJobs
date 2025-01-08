@@ -15,7 +15,6 @@
 		E21AEC382556E35100A85639 /* JobsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC372556E35100A85639 /* JobsViewModel.swift */; };
 		E21AEC3E2556E3B800A85639 /* JobsClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC3D2556E3B700A85639 /* JobsClientProtocol.swift */; };
 		E23930DE25585D8000E7C4ED /* JobDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23930DD25585D8000E7C4ED /* JobDetailViewModelTests.swift */; };
-		E241F7D22D2E31EE00CB968B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241F7D12D2E31EE00CB968B /* BaseViewModel.swift */; };
 		E258C109292484E40027484A /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258C108292484E40027484A /* BaseCoordinator.swift */; };
 		E2609A36255836E5008002BA /* JobDetailHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2609A35255836E5008002BA /* JobDetailHeaderViewModel.swift */; };
 		E261EF2A28A30F3400F577AD /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E261EF2928A30F3400F577AD /* Themeable.swift */; };
@@ -144,7 +143,6 @@
 		E21AEC372556E35100A85639 /* JobsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewModel.swift; sourceTree = "<group>"; };
 		E21AEC3D2556E3B700A85639 /* JobsClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsClientProtocol.swift; sourceTree = "<group>"; };
 		E23930DD25585D8000E7C4ED /* JobDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModelTests.swift; sourceTree = "<group>"; };
-		E241F7D12D2E31EE00CB968B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		E258C108292484E40027484A /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		E25C2E9F26487E4100DFAEFC /* GithubJobs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GithubJobs.entitlements; sourceTree = "<group>"; };
 		E2609A35255836E5008002BA /* JobDetailHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailHeaderViewModel.swift; sourceTree = "<group>"; };
@@ -319,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				E2DA93632D1D3CD400C94A26 /* BaseView.swift */,
-				E241F7D12D2E31EE00CB968B /* BaseViewModel.swift */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -961,7 +958,6 @@
 				E2FCD6CD2CCF4AF000B05FB8 /* FeatureFlagsViewModel.swift in Sources */,
 				E2673B1E25578A5E00727460 /* JobDetailSectionView.swift in Sources */,
 				E2D19FB92CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift in Sources */,
-				E241F7D22D2E31EE00CB968B /* BaseViewModel.swift in Sources */,
 				E21AEC332556E1E600A85639 /* JobsProvider.swift in Sources */,
 				E281527F2889047B000A5C55 /* ThemeSelectionItemModel.swift in Sources */,
 				E2ADFA002873F18E00987D4D /* UICollectionView+Register.swift in Sources */,
