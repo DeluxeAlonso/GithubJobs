@@ -9,10 +9,9 @@ import Combine
 import Foundation
 
 @MainActor
-protocol FAQsViewModelProtocol: ObservableObject {
+protocol FAQsViewModelProtocol: BaseViewModel {
 
     var items: [FAQsItemViewModel] { get }
-    var errorViewModel: ErrorViewModel? { get }
 
     var viewState: FAQsViewState { get }
 
