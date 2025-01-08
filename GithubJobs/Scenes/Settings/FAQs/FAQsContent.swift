@@ -10,6 +10,8 @@ import SwiftUI
 struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
     @ObservedObject var viewModel: ViewModel
 
+    var errorViewModel: ErrorViewModel? { viewModel.errorViewModel }
+
     var body: some View {
         content
             .task {

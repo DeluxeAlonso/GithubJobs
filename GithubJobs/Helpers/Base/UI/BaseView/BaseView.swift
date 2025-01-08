@@ -16,7 +16,9 @@ protocol BaseView: View {
 
     var loading: LoadingContent { get }
     var populated: PopulatedContent { get }
+
     var error: ErrorContent { get }
+    var errorViewModel: ErrorViewModel? { get }
 
     var content: MainContent { get }
 }
@@ -35,7 +37,7 @@ extension BaseView {
     var error: some View {
         VStack {
             Spacer()
-            viewModel.errorViewModel.flatMap {
+            errorViewModel.flatMap {
                 ErrorView(viewModel: $0)
             }
             Spacer()

@@ -10,6 +10,8 @@ import SwiftUI
 struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: BaseView {
     @ObservedObject var viewModel: ViewModel
 
+    var errorViewModel: ErrorViewModel? { viewModel.errorViewModel }
+
     var body: some View {
         content
             .task {
@@ -31,16 +33,6 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: BaseView {
             ForEach(viewModel.toggles, id: \.identifier) {
                 FeatureFlagToggleView(viewModel: $0)
             }
-        }
-    }
-
-    var error: some View {
-        VStack {
-            Spacer()
-            viewModel.errorViewModel.flatMap {
-                ErrorView(viewModel: $0)
-            }
-            Spacer()
         }
     }
 }
