@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// TODO: - Split BaseView intro protocols for Loading and Error State
 struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
     @ObservedObject var viewModel: ViewModel
 
@@ -37,16 +38,6 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
                 Spacer()
             }
             .padding(.top, 24.0)
-        }
-    }
-
-    var error: some View {
-        VStack {
-            Spacer()
-            viewModel.errorViewModel.flatMap {
-                ErrorView(viewModel: $0)
-            }
-            Spacer()
         }
     }
 }
