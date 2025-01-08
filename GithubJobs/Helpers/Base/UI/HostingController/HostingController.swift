@@ -17,13 +17,9 @@ final class HostingController<Content>: UIHostingController<Content> where Conte
     init(rootView: Content, configuration: HostingConfiguration) {
         self.configuration = configuration
         super.init(rootView: rootView)
-    }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
         configuration
             .$title
-            .receive(on: DispatchQueue.main)
             .sink { [weak self] title in
                 guard let self else { return }
                 self.title = title
