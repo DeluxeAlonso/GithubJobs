@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+protocol BaseViewModel: ObservableObject {
+
+    var errorViewModel: ErrorViewModel? { get }
+
+}
