@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// TODO: - Split BaseView intro protocols for Loading and Error State
 struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
     @ObservedObject var viewModel: ViewModel
 
