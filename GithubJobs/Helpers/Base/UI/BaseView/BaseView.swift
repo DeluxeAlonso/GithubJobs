@@ -7,12 +7,4 @@
 
 import SwiftUI
 
-protocol BaseView: LoadableView, ErrorPlaceholderView {
-    associatedtype MainContent: View
-
-    associatedtype PopulatedContent: View
-
-    var populated: PopulatedContent { get }
-
-    var content: MainContent { get }
-}
+typealias BaseView = LoadableView & ErrorPlaceholderView
