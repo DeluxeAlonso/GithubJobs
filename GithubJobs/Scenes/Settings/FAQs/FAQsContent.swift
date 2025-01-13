@@ -10,7 +10,7 @@ import SwiftUI
 struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
     @ObservedObject var viewModel: ViewModel
 
-    var errorViewModel: ErrorViewModel? { viewModel.errorViewModel }
+    // MARK: - View
 
     var body: some View {
         content
@@ -19,8 +19,10 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
             }
     }
 
+    // MARK: - Private
+
     @ViewBuilder
-    var content: some View {
+    private var content: some View {
         switch viewModel.viewState {
         case .loading: loading
         case .populated: populated
@@ -28,7 +30,7 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
         }
     }
 
-    var populated: some View {
+    private var populated: some View {
         ScrollView {
             VStack(spacing: 16.0) {
                 ForEach(viewModel.items, id: \.title) {
@@ -39,4 +41,8 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
             .padding(.top, 24.0)
         }
     }
+
+    // MARK: - ErrorPlaceHolderView
+
+    var errorViewModel: ErrorViewModel? { viewModel.errorViewModel }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: BaseView {
     @ObservedObject var viewModel: ViewModel
 
-    var errorViewModel: ErrorViewModel? { viewModel.errorViewModel }
+    // MARK: - View
 
     var body: some View {
         content
@@ -20,7 +20,7 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: BaseView {
     }
 
     @ViewBuilder
-    var content: some View {
+    private var content: some View {
         switch viewModel.viewState {
         case .loading: loading
         case .populated: populated
@@ -28,13 +28,17 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: BaseView {
         }
     }
 
-    var populated: some View {
+    private var populated: some View {
         List {
             ForEach(viewModel.toggles, id: \.identifier) {
                 FeatureFlagToggleView(viewModel: $0)
             }
         }
     }
+
+    // MARK: - ErrorPlaceholderView
+
+    var errorViewModel: ErrorViewModel? { viewModel.errorViewModel }
 }
 
 // swiftlint:disable type_name
