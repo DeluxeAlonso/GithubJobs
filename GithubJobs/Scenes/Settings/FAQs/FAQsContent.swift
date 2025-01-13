@@ -10,8 +10,6 @@ import SwiftUI
 struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
     @ObservedObject var viewModel: ViewModel
 
-    var errorViewModel: ErrorViewModel? { viewModel.errorViewModel }
-
     var body: some View {
         content
             .task {
@@ -39,4 +37,8 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
             .padding(.top, 24.0)
         }
     }
+
+    // MARK: - ErrorPlaceHolderView
+
+    var errorViewModel: ErrorViewModel? { viewModel.errorViewModel }
 }
