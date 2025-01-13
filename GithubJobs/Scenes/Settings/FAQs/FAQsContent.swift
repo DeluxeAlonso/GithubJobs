@@ -10,6 +10,8 @@ import SwiftUI
 struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
     @ObservedObject var viewModel: ViewModel
 
+    // MARK: - View
+
     var body: some View {
         content
             .task {
@@ -17,8 +19,10 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
             }
     }
 
+    // MARK: - Private
+
     @ViewBuilder
-    var content: some View {
+    private var content: some View {
         switch viewModel.viewState {
         case .loading: loading
         case .populated: populated
@@ -26,7 +30,7 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
         }
     }
 
-    var populated: some View {
+    private var populated: some View {
         ScrollView {
             VStack(spacing: 16.0) {
                 ForEach(viewModel.items, id: \.title) {
