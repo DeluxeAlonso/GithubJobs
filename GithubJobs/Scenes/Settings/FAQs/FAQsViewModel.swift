@@ -18,6 +18,9 @@ protocol FAQsViewModelProtocol: ObservableObject {
 
     func load() async
 
+    var verticalSpacing: CGFloat { get }
+    var topPadding: CGFloat { get }
+
 }
 
 final class FAQsViewModel: FAQsViewModelProtocol {
