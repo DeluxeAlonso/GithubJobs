@@ -26,7 +26,7 @@ struct FAQsItemContent<ViewModel: FAQsItemViewModelProtocol>: View {
                 .font(.headline)
                 .multilineTextAlignment(.leading)
         }, expandedContent: {
-            VStack(spacing: 8.0) {
+            VStack(spacing: viewModel.subtitlesVerticalSpacing) {
                 ForEach(viewModel.subtitles, id: \.self) {
                     Text($0)
                         .font(.body)
