@@ -85,6 +85,8 @@ final class FAQsItemViewModel: FAQsItemViewModelProtocol {
 
     var padding: CGFloat { 16.0 }
 
+    var subtitlesVerticalSpacing: CGFloat { 8.0 }
+
     init(title: String,
          subtitles: [String],
          expanded: Bool = false) {
