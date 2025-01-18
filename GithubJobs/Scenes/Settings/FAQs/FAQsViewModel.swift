@@ -64,6 +64,7 @@ protocol FAQsItemViewModelProtocol: ObservableObject {
     var expanded: Bool { get set }
     var expandCollapseStyleConfiguration: ExpandCollapseControlStyleConfiguration { get }
     var padding: CGFloat { get }
+    var subtitlesVerticalSpacing: CGFloat { get }
 
 }
 
@@ -83,6 +84,8 @@ final class FAQsItemViewModel: FAQsItemViewModelProtocol {
     }
 
     var padding: CGFloat { 16.0 }
+
+    var subtitlesVerticalSpacing: CGFloat { 8.0 }
 
     init(title: String,
          subtitles: [String],
