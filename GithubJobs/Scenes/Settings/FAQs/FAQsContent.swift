@@ -32,13 +32,13 @@ struct FAQsContent<ViewModel: FAQsViewModelProtocol>: BaseView {
 
     private var populated: some View {
         ScrollView {
-            VStack(spacing: 16.0) {
+            VStack(spacing: viewModel.verticalSpacing) {
                 ForEach(viewModel.items, id: \.title) {
                     FAQsItemContent(viewModel: $0)
                 }
                 Spacer()
             }
-            .padding(.top, 24.0)
+            .padding(.top, viewModel.topPadding)
         }
     }
 
