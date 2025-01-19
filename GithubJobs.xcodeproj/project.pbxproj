@@ -432,6 +432,15 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		E29CB5C02D3CB08300646F47 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E2B844972CF19D670079A7C2 /* SettingsViewModelTests.swift */,
+				E2A8F4DA2CFAAB2400B07BF7 /* SettingsInteractorTests.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		E2A13FE4286D5C57001BC83D /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,12 +556,11 @@
 		E2B3E6C42556D67700B5483A /* GithubJobsTests */ = {
 			isa = PBXGroup;
 			children = (
+				E29CB5C02D3CB08300646F47 /* Settings */,
 				E27E9CAD2558457200210D1C /* Mocks */,
 				E2B3E6C72556D67700B5483A /* Info.plist */,
 				E2641C062557CB1E00675868 /* JobsViewModelTests.swift */,
 				E23930DD25585D8000E7C4ED /* JobDetailViewModelTests.swift */,
-				E2B844972CF19D670079A7C2 /* SettingsViewModelTests.swift */,
-				E2A8F4DA2CFAAB2400B07BF7 /* SettingsInteractorTests.swift */,
 			);
 			path = GithubJobsTests;
 			sourceTree = "<group>";
