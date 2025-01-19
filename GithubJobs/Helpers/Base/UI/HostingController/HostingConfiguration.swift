@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 final class HostingConfiguration {
 
     @Published var title: String?
