@@ -5,7 +5,6 @@
 //  Created by Alonso on 20/01/25.
 //
 
-import UIKit
 @testable import GithubJobs
 
 final class MockFAQsInteractor: FAQsInteractorProtocol {
