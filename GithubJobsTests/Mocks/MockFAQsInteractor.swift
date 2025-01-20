@@ -5,4 +5,16 @@
 //  Created by Alonso on 20/01/25.
 //
 
-import Foundation
+import UIKit
+@testable import GithubJobs
+
+final class MockFAQsInteractor: FAQsInteractorProtocol {
+
+    var getAllFAQsResult: Result<[FAQ], APIError> = .success([])
+    private(set) var getAllFAQsCallCount = 0
+    func getAllFAQs() async -> Result<[FAQ], APIError> {
+        getAllFAQsCallCount += 1
+        return getAllFAQsResult
+    }
+
+}
