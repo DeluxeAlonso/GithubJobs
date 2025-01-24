@@ -29,4 +29,18 @@ final class FAQsViewModelTests: XCTestCase {
         try super.tearDownWithError()
     }
 
+    func testVerticalSpacing() {
+        // Act
+        let verticalSpacing = viewModel.verticalSpacing
+        // Assert
+        XCTAssertEqual(verticalSpacing, 16.0)
+    }
+
+    func testTopPadding() {
+        // Act
+        let topPadding = viewModel.topPadding
+        // Assert
+        XCTAssertEqual(topPadding, 24.0)
+    }
+
 }
