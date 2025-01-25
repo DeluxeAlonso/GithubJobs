@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import Combine
 @testable import GithubJobs
 
 @MainActor
