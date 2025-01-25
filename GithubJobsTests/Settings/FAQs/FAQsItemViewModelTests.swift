@@ -6,11 +6,32 @@
 //
 
 import XCTest
-import Combine
 @testable import GithubJobs
 
 @MainActor
 final class FAQsItemViewModelTests: XCTestCase {
+
+    func testInit() {
+        // Act
+        let viewModel = FAQsItemViewModel(title: "Title", subtitles: ["Description"])
+        // Assert
+        XCTAssertEqual(viewModel.title, "Title")
+        XCTAssertEqual(viewModel.subtitles.count, 1)
+        XCTAssertEqual(viewModel.subtitles.first, "Description")
+        XCTAssertFalse(viewModel.expanded)
+    }
+
+    func testInitWithFAQ() {
+        // Arrange
+        let faq = FAQ(id: "ID", title: "Title", descriptions: ["Description"])
+        // Act
+        let viewModel = FAQsItemViewModel(faq: faq)
+        // Assert
+        XCTAssertEqual(viewModel.title, "Title")
+        XCTAssertEqual(viewModel.subtitles.count, 1)
+        XCTAssertEqual(viewModel.subtitles.first, "Description")
+        XCTAssertFalse(viewModel.expanded)
+    }
 
     func testPadding() {
         // Arrange
