@@ -95,6 +95,7 @@
 		E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E73B2556E10700B5483A /* JobsResult.swift */; };
 		E2B844982CF19D670079A7C2 /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B844972CF19D670079A7C2 /* SettingsViewModelTests.swift */; };
 		E2C601B72D44B2B000B64A99 /* FAQsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C601B62D44B2B000B64A99 /* FAQsItemViewModel.swift */; };
+		E2C601B92D44B2DD00B64A99 /* FAQsItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C601B82D44B2DD00B64A99 /* FAQsItemViewModelTests.swift */; };
 		E2CC32482877DFF500345569 /* ThemeSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */; };
 		E2D19FB92CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FB82CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift */; };
 		E2D19FC32CE822E200BC0F45 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC22CE822E200BC0F45 /* ErrorView.swift */; };
@@ -235,6 +236,7 @@
 		E2B3E73B2556E10700B5483A /* JobsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsResult.swift; sourceTree = "<group>"; };
 		E2B844972CF19D670079A7C2 /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
 		E2C601B62D44B2B000B64A99 /* FAQsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsItemViewModel.swift; sourceTree = "<group>"; };
+		E2C601B82D44B2DD00B64A99 /* FAQsItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsItemViewModelTests.swift; sourceTree = "<group>"; };
 		E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewModel.swift; sourceTree = "<group>"; };
 		E2D19FB82CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagsInteractor.swift; sourceTree = "<group>"; };
 		E2D19FC22CE822E200BC0F45 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 			isa = PBXGroup;
 			children = (
 				E29CB5C22D3CB15900646F47 /* FAQsViewModelTests.swift */,
+				E2C601B82D44B2DD00B64A99 /* FAQsItemViewModelTests.swift */,
 			);
 			path = FAQs;
 			sourceTree = "<group>";
@@ -1030,6 +1033,7 @@
 				E2E457242CF96FF30045F7C9 /* MockThemeManagerProtocol.swift in Sources */,
 				E2641C072557CB1E00675868 /* JobsViewModelTests.swift in Sources */,
 				E2B844982CF19D670079A7C2 /* SettingsViewModelTests.swift in Sources */,
+				E2C601B92D44B2DD00B64A99 /* FAQsItemViewModelTests.swift in Sources */,
 				E26FD26C2784088A00AAEBCD /* MockJobsInteractor.swift in Sources */,
 				E27E9CBD2558463A00210D1C /* Job+MockInitializer.swift in Sources */,
 				E29CB5C32D3CB15900646F47 /* FAQsViewModelTests.swift in Sources */,
