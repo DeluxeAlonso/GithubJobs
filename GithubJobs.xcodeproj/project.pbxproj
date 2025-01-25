@@ -94,6 +94,7 @@
 		E2B3E7372556E01400B5483A /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E7362556E01400B5483A /* Job.swift */; };
 		E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E73B2556E10700B5483A /* JobsResult.swift */; };
 		E2B844982CF19D670079A7C2 /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B844972CF19D670079A7C2 /* SettingsViewModelTests.swift */; };
+		E2C601B72D44B2B000B64A99 /* FAQsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C601B62D44B2B000B64A99 /* FAQsItemViewModel.swift */; };
 		E2CC32482877DFF500345569 /* ThemeSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */; };
 		E2D19FB92CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FB82CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift */; };
 		E2D19FC32CE822E200BC0F45 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D19FC22CE822E200BC0F45 /* ErrorView.swift */; };
@@ -233,6 +234,7 @@
 		E2B3E7362556E01400B5483A /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		E2B3E73B2556E10700B5483A /* JobsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsResult.swift; sourceTree = "<group>"; };
 		E2B844972CF19D670079A7C2 /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
+		E2C601B62D44B2B000B64A99 /* FAQsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsItemViewModel.swift; sourceTree = "<group>"; };
 		E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewModel.swift; sourceTree = "<group>"; };
 		E2D19FB82CE7E18A00BC0F45 /* FeatureFlagsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagsInteractor.swift; sourceTree = "<group>"; };
 		E2D19FC22CE822E200BC0F45 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 				E2A638A32CE66604008C8AAF /* FAQsCoordinator.swift */,
 				E20116462CFC0E2000A2B1C5 /* FAQsInteractor.swift */,
 				E2B017B82D0567B200E91947 /* FAQsViewState.swift */,
+				E2C601B62D44B2B000B64A99 /* FAQsItemViewModel.swift */,
 			);
 			path = FAQs;
 			sourceTree = "<group>";
@@ -989,6 +992,7 @@
 				E21AEC332556E1E600A85639 /* JobsProvider.swift in Sources */,
 				E281527F2889047B000A5C55 /* ThemeSelectionItemModel.swift in Sources */,
 				E2ADFA002873F18E00987D4D /* UICollectionView+Register.swift in Sources */,
+				E2C601B72D44B2B000B64A99 /* FAQsItemViewModel.swift in Sources */,
 				E2641BD72557C04900675868 /* String+HTML.swift in Sources */,
 				E2673B09255786F000727460 /* JobDetailProtocols.swift in Sources */,
 				E2D2DC6E2CFE8DA5009CDACE /* FAQ.swift in Sources */,
