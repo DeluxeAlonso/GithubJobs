@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 protocol FAQsItemViewModelProtocol: ObservableObject {
 
     var title: String { get }
