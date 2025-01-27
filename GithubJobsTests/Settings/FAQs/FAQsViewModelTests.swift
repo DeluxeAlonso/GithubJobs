@@ -60,26 +60,33 @@ final class FAQsViewModelTests: XCTestCase {
 
     func testLoadError() async throws {
         // Arrange
-        let faqsExpectation = expectation(description: "We should not retrieve FAQs models")
+        let errorModelExpectation = expectation(description: "We should get an error view model")
         let stateExpectation = expectation(description: "State is set to error")
         mockInteractor.getAllFAQsResult = .failure(.badRequest)
         // Act
         viewModel.$items
             .dropFirst()
             .sink { _ in
-                XCTFail()
+                XCTFail("We should not get any FAQs item")
+            }
+            .store(in: &cancellables)
+        viewModel.$errorViewModel
+            .dropFirst()
+            .sink { errorViewModel in
+                XCTAssertNotNil(errorViewModel)
+                errorModelExpectation.fulfill()
             }
             .store(in: &cancellables)
         viewModel.$viewState
             .dropFirst(2)
             .sink { state in
                 XCTAssertEqual(state, .error)
-                faqsExpectation.fulfill()
+                stateExpectation.fulfill()
             }
             .store(in: &cancellables)
         await viewModel.load()
         // Assert
-        await fulfillment(of: [faqsExpectation, stateExpectation], timeout: 1.0)
+        await fulfillment(of: [errorModelExpectation, stateExpectation], timeout: 1.0)
     }
 
     func testVerticalSpacing() {
