@@ -47,10 +47,10 @@ final class FAQsViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
         viewModel.$viewState
-            .dropFirst()
+            .dropFirst(2)
             .sink { state in
                 XCTAssertEqual(state, .populated)
-                faqsExpectation.fulfill()
+                stateExpectation.fulfill()
             }
             .store(in: &cancellables)
         await viewModel.load()
@@ -58,34 +58,34 @@ final class FAQsViewModelTests: XCTestCase {
         await fulfillment(of: [faqsExpectation, stateExpectation], timeout: 1.0)
     }
 
-    func testLoadError() async throws {
-        // Arrange
-        let faqsExpectation = expectation(description: "We should retrieve FAQs models")
-        let stateExpectation = expectation(description: "State is set to populated")
-        let faqs = [
-            FAQ(id: "ID", title: "Title", descriptions: ["Description"]),
-            FAQ(id: "ID2", title: "Title2", descriptions: ["Description2"])
-        ]
-        mockInteractor.getAllFAQsResult = .success(faqs)
-        // Act
-        viewModel.$items
-            .dropFirst()
-            .sink { faqs in
-                XCTAssertEqual(faqs.count, 2)
-                faqsExpectation.fulfill()
-            }
-            .store(in: &cancellables)
-        viewModel.$viewState
-            .dropFirst()
-            .sink { state in
-                XCTAssertEqual(state, .populated)
-                faqsExpectation.fulfill()
-            }
-            .store(in: &cancellables)
-        await viewModel.load()
-        // Assert
-        await fulfillment(of: [faqsExpectation, stateExpectation], timeout: 1.0)
-    }
+//    func testLoadError() async throws {
+//        // Arrange
+//        let faqsExpectation = expectation(description: "We should retrieve FAQs models")
+//        let stateExpectation = expectation(description: "State is set to populated")
+//        let faqs = [
+//            FAQ(id: "ID", title: "Title", descriptions: ["Description"]),
+//            FAQ(id: "ID2", title: "Title2", descriptions: ["Description2"])
+//        ]
+//        mockInteractor.getAllFAQsResult = .success(faqs)
+//        // Act
+//        viewModel.$items
+//            .dropFirst()
+//            .sink { faqs in
+//                XCTAssertEqual(faqs.count, 2)
+//                faqsExpectation.fulfill()
+//            }
+//            .store(in: &cancellables)
+//        viewModel.$viewState
+//            .dropFirst()
+//            .sink { state in
+//                XCTAssertEqual(state, .populated)
+//                faqsExpectation.fulfill()
+//            }
+//            .store(in: &cancellables)
+//        await viewModel.load()
+//        // Assert
+//        await fulfillment(of: [faqsExpectation, stateExpectation], timeout: 1.0)
+//    }
 
     func testVerticalSpacing() {
         // Act
