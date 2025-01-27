@@ -7,6 +7,17 @@
 
 import Foundation
 
+protocol FAQsItemViewModelProtocol: ObservableObject {
+
+    var title: String { get }
+    var subtitles: [String] { get }
+    var expanded: Bool { get set }
+    var expandCollapseStyleConfiguration: ExpandCollapseControlStyleConfiguration { get }
+    var padding: CGFloat { get }
+    var subtitlesVerticalSpacing: CGFloat { get }
+
+}
+
 final class FAQsItemViewModel: FAQsItemViewModelProtocol {
 
     let title: String
