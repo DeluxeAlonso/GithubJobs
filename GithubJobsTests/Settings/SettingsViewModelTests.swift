@@ -36,6 +36,9 @@ final class SettingsViewModelTests: XCTestCase {
     }
 
     func testLoadItems() async {
+        // Arrange
+        let expectation = expectation(description: "We should get two sections")
+        // Act
         viewModel.sectionModelsPublisher
             .dropFirst()
             .sink { sections in
@@ -47,9 +50,12 @@ final class SettingsViewModelTests: XCTestCase {
                 let debugSection = sections.last
                 XCTAssertEqual(debugSection?.items.count, 1)
                 XCTAssertEqual(debugSection?.items.first?.title, "Feature Flags")
+                expectation.fulfill()
         }
         .store(in: &cancellables)
         await viewModel.loadItems()
+        // Assert
+        wait(for: [expectation])
     }
 
     func testLoadItemsWithFAQs() async {
