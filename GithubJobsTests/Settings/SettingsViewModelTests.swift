@@ -37,7 +37,7 @@ final class SettingsViewModelTests: XCTestCase {
 
     func testLoadItems() async {
         // Arrange
-        let expectation = expectation(description: "We should get two sections")
+        let expectation = expectation(description: "We should get two sections with one item each.")
         // Act
         viewModel.sectionModelsPublisher
             .dropFirst()
@@ -59,7 +59,10 @@ final class SettingsViewModelTests: XCTestCase {
     }
 
     func testLoadItemsWithFAQs() async {
+        // Arrange
         mockInteractor.getFeatureFlagValueResult = true
+        let expectation = expectation(description: "We should get two sections")
+        // Act
         viewModel.sectionModelsPublisher
             .dropFirst()
             .sink { sections in
@@ -75,6 +78,8 @@ final class SettingsViewModelTests: XCTestCase {
         }
         .store(in: &cancellables)
         await viewModel.loadItems()
+        // Assert
+        wait(for: [expectation])
     }
 
     func testSelectThemeSelectionItem() async {
