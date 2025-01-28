@@ -55,7 +55,7 @@ final class SettingsViewModelTests: XCTestCase {
         .store(in: &cancellables)
         await viewModel.loadItems()
         // Assert
-        wait(for: [expectation])
+        await fulfillment(of: [expectation], timeout: 1.0)
     }
 
     func testLoadItemsWithFAQs() async {
@@ -79,7 +79,7 @@ final class SettingsViewModelTests: XCTestCase {
         .store(in: &cancellables)
         await viewModel.loadItems()
         // Assert
-        wait(for: [expectation])
+        await fulfillment(of: [expectation], timeout: 1.0)
     }
 
     func testSelectThemeSelectionItem() async {
