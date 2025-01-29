@@ -101,25 +101,37 @@ final class SettingsViewModelTests: XCTestCase {
     }
 
     func testSelectFAQsSelectionItem() async {
+        // Arrange
         mockInteractor.getFeatureFlagValueResult = true
+        let expectation = expectation(description: "We should get a faqs navigation")
+        // Act
         viewModel.didUpdateNavigation
             .sink { navigation in
                 XCTAssertEqual(navigation, .faqs)
+                expectation.fulfill()
             }
             .store(in: &cancellables)
         await viewModel.loadItems()
         viewModel.selectItem(at: 1, and: 0)
+        // Assert
+        await fulfillment(of: [expectation], timeout: 1.0)
     }
 
     func testSelectFeatureFlagsSelectionItem() async {
+        // Arrange
         mockInteractor.getFeatureFlagValueResult = true
+        let expectation = expectation(description: "We should get a featureFlags navigation")
+        // Act
         viewModel.didUpdateNavigation
             .sink { navigation in
                 XCTAssertEqual(navigation, .featureFlags)
+                expectation.fulfill()
             }
             .store(in: &cancellables)
         await viewModel.loadItems()
         viewModel.selectItem(at: 0, and: 1)
+        // Assert
+        await fulfillment(of: [expectation], timeout: 1.0)
     }
 
 }
