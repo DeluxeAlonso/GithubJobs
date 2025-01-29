@@ -86,14 +86,18 @@ final class SettingsViewModelTests: XCTestCase {
     func testSelectThemeSelectionItem() async {
         // Arrange
         mockInteractor.getFeatureFlagValueResult = true
+        let expectation = expectation(description: "We should get a theme navigation")
         // Act
         viewModel.didUpdateNavigation
             .sink { navigation in
                 XCTAssertEqual(navigation, .theme)
+                expectation.fulfill()
             }
             .store(in: &cancellables)
         await viewModel.loadItems()
         viewModel.selectItem(at: 0, and: 0)
+        // Assert
+        await fulfillment(of: [expectation], timeout: 1.0)
     }
 
     func testSelectFAQsSelectionItem() async {
