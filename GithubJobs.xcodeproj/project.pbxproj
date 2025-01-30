@@ -117,6 +117,7 @@
 		E2F570A928979DE900A67593 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A628979DE900A67593 /* ThemeManager.swift */; };
 		E2F570AA28979DE900A67593 /* ThemeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A728979DE900A67593 /* ThemeManagerProtocol.swift */; };
 		E2F570AB28979DE900A67593 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A828979DE900A67593 /* Theme.swift */; };
+		E2F5FD8D2D4B4FAA0090EC76 /* MockFeatureFlagsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5FD8C2D4B4FAA0090EC76 /* MockFeatureFlagsInteractor.swift */; };
 		E2FCD6CB2CCF436F00B05FB8 /* FeatureFlagsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD6CA2CCF436F00B05FB8 /* FeatureFlagsContent.swift */; };
 		E2FCD6CD2CCF4AF000B05FB8 /* FeatureFlagsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD6CC2CCF4AF000B05FB8 /* FeatureFlagsViewModel.swift */; };
 		E2FCD6CF2CCF4C5600B05FB8 /* FeatureFlagsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD6CE2CCF4C5600B05FB8 /* FeatureFlagsCoordinator.swift */; };
@@ -258,6 +259,7 @@
 		E2F570A628979DE900A67593 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		E2F570A728979DE900A67593 /* ThemeManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManagerProtocol.swift; sourceTree = "<group>"; };
 		E2F570A828979DE900A67593 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		E2F5FD8C2D4B4FAA0090EC76 /* MockFeatureFlagsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFeatureFlagsInteractor.swift; sourceTree = "<group>"; };
 		E2FCD6CA2CCF436F00B05FB8 /* FeatureFlagsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagsContent.swift; sourceTree = "<group>"; };
 		E2FCD6CC2CCF4AF000B05FB8 /* FeatureFlagsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagsViewModel.swift; sourceTree = "<group>"; };
 		E2FCD6CE2CCF4C5600B05FB8 /* FeatureFlagsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagsCoordinator.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				E2E457232CF96FF30045F7C9 /* MockThemeManagerProtocol.swift */,
 				E2E457252CF97AD10045F7C9 /* MockFeatureFlagsManagerProtocol.swift */,
 				E29B38302D3E25DB00D18954 /* MockFAQsInteractor.swift */,
+				E2F5FD8C2D4B4FAA0090EC76 /* MockFeatureFlagsInteractor.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1026,6 +1029,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E29B38312D3E25DB00D18954 /* MockFAQsInteractor.swift in Sources */,
+				E2F5FD8D2D4B4FAA0090EC76 /* MockFeatureFlagsInteractor.swift in Sources */,
 				E2E457262CF97AD10045F7C9 /* MockFeatureFlagsManagerProtocol.swift in Sources */,
 				E2A8F4DB2CFAAB2400B07BF7 /* SettingsInteractorTests.swift in Sources */,
 				E23930DE25585D8000E7C4ED /* JobDetailViewModelTests.swift in Sources */,
