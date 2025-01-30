@@ -5,8 +5,6 @@
 //  Created by Alonso on 15/11/24.
 //
 
-import Foundation
-
 protocol FeatureFlagsInteractorProtocol {
 
     func getAllFeatureFlags() async -> Result<[FeatureFlagProtocol], APIError>
