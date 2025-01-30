@@ -5,8 +5,6 @@
 //  Created by Alonso on 30/11/24.
 //
 
-import Foundation
-
 protocol FAQsInteractorProtocol {
 
     func getAllFAQs() async -> Result<[FAQ], APIError>
