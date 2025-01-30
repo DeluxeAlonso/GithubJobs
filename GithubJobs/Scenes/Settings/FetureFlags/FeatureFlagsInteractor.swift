@@ -9,7 +9,7 @@ import Foundation
 
 protocol FeatureFlagsInteractorProtocol {
 
-    func getAllFeatureFlags() async -> Result<[FeatureFlagProtocol], Error>
+    func getAllFeatureFlags() async -> Result<[FeatureFlagProtocol], APIError>
 
     func updateFeatureFlag(identifier: String, value: Bool) async
 
@@ -23,7 +23,7 @@ final class FeatureFlagsInteractor: FeatureFlagsInteractorProtocol {
         self.featureFlagsManager = featureFlagsManager
     }
 
-    func getAllFeatureFlags() async -> Result<[FeatureFlagProtocol], Error> {
+    func getAllFeatureFlags() async -> Result<[FeatureFlagProtocol], APIError> {
         let flags = await featureFlagsManager.allFlags
         return flags.isEmpty ? .failure(APIError.invalidData) : .success(flags)
     }
