@@ -10,6 +10,7 @@ import Foundation
 
 @MainActor
 protocol FAQsViewModelProtocol: ObservableObject {
+
     var items: [FAQsItemViewModel] { get }
     var errorViewModel: ErrorViewModel? { get }
 
@@ -19,9 +20,11 @@ protocol FAQsViewModelProtocol: ObservableObject {
 
     var verticalSpacing: CGFloat { get }
     var topPadding: CGFloat { get }
+
 }
 
 final class FAQsViewModel: FAQsViewModelProtocol {
+
     private let interactor: FAQsInteractorProtocol
 
     @Published var items: [FAQsItemViewModel] = []
@@ -57,4 +60,5 @@ final class FAQsViewModel: FAQsViewModelProtocol {
             self.viewState = .error
         }
     }
+
 }

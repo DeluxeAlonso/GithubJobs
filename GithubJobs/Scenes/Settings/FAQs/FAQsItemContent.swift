@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FAQsItemContent<ViewModel: FAQsItemViewModelProtocol>: View {
+
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
@@ -36,11 +37,14 @@ struct FAQsItemContent<ViewModel: FAQsItemViewModelProtocol>: View {
             }
         }, styleConfiguration: viewModel.expandCollapseStyleConfiguration)
     }
+
 }
 
 // swiftlint:disable type_name
 struct FAQsItemContent_Previews: PreviewProvider {
+    
     static var previews: some View {
         FAQsItemContent(viewModel: FAQsItemViewModel(title: "Title", subtitles: ["Subtitle"]))
     }
+
 }
