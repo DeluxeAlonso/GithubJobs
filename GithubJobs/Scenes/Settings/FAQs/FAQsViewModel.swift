@@ -35,12 +35,16 @@ final class FAQsViewModel: FAQsViewModelProtocol {
 
     var topPadding: CGFloat { 24.0 }
 
+    // MARK: - Initializers
+
     init(interactor: FAQsInteractorProtocol,
          hostingConfiguration: HostingConfiguration) {
         self.interactor = interactor
         self.hostingConfiguration = hostingConfiguration
         self.hostingConfiguration?.title = LocalizedStrings.faqsTitle()
     }
+
+    // MARK: - FAQsViewModelProtocol
 
     func load() async {
         viewState = .loading
