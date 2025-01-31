@@ -5,8 +5,6 @@
 //  Created by Alonso on 2/12/24.
 //
 
-import Foundation
-
 struct FAQsResult: Decodable {
 
     let faqs: [FAQ]
