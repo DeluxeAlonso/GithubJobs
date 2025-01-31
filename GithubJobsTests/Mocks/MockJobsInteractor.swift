@@ -13,11 +13,11 @@ final class MockJobsInteractor: JobsInteractorProtocol {
     var getJobResult: AnyPublisher<JobsResult, APIError>!
 
     func getJobs(page: Int) -> AnyPublisher<JobsResult, APIError> {
-        return getJobResult
+        getJobResult
     }
 
     func getJobs(description: String) -> AnyPublisher<JobsResult, APIError> {
-        return getJobResult
+        getJobResult
     }
 
 }

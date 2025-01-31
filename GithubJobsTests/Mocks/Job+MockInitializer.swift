@@ -14,10 +14,10 @@ extension Job {
                      description: String = "Description",
                      company: String = "Company",
                      companyLogoPath: String? = "/logo.jpg") -> Job {
-        return Job(id: id, title: title,
-                   description: description,
-                   company: company,
-                   companyLogoPath: companyLogoPath)
+        Job(id: id, title: title,
+            description: description,
+            company: company,
+            companyLogoPath: companyLogoPath)
     }
 
 }
