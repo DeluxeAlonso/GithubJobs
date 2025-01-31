@@ -80,6 +80,7 @@ final class FeatureFlagToggleViewModel: FeatureFlagToggleViewModelProtocol {
 
     let identifier: String
     let title: String
+
     @Published var value: Bool
 
     private let onTapHandler: OnTapHandler?
