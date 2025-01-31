@@ -84,6 +84,7 @@ final class FeatureFlagToggleViewModel: FeatureFlagToggleViewModelProtocol {
     @Published var value: Bool
 
     private let onTapHandler: OnTapHandler?
+
     typealias OnTapHandler = (String, Bool) -> Void
 
     private var cancellables: Set<AnyCancellable> = []

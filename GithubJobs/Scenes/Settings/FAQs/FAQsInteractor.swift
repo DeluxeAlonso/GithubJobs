@@ -15,9 +15,13 @@ final class FAQsInteractor: FAQsInteractorProtocol {
 
     private let faqsClient: FAQsClientProtocol
 
+    // MARK: - Initializers
+
     init(faqsClient: FAQsClientProtocol) {
         self.faqsClient = faqsClient
     }
+
+    // MARK: - FAQsInteractorProtocol
 
     func getAllFAQs() async -> Result<[FAQ], APIError> {
         switch await faqsClient.getFAQs() {
