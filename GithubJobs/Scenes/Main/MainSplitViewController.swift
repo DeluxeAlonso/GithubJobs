@@ -32,7 +32,7 @@ final class MainSplitViewController: SplitViewController, UISplitViewControllerD
     func splitViewController(_ splitViewController: UISplitViewController,
                              collapseSecondary secondaryViewController: UIViewController,
                              onto primaryViewController: UIViewController) -> Bool {
-        return true
+        true
     }
 
 }
