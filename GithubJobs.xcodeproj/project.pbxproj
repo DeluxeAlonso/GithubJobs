@@ -414,7 +414,7 @@
 		E28B528A2556FEE200389043 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E2FCD6D02CCF4DD400B05FB8 /* Color */,
+				E2FCD6D02CCF4DD400B05FB8 /* FeatureFlags */,
 				E2F570A528979DE900A67593 /* Theming */,
 				E28B52AB25570CF000389043 /* FontHelper.swift */,
 				E2641BFC2557C8AE00675868 /* LocalizedStrings.swift */,
@@ -739,12 +739,12 @@
 			path = FetureFlags;
 			sourceTree = "<group>";
 		};
-		E2FCD6D02CCF4DD400B05FB8 /* Color */ = {
+		E2FCD6D02CCF4DD400B05FB8 /* FeatureFlags */ = {
 			isa = PBXGroup;
 			children = (
 				E2FCD6D12CCF4DE000B05FB8 /* FeatureFlagsManager.swift */,
 			);
-			path = Color;
+			path = FeatureFlags;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
