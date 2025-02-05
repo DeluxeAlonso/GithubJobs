@@ -20,16 +20,6 @@ enum FeatureFlagIdentifier: String {
     case customChevron = "UseCustomChevron"
 }
 
-final class CustomChevronFeatureFlag: FeatureFlagProtocol {
-
-    let identifier: String = FeatureFlagIdentifier.customChevron.rawValue
-    let title: String = "User custom chevron view"
-
-    @AppStorage("GithubJobs_UseCustomChevron")
-    var value: Bool = false
-
-}
-
 protocol FeatureFlagsManagerProtocol: Actor {
     var allFlags: [FeatureFlagProtocol] { get }
 

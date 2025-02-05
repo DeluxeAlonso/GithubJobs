@@ -114,6 +114,7 @@
 		E2E457262CF97AD10045F7C9 /* MockFeatureFlagsManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E457252CF97AD10045F7C9 /* MockFeatureFlagsManagerProtocol.swift */; };
 		E2E6DCFD28A8CE2C0022547B /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E6DCFC28A8CE2C0022547B /* RefreshControl.swift */; };
 		E2E7FAE12D533542007415B8 /* DisplayFAQsFeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7FAE02D533542007415B8 /* DisplayFAQsFeatureFlag.swift */; };
+		E2E7FAE32D533572007415B8 /* CustomChevronFeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7FAE22D533572007415B8 /* CustomChevronFeatureFlag.swift */; };
 		E2F03E552CDB2BA6005B62D5 /* FeatureFlagToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F03E542CDB2BA6005B62D5 /* FeatureFlagToggleView.swift */; };
 		E2F570A928979DE900A67593 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A628979DE900A67593 /* ThemeManager.swift */; };
 		E2F570AA28979DE900A67593 /* ThemeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A728979DE900A67593 /* ThemeManagerProtocol.swift */; };
@@ -257,6 +258,7 @@
 		E2E457252CF97AD10045F7C9 /* MockFeatureFlagsManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFeatureFlagsManagerProtocol.swift; sourceTree = "<group>"; };
 		E2E6DCFC28A8CE2C0022547B /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		E2E7FAE02D533542007415B8 /* DisplayFAQsFeatureFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFAQsFeatureFlag.swift; sourceTree = "<group>"; };
+		E2E7FAE22D533572007415B8 /* CustomChevronFeatureFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChevronFeatureFlag.swift; sourceTree = "<group>"; };
 		E2F03E542CDB2BA6005B62D5 /* FeatureFlagToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagToggleView.swift; sourceTree = "<group>"; };
 		E2F570A628979DE900A67593 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		E2F570A728979DE900A67593 /* ThemeManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManagerProtocol.swift; sourceTree = "<group>"; };
@@ -746,6 +748,7 @@
 			children = (
 				E2FCD6D12CCF4DE000B05FB8 /* FeatureFlagsManager.swift */,
 				E2E7FAE02D533542007415B8 /* DisplayFAQsFeatureFlag.swift */,
+				E2E7FAE22D533572007415B8 /* CustomChevronFeatureFlag.swift */,
 			);
 			path = FeatureFlags;
 			sourceTree = "<group>";
@@ -975,6 +978,7 @@
 				E2B3E7372556E01400B5483A /* Job.swift in Sources */,
 				E286A32A288D0C79004ACF5D /* SettingsProtocols.swift in Sources */,
 				E2FCD6D22CCF4DE000B05FB8 /* FeatureFlagsManager.swift in Sources */,
+				E2E7FAE32D533572007415B8 /* CustomChevronFeatureFlag.swift in Sources */,
 				E2ADF9F72873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift in Sources */,
 				E20116472CFC0E2000A2B1C5 /* FAQsInteractor.swift in Sources */,
 				E2F03E552CDB2BA6005B62D5 /* FeatureFlagToggleView.swift in Sources */,
