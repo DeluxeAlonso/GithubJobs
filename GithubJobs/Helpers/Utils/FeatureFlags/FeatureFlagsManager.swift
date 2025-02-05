@@ -15,11 +15,6 @@ protocol FeatureFlagProtocol {
 
 }
 
-enum FeatureFlagIdentifier: String {
-    case displayFAQs = "DisplayFAQs"
-    case customChevron = "UseCustomChevron"
-}
-
 protocol FeatureFlagsManagerProtocol: Actor {
     var allFlags: [FeatureFlagProtocol] { get }
 
