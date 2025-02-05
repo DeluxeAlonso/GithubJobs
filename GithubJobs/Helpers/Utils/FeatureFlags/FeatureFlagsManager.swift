@@ -30,16 +30,6 @@ final class CustomChevronFeatureFlag: FeatureFlagProtocol {
 
 }
 
-final class DisplayFAQsFeatureFlag: FeatureFlagProtocol {
-
-    let identifier: String = FeatureFlagIdentifier.displayFAQs.rawValue
-    let title: String = "Displays FAQs screen"
-
-    @AppStorage("GithubJobs_DisplayFAQs")
-    var value: Bool = false
-
-}
-
 protocol FeatureFlagsManagerProtocol: Actor {
     var allFlags: [FeatureFlagProtocol] { get }
 
