@@ -12,7 +12,7 @@ class SplitViewController: UISplitViewController, Themeable {
 
     private let themeManager: ThemeManagerProtocol
 
-    private(set) var cancellables: Set<AnyCancellable> = []
+    var cancellables: Set<AnyCancellable> = []
 
     // MARK: - Initializers
 
