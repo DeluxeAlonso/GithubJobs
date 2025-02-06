@@ -11,7 +11,7 @@ class BaseCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
 
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?
-    var navigationController: UINavigationController
+    private(set) var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
