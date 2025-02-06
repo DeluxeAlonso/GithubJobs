@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-protocol FeatureFlagProtocol {
-
-    var identifier: String { get }
-    var title: String { get }
-    var value: Bool { get set }
-
-}
-
 protocol FeatureFlagsManagerProtocol: Actor {
     var allFlags: [FeatureFlagProtocol] { get }
 
