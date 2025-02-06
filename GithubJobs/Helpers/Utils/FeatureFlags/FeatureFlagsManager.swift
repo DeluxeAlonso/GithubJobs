@@ -15,31 +15,6 @@ protocol FeatureFlagProtocol {
 
 }
 
-enum FeatureFlagIdentifier: String {
-    case displayFAQs = "DisplayFAQs"
-    case customChevron = "UseCustomChevron"
-}
-
-final class CustomChevronFeatureFlag: FeatureFlagProtocol {
-
-    let identifier: String = FeatureFlagIdentifier.customChevron.rawValue
-    let title: String = "User custom chevron view"
-
-    @AppStorage("GithubJobs_UseCustomChevron")
-    var value: Bool = false
-
-}
-
-final class DisplayFAQsFeatureFlag: FeatureFlagProtocol {
-
-    let identifier: String = FeatureFlagIdentifier.displayFAQs.rawValue
-    let title: String = "Displays FAQs screen"
-
-    @AppStorage("GithubJobs_DisplayFAQs")
-    var value: Bool = false
-
-}
-
 protocol FeatureFlagsManagerProtocol: Actor {
     var allFlags: [FeatureFlagProtocol] { get }
 
