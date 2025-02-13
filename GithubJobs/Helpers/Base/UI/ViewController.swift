@@ -45,13 +45,13 @@ class ViewController: UIViewController, Themeable {
 
         updateUserInterfaceStyle(themeManager.interfaceStyle.value, animated: false)
 
-        themeManager.interfaceStyle
+        themeManager.theme
             .dropFirst()
             .removeDuplicates()
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] userInterfaceStyle in
+            .sink { [weak self] theme in
                 guard let self else { return }
-                self.updateUserInterfaceStyle(userInterfaceStyle, animated: true)
+                self.updateTheme(theme, animated: true)
             }.store(in: &cancellables)
     }
 
