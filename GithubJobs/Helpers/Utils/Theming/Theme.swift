@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Theme: CaseIterable {
+enum Theme: Int, CaseIterable {
     case light, dark, system
 
     func asUserInterfaceStyle() -> UIUserInterfaceStyle {
