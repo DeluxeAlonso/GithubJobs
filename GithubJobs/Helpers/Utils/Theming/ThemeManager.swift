@@ -16,9 +16,20 @@ final class ThemeManager: ThemeManagerProtocol {
     @AppStorage("UserInterfaceStyle")
     private var userInterfaceStyleRawValue: Int = UIUserInterfaceStyle.unspecified.rawValue
 
+    @AppStorage("Theme")
+    private var themeRawValue: Int = Theme.system.rawValue
+
     init() {}
 
     // MARK: - ThemeManagerProtocol
+
+    private(set) lazy var theme: CurrentValueSubject<Theme, Never> = {
+        CurrentValueSubject<Theme, Never>(storedTheme)
+    }()
+
+    func updateTheme(_ theme: Theme) {
+        self.storedTheme = theme
+    }
 
     private(set) lazy var interfaceStyle: CurrentValueSubject<UIUserInterfaceStyle, Never> = {
         CurrentValueSubject<UIUserInterfaceStyle, Never>(storedInterfaceStyle)
@@ -38,6 +49,17 @@ final class ThemeManager: ThemeManagerProtocol {
             userInterfaceStyleRawValue = newValue.rawValue
             // We update the style subject value.
             interfaceStyle.value = newValue
+        }
+    }
+
+    private var storedTheme: Theme {
+        get {
+            Theme(rawValue: themeRawValue) ?? .system
+        }
+        set {
+            themeRawValue = newValue.rawValue
+            // We update the style subject value.
+            theme.value = newValue
         }
     }
 
