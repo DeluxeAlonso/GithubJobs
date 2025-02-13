@@ -22,8 +22,8 @@ final class SettingsInteractor: SettingsInteractorProtocol {
         await featureFlagsManager.value(for: identifier)
     }
 
-    func getCurrentInterfaceStyle() async -> UIUserInterfaceStyle {
-        themeManager.interfaceStyle.value
+    func getCurrentTheme() async -> Theme {
+        themeManager.theme.value
     }
 
 }
