@@ -64,22 +64,3 @@ final class ThemeManager: ThemeManagerProtocol {
     }
 
 }
-
-// MARK: - CustomStringConvertible
-
-extension UIUserInterfaceStyle: CustomStringConvertible {
-
-    public var description: String {
-        switch self {
-        case .unspecified:
-            return "System"
-        case .light:
-            return "Light"
-        case .dark:
-            return "Dark"
-        @unknown default:
-            return "Unknown"
-        }
-    }
-
-}
