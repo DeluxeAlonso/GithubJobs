@@ -40,15 +40,6 @@ class SplitViewController: UISplitViewController, Themeable {
                 guard let self else { return }
                 self.updateTheme(theme, animated: true)
             }.store(in: &cancellables)
-
-//        themeManager.interfaceStyle
-//            .dropFirst()
-//            .removeDuplicates()
-//            .receive(on: DispatchQueue.main)
-//            .sink { [weak self] userInterfaceStyle in
-//                guard let self else { return }
-//                self.updateUserInterfaceStyle(userInterfaceStyle, animated: true)
-//            }.store(in: &cancellables)
     }
 
 }
