@@ -30,6 +30,6 @@ protocol SettingsCoordinatorProtocol: AnyObject {
 protocol SettingsInteractorProtocol {
 
     func getFeatureFlagValue(for identifier: FeatureFlagIdentifier) async -> Bool
-    func getCurrentInterfaceStyle() async -> UIUserInterfaceStyle
+    func getCurrentTheme() async -> Theme 
 
 }

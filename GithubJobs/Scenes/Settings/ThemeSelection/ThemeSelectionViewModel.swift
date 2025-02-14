@@ -23,7 +23,7 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     var themes: [ThemeSelectionItemModel] {
         Theme.allCases.map { theme in
-            let isSelected = themeManager.interfaceStyle.value == theme.asUserInterfaceStyle()
+            let isSelected = themeManager.theme.value == theme
             return ThemeSelectionItemModel(theme, isSelected: isSelected)
         }
     }
@@ -38,7 +38,8 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     func selectTheme(at index: Int) {
         let selectedTheme = themes[index]
-        themeManager.updateInterfaceStyle(selectedTheme.theme.asUserInterfaceStyle())
+        themeManager.updateTheme(selectedTheme.theme)
+        //themeManager.updateInterfaceStyle(selectedTheme.theme.asUserInterfaceStyle())
         didSelectTheme.send()
     }
 

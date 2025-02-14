@@ -47,7 +47,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     private func createMainSection() async -> SettingsSection {
         let items = [
             SettingsItemModel(title: LocalizedStrings.settingsThemeSelectionRowTitle(),
-                              value: await interactor.getCurrentInterfaceStyle().description,
+                              value: await interactor.getCurrentTheme().description,
                               actionHandler: { [weak self] in self?.navigate(to: .theme) }),
             SettingsItemModel(featureFlagValue: await interactor.getFeatureFlagValue(for: .displayFAQs),
                               title: LocalizedStrings.settingsFAQsRowTitle(),

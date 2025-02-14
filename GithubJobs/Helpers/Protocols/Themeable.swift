@@ -9,11 +9,29 @@ import UIKit
 
 protocol Themeable {
 
+    func updateTheme(_ theme: Theme, animated: Bool)
     func updateUserInterfaceStyle(_ userInterfaceStyle: UIUserInterfaceStyle, animated: Bool)
 
 }
 
 extension Themeable where Self: UIViewController {
+
+    func updateTheme(_ theme: Theme, animated: Bool) {
+        let userInterfaceStyle = theme.asUserInterfaceStyle()
+        if animated {
+            UIView.transition(with: view, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.overrideUserInterfaceStyle = userInterfaceStyle
+            }, completion: nil)
+
+            guard let navigationControllerView = navigationController?.view else { return }
+            UIView.transition(with: navigationControllerView, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.navigationController?.overrideUserInterfaceStyle = userInterfaceStyle
+            }, completion: nil)
+        } else {
+            overrideUserInterfaceStyle = userInterfaceStyle
+            navigationController?.overrideUserInterfaceStyle = userInterfaceStyle
+        }
+    }
 
     func updateUserInterfaceStyle(_ userInterfaceStyle: UIUserInterfaceStyle, animated: Bool) {
         if animated {

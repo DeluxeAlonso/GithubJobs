@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Theme: Int, CaseIterable {
+enum Theme: Int, CaseIterable, CustomStringConvertible {
     case light, dark, system
 
     func asUserInterfaceStyle() -> UIUserInterfaceStyle {
@@ -15,6 +15,17 @@ enum Theme: Int, CaseIterable {
         case .light: return .light
         case .dark: return .dark
         case .system: return .unspecified
+        }
+    }
+
+    var description: String {
+        switch self {
+        case .system:
+            return "System"
+        case .light:
+            return "Light"
+        case .dark:
+            return "Dark"
         }
     }
 }
