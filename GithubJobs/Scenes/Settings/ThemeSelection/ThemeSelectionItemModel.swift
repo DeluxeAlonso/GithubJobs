@@ -11,7 +11,7 @@ struct ThemeSelectionItemModel: Hashable {
     let isSelected: Bool
 
     var title: String {
-        theme.asUserInterfaceStyle().description
+        theme.description
     }
 
     init(_ theme: Theme, isSelected: Bool) {

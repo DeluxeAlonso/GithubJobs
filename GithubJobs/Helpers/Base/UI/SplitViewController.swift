@@ -30,7 +30,7 @@ class SplitViewController: UISplitViewController, Themeable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        updateUserInterfaceStyle(themeManager.interfaceStyle.value, animated: false)
+        updateTheme(themeManager.theme.value, animated: false)
 
         themeManager.theme
             .dropFirst()
