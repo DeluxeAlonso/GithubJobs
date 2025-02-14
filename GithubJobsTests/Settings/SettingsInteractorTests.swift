@@ -31,11 +31,11 @@ final class SettingsInteractorTests: XCTestCase {
 
     func testGetCurrentInterfaceStyle() async {
         // Arrange
-        mockThemeManager.interfaceStyle = .init(.dark)
+        mockThemeManager.theme = .init(.dark)
         // Act
-        let interfaceStyle = await interactor.getCurrentInterfaceStyle()
+        let theme = await interactor.getCurrentTheme()
         // Assert
-        XCTAssertEqual(interfaceStyle, .dark)
+        XCTAssertEqual(theme, .dark)
     }
 
     func testGetFeatureFlagValue() async {
