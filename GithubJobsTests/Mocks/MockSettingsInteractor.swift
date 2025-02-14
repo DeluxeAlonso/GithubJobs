@@ -17,11 +17,11 @@ final class MockSettingsInteractor: SettingsInteractorProtocol {
         return getFeatureFlagValueResult
     }
 
-    var getCurrentInterfaceStyleResult: UIUserInterfaceStyle = .unspecified
-    private(set) var getCurrentInterfaceStyleCallCount = 0
-    func getCurrentInterfaceStyle() async -> UIUserInterfaceStyle {
-        getCurrentInterfaceStyleCallCount += 1
-        return getCurrentInterfaceStyleResult
+    var getCurrentThemeResult: Theme = .system
+    private(set) var getCurrentThemeCallCount = 0
+    func getCurrentTheme() async -> GithubJobs.Theme {
+        getCurrentThemeCallCount += 1
+        return getCurrentThemeResult
     }
 
 }
