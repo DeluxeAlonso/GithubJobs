@@ -18,11 +18,4 @@ final class MockThemeManagerProtocol: ThemeManagerProtocol {
         updateThemeCallCount += 1
     }
 
-    var interfaceStyle: CurrentValueSubject<UIUserInterfaceStyle, Never> = .init(.unspecified)
-
-    private(set) var updateInterfaceStyleCallCount = 0
-    func updateInterfaceStyle(_ userInterfaceStyle: UIUserInterfaceStyle) {
-        updateInterfaceStyleCallCount += 1
-    }
-
 }

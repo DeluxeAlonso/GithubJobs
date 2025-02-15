@@ -29,7 +29,7 @@ final class SettingsInteractorTests: XCTestCase {
         try super.tearDownWithError()
     }
 
-    func testGetCurrentInterfaceStyle() async {
+    func testGetCurrentTheme() async {
         // Arrange
         mockThemeManager.theme = .init(.dark)
         // Act

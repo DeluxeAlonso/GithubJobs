@@ -39,7 +39,6 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
     func selectTheme(at index: Int) {
         let selectedTheme = themes[index]
         themeManager.updateTheme(selectedTheme.theme)
-        //themeManager.updateInterfaceStyle(selectedTheme.theme.asUserInterfaceStyle())
         didSelectTheme.send()
     }
 
