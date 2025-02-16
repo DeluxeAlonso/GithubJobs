@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class JobDetailCoordinator: BaseCoordinator, JobDetailCoordinatorProtocol {
+final class JobDetailCoordinator: BaseCoordinator_DEPRECATED, JobDetailCoordinatorProtocol {
 
     private let job: Job
     private(set) var detailNavigationController: UINavigationController?

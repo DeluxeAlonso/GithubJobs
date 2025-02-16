@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-final class FAQsCoordinator: BaseCoordinator {
+final class FAQsCoordinator: BaseCoordinator_DEPRECATED {
 
     var presentingViewController: UIViewController?
     var detailNavigationController: UINavigationController?

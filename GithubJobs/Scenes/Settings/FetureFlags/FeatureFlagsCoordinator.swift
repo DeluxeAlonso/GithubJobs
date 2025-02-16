@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-final class FeatureFlagsCoordinator: BaseCoordinator {
+final class FeatureFlagsCoordinator: BaseCoordinator_DEPRECATED {
 
     var presentingViewController: UIViewController?
     var detailNavigationController: UINavigationController?

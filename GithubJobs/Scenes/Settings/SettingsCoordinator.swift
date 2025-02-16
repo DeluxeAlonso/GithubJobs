@@ -13,7 +13,7 @@ enum SettingsNavigation {
     case featureFlags
 }
 
-final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
+final class SettingsCoordinator: BaseCoordinator_DEPRECATED, SettingsCoordinatorProtocol {
 
     var presentingViewController: UIViewController?
 
