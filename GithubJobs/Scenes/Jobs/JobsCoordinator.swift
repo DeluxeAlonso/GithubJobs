@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class JobsCoordinator: BaseCoordinator_DEPRECATED, JobsCoordinatorProtocol {
+final class JobsCoordinator: BaseCoordinatorDEPRECATED, JobsCoordinatorProtocol {
 
     override func start() {
         let interactor = JobsInteractor(jobsClient: JobsClient())
