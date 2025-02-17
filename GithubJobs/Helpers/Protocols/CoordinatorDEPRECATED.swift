@@ -7,25 +7,25 @@
 
 import UIKit
 
-protocol Coordinator: AnyObject {
+protocol CoordinatorDEPRECATED: AnyObject {
 
-    var childCoordinators: [Coordinator] { get set }
-    var parentCoordinator: Coordinator? { get set }
+    var childCoordinators: [CoordinatorDEPRECATED] { get set }
+    var parentCoordinator: CoordinatorDEPRECATED? { get set }
     var navigationController: UINavigationController { get }
 
     func start()
-    func childDidFinish(_ child: Coordinator)
+    func childDidFinish(_ child: CoordinatorDEPRECATED)
 
 }
 
-extension Coordinator {
+extension CoordinatorDEPRECATED {
 
     /// If we don't have a parent coordinator set up, the parent coordinator is the coordinator itself.
-    var unwrappedParentCoordinator: Coordinator {
+    var unwrappedParentCoordinator: CoordinatorDEPRECATED {
         parentCoordinator ?? self
     }
 
-    func childDidFinish(_ child: Coordinator) {
+    func childDidFinish(_ child: CoordinatorDEPRECATED) {
         for (index, coordinator) in childCoordinators.enumerated() where coordinator === child {
             childCoordinators.remove(at: index)
             break

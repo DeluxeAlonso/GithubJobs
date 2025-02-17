@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ThemeSelectionCoordinator: BaseCoordinator, ThemeSelectionCoordinatorProtocol {
+final class ThemeSelectionCoordinator: BaseCoordinatorDEPRECATED, ThemeSelectionCoordinatorProtocol {
 
     var presentingViewController: UIViewController?
     var detailNavigationController: UINavigationController?

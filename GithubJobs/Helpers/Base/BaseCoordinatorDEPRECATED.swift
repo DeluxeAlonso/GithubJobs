@@ -7,10 +7,10 @@
 
 import UIKit
 
-class BaseCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
+class BaseCoordinatorDEPRECATED: NSObject, CoordinatorDEPRECATED, UINavigationControllerDelegate {
 
-    var childCoordinators: [Coordinator] = []
-    var parentCoordinator: Coordinator?
+    var childCoordinators: [CoordinatorDEPRECATED] = []
+    var parentCoordinator: CoordinatorDEPRECATED?
     private(set) var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
