@@ -16,6 +16,7 @@
 		E21AEC3E2556E3B800A85639 /* JobsClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC3D2556E3B700A85639 /* JobsClientProtocol.swift */; };
 		E23930DE25585D8000E7C4ED /* JobDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23930DD25585D8000E7C4ED /* JobDetailViewModelTests.swift */; };
 		E240CC1A2D6442D2008F0E74 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240CC192D6442D2008F0E74 /* Coordinator.swift */; };
+		E240CC1D2D644BC2008F0E74 /* CoordinatorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240CC1C2D644BC2008F0E74 /* CoordinatorMode.swift */; };
 		E258C109292484E40027484A /* BaseCoordinatorDEPRECATED.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258C108292484E40027484A /* BaseCoordinatorDEPRECATED.swift */; };
 		E2609A36255836E5008002BA /* JobDetailHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2609A35255836E5008002BA /* JobDetailHeaderViewModel.swift */; };
 		E261EF2A28A30F3400F577AD /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E261EF2928A30F3400F577AD /* Themeable.swift */; };
@@ -156,6 +157,7 @@
 		E21AEC3D2556E3B700A85639 /* JobsClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsClientProtocol.swift; sourceTree = "<group>"; };
 		E23930DD25585D8000E7C4ED /* JobDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModelTests.swift; sourceTree = "<group>"; };
 		E240CC192D6442D2008F0E74 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E240CC1C2D644BC2008F0E74 /* CoordinatorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorMode.swift; sourceTree = "<group>"; };
 		E258C108292484E40027484A /* BaseCoordinatorDEPRECATED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorDEPRECATED.swift; sourceTree = "<group>"; };
 		E25C2E9F26487E4100DFAEFC /* GithubJobs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GithubJobs.entitlements; sourceTree = "<group>"; };
 		E2609A35255836E5008002BA /* JobDetailHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailHeaderViewModel.swift; sourceTree = "<group>"; };
@@ -337,6 +339,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		E240CC1B2D644BB4008F0E74 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E240CC192D6442D2008F0E74 /* Coordinator.swift */,
+				E240CC1C2D644BC2008F0E74 /* CoordinatorMode.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		E241F7D02D2E31E100CB968B /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +435,7 @@
 		E28B528A2556FEE200389043 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E240CC1B2D644BB4008F0E74 /* Coordinator */,
 				E2FCD6D02CCF4DD400B05FB8 /* FeatureFlags */,
 				E2F570A528979DE900A67593 /* Theming */,
 				E28B52AB25570CF000389043 /* FontHelper.swift */,
@@ -671,7 +683,6 @@
 				E2673AFE2557823F00727460 /* CoordinatorDEPRECATED.swift */,
 				E2641C132557CE1200675868 /* Dequeuable.swift */,
 				E261EF2928A30F3400F577AD /* Themeable.swift */,
-				E240CC192D6442D2008F0E74 /* Coordinator.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -984,6 +995,7 @@
 				E2AA59FC2CE1B993008877DA /* FAQsViewModel.swift in Sources */,
 				E261F94A25583CBA00DBC582 /* BackgroundCurvedView.swift in Sources */,
 				E2F570AA28979DE900A67593 /* ThemeManagerProtocol.swift in Sources */,
+				E240CC1D2D644BC2008F0E74 /* CoordinatorMode.swift in Sources */,
 				E2B3E7372556E01400B5483A /* Job.swift in Sources */,
 				E286A32A288D0C79004ACF5D /* SettingsProtocols.swift in Sources */,
 				E240CC1A2D6442D2008F0E74 /* Coordinator.swift in Sources */,
