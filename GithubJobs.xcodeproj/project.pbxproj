@@ -15,6 +15,7 @@
 		E21AEC382556E35100A85639 /* JobsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC372556E35100A85639 /* JobsViewModel.swift */; };
 		E21AEC3E2556E3B800A85639 /* JobsClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC3D2556E3B700A85639 /* JobsClientProtocol.swift */; };
 		E23930DE25585D8000E7C4ED /* JobDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23930DD25585D8000E7C4ED /* JobDetailViewModelTests.swift */; };
+		E240CC1A2D6442D2008F0E74 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240CC192D6442D2008F0E74 /* Coordinator.swift */; };
 		E258C109292484E40027484A /* BaseCoordinatorDEPRECATED.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258C108292484E40027484A /* BaseCoordinatorDEPRECATED.swift */; };
 		E2609A36255836E5008002BA /* JobDetailHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2609A35255836E5008002BA /* JobDetailHeaderViewModel.swift */; };
 		E261EF2A28A30F3400F577AD /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E261EF2928A30F3400F577AD /* Themeable.swift */; };
@@ -154,6 +155,7 @@
 		E21AEC372556E35100A85639 /* JobsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewModel.swift; sourceTree = "<group>"; };
 		E21AEC3D2556E3B700A85639 /* JobsClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsClientProtocol.swift; sourceTree = "<group>"; };
 		E23930DD25585D8000E7C4ED /* JobDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModelTests.swift; sourceTree = "<group>"; };
+		E240CC192D6442D2008F0E74 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E258C108292484E40027484A /* BaseCoordinatorDEPRECATED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorDEPRECATED.swift; sourceTree = "<group>"; };
 		E25C2E9F26487E4100DFAEFC /* GithubJobs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GithubJobs.entitlements; sourceTree = "<group>"; };
 		E2609A35255836E5008002BA /* JobDetailHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailHeaderViewModel.swift; sourceTree = "<group>"; };
@@ -669,6 +671,7 @@
 				E2673AFE2557823F00727460 /* CoordinatorDEPRECATED.swift */,
 				E2641C132557CE1200675868 /* Dequeuable.swift */,
 				E261EF2928A30F3400F577AD /* Themeable.swift */,
+				E240CC192D6442D2008F0E74 /* Coordinator.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -983,6 +986,7 @@
 				E2F570AA28979DE900A67593 /* ThemeManagerProtocol.swift in Sources */,
 				E2B3E7372556E01400B5483A /* Job.swift in Sources */,
 				E286A32A288D0C79004ACF5D /* SettingsProtocols.swift in Sources */,
+				E240CC1A2D6442D2008F0E74 /* Coordinator.swift in Sources */,
 				E2FCD6D22CCF4DE000B05FB8 /* FeatureFlagsManager.swift in Sources */,
 				E2E7FAE32D533572007415B8 /* CustomChevronFeatureFlag.swift in Sources */,
 				E2ADF9F72873EBB800987D4D /* ThemeSelectionSectionHeaderView.swift in Sources */,
