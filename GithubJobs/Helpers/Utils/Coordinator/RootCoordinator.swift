@@ -5,4 +5,8 @@
 //  Created by Alonso on 19/02/25.
 //
 
-import Foundation
+protocol RootCoordinator: Coordinator {
+
+    var rootIdentifier: String { get }
+
+}
