@@ -63,6 +63,7 @@
 		E29456C3263E6CA70011AF68 /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = E29456C2263E6CA70011AF68 /* KingfisherStatic */; };
 		E29B38312D3E25DB00D18954 /* MockFAQsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B38302D3E25DB00D18954 /* MockFAQsInteractor.swift */; };
 		E29CB5C32D3CB15900646F47 /* FAQsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29CB5C22D3CB15900646F47 /* FAQsViewModelTests.swift */; };
+		E2A0668B2D683E060013BED5 /* CoordinatorModePresentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A0668A2D683E060013BED5 /* CoordinatorModePresentConfiguration.swift */; };
 		E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A13FE5286D5C75001BC83D /* ViewController.swift */; };
 		E2A2AAE62D324D2200B8F773 /* ErrorPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2AAE52D324D2200B8F773 /* ErrorPlaceholderView.swift */; };
 		E2A32B342CF622FD00C094F9 /* MockSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A32B332CF622FD00C094F9 /* MockSettingsInteractor.swift */; };
@@ -207,6 +208,7 @@
 		E28D903F2D2FA27300FEA535 /* LoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
 		E29B38302D3E25DB00D18954 /* MockFAQsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFAQsInteractor.swift; sourceTree = "<group>"; };
 		E29CB5C22D3CB15900646F47 /* FAQsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsViewModelTests.swift; sourceTree = "<group>"; };
+		E2A0668A2D683E060013BED5 /* CoordinatorModePresentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorModePresentConfiguration.swift; sourceTree = "<group>"; };
 		E2A13FE5286D5C75001BC83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2A2AAE52D324D2200B8F773 /* ErrorPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPlaceholderView.swift; sourceTree = "<group>"; };
 		E2A32B332CF622FD00C094F9 /* MockSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSettingsInteractor.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				E240CC192D6442D2008F0E74 /* Coordinator.swift */,
 				E240CC1C2D644BC2008F0E74 /* CoordinatorMode.swift */,
 				E2C48FA62D659D6500839F75 /* RootCoordinator.swift */,
+				E2A0668A2D683E060013BED5 /* CoordinatorModePresentConfiguration.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -961,6 +964,7 @@
 			files = (
 				E2641C142557CE1200675868 /* Dequeuable.swift in Sources */,
 				E2FCD6CF2CCF4C5600B05FB8 /* FeatureFlagsCoordinator.swift in Sources */,
+				E2A0668B2D683E060013BED5 /* CoordinatorModePresentConfiguration.swift in Sources */,
 				E2A668B82CFCD14C000A7C44 /* FAQsClient.swift in Sources */,
 				E21AEC382556E35100A85639 /* JobsViewModel.swift in Sources */,
 				E2D19FC52CE8231500BC0F45 /* ErrorViewModel.swift in Sources */,
