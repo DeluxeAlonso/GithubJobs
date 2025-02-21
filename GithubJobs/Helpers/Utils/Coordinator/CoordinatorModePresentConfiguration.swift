@@ -8,6 +8,8 @@
 import UIKit
 
 struct CoordinatorModePresentConfiguration {
+
     let modalPresentationStyle: UIModalPresentationStyle
     let transitioningDelegate: UIViewControllerTransitioningDelegate?
+    
 }
