@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E20116472CFC0E2000A2B1C5 /* FAQsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20116462CFC0E2000A2B1C5 /* FAQsInteractor.swift */; };
+		E2015D522D69A1480030437D /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2015D512D69A1480030437D /* BaseCoordinator.swift */; };
+		E2015D542D69A3DB0030437D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2015D532D69A3DB0030437D /* UIViewController+Extensions.swift */; };
 		E2063A612D2112CE004AC666 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2063A602D2112CE004AC666 /* HostingController.swift */; };
 		E2063A642D211F97004AC666 /* HostingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2063A632D211F97004AC666 /* HostingConfiguration.swift */; };
 		E21AEC2B2556E1D000A85639 /* JobsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21AEC2A2556E1D000A85639 /* JobsClient.swift */; };
@@ -152,6 +154,8 @@
 
 /* Begin PBXFileReference section */
 		E20116462CFC0E2000A2B1C5 /* FAQsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsInteractor.swift; sourceTree = "<group>"; };
+		E2015D512D69A1480030437D /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		E2015D532D69A3DB0030437D /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		E2063A602D2112CE004AC666 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		E2063A632D211F97004AC666 /* HostingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingConfiguration.swift; sourceTree = "<group>"; };
 		E21AEC2A2556E1D000A85639 /* JobsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsClient.swift; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 				E240CC1C2D644BC2008F0E74 /* CoordinatorMode.swift */,
 				E2C48FA62D659D6500839F75 /* RootCoordinator.swift */,
 				E2A0668A2D683E060013BED5 /* CoordinatorModePresentConfiguration.swift */,
+				E2015D512D69A1480030437D /* BaseCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -707,6 +712,7 @@
 				E2641C0E2557CDE300675868 /* UITableView+Register.swift */,
 				E2ADF9FF2873F18E00987D4D /* UICollectionView+Register.swift */,
 				E240CC1E2D644C17008F0E74 /* RangeReplaceableCollection+Extensions.swift */,
+				E2015D532D69A3DB0030437D /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -962,6 +968,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2015D542D69A3DB0030437D /* UIViewController+Extensions.swift in Sources */,
 				E2641C142557CE1200675868 /* Dequeuable.swift in Sources */,
 				E2FCD6CF2CCF4C5600B05FB8 /* FeatureFlagsCoordinator.swift in Sources */,
 				E2A0668B2D683E060013BED5 /* CoordinatorModePresentConfiguration.swift in Sources */,
@@ -1050,6 +1057,7 @@
 				E2D2DC6E2CFE8DA5009CDACE /* FAQ.swift in Sources */,
 				E2641BFD2557C8AE00675868 /* LocalizedStrings.swift in Sources */,
 				E2641BE92557C55500675868 /* UIImageView+Kingfisher.swift in Sources */,
+				E2015D522D69A1480030437D /* BaseCoordinator.swift in Sources */,
 				E27924352647873800891120 /* EmptyDetailViewController.swift in Sources */,
 				E286A324288D0C54004ACF5D /* SettingsViewController.swift in Sources */,
 				E2673AFF2557823F00727460 /* CoordinatorDEPRECATED.swift in Sources */,
