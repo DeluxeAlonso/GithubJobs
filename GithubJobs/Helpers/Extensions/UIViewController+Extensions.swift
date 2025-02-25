@@ -10,7 +10,7 @@ import UIKit
 extension UIViewController {
 
     func add(asChildViewController viewController: UIViewController?) {
-        guard let viewController = viewController else { return }
+        guard let viewController else { return }
 
         addChild(viewController)
 
@@ -23,7 +23,7 @@ extension UIViewController {
     }
 
     func add(asChildViewController viewController: UIViewController?, containerView: UIView) {
-        guard let viewController = viewController, containerView.isDescendant(of: view) else {
+        guard let viewController, containerView.isDescendant(of: view) else {
             return
         }
 
@@ -38,7 +38,7 @@ extension UIViewController {
     }
 
     func remove(asChildViewController viewController: UIViewController?) {
-        guard let viewController = viewController else { return }
+        guard let viewController else { return }
 
         viewController.willMove(toParent: nil)
         viewController.view.removeFromSuperview()
