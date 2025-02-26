@@ -11,7 +11,7 @@ final class TableViewDataSourcePrefetching: NSObject, UITableViewDataSourcePrefe
 
     private let cellCount: Int
     private let needsPrefetch: Bool
-    private let prefetchHandler: (() -> Void)
+    private let prefetchHandler: () -> Void
 
     init(cellCount: Int, needsPrefetch: Bool, prefetchHandler: @escaping (() -> Void)) {
         self.cellCount = cellCount
