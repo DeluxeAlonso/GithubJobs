@@ -64,7 +64,7 @@ final class SettingsCoordinator: BaseCoordinatorDEPRECATED, SettingsCoordinatorP
         coordinator.parentCoordinator = unwrappedParentCoordinator
 
         unwrappedParentCoordinator.childCoordinators.append(coordinator)
-        coordinator.start()
+        coordinator.start(coordinatorMode: .push)
     }
 
     private func showFeatureFlags() {

@@ -20,32 +20,6 @@ final class FAQsCoordinator: BaseCoordinator {
         return HostingController(rootView: view, configuration: hostingConfiguration)
     }
 
-    override func start() {
-        let hostingConfiguration = HostingConfiguration()
-
-        let viewModel = makeViewModel(hostingConfiguration: hostingConfiguration)
-        let view = FAQsContent(viewModel: viewModel)
-        let viewController = HostingController(rootView: view, configuration: hostingConfiguration)
-
-        if let detailNavigationController = detailNavigationController {
-            detailNavigationController.pushViewController(viewController, animated: false)
-            navigationController.showDetailViewController(detailNavigationController, sender: nil)
-        } else {
-            detailNavigationController = navigationController
-            navigationController.pushViewController(viewController, animated: true)
-        }
-        if navigationController.delegate == nil {
-            navigationController.delegate = self
-        }
-    }
-
-    override func dismiss() {
-        let presentedViewController = navigationController.topViewController
-        presentedViewController?.dismiss(animated: true) { [weak self] in
-            self?.parentCoordinator?.childDidFinish()
-        }
-    }
-
     // MARK: - Builders
 
     private func makeInteractor() -> FAQsInteractorProtocol {
