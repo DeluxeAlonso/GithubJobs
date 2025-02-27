@@ -7,14 +7,19 @@
 
 import UIKit
 
-class BaseCoordinatorDEPRECATED: NSObject, CoordinatorDEPRECATED, UINavigationControllerDelegate {
+class BaseCoordinatorDEPRECATED: NSObject, Coordinator, UINavigationControllerDelegate {
+    var shouldBeAutomaticallyFinished: Bool = false
 
-    var childCoordinators: [CoordinatorDEPRECATED] = []
-    var parentCoordinator: CoordinatorDEPRECATED?
-    private(set) var navigationController: UINavigationController
+    var childCoordinators: [Coordinator] = []
+    var parentCoordinator: Coordinator?
+    var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+    }
+
+    func start(coordinatorMode: CoordinatorMode) {
+        fatalError("Start method should be implemented")
     }
 
     func start() {

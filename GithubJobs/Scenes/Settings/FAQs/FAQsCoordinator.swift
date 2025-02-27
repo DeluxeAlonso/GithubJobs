@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-final class FAQsCoordinator: BaseCoordinatorDEPRECATED {
+final class FAQsCoordinator: BaseCoordinator {
 
     var presentingViewController: UIViewController?
     var detailNavigationController: UINavigationController?
@@ -32,7 +32,7 @@ final class FAQsCoordinator: BaseCoordinatorDEPRECATED {
         }
     }
 
-    func dismiss() {
+    override func dismiss() {
         let presentedViewController = navigationController.topViewController
         presentedViewController?.dismiss(animated: true) { [weak self] in
             self?.parentCoordinator?.childDidFinish()
