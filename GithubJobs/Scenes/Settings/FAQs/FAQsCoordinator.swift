@@ -13,31 +13,39 @@ final class FAQsCoordinator: BaseCoordinator {
     var presentingViewController: UIViewController?
     var detailNavigationController: UINavigationController?
 
-    override func start() {
+    override func build() -> UIViewController {
         let hostingConfiguration = HostingConfiguration()
 
         let viewModel = makeViewModel(hostingConfiguration: hostingConfiguration)
         let view = FAQsContent(viewModel: viewModel)
-        let viewController = HostingController(rootView: view, configuration: hostingConfiguration)
-
-        if let detailNavigationController = detailNavigationController {
-            detailNavigationController.pushViewController(viewController, animated: false)
-            navigationController.showDetailViewController(detailNavigationController, sender: nil)
-        } else {
-            detailNavigationController = navigationController
-            navigationController.pushViewController(viewController, animated: true)
-        }
-        if navigationController.delegate == nil {
-            navigationController.delegate = self
-        }
+        return HostingController(rootView: view, configuration: hostingConfiguration)
     }
 
-    func dismiss() {
-        let presentedViewController = navigationController.topViewController
-        presentedViewController?.dismiss(animated: true) { [weak self] in
-            self?.parentCoordinator?.childDidFinish()
-        }
-    }
+//    override func start() {
+//        let hostingConfiguration = HostingConfiguration()
+//
+//        let viewModel = makeViewModel(hostingConfiguration: hostingConfiguration)
+//        let view = FAQsContent(viewModel: viewModel)
+//        let viewController = HostingController(rootView: view, configuration: hostingConfiguration)
+//
+//        if let detailNavigationController = detailNavigationController {
+//            detailNavigationController.pushViewController(viewController, animated: false)
+//            navigationController.showDetailViewController(detailNavigationController, sender: nil)
+//        } else {
+//            detailNavigationController = navigationController
+//            navigationController.pushViewController(viewController, animated: true)
+//        }
+//        if navigationController.delegate == nil {
+//            navigationController.delegate = self
+//        }
+//    }
+
+//    func dismiss() {
+//        let presentedViewController = navigationController.topViewController
+//        presentedViewController?.dismiss(animated: true) { [weak self] in
+//            self?.parentCoordinator?.childDidFinish()
+//        }
+//    }
 
     // MARK: - Builders
 
