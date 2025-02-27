@@ -10,8 +10,6 @@ import SwiftUI
 
 final class FAQsCoordinator: BaseCoordinator {
 
-    var presentingViewController: UIViewController?
-
     override func build() -> UIViewController {
         let hostingConfiguration = HostingConfiguration()
 
