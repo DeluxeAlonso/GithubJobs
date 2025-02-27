@@ -11,7 +11,6 @@ import SwiftUI
 final class FAQsCoordinator: BaseCoordinator {
 
     var presentingViewController: UIViewController?
-    var detailNavigationController: UINavigationController?
 
     override func build() -> UIViewController {
         let hostingConfiguration = HostingConfiguration()

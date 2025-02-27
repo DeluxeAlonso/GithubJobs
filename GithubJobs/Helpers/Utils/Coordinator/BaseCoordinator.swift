@@ -11,7 +11,9 @@ class BaseCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
 
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?
+
     var navigationController: UINavigationController
+    var detailNavigationController: UINavigationController?
 
     private(set) var shouldBeAutomaticallyFinished: Bool = false
 
