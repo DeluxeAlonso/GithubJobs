@@ -13,6 +13,14 @@ final class FAQsCoordinator: BaseCoordinator {
     var presentingViewController: UIViewController?
     var detailNavigationController: UINavigationController?
 
+    override func build() -> UIViewController {
+        let hostingConfiguration = HostingConfiguration()
+
+        let viewModel = makeViewModel(hostingConfiguration: hostingConfiguration)
+        let view = FAQsContent(viewModel: viewModel)
+        return HostingController(rootView: view, configuration: hostingConfiguration)
+    }
+
     override func start() {
         let hostingConfiguration = HostingConfiguration()
 
