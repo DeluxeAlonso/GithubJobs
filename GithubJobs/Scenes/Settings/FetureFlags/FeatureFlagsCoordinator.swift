@@ -6,10 +6,9 @@
 //
 
 import UIKit
-import SwiftUI
 
 final class FeatureFlagsCoordinator: BaseCoordinator {
-    
+
     override func build() -> UIViewController {
         let hostingConfiguration = HostingConfiguration()
 
