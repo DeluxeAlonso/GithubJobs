@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 final class FAQsCoordinator: BaseCoordinator {
 
