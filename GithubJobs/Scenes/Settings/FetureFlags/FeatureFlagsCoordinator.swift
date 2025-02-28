@@ -6,37 +6,15 @@
 //
 
 import UIKit
-import SwiftUI
 
-final class FeatureFlagsCoordinator: BaseCoordinatorDEPRECATED {
+final class FeatureFlagsCoordinator: BaseCoordinator {
 
-    var presentingViewController: UIViewController?
-    var detailNavigationController: UINavigationController?
-
-    override func start() {
+    override func build() -> UIViewController {
         let hostingConfiguration = HostingConfiguration()
 
         let viewModel = makeViewModel(hostingConfiguration: hostingConfiguration)
         let view = FeatureFlagsContent(viewModel: viewModel)
-        let viewController = HostingController(rootView: view, configuration: hostingConfiguration)
-
-        if let detailNavigationController = detailNavigationController {
-            detailNavigationController.pushViewController(viewController, animated: false)
-            navigationController.showDetailViewController(detailNavigationController, sender: nil)
-        } else {
-            detailNavigationController = navigationController
-            navigationController.pushViewController(viewController, animated: true)
-        }
-        if navigationController.delegate == nil {
-            navigationController.delegate = self
-        }
-    }
-
-    func dismiss() {
-        let presentedViewController = navigationController.topViewController
-        presentedViewController?.dismiss(animated: true) { [weak self] in
-            self?.parentCoordinator?.childDidFinish()
-        }
+        return HostingController(rootView: view, configuration: hostingConfiguration)
     }
 
     private func makeInteractort() -> FeatureFlagsInteractorProtocol {
