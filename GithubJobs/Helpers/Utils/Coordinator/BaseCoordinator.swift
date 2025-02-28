@@ -47,11 +47,18 @@ class BaseCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
                 detailNavigationController = navigationController
                 navigationController.pushViewController(viewController, animated: true)
             }
+            if navigationController.delegate == nil {
+                navigationController.delegate = self
+            }
         case .present(let presentingViewController, let configuration):
             navigationController.pushViewController(viewController, animated: false)
             navigationController.modalPresentationStyle = configuration?.modalPresentationStyle ?? .automatic
             navigationController.transitioningDelegate = configuration?.transitioningDelegate
-            presentingViewController.present(navigationController, animated: true, completion: nil)
+            presentingViewController.present(navigationController, animated: true, completion: {
+                if self.navigationController.delegate == nil {
+                    self.navigationController.delegate = self
+                }
+            })
         case .embed(let parentViewController, let containerView):
             guard parentCoordinator != nil else {
                 assertionFailure("When starting on embed mode, parent coordinator is needed to perform appropiate deallocation.")
@@ -66,11 +73,6 @@ class BaseCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
             self.viewController = viewController
             shouldBeAutomaticallyFinished = true
         }
-
-        if navigationController.delegate == nil {
-            navigationController.delegate = self
-        }
-
         self.coordinatorMode = coordinatorMode
         self.viewController = viewController
     }
