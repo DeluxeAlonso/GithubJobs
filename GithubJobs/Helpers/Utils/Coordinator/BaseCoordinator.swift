@@ -11,7 +11,9 @@ class BaseCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
 
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?
+
     var navigationController: UINavigationController
+    var detailNavigationController: UINavigationController?
 
     private(set) var shouldBeAutomaticallyFinished: Bool = false
 
@@ -38,7 +40,13 @@ class BaseCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
 
         switch coordinatorMode {
         case .push:
-            navigationController.pushViewController(viewController, animated: true)
+            if let detailNavigationController {
+                detailNavigationController.pushViewController(viewController, animated: false)
+                navigationController.showDetailViewController(detailNavigationController, sender: nil)
+            } else {
+                detailNavigationController = navigationController
+                navigationController.pushViewController(viewController, animated: true)
+            }
         case .present(let presentingViewController, let configuration):
             navigationController.pushViewController(viewController, animated: false)
             navigationController.modalPresentationStyle = configuration?.modalPresentationStyle ?? .automatic
@@ -57,6 +65,10 @@ class BaseCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
             }
             self.viewController = viewController
             shouldBeAutomaticallyFinished = true
+        }
+
+        if navigationController.delegate == nil {
+            navigationController.delegate = self
         }
 
         self.coordinatorMode = coordinatorMode
