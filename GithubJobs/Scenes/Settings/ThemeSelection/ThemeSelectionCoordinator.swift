@@ -17,20 +17,5 @@ final class ThemeSelectionCoordinator: BaseCoordinator, ThemeSelectionCoordinato
                                             coordinator: self)
 
     }
-
-    // MARK: - ThemeSelectionCoordinatorProtocol
-
-//    func startModally() {
-//        let themeManager = ThemeManager.shared
-//        let viewModel = ThemeSelectionViewModel(themeManager: themeManager)
-//        let viewController = ThemeSelectionViewController(themeManager: themeManager,
-//                                                          viewModel: viewModel,
-//                                                          coordinator: self)
-//
-//        navigationController.pushViewController(viewController, animated: false)
-//        navigationController.modalPresentationStyle = .fullScreen
-//
-//        presentingViewController?.present(navigationController, animated: true, completion: nil)
-//    }
-
+    
 }
