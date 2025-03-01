@@ -17,24 +17,34 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
 
     var presentingViewController: UIViewController?
 
-    override func start() {
+    override func build() -> UIViewController {
         let themeManager = ThemeManager.shared
         let featureFlagsManager = FeatureFlagsManager.shared
         let interactor = SettingsInteractor(themeManager: themeManager, featureFlagsManager: featureFlagsManager)
         let viewModel = SettingsViewModel(interactor: interactor)
-        let viewController = SettingsViewController(themeManager: themeManager,
+        return SettingsViewController(themeManager: themeManager,
                                                     viewModel: viewModel,
                                                     coordinator: self)
-
-        navigationController.pushViewController(viewController, animated: false)
-        navigationController.modalPresentationStyle = .automatic
-
-        presentingViewController?.present(navigationController, animated: true, completion: {
-            if self.navigationController.delegate == nil {
-                self.navigationController.delegate = self
-            }
-        })
     }
+
+//    override func start() {
+//        let themeManager = ThemeManager.shared
+//        let featureFlagsManager = FeatureFlagsManager.shared
+//        let interactor = SettingsInteractor(themeManager: themeManager, featureFlagsManager: featureFlagsManager)
+//        let viewModel = SettingsViewModel(interactor: interactor)
+//        let viewController = SettingsViewController(themeManager: themeManager,
+//                                                    viewModel: viewModel,
+//                                                    coordinator: self)
+//
+//        navigationController.pushViewController(viewController, animated: false)
+//        navigationController.modalPresentationStyle = .automatic
+//
+//        presentingViewController?.present(navigationController, animated: true, completion: {
+//            if self.navigationController.delegate == nil {
+//                self.navigationController.delegate = self
+//            }
+//        })
+//    }
 
     // MARK: - SettingsCoordinatorProtocol
 
@@ -74,13 +84,6 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
 
         unwrappedParentCoordinator.childCoordinators.append(coordinator)
         coordinator.start(coordinatorMode: .push)
-    }
-
-    func dismiss() {
-        let presentedViewController = navigationController.topViewController
-        presentedViewController?.dismiss(animated: true) { [weak self] in
-            self?.parentCoordinator?.childDidFinish()
-        }
     }
 
 }
