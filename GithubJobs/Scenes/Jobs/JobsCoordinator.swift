@@ -36,12 +36,14 @@ final class JobsCoordinator: BaseCoordinatorDEPRECATED, JobsCoordinatorProtocol 
     }
 
     func showSettings() {
+        guard let presentingViewController = navigationController.topViewController else { return }
+
         let coordinator = SettingsCoordinator(navigationController: UINavigationController())
         coordinator.presentingViewController = navigationController.topViewController
         coordinator.parentCoordinator = unwrappedParentCoordinator
 
         unwrappedParentCoordinator.childCoordinators.append(coordinator)
-        coordinator.start()
+        coordinator.start(coordinatorMode: .present(presentingViewController: presentingViewController, configuration: nil))
     }
     
 }
