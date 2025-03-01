@@ -46,7 +46,7 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
         coordinator.parentCoordinator = unwrappedParentCoordinator
 
         unwrappedParentCoordinator.childCoordinators.append(coordinator)
-        coordinator.start()
+        coordinator.start(coordinatorMode: .push)
     }
 
     private func showFAQs() {

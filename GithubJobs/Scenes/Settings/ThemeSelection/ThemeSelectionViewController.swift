@@ -54,10 +54,6 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         coordinator?.dismiss()
     }
 
-    deinit {
-        print("ThemeSelectionViewController")
-    }
-
     // MARK: - Private
 
     private func configureUI() {
