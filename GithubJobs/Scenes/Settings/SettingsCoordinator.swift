@@ -27,25 +27,6 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
                                                     coordinator: self)
     }
 
-//    override func start() {
-//        let themeManager = ThemeManager.shared
-//        let featureFlagsManager = FeatureFlagsManager.shared
-//        let interactor = SettingsInteractor(themeManager: themeManager, featureFlagsManager: featureFlagsManager)
-//        let viewModel = SettingsViewModel(interactor: interactor)
-//        let viewController = SettingsViewController(themeManager: themeManager,
-//                                                    viewModel: viewModel,
-//                                                    coordinator: self)
-//
-//        navigationController.pushViewController(viewController, animated: false)
-//        navigationController.modalPresentationStyle = .automatic
-//
-//        presentingViewController?.present(navigationController, animated: true, completion: {
-//            if self.navigationController.delegate == nil {
-//                self.navigationController.delegate = self
-//            }
-//        })
-//    }
-
     // MARK: - SettingsCoordinatorProtocol
 
     func startNavigation(for navigation: SettingsNavigation) {
