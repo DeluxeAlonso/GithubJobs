@@ -27,25 +27,6 @@ final class JobDetailCoordinator: BaseCoordinator, JobDetailCoordinatorProtocol 
                                        coordinator: self)
     }
 
-//    override func start() {
-//        let interactor = JobsInteractor(jobsClient: JobsClient())
-//        let viewModel = JobDetailViewModel(job, interactor: interactor)
-//        let viewController = JobDetailViewController(themeManager: ThemeManager.shared,
-//                                                     viewModel: viewModel,
-//                                                     coordinator: self)
-//
-//        if let detailNavigationController = detailNavigationController {
-//            detailNavigationController.pushViewController(viewController, animated: false)
-//            navigationController.showDetailViewController(detailNavigationController, sender: nil)
-//        } else {
-//            detailNavigationController = navigationController
-//            navigationController.pushViewController(viewController, animated: true)
-//        }
-//        if navigationController.delegate == nil {
-//            navigationController.delegate = self
-//        }
-//    }
-
     // MARK: - JobDetailCoordinatorProtocol
 
     func showJobDetail(_ job: Job) {
