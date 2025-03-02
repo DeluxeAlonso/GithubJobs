@@ -32,7 +32,7 @@ final class JobsCoordinator: BaseCoordinatorDEPRECATED, JobsCoordinatorProtocol 
         coordinator.parentCoordinator = unwrappedParentCoordinator
 
         unwrappedParentCoordinator.childCoordinators.append(coordinator)
-        coordinator.start()
+        coordinator.start(coordinatorMode: .push)
     }
 
     func showSettings() {

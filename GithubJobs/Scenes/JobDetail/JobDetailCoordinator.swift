@@ -10,34 +10,41 @@ import UIKit
 final class JobDetailCoordinator: BaseCoordinator, JobDetailCoordinatorProtocol {
 
     private let job: Job
-    private(set) var detailNavigationController: UINavigationController?
 
     init(navigationController: UINavigationController,
          detailNavigationController: UINavigationController? = nil,
          job: Job) {
         self.job = job
-        self.detailNavigationController = detailNavigationController
         super.init(navigationController: navigationController)
+        self.detailNavigationController = detailNavigationController
     }
 
-    override func start() {
+    override func build() -> UIViewController {
         let interactor = JobsInteractor(jobsClient: JobsClient())
         let viewModel = JobDetailViewModel(job, interactor: interactor)
-        let viewController = JobDetailViewController(themeManager: ThemeManager.shared,
-                                                     viewModel: viewModel,
-                                                     coordinator: self)
-
-        if let detailNavigationController = detailNavigationController {
-            detailNavigationController.pushViewController(viewController, animated: false)
-            navigationController.showDetailViewController(detailNavigationController, sender: nil)
-        } else {
-            detailNavigationController = navigationController
-            navigationController.pushViewController(viewController, animated: true)
-        }
-        if navigationController.delegate == nil {
-            navigationController.delegate = self
-        }
+        return JobDetailViewController(themeManager: ThemeManager.shared,
+                                       viewModel: viewModel,
+                                       coordinator: self)
     }
+
+//    override func start() {
+//        let interactor = JobsInteractor(jobsClient: JobsClient())
+//        let viewModel = JobDetailViewModel(job, interactor: interactor)
+//        let viewController = JobDetailViewController(themeManager: ThemeManager.shared,
+//                                                     viewModel: viewModel,
+//                                                     coordinator: self)
+//
+//        if let detailNavigationController = detailNavigationController {
+//            detailNavigationController.pushViewController(viewController, animated: false)
+//            navigationController.showDetailViewController(detailNavigationController, sender: nil)
+//        } else {
+//            detailNavigationController = navigationController
+//            navigationController.pushViewController(viewController, animated: true)
+//        }
+//        if navigationController.delegate == nil {
+//            navigationController.delegate = self
+//        }
+//    }
 
     // MARK: - JobDetailCoordinatorProtocol
 
@@ -52,7 +59,7 @@ final class JobDetailCoordinator: BaseCoordinator, JobDetailCoordinatorProtocol 
         coordinator.parentCoordinator = unwrappedParentCoordinator
 
         unwrappedParentCoordinator.childCoordinators.append(coordinator)
-        coordinator.start()
+        coordinator.start(coordinatorMode: .push)
     }
 
 }
