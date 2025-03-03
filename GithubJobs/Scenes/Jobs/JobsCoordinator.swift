@@ -7,20 +7,15 @@
 
 import UIKit
 
-final class JobsCoordinator: BaseCoordinatorDEPRECATED, JobsCoordinatorProtocol {
+final class JobsCoordinator: BaseCoordinator, JobsCoordinatorProtocol {
 
-    override func start() {
+    override func build() -> UIViewController {
         let interactor = JobsInteractor(jobsClient: JobsClient())
         let viewModel = JobsViewModel(interactor: interactor)
 
-        let viewController = JobsViewController(themeManager: ThemeManager.shared,
-                                                viewModel: viewModel,
-                                                coordinator: self)
-
-        if navigationController.delegate == nil {
-            navigationController.delegate = self
-        }
-        navigationController.pushViewController(viewController, animated: true)
+        return JobsViewController(themeManager: ThemeManager.shared,
+                                  viewModel: viewModel,
+                                  coordinator: self)
     }
 
     // MARK: - JobsCoordinatorProtocol
