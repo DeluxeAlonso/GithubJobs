@@ -20,7 +20,6 @@
 		E240CC1A2D6442D2008F0E74 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240CC192D6442D2008F0E74 /* Coordinator.swift */; };
 		E240CC1D2D644BC2008F0E74 /* CoordinatorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240CC1C2D644BC2008F0E74 /* CoordinatorMode.swift */; };
 		E240CC1F2D644C17008F0E74 /* RangeReplaceableCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240CC1E2D644C17008F0E74 /* RangeReplaceableCollection+Extensions.swift */; };
-		E258C109292484E40027484A /* BaseCoordinatorDEPRECATED.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258C108292484E40027484A /* BaseCoordinatorDEPRECATED.swift */; };
 		E2609A36255836E5008002BA /* JobDetailHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2609A35255836E5008002BA /* JobDetailHeaderViewModel.swift */; };
 		E261EF2A28A30F3400F577AD /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E261EF2928A30F3400F577AD /* Themeable.swift */; };
 		E261F94A25583CBA00DBC582 /* BackgroundCurvedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E261F94925583CBA00DBC582 /* BackgroundCurvedView.swift */; };
@@ -165,7 +164,6 @@
 		E240CC192D6442D2008F0E74 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E240CC1C2D644BC2008F0E74 /* CoordinatorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorMode.swift; sourceTree = "<group>"; };
 		E240CC1E2D644C17008F0E74 /* RangeReplaceableCollection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Extensions.swift"; sourceTree = "<group>"; };
-		E258C108292484E40027484A /* BaseCoordinatorDEPRECATED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorDEPRECATED.swift; sourceTree = "<group>"; };
 		E25C2E9F26487E4100DFAEFC /* GithubJobs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GithubJobs.entitlements; sourceTree = "<group>"; };
 		E2609A35255836E5008002BA /* JobDetailHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailHeaderViewModel.swift; sourceTree = "<group>"; };
 		E261EF2928A30F3400F577AD /* Themeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themeable.swift; sourceTree = "<group>"; };
@@ -500,7 +498,6 @@
 			isa = PBXGroup;
 			children = (
 				E258C107292484A90027484A /* UI */,
-				E258C108292484E40027484A /* BaseCoordinatorDEPRECATED.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1004,7 +1001,6 @@
 				E28B52A725570CCF00389043 /* UIView+Layout.swift in Sources */,
 				E28270532902516800C02624 /* Animator.swift in Sources */,
 				E2E18208288FAAC50096BA7B /* SettingsSection.swift in Sources */,
-				E258C109292484E40027484A /* BaseCoordinatorDEPRECATED.swift in Sources */,
 				E2B3E72B2556DFA300B5483A /* Dictionary+Format.swift in Sources */,
 				E2AA59FC2CE1B993008877DA /* FAQsViewModel.swift in Sources */,
 				E261F94A25583CBA00DBC582 /* BackgroundCurvedView.swift in Sources */,
