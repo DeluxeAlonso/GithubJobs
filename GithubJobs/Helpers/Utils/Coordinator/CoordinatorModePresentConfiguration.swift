@@ -15,9 +15,9 @@ import UIKit
  */
 struct CoordinatorModePresentConfiguration {
 
-    /// The style for modal presentation (fullscreen, formSheet, popover, etc.)
+    /// The style for modal presentation (fullscreen, formSheet, popover, etc.).
     let modalPresentationStyle: UIModalPresentationStyle
 
-    /// Optional delegate for custom transition animations
+    /// Optional delegate for custom transition animations.
     let transitioningDelegate: UIViewControllerTransitioningDelegate?
 }

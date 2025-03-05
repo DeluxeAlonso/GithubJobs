@@ -15,24 +15,24 @@ import UIKit
  */
 enum CoordinatorMode {
 
-    /// Pushes the view controller onto the navigation stack
+    /// Pushes the view controller onto the navigation stack.
     case push
 
     /**
-     * Presents the view controller modally
+     * Presents the view controller modally.
      *
      * - Parameters:
-     *   - presentingViewController: The view controller that will present the new controller
-     *   - configuration: Optional configuration for the modal presentation (style, transitions)
+     *   - presentingViewController: The view controller that will present the new controller.
+     *   - configuration: Optional configuration for the modal presentation (style, transitions).
      */
     case present(presentingViewController: UIViewController, configuration: CoordinatorModePresentConfiguration?)
 
     /**
-     * Embeds the view controller as a child of another view controller
+     * Embeds the view controller as a child of another view controller.
      *
      * - Parameters:
-     *   - parentViewController: The parent view controller that will contain the new controller
-     *   - containerView: Optional specific container view within the parent where the child will be added
+     *   - parentViewController: The parent view controller that will contain the new controller.
+     *   - containerView: Optional specific container view within the parent where the child will be added.
      */
     case embed(parentViewController: UIViewController, containerView: UIView?)
 }
