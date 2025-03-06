@@ -24,7 +24,7 @@ struct ErrorView: View {
         Image("errorIcon")
             .resizable()
             .scaledToFit()
-            .frame(width: 64.0, height: 64.0)
+            .frame(width: viewModel.imageSize.width, height: viewModel.imageSize.height)
     }
 
     private var title: some View {
