@@ -62,6 +62,7 @@
 		E28D90402D2FA27300FEA535 /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D903F2D2FA27300FEA535 /* LoadableView.swift */; };
 		E29456C3263E6CA70011AF68 /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = E29456C2263E6CA70011AF68 /* KingfisherStatic */; };
 		E29B38312D3E25DB00D18954 /* MockFAQsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B38302D3E25DB00D18954 /* MockFAQsInteractor.swift */; };
+		E29BBD6E2D7C0A6900B06958 /* JobResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29BBD6D2D7C0A6900B06958 /* JobResult.swift */; };
 		E29CB5C32D3CB15900646F47 /* FAQsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29CB5C22D3CB15900646F47 /* FAQsViewModelTests.swift */; };
 		E2A0668B2D683E060013BED5 /* CoordinatorModePresentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A0668A2D683E060013BED5 /* CoordinatorModePresentConfiguration.swift */; };
 		E2A13FE6286D5C75001BC83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A13FE5286D5C75001BC83D /* ViewController.swift */; };
@@ -207,6 +208,7 @@
 		E28B52B62557215600389043 /* JobCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCellViewModel.swift; sourceTree = "<group>"; };
 		E28D903F2D2FA27300FEA535 /* LoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
 		E29B38302D3E25DB00D18954 /* MockFAQsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFAQsInteractor.swift; sourceTree = "<group>"; };
+		E29BBD6D2D7C0A6900B06958 /* JobResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobResult.swift; sourceTree = "<group>"; };
 		E29CB5C22D3CB15900646F47 /* FAQsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsViewModelTests.swift; sourceTree = "<group>"; };
 		E2A0668A2D683E060013BED5 /* CoordinatorModePresentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorModePresentConfiguration.swift; sourceTree = "<group>"; };
 		E2A13FE5286D5C75001BC83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -716,6 +718,7 @@
 			children = (
 				E2B3E73B2556E10700B5483A /* JobsResult.swift */,
 				E2D2DC6B2CFE62EE009CDACE /* FAQsResult.swift */,
+				E29BBD6D2D7C0A6900B06958 /* JobResult.swift */,
 			);
 			path = FeedResults;
 			sourceTree = "<group>";
@@ -1019,6 +1022,7 @@
 				E2AA59FF2CE1BF3F008877DA /* ExpandCollapseControlContent.swift in Sources */,
 				E2B3E7162556DDD200B5483A /* Endpoint.swift in Sources */,
 				E2DA93642D1D3CD400C94A26 /* BaseView.swift in Sources */,
+				E29BBD6E2D7C0A6900B06958 /* JobResult.swift in Sources */,
 				E2641C0F2557CDE300675868 /* UITableView+Register.swift in Sources */,
 				E2F570A928979DE900A67593 /* ThemeManager.swift in Sources */,
 				E2ADF9FC2873ECD500987D4D /* ThemeSelectionProtocols.swift in Sources */,
