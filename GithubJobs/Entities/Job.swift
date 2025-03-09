@@ -22,3 +22,15 @@ struct Job: Decodable, Equatable {
     }
     
 }
+
+extension Job {
+
+    init(_ jobResult: JobResult) throws {
+        self.id = jobResult.id
+        self.title = jobResult.title
+        self.description = jobResult.description
+        self.company = jobResult.company
+        self.companyLogoPath = jobResult.companyLogoPath
+    }
+
+}
