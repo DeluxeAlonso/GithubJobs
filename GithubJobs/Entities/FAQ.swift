@@ -12,3 +12,13 @@ struct FAQ: Decodable, Equatable {
     let descriptions: [String]
 
 }
+
+extension FAQ {
+
+    init(_ faqResult: FAQResult) {
+        self.id = faqResult.id
+        self.title = faqResult.title
+        self.descriptions = faqResult.descriptions
+    }
+
+}
