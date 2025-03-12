@@ -26,7 +26,7 @@ final class FAQsInteractor: FAQsInteractorProtocol {
     func getAllFAQs() async -> Result<[FAQ], APIError> {
         switch await faqsClient.getFAQs() {
         case .success(let result):
-            return .success(result.faqs)
+            return .success(result.faqs.map(FAQ.init))
         case .failure(let error):
             return .failure(error)
         }
