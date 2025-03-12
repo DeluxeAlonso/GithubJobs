@@ -5,7 +5,7 @@
 //  Created by Alonso on 2/12/24.
 //
 
-struct FAQ: Decodable, Equatable {
+struct FAQ: Equatable {
 
     let id: String
     let title: String
