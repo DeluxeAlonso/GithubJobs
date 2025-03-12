@@ -7,15 +7,15 @@
 
 struct JobsResult: Decodable {
 
-    let jobs: [Job]
+    let jobs: [JobResult]
 
-    init(jobs: [Job]) {
+    init(jobs: [JobResult]) {
         self.jobs = jobs
     }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        self.jobs = try container.decode([Job].self)
+        self.jobs = try container.decode([JobResult].self)
     }
 
 }
