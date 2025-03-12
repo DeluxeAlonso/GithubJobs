@@ -25,7 +25,7 @@ struct Job: Decodable, Equatable {
 
 extension Job {
 
-    init(_ jobResult: JobResult) throws {
+    init(_ jobResult: JobResult) {
         self.id = jobResult.id
         self.title = jobResult.title
         self.description = jobResult.description
