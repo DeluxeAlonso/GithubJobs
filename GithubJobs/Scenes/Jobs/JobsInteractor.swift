@@ -15,12 +15,18 @@ final class JobsInteractor: JobsInteractorProtocol {
         self.jobsClient = jobsClient
     }
 
-    func getJobs(page: Int) -> AnyPublisher<JobsResult, APIError> {
-        jobsClient.getJobs(page: page)
+    func getJobs(page: Int) -> AnyPublisher<[Job], APIError> {
+        jobsClient
+            .getJobs(page: page)
+            .map { $0.jobs.map(Job.init) }
+            .eraseToAnyPublisher()
     }
 
-    func getJobs(description: String) -> AnyPublisher<JobsResult, APIError> {
-        jobsClient.getJobs(description: description)
+    func getJobs(description: String) -> AnyPublisher<[Job], APIError> {
+        jobsClient
+            .getJobs(description: description)
+            .map { $0.jobs.map(Job.init) }
+            .eraseToAnyPublisher()
     }
 
 }

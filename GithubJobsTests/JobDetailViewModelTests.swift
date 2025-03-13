@@ -43,7 +43,7 @@ final class JobDetailViewModelTests: XCTestCase {
         viewModelToTest.viewStatePublisher.dropFirst().sink { state in
             state == .populated(jobsToTest) ? expectation.fulfill() : XCTFail("State wasn't set to populated")
         }.store(in: &cancellables)
-        jobsInteractor.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
+        jobsInteractor.getJobResult = Result.success(jobsToTest).publisher.eraseToAnyPublisher()
         viewModelToTest.getRelatedJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
@@ -57,7 +57,7 @@ final class JobDetailViewModelTests: XCTestCase {
         viewModelToTest.viewStatePublisher.dropFirst().sink { state in
             state == .empty ? expectation.fulfill() : XCTFail("State wasn't set to empty")
         }.store(in: &cancellables)
-        jobsInteractor.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
+        jobsInteractor.getJobResult = Result.success(jobsToTest).publisher.eraseToAnyPublisher()
         viewModelToTest.getRelatedJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
@@ -71,7 +71,7 @@ final class JobDetailViewModelTests: XCTestCase {
         viewModelToTest.viewStatePublisher.dropFirst().sink { state in
             state == .empty ? expectation.fulfill() : XCTFail("State wasn't set to empty")
         }.store(in: &cancellables)
-        jobsInteractor.getJobResult = Result.success(JobsResult(jobs: jobsToTest)).publisher.eraseToAnyPublisher()
+        jobsInteractor.getJobResult = Result.success(jobsToTest).publisher.eraseToAnyPublisher()
         viewModelToTest.getRelatedJobs()
         // Assert
         wait(for: [expectation], timeout: 1)
@@ -85,7 +85,7 @@ final class JobDetailViewModelTests: XCTestCase {
         viewModelToTest.viewStatePublisher.dropFirst().sink { state in
             state == .error(message: errorToTest.description) ? expectation.fulfill() : XCTFail("State wasn't set to error")
         }.store(in: &cancellables)
-        jobsInteractor.getJobResult = Result<JobsResult, APIError>.failure(APIError.badRequest).publisher.eraseToAnyPublisher()
+        jobsInteractor.getJobResult = Result<[Job], APIError>.failure(APIError.badRequest).publisher.eraseToAnyPublisher()
         viewModelToTest.getRelatedJobs()
         // Assert
         wait(for: [expectation], timeout: 1)

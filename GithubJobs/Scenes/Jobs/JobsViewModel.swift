@@ -55,7 +55,7 @@ final class JobsViewModel: JobsViewModelProtocol {
 
     private func fetchJobs(currentPage: Int) {
         interactor.getJobs(page: currentPage)
-            .map { ($0.jobs, currentPage, self.currentJobs) }
+            .map { ($0, currentPage, self.currentJobs) }
             .map(processResult)
             .catch { Just(.error(message: $0.description)) }
             .assign(to: &$viewState)
