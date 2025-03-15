@@ -9,9 +9,9 @@ struct JobsResult: Decodable {
 
     let jobs: [JobResult]
 
-    init(jobs: [JobResult]) {
-        self.jobs = jobs
-    }
+}
+
+extension JobsResult {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
