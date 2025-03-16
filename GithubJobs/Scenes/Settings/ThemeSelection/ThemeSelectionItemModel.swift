@@ -5,7 +5,14 @@
 //  Created by Alonso on 20/07/22.
 //
 
-struct ThemeSelectionItemModel: Hashable {
+protocol ThemeSelectionItemModelProtocol {
+
+    var theme: Theme { get }
+    var isSelected: Bool { get }
+
+}
+
+struct ThemeSelectionItemModel: ThemeSelectionItemModelProtocol, Hashable {
 
     let theme: Theme
     let isSelected: Bool
