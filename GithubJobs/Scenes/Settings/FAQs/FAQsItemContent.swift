@@ -40,8 +40,7 @@ struct FAQsItemContent<ViewModel: FAQsItemViewModelProtocol>: View {
 
 }
 
-// swiftlint:disable type_name
-struct FAQsItemContent_Previews: PreviewProvider {
+struct FAQsItemContentPreviews: PreviewProvider {
     
     static var previews: some View {
         FAQsItemContent(viewModel: FAQsItemViewModel(title: "Title", subtitles: ["Subtitle"]))

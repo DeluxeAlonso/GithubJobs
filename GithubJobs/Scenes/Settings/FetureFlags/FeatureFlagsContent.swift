@@ -41,8 +41,7 @@ struct FeatureFlagsContent<ViewModel: FeatureFlagsViewModelProtocol>: BaseView {
     var errorViewModel: ErrorViewModel? { viewModel.errorViewModel }
 }
 
-// swiftlint:disable type_name
-struct FeatureFlagsContent_Previews: PreviewProvider {
+struct FeatureFlagsContentPreviews: PreviewProvider {
     static var loadingViewModel: FeatureFlagsViewModel {
         let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared),
                                               hostingConfiguration: HostingConfiguration())

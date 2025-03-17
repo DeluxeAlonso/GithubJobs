@@ -42,8 +42,7 @@ struct ErrorView: View {
     }
 }
 
-// swiftlint:disable type_name
-struct ErrorView_Previews: PreviewProvider {
+struct ErrorViewPreviews: PreviewProvider {
     static var previews: some View {
         let viewModel = ErrorViewModel(title: "Title", subtitles: ["Subtitle1", "Subtitle 2"])
         return ErrorView(viewModel: viewModel)

@@ -16,8 +16,7 @@ struct FeatureFlagToggleView<ViewModel: FeatureFlagToggleViewModelProtocol>: Vie
     }
 }
 
-// swiftlint:disable type_name
-struct FeatureFlagToggleView_Previews: PreviewProvider {
+struct FeatureFlagToggleViewPreviews: PreviewProvider {
     static var previews: some View {
         FeatureFlagToggleView(viewModel: FeatureFlagToggleViewModel(CustomChevronFeatureFlag()))
     }
