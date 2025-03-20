@@ -16,19 +16,19 @@ struct FontHelper {
     }
 
     static func bold(withSize size: CGFloat) -> UIFont {
-        return UIFont.systemFont(ofSize: size, weight: UIFont.Weight.bold)
+        UIFont.systemFont(ofSize: size, weight: UIFont.Weight.bold)
     }
 
     static func semiBold(withSize size: CGFloat) -> UIFont {
-        return UIFont.systemFont(ofSize: size, weight: UIFont.Weight.semibold)
+        UIFont.systemFont(ofSize: size, weight: UIFont.Weight.semibold)
     }
 
     static func light(withSize size: CGFloat) -> UIFont {
-        return UIFont.systemFont(ofSize: size, weight: UIFont.Weight.light)
+        UIFont.systemFont(ofSize: size, weight: UIFont.Weight.light)
     }
 
     static func regular(withSize size: CGFloat) -> UIFont {
-        return UIFont.systemFont(ofSize: size, weight: UIFont.Weight.regular)
+        UIFont.systemFont(ofSize: size, weight: UIFont.Weight.regular)
     }
 
     // MARK: - Dynamic fonts
