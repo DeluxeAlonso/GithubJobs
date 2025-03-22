@@ -112,7 +112,7 @@ final class SettingsViewController: ViewController, UICollectionViewDelegate {
 
         dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
             let headerView = collectionView.dequeueReusableView(with: ThemeSelectionSectionHeaderView.self,
-                                                                kind: UICollectionView.elementKindSectionHeader,
+                                                                kind: kind,
                                                                 for: indexPath)
             return headerView
         }
