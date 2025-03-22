@@ -41,14 +41,14 @@ extension Endpoint {
         case .defaultEncoding:
             if let params = params, method == .get {
                 queryItems.append(contentsOf: params.map {
-                    return URLQueryItem(name: "\($0)", value: "\($1)")
+                    URLQueryItem(name: "\($0)", value: "\($1)")
                 })
             }
         case .compositeEncoding:
             if let params = params,
                 let queryParams = params["query"] as? [String: Any] {
                 queryItems.append(contentsOf: queryParams.map {
-                    return URLQueryItem(name: "\($0)", value: "\($1)")
+                    URLQueryItem(name: "\($0)", value: "\($1)")
                 })
             }
         case .jsonEncoding:

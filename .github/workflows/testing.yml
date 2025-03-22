@@ -8,17 +8,19 @@ on:
 
 jobs:
   lint:
-    runs-on: macos-13
+    runs-on: macos-15
     steps:
     - uses: actions/checkout@v3
     - name: Install Bundle
       run: bundle install
+    - name: Install SwiftLint
+      run: brew install swiftlint
     - name: Run swiftlint
       run: bundle exec fastlane lint
 
   test:
     needs: lint
-    runs-on: macos-13
+    runs-on: macos-15
     steps:
     - uses: actions/checkout@v3
     - name: Install Bundle
