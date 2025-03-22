@@ -20,15 +20,15 @@ final class JobsViewModel: JobsViewModelProtocol {
     // MARK: - Computed Properties
 
     private var currentJobs: [Job] {
-        return viewState.currentJobs
+        viewState.currentJobs
     }
 
     var needsPrefetch: Bool {
-        return viewState.needsPrefetch
+        viewState.needsPrefetch
     }
 
     var jobsCells: [JobCellViewModel] {
-        return currentJobs.map { JobCellViewModel($0) }
+        currentJobs.map { JobCellViewModel($0) }
     }
 
     // MARK: - Initializers
@@ -48,7 +48,7 @@ final class JobsViewModel: JobsViewModelProtocol {
     }
 
     func job(at index: Int) -> Job {
-        return currentJobs[index]
+        currentJobs[index]
     }
 
     // MARK: - Private
