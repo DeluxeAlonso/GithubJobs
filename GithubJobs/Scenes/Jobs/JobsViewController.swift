@@ -146,7 +146,7 @@ final class JobsViewController: ViewController {
 extension JobsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.jobsCells.count
+        viewModel.jobsCells.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
