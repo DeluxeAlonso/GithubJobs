@@ -102,7 +102,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
 
         dataSource?.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
             let headerView = collectionView.dequeueReusableView(with: ThemeSelectionSectionHeaderView.self,
-                                                                kind: UICollectionView.elementKindSectionHeader,
+                                                                kind: kind,
                                                                 for: indexPath)
             headerView.title = self?.viewModel.headerTitle(for: indexPath.section)
             return headerView

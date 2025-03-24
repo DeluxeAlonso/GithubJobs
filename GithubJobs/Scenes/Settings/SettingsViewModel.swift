@@ -26,7 +26,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     // MARK: - SettingsViewModelProtocol
 
     func screenTitle() -> String? {
-        return LocalizedStrings.settingsTitle()
+        LocalizedStrings.settingsTitle()
     }
 
     func selectItem(at index: Int, and section: Int) {
