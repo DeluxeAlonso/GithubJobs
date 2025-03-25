@@ -30,5 +30,6 @@ opt_in_rules:
     - redundant_nil_coalescing
     - untyped_error_in_catch
     - unused_control_flow_label
+analyzer_rules:
     - unused_declaration
     - unused_import
