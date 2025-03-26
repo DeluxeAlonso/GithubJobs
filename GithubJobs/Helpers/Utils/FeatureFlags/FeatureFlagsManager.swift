@@ -23,7 +23,7 @@ protocol FeatureFlagsManagerProtocol: Actor {
     let useCustomChevron: FeatureFlagProtocol = CustomChevronFeatureFlag()
     let displayFaqs: FeatureFlagProtocol = DisplayFAQsFeatureFlag()
 
-    nonisolated var allFlags: [FeatureFlagProtocol] {
+    var allFlags: [FeatureFlagProtocol] {
         [useCustomChevron, displayFaqs]
     }
 
