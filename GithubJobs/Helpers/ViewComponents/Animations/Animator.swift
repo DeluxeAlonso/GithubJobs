@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 final class Animator {
 
     static func fade(view: UIView, completion: ((Bool) -> Void)? = nil) {
