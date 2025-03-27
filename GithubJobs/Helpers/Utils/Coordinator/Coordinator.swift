@@ -14,6 +14,7 @@ import UIKit
  * creating a cleaner architecture where view controllers focus solely on view-related concerns.
  * Each coordinator is responsible for a specific flow within the application.
  */
+@MainActor
 protocol Coordinator: AnyObject {
 
     /// Array to store and maintain references to child coordinators.
