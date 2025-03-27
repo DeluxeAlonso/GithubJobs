@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 protocol LoadableView: View {
 
     associatedtype LoadingContent: View
