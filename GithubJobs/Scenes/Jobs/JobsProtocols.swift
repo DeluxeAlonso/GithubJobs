@@ -7,6 +7,7 @@
 
 import Combine
 
+@MainActor
 protocol JobsViewModelProtocol {
 
     var viewStatePublisher: Published<JobsViewState>.Publisher { get }
@@ -28,6 +29,7 @@ protocol JobsInteractorProtocol {
     
 }
 
+@MainActor
 protocol JobsCoordinatorProtocol: AnyObject {
 
     func showJobDetail(_ job: Job)

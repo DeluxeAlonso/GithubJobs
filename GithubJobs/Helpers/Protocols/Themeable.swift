@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 protocol Themeable {
 
     func updateTheme(_ theme: Theme, animated: Bool)

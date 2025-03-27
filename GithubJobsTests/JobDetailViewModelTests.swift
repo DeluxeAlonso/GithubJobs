@@ -9,6 +9,7 @@ import XCTest
 import Combine
 @testable import GithubJobs
 
+@MainActor
 final class JobDetailViewModelTests: XCTestCase {
 
     private var jobsInteractor: MockJobsInteractor!
