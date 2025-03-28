@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 protocol ErrorPlaceholderView: View {
     associatedtype ErrorContent: View
 
