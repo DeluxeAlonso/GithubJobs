@@ -5,15 +5,15 @@
 //  Created by Alonso on 25/07/22.
 //
 
-struct SettingsItemModel: Hashable {
+struct SettingsItemModel: Hashable, Sendable {
 
     let title: String
     let value: String?
-    let actionHandler: (() -> Void)
+    let actionHandler: @Sendable () -> Void
 
     init(title: String,
          value: String? = nil,
-         actionHandler: @escaping () -> Void) {
+         actionHandler: @escaping @Sendable () -> Void) {
         self.title = title
         self.value = value
         self.actionHandler = actionHandler
@@ -35,7 +35,7 @@ extension SettingsItemModel {
     init?(featureFlagValue: Bool,
           title: String,
           value: String?,
-          actionHandler: @escaping (() -> Void)) {
+          actionHandler: @escaping @Sendable () -> Void) {
         guard featureFlagValue else { return nil }
         self.title = title
         self.value = value
