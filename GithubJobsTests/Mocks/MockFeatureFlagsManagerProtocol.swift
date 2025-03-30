@@ -11,6 +11,12 @@ final actor MockFeatureFlagsManagerProtocol: FeatureFlagsManagerProtocol {
     
     var allFlags: [FeatureFlagProtocol] = []
 
+    private(set) var getAllFlagsCallCount = 0
+    func getAllFlags() -> [any FeatureFlagProtocol] {
+        getAllFlagsCallCount += 1
+        return allFlags
+    }
+
     private(set) var updateFlagCallCount = 0
     func updateFlag(identifier: String, value: Bool) {
         updateFlagCallCount += 1

@@ -18,6 +18,6 @@ struct FeatureFlagToggleView<ViewModel: FeatureFlagToggleViewModelProtocol>: Vie
 
 struct FeatureFlagToggleViewPreviews: PreviewProvider {
     static var previews: some View {
-        FeatureFlagToggleView(viewModel: FeatureFlagToggleViewModel(CustomChevronFeatureFlag()))
+        FeatureFlagToggleView(viewModel: FeatureFlagToggleViewModel(FeatureFlag(MutableCustomChevronFeatureFlag())))
     }
 }

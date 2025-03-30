@@ -8,8 +8,7 @@
 import SwiftUI
 
 protocol FeatureFlagsManagerProtocol: Actor {
-    var allFlags: [FeatureFlagProtocol] { get }
-
+    func getAllFlags() -> [FeatureFlagProtocol]
     func updateFlag(identifier: String, value: Bool)
     func value(for identifier: FeatureFlagIdentifier) -> Bool
 }
@@ -20,16 +19,20 @@ protocol FeatureFlagsManagerProtocol: Actor {
 
     init() {}
 
-    let useCustomChevron: FeatureFlagProtocol = CustomChevronFeatureFlag()
-    let displayFaqs: FeatureFlagProtocol = DisplayFAQsFeatureFlag()
+    let useCustomChevron: MutableFeatureFlagProtocol = MutableCustomChevronFeatureFlag()
+    let displayFaqs: MutableFeatureFlagProtocol = DisplayFAQsFeatureFlag()
 
-    var allFlags: [FeatureFlagProtocol] {
+    private var allFlags: [MutableFeatureFlagProtocol] {
         [useCustomChevron, displayFaqs]
+    }
+
+    func getAllFlags() -> [FeatureFlagProtocol] {
+        allFlags.map(FeatureFlag.init)
     }
 
     func updateFlag(identifier: String, value: Bool) {
         var flagToUpdate = allFlags.first(where: { $0.identifier == identifier })
-        flagToUpdate?.value = value
+        flagToUpdate?.setValue(value)
     }
 
     func value(for identifier: FeatureFlagIdentifier) -> Bool {

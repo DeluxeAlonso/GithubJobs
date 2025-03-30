@@ -7,12 +7,16 @@
 
 import SwiftUI
 
-final class DisplayFAQsFeatureFlag: FeatureFlagProtocol {
+final class DisplayFAQsFeatureFlag: MutableFeatureFlagProtocol {
 
     let identifier: String = FeatureFlagIdentifier.displayFAQs.rawValue
     let title: String = "Displays FAQs screen"
 
     @AppStorage("GithubJobs_DisplayFAQs")
-    var value: Bool = false
+    private(set) var value: Bool = false
+
+    func setValue(_ value: Bool) {
+        self.value = value
+    }
 
 }
