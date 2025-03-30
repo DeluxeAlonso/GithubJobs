@@ -31,7 +31,7 @@ protocol FeatureFlagsManagerProtocol: Actor {
     }
 
     func updateFlag(identifier: String, value: Bool) {
-        var flagToUpdate = allFlags.first(where: { $0.identifier == identifier })
+        let flagToUpdate = allFlags.first(where: { $0.identifier == identifier })
         flagToUpdate?.setValue(value)
     }
 
