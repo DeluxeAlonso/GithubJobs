@@ -12,3 +12,13 @@ protocol FeatureFlagProtocol {
     var value: Bool { get set }
 
 }
+
+protocol MutableFeatureFlagProtocol {
+
+    var identifier: String { get }
+    var title: String { get }
+    var value: Bool { get }
+
+    func setValue(_ value: Bool)
+
+}

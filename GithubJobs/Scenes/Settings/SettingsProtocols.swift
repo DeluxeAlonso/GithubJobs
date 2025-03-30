@@ -8,6 +8,7 @@
 import Combine
 import UIKit
 
+@MainActor
 protocol SettingsViewModelProtocol {
 
     var sectionModelsPublisher: Published<[SettingsSection]>.Publisher { get }
@@ -20,6 +21,7 @@ protocol SettingsViewModelProtocol {
 
 }
 
+@MainActor
 protocol SettingsCoordinatorProtocol: AnyObject {
 
     func startNavigation(for navigation: SettingsNavigation)
