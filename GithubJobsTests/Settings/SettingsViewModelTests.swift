@@ -9,6 +9,7 @@ import XCTest
 import Combine
 @testable import GithubJobs
 
+@MainActor
 final class SettingsViewModelTests: XCTestCase {
 
     private var mockInteractor: MockSettingsInteractor!

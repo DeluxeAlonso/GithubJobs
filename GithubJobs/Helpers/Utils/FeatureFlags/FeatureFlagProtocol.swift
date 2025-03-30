@@ -9,7 +9,7 @@ protocol FeatureFlagProtocol {
 
     var identifier: String { get }
     var title: String { get }
-    var value: Bool { get }
+    var value: Bool { get set }
 
 }
 
