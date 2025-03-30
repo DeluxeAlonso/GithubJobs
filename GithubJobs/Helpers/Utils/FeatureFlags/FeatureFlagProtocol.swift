@@ -9,7 +9,7 @@ protocol FeatureFlagProtocol {
 
     var identifier: String { get }
     var title: String { get }
-    var value: Bool { get set }
+    var value: Bool { get }
 
 }
 
@@ -17,7 +17,6 @@ protocol MutableFeatureFlagProtocol {
 
     var identifier: String { get }
     var title: String { get }
-    var value: Bool { get }
 
     func setValue(_ value: Bool)
 

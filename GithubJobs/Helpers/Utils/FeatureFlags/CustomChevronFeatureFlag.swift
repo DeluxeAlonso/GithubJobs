@@ -7,12 +7,16 @@
 
 import SwiftUI
 
-final class CustomChevronFeatureFlag: FeatureFlagProtocol {
+final class CustomChevronFeatureFlag: MutableFeatureFlagProtocol {
 
     let identifier: String = FeatureFlagIdentifier.customChevron.rawValue
     let title: String = "User custom chevron view"
 
     @AppStorage("GithubJobs_UseCustomChevron")
-    var value: Bool = false
+    private var value: Bool = false
+
+    func setValue(_ value: Bool) {
+        self.value = value
+    }
 
 }
