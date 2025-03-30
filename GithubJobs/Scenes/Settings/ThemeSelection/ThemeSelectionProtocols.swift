@@ -7,6 +7,7 @@
 
 import Combine
 
+@MainActor
 protocol ThemeSelectionViewModelProtocol {
 
     var didSelectTheme: PassthroughSubject<Void, Never> { get }
@@ -20,6 +21,7 @@ protocol ThemeSelectionViewModelProtocol {
 
 }
 
+@MainActor
 protocol ThemeSelectionCoordinatorProtocol: AnyObject {
 
     func dismiss()
