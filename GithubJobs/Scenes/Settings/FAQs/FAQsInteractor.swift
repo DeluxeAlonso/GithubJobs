@@ -5,7 +5,7 @@
 //  Created by Alonso on 30/11/24.
 //
 
-protocol FAQsInteractorProtocol {
+protocol FAQsInteractorProtocol: Sendable {
 
     func getAllFAQs() async -> Result<[FAQ], APIError>
 
