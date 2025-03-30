@@ -5,7 +5,7 @@
 //  Created by Alonso on 15/11/24.
 //
 
-protocol FeatureFlagsInteractorProtocol {
+protocol FeatureFlagsInteractorProtocol: Sendable {
 
     func getAllFeatureFlags() async -> Result<[FeatureFlagProtocol], APIError>
 
