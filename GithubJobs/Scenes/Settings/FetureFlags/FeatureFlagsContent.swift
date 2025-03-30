@@ -52,7 +52,7 @@ struct FeatureFlagsContentPreviews: PreviewProvider {
     static var populatedViewModel: FeatureFlagsViewModel {
         let viewModel = FeatureFlagsViewModel(interactor: FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared),
                                               hostingConfiguration: HostingConfiguration())
-        viewModel.toggles = [FeatureFlagToggleViewModel(MutableCustomChevronFeatureFlag())]
+        viewModel.toggles = [FeatureFlagToggleViewModel(FeatureFlag(MutableCustomChevronFeatureFlag()))]
         viewModel.viewState = .populated
         return viewModel
     }
