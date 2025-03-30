@@ -13,7 +13,7 @@ final class DisplayFAQsFeatureFlag: MutableFeatureFlagProtocol {
     let title: String = "Displays FAQs screen"
 
     @AppStorage("GithubJobs_DisplayFAQs")
-    private var value: Bool = false
+    private(set) var value: Bool = false
 
     func setValue(_ value: Bool) {
         self.value = value
