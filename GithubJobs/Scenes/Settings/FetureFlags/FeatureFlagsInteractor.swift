@@ -22,7 +22,7 @@ final class FeatureFlagsInteractor: FeatureFlagsInteractorProtocol {
     }
 
     func getAllFeatureFlags() async -> Result<[FeatureFlagProtocol], APIError> {
-        let flags = await featureFlagsManager.allFlags
+        let flags = await featureFlagsManager.getAllFlags()
         return flags.isEmpty ? .failure(APIError.invalidData) : .success(flags)
     }
 
