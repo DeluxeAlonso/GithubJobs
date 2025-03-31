@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-final class ThemeManager: ThemeManagerProtocol {
+@globalActor actor ThemeManager: ThemeManagerProtocol {
 
     static let shared = ThemeManager()
 
@@ -19,9 +19,7 @@ final class ThemeManager: ThemeManagerProtocol {
 
     // MARK: - ThemeManagerProtocol
 
-    private(set) lazy var theme: CurrentValueSubject<Theme, Never> = {
-        CurrentValueSubject<Theme, Never>(storedTheme)
-    }()
+    private(set) var theme: CurrentValueSubject<Theme, Never> = CurrentValueSubject<Theme, Never>(.system)
 
     func updateTheme(_ theme: Theme) {
         self.storedTheme = theme

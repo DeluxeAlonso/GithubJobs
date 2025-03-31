@@ -7,7 +7,7 @@
 
 import Combine
 
-protocol ThemeManagerProtocol: AnyObject {
+protocol ThemeManagerProtocol: Actor {
 
     var theme: CurrentValueSubject<Theme, Never> { get }
 
