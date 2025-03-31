@@ -9,12 +9,15 @@
 import Combine
 import UIKit
 
-final class MockThemeManagerProtocol: ThemeManagerProtocol {
+final actor MockThemeManagerProtocol: ThemeManagerProtocol {
 
-    var theme: CurrentValueSubject<Theme, Never> = .init(.system)
+    var theme: GithubJobs.Theme = .system
+
+    var themeSubject: CurrentValueSubject<Theme, Never> = .init(.system)
 
     private(set) var updateThemeCallCount = 0
     func updateTheme(_ theme: Theme) {
+        self.theme = theme
         updateThemeCallCount += 1
     }
 
