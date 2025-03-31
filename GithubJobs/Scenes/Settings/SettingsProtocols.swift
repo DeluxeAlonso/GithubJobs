@@ -29,7 +29,7 @@ protocol SettingsCoordinatorProtocol: AnyObject {
 
 }
 
-protocol SettingsInteractorProtocol {
+protocol SettingsInteractorProtocol: Sendable {
 
     func getFeatureFlagValue(for identifier: FeatureFlagIdentifier) async -> Bool
     func getCurrentTheme() async -> Theme 

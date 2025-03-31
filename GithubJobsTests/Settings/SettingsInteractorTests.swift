@@ -31,7 +31,7 @@ final class SettingsInteractorTests: XCTestCase {
 
     func testGetCurrentTheme() async {
         // Arrange
-        mockThemeManager.theme = .init(.dark)
+        await mockThemeManager.updateTheme(.dark)
         // Act
         let theme = await interactor.getCurrentTheme()
         // Assert
