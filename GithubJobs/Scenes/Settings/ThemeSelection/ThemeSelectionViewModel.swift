@@ -21,10 +21,16 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     // MARK: - ThemeSelectionViewModelProtocol
 
-    var themes: [ThemeSelectionItemModel] {
-        Theme.allCases.map { theme in
-            let isSelected = themeManager.theme.value == theme
-            return ThemeSelectionItemModel(theme, isSelected: isSelected)
+    var themes: [ThemeSelectionItemModel] = []
+
+    func loadThemes() {
+        Task {
+            let selectedTheme = await themeManager.theme
+            self.themes = Theme.allCases.map { theme in
+                let isSelected = selectedTheme == theme
+                return ThemeSelectionItemModel(theme, isSelected: isSelected)
+            }
+            didSelectTheme.send()
         }
     }
 
@@ -37,9 +43,14 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
     }
 
     func selectTheme(at index: Int) {
-        let selectedTheme = themes[index]
-        themeManager.updateTheme(selectedTheme.theme)
-        didSelectTheme.send()
+        Task {
+            let selectedTheme = themes[index]
+            // TODO: Evaluate making this return the list of ThemeSelectionItemModel.
+            await themeManager.updateTheme(selectedTheme.theme)
+            // TODO: Implement and interactor and revisit this.
+            loadThemes()
+            didSelectTheme.send()
+        }
     }
 
 }

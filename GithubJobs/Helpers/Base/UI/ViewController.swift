@@ -43,9 +43,9 @@ class ViewController: UIViewController, Themeable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        updateTheme(themeManager.theme.value, animated: false)
+        updateTheme(themeManager.themeSubject.value, animated: false)
 
-        themeManager.theme
+        themeManager.themeSubject
             .dropFirst()
             .removeDuplicates()
             .receive(on: DispatchQueue.main)

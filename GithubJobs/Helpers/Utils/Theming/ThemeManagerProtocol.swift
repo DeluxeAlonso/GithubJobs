@@ -9,8 +9,9 @@ import Combine
 
 protocol ThemeManagerProtocol: Actor {
 
-    var theme: CurrentValueSubject<Theme, Never> { get }
+    var theme: Theme { get }
+    var themeSubject: CurrentValueSubject<Theme, Never> { get }
 
     func updateTheme(_ theme: Theme)
-    
+
 }

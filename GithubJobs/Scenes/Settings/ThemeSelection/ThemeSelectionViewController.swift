@@ -48,6 +48,8 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         updateUI()
 
         setupBindings()
+
+        viewModel.loadThemes()
     }
 
     override func closeBarButtonItemTapped() {

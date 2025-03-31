@@ -23,7 +23,7 @@ final class SettingsInteractor: SettingsInteractorProtocol {
     }
 
     func getCurrentTheme() async -> Theme {
-        themeManager.theme.value
+        await themeManager.theme
     }
 
 }

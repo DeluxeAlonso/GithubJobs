@@ -17,6 +17,7 @@ protocol ThemeSelectionViewModelProtocol {
     func screenTitle() -> String?
     func headerTitle(for section: Int) -> String?
 
+    func loadThemes()
     func selectTheme(at index: Int)
 
 }
