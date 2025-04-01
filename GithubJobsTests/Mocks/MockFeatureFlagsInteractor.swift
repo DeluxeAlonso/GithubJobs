@@ -7,7 +7,7 @@
 
 @testable import GithubJobs
 
-final class MockFeatureFlagsInteractor: FeatureFlagsInteractorProtocol {
+final class MockFeatureFlagsInteractor: @unchecked Sendable, FeatureFlagsInteractorProtocol {
 
     var getAllFeatureFlagsResult: Result<[FeatureFlagProtocol], APIError> = .success([])
     private(set) var getAllFeatureFlagsCallCount = 0
