@@ -7,7 +7,7 @@
 
 @testable import GithubJobs
 
-final class MockFAQsInteractor: FAQsInteractorProtocol {
+final class MockFAQsInteractor: @unchecked Sendable, FAQsInteractorProtocol {
 
     var getAllFAQsResult: Result<[FAQ], APIError> = .success([])
     private(set) var getAllFAQsCallCount = 0
