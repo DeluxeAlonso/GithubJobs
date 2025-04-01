@@ -8,7 +8,7 @@
 import UIKit
 @testable import GithubJobs
 
-final class MockSettingsInteractor: SettingsInteractorProtocol {
+final class MockSettingsInteractor: @unchecked Sendable, SettingsInteractorProtocol {
 
     var getFeatureFlagValueResult: Bool = false
     private(set) var getFeatureFlagValueCallCount = 0
