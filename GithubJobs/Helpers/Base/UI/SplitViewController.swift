@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Combine
+@preconcurrency import Combine
 
 class SplitViewController: UISplitViewController, Themeable {
 
@@ -29,17 +29,19 @@ class SplitViewController: UISplitViewController, Themeable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Task { @MainActor in
+            let currentTheme = await themeManager.theme
+            updateTheme(currentTheme, animated: false)
 
-        updateTheme(themeManager.themeSubject.value, animated: false)
-
-        themeManager.themeSubject
-            .dropFirst()
-            .removeDuplicates()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] theme in
-                guard let self else { return }
-                self.updateTheme(theme, animated: true)
-            }.store(in: &cancellables)
+            await themeManager.themeSubject
+                .dropFirst()
+                .removeDuplicates()
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] theme in
+                    guard let self else { return }
+                    self.updateTheme(theme, animated: true)
+                }.store(in: &cancellables)
+        }
     }
 
 }

@@ -38,7 +38,6 @@ import SwiftUI
         }
     }
 
-
     // MARK: - ThemeManagerProtocol
 
     private(set) var themeSubject: CurrentValueSubject<Theme, Never> = CurrentValueSubject<Theme, Never>(.system)
