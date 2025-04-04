@@ -5,7 +5,7 @@
 //  Created by Alonso on 11/7/20.
 //
 
-import Combine
+@preconcurrency import Combine
 
 final class JobsViewModel: JobsViewModelProtocol {
 

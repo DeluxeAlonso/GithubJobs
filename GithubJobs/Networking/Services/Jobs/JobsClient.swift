@@ -29,8 +29,16 @@ final class JobsClient: JobsClientProtocol, APIClient {
         getJobs(page: page, description: "")
     }
 
+    func getJobs(page: Int) async throws -> JobsResult {
+        try await getJobs(page: page, description: "")
+    }
+
     func getJobs(description: String) -> AnyPublisher<JobsResult, APIError> {
         getJobs(page: 0, description: description)
+    }
+
+    func getJobs(description: String) async throws -> JobsResult {
+        try await getJobs(page: 0, description: description)
     }
 
     private func getJobs(page: Int, description: String) -> AnyPublisher<JobsResult, APIError> {
@@ -39,6 +47,11 @@ final class JobsClient: JobsClientProtocol, APIClient {
             guard let jobsResult = json as? JobsResult else { return  nil }
             return jobsResult
         }.eraseToAnyPublisher()
+    }
+
+    private func getJobs(page: Int, description: String) async throws -> JobsResult {
+        let request = JobsProvider.getAll(page: page, description: description).request
+        return try await fetch(with: request, decodingType: JobsResult.self)
     }
 
 }
