@@ -16,7 +16,26 @@ import SwiftUI
     private var themeRawValue: Int = Theme.system.rawValue
 
     init() {
+        Task {
+            await setupTheme()
+        }
+    }
+
+    // MARK: - Private
+
+    private func setupTheme() {
         themeSubject = CurrentValueSubject<Theme, Never>(storedTheme)
+    }
+
+    private var storedTheme: Theme {
+        get {
+            Theme(rawValue: themeRawValue) ?? .system
+        }
+        set {
+            themeRawValue = newValue.rawValue
+            // We update the style subject value.
+            themeSubject.value = newValue
+        }
     }
 
     // MARK: - ThemeManagerProtocol
@@ -29,19 +48,6 @@ import SwiftUI
 
     func updateTheme(_ theme: Theme) {
         self.storedTheme = theme
-    }
-
-    // MARK: - Private
-
-    private var storedTheme: Theme {
-        get {
-            Theme(rawValue: themeRawValue) ?? .system
-        }
-        set {
-            themeRawValue = newValue.rawValue
-            // We update the style subject value.
-            themeSubject.value = newValue
-        }
     }
 
 }

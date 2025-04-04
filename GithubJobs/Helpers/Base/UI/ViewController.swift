@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Combine
+@preconcurrency import Combine
 
 class ViewController: UIViewController, Themeable {
 
@@ -43,16 +43,19 @@ class ViewController: UIViewController, Themeable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        updateTheme(themeManager.themeSubject.value, animated: false)
+        Task { @MainActor in
+            let currentTheme = await themeManager.theme
+            updateTheme(currentTheme, animated: false)
 
-        themeManager.themeSubject
-            .dropFirst()
-            .removeDuplicates()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] theme in
-                guard let self else { return }
-                self.updateTheme(theme, animated: true)
-            }.store(in: &cancellables)
+            await themeManager.themeSubject
+                .dropFirst()
+                .removeDuplicates()
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] theme in
+                    guard let self else { return }
+                    self.updateTheme(theme, animated: true)
+                }.store(in: &cancellables)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
