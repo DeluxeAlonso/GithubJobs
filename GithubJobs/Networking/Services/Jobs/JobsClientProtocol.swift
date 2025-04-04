@@ -7,7 +7,7 @@
 
 import Combine
 
-protocol JobsClientProtocol {
+protocol JobsClientProtocol: Sendable {
 
     func getJobs(page: Int) -> AnyPublisher<JobsResult, APIError>
     func getJobs(page: Int) async throws -> JobsResult

@@ -54,11 +54,14 @@ final class JobsViewModel: JobsViewModelProtocol {
     // MARK: - Private
 
     private func fetchJobs(currentPage: Int) {
-        interactor.getJobs(page: currentPage)
-            .map { ($0, currentPage, self.currentJobs) }
-            .map(processResult)
-            .catch { Just(.error(message: $0.description)) }
-            .assign(to: &$viewState)
+        Task { @MainActor in
+            do {
+                let retrievedJobs = try await interactor.getJobs(page: currentPage)
+                self.viewState = processResult(retrievedJobs, currentPage: currentPage, currentJobs: self.currentJobs)
+            } catch let error as APIError {
+                self.viewState = .error(message: error.description)
+            }
+        }
     }
 
     private func processResult(_ jobs: [Job],
