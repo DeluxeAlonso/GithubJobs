@@ -22,11 +22,14 @@ protocol JobsViewModelProtocol {
 
 }
 
-protocol JobsInteractorProtocol {
+protocol JobsInteractorProtocol: Sendable {
 
     func getJobs(page: Int) -> AnyPublisher<[Job], APIError>
+    func getJobs(page: Int) async throws -> [Job]
+
     func getJobs(description: String) -> AnyPublisher<[Job], APIError>
-    
+    func getJobs(description: String) async throws -> [Job]
+
 }
 
 @MainActor

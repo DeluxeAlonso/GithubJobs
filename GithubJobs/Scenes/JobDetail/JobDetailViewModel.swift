@@ -39,11 +39,14 @@ final class JobDetailViewModel: JobDetailViewModelProtocol {
     // MARK: - JobDetailViewModelProtocol
 
     func getRelatedJobs() {
-        interactor.getJobs(description: job.title)
-            .map { $0 }
-            .map(processResult)
-            .catch { Just(.error(message: $0.description)) }
-            .assign(to: &$viewState)
+        Task { @MainActor in
+            do {
+                let retrievedJobs = try await interactor.getJobs(description: job.title)
+                self.viewState = processResult(retrievedJobs)
+            } catch let error as APIError {
+                self.viewState = .error(message: error.description)
+            }
+        }
     }
 
     func job(at index: Int) -> Job {

@@ -22,11 +22,21 @@ final class JobsInteractor: JobsInteractorProtocol {
             .eraseToAnyPublisher()
     }
 
+    func getJobs(page: Int) async throws -> [Job] {
+        let jobsResult = try await jobsClient.getJobs(page: page)
+        return jobsResult.jobs.map(Job.init)
+    }
+
     func getJobs(description: String) -> AnyPublisher<[Job], APIError> {
         jobsClient
             .getJobs(description: description)
             .map { $0.jobs.map(Job.init) }
             .eraseToAnyPublisher()
+    }
+
+    func getJobs(description: String) async throws -> [Job] {
+        let jobsResult = try await jobsClient.getJobs(description: description)
+        return jobsResult.jobs.map(Job.init)
     }
 
 }
