@@ -27,7 +27,7 @@ final class TableViewDataSourcePrefetching: NSObject, UITableViewDataSourcePrefe
 
     private func prefetchIfNeeded(for indexPaths: [IndexPath]) {
         guard needsPrefetch else { return }
-        if indexPaths.contains(where: isLoadingCell) {
+        if (try? indexPaths.contains(where: isLoadingCell)) == true {
             prefetchHandler()
         }
     }
