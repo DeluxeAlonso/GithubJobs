@@ -12,13 +12,17 @@ final class MockJobsInteractor: JobsInteractorProtocol {
 
     var getJobResult: AnyPublisher<[Job], APIError>!
     var jobs: [Job] = []
+    var error: APIError?
 
     func getJobs(page: Int) -> AnyPublisher<[Job], APIError> {
         getJobResult
     }
 
     func getJobs(page: Int) async throws -> [Job] {
-        jobs
+        if let error {
+            throw error
+        }
+        return jobs
     }
 
     func getJobs(description: String) -> AnyPublisher<[Job], APIError> {
@@ -26,7 +30,10 @@ final class MockJobsInteractor: JobsInteractorProtocol {
     }
 
     func getJobs(description: String) async throws -> [Job] {
-        jobs
+        if let error {
+            throw error
+        }
+        return jobs
     }
 
 }
