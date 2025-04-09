@@ -8,7 +8,7 @@
 @testable import GithubJobs
 import Combine
 
-final class MockJobsInteractor: JobsInteractorProtocol {
+final class MockJobsInteractor: @unchecked Sendable, JobsInteractorProtocol {
 
     var getJobResult: AnyPublisher<[Job], APIError>!
     var jobs: [Job] = []
