@@ -17,16 +17,14 @@ final class SettingsViewModelTests: XCTestCase {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    override func setUpWithError() throws {
-        try super.setUpWithError()
+    override func setUp() async throws {
         mockInteractor = MockSettingsInteractor()
         viewModel = SettingsViewModel(interactor: mockInteractor)
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() async throws {
         mockInteractor = nil
         viewModel = nil
-        try super.tearDownWithError()
     }
 
     func testScreenTitle() {
