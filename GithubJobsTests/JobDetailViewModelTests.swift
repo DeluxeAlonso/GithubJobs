@@ -17,16 +17,14 @@ final class JobDetailViewModelTests: XCTestCase {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    override func setUpWithError() throws {
-        try super.setUpWithError()
+    override func setUp() async throws {
         jobsInteractor = MockJobsInteractor()
         viewModelToTest = JobDetailViewModel(Job.with(id: "1"), interactor: jobsInteractor)
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() async throws {
         jobsInteractor = nil
         viewModelToTest = nil
-        try super.tearDownWithError()
     }
 
     func testJobTitle() {
