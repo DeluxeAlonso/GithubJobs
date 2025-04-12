@@ -28,3 +28,12 @@ protocol ThemeSelectionCoordinatorProtocol: AnyObject {
     func dismiss()
 
 }
+
+protocol ThemeSelectionInteractorProtocol: Sendable {
+
+    func getAllThemes() async throws -> [ThemeSelectionItemModel]
+
+    @discardableResult
+    func updateTheme(_ theme: Theme) async throws -> [ThemeSelectionItemModel]
+
+}
