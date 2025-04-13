@@ -125,6 +125,7 @@
 		E2E7FAE32D533572007415B8 /* MutableCustomChevronFeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7FAE22D533572007415B8 /* MutableCustomChevronFeatureFlag.swift */; };
 		E2E7FAE52D5335AA007415B8 /* FeatureFlagIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7FAE42D5335AA007415B8 /* FeatureFlagIdentifier.swift */; };
 		E2F03E552CDB2BA6005B62D5 /* FeatureFlagToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F03E542CDB2BA6005B62D5 /* FeatureFlagToggleView.swift */; };
+		E2F1B7702DAB883F009B79AA /* ThemeSelectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1B76F2DAB8834009B79AA /* ThemeSelectionInteractor.swift */; };
 		E2F570A928979DE900A67593 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A628979DE900A67593 /* ThemeManager.swift */; };
 		E2F570AA28979DE900A67593 /* ThemeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A728979DE900A67593 /* ThemeManagerProtocol.swift */; };
 		E2F570AB28979DE900A67593 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F570A828979DE900A67593 /* Theme.swift */; };
@@ -278,6 +279,7 @@
 		E2E7FAE22D533572007415B8 /* MutableCustomChevronFeatureFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableCustomChevronFeatureFlag.swift; sourceTree = "<group>"; };
 		E2E7FAE42D5335AA007415B8 /* FeatureFlagIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagIdentifier.swift; sourceTree = "<group>"; };
 		E2F03E542CDB2BA6005B62D5 /* FeatureFlagToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagToggleView.swift; sourceTree = "<group>"; };
+		E2F1B76F2DAB8834009B79AA /* ThemeSelectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionInteractor.swift; sourceTree = "<group>"; };
 		E2F570A628979DE900A67593 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		E2F570A728979DE900A67593 /* ThemeManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManagerProtocol.swift; sourceTree = "<group>"; };
 		E2F570A828979DE900A67593 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -584,6 +586,7 @@
 				E2ADF9FB2873ECD500987D4D /* ThemeSelectionProtocols.swift */,
 				E2ADF9FD2873ECE200987D4D /* ThemeSelectionCoordinator.swift */,
 				E26B977F2876976D00C6D197 /* ThemeSelectionSection.swift */,
+				E2F1B76F2DAB8834009B79AA /* ThemeSelectionInteractor.swift */,
 				E2CC32472877DFF500345569 /* ThemeSelectionViewModel.swift */,
 				E281527E2889047B000A5C55 /* ThemeSelectionItemModel.swift */,
 			);
@@ -1004,6 +1007,7 @@
 				E2DFC14A2CE31499002ACA77 /* FAQsItemContent.swift in Sources */,
 				E2AA59FA2CE1B985008877DA /* FAQsContent.swift in Sources */,
 				E28315832CF1A16900620B0D /* SettingsInteractor.swift in Sources */,
+				E2F1B7702DAB883F009B79AA /* ThemeSelectionInteractor.swift in Sources */,
 				E2673B1925578A3200727460 /* JobDetailHeaderView.swift in Sources */,
 				E2792433264786E000891120 /* MainSplitViewController.swift in Sources */,
 				E286A328288D0C6D004ACF5D /* SettingsCoordinator.swift in Sources */,
