@@ -20,7 +20,8 @@ final class ThemeSelectionInteractor: ThemeSelectionInteractorProtocol {
             return ThemeSelectionItemModel(theme, isSelected: isSelected)
         }
     }
-    
+
+    @discardableResult
     func updateTheme(_ theme: Theme) async throws -> [ThemeSelectionItemModel] {
         await themeManager.updateTheme(theme)
         return try await getAllThemes()

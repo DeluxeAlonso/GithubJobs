@@ -10,13 +10,14 @@ import Combine
 final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     private let themeManager: ThemeManagerProtocol
+    private let interactor: ThemeSelectionInteractorProtocol
 
     private(set) var didSelectTheme = PassthroughSubject<Void, Never>()
 
     // MARK: - Initializers
 
-    init(themeManager: ThemeManagerProtocol) {
-        self.themeManager = themeManager
+    init(interactor: ThemeSelectionInteractorProtocol) {
+        self.interactor = interactor
     }
 
     // MARK: - ThemeSelectionViewModelProtocol
@@ -30,6 +31,7 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
                 let isSelected = selectedTheme == theme
                 return ThemeSelectionItemModel(theme, isSelected: isSelected)
             }
+            self.themes = await t
             didSelectTheme.send()
         }
     }
