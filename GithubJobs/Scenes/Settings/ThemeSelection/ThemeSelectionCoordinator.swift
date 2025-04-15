@@ -11,7 +11,8 @@ final class ThemeSelectionCoordinator: BaseCoordinator, ThemeSelectionCoordinato
 
     override func build() -> UIViewController {
         let themeManager = ThemeManager.shared
-        let viewModel = ThemeSelectionViewModel(themeManager: themeManager)
+        let interactor = ThemeSelectionInteractor(themeManager: themeManager)
+        let viewModel = ThemeSelectionViewModel(interactor: interactor)
         return ThemeSelectionViewController(themeManager: themeManager,
                                             viewModel: viewModel,
                                             coordinator: self)

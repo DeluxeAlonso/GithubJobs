@@ -9,14 +9,14 @@ import Combine
 
 final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
-    private let themeManager: ThemeManagerProtocol
+    private let interactor: ThemeSelectionInteractorProtocol
 
     private(set) var didSelectTheme = PassthroughSubject<Void, Never>()
 
     // MARK: - Initializers
 
-    init(themeManager: ThemeManagerProtocol) {
-        self.themeManager = themeManager
+    init(interactor: ThemeSelectionInteractorProtocol) {
+        self.interactor = interactor
     }
 
     // MARK: - ThemeSelectionViewModelProtocol
@@ -25,11 +25,7 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     func loadThemes() {
         Task {
-            let selectedTheme = await themeManager.theme
-            self.themes = Theme.allCases.map { theme in
-                let isSelected = selectedTheme == theme
-                return ThemeSelectionItemModel(theme, isSelected: isSelected)
-            }
+            self.themes = try await interactor.getAllThemes()
             didSelectTheme.send()
         }
     }
@@ -45,10 +41,7 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
     func selectTheme(at index: Int) {
         Task {
             let selectedTheme = themes[index]
-            // TODO: Evaluate making this return the list of ThemeSelectionItemModel.
-            await themeManager.updateTheme(selectedTheme.theme)
-            // TODO: Implement and interactor and revisit this.
-            loadThemes()
+            self.themes = try await interactor.updateTheme(selectedTheme.theme)
             didSelectTheme.send()
         }
     }
