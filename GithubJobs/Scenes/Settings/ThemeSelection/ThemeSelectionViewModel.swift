@@ -21,12 +21,11 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     // MARK: - ThemeSelectionViewModelProtocol
 
-    var themes: [ThemeSelectionItemModel] = []
+    private(set) var themes = CurrentValueSubject<[ThemeSelectionItemModel], Never>([])
 
     func loadThemes() {
         Task {
-            self.themes = try await interactor.getAllThemes()
-            didSelectTheme.send()
+            self.themes.value = try await interactor.getAllThemes()
         }
     }
 
@@ -40,8 +39,8 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     func selectTheme(at index: Int) {
         Task {
-            let selectedTheme = themes[index]
-            self.themes = try await interactor.updateTheme(selectedTheme.theme)
+            let selectedTheme = themes.value[index]
+            self.themes.value = try await interactor.updateTheme(selectedTheme.theme)
             didSelectTheme.send()
         }
     }
