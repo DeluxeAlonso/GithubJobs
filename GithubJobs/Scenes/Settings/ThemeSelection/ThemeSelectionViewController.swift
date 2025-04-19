@@ -97,7 +97,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
             guard let self = self else { fatalError("Inconsistent state") }
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
                                                                     for: indexPath, item: identifier)
-            let theme = self.viewModel.themes[indexPath.row]
+            let theme = self.viewModel.themes.value[indexPath.row]
             cell.accessories = [.checkmark(displayed: .always, options: .init(isHidden: !theme.isSelected))]
             return cell
         }
@@ -114,17 +114,18 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
     private func updateUI() {
         var snapshot = NSDiffableDataSourceSnapshot<ThemeSelectionSection, ThemeSelectionItemModel>()
         snapshot.appendSections([ThemeSelectionSection.main])
-        snapshot.appendItems(viewModel.themes, toSection: ThemeSelectionSection.main)
+        snapshot.appendItems(viewModel.themes.value, toSection: ThemeSelectionSection.main)
         dataSource?.apply(snapshot, animatingDifferences: false)
     }
 
     private func setupBindings() {
-        viewModel.didSelectTheme
+        viewModel.themes
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] in
+            .sink { [weak self] _ in
                 guard let self = self else { return }
                 self.updateUI()
-            }.store(in: &cancellables)
+            }
+            .store(in: &cancellables)
     }
 
     // MARK: - UICollectionViewDelegate
