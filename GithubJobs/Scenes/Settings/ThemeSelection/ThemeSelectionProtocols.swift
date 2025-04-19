@@ -10,8 +10,6 @@ import Combine
 @MainActor
 protocol ThemeSelectionViewModelProtocol {
 
-    var didSelectTheme: PassthroughSubject<Void, Never> { get }
-
     var themes: CurrentValueSubject<[ThemeSelectionItemModel], Never> { get }
 
     func screenTitle() -> String?

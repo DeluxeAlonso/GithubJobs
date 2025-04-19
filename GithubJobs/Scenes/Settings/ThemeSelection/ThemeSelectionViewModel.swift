@@ -11,8 +11,6 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
 
     private let interactor: ThemeSelectionInteractorProtocol
 
-    private(set) var didSelectTheme = PassthroughSubject<Void, Never>()
-
     // MARK: - Initializers
 
     init(interactor: ThemeSelectionInteractorProtocol) {
@@ -41,7 +39,6 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
         Task {
             let selectedTheme = themes.value[index]
             self.themes.value = try await interactor.updateTheme(selectedTheme.theme)
-            didSelectTheme.send()
         }
     }
 
