@@ -45,8 +45,6 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         super.viewDidLoad()
 
         configureUI()
-        updateUI()
-
         setupBindings()
 
         viewModel.loadThemes()
@@ -111,19 +109,19 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         }
     }
 
-    private func updateUI() {
+    private func updateUI(_ themes: [ThemeSelectionItemModel]) {
         var snapshot = NSDiffableDataSourceSnapshot<ThemeSelectionSection, ThemeSelectionItemModel>()
         snapshot.appendSections([ThemeSelectionSection.main])
-        snapshot.appendItems(viewModel.themes.value, toSection: ThemeSelectionSection.main)
+        snapshot.appendItems(themes, toSection: ThemeSelectionSection.main)
         dataSource?.apply(snapshot, animatingDifferences: false)
     }
 
     private func setupBindings() {
         viewModel.themes
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
+            .sink { [weak self] themes in
                 guard let self else { return }
-                self.updateUI()
+                self.updateUI(themes)
             }
             .store(in: &cancellables)
     }
