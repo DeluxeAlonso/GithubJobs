@@ -94,7 +94,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         }
 
         dataSource = ThemeSelectionCollectionViewDataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, identifier in
-            guard let self = self else { fatalError("Inconsistent state") }
+            guard let self else { fatalError("Inconsistent state") }
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
                                                                     for: indexPath, item: identifier)
             let theme = self.viewModel.themes.value[indexPath.row]
@@ -122,7 +122,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         viewModel.themes
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
-                guard let self = self else { return }
+                guard let self else { return }
                 self.updateUI()
             }
             .store(in: &cancellables)
