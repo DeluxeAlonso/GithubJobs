@@ -96,7 +96,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
                                                                     for: indexPath, item: identifier)
             let theme = self.viewModel.themes.value[indexPath.row]
-            cell.accessories = [.checkmark(displayed: .always, options: .init(isHidden: !theme.isSelected))]
+            cell.accessories = [.checkmark(displayed: .always, options: .init(isHidden: !viewModel.)]
             return cell
         }
 

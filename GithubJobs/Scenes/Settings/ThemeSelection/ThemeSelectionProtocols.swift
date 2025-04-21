@@ -16,6 +16,7 @@ protocol ThemeSelectionViewModelProtocol {
     func headerTitle(for section: Int) -> String?
 
     func loadThemes()
+    func isSelected(at index: Int) -> Bool
     func selectTheme(at index: Int)
 
 }

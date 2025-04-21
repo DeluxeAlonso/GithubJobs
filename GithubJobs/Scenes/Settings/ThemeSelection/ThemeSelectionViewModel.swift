@@ -35,6 +35,10 @@ final class ThemeSelectionViewModel: ThemeSelectionViewModelProtocol {
         LocalizedStrings.themeSelectionHeaderTitle()
     }
 
+    func isSelected(at index: Int) -> Bool {
+        themes.value[index].isSelected
+    }
+
     func selectTheme(at index: Int) {
         Task {
             let selectedTheme = themes.value[index]
