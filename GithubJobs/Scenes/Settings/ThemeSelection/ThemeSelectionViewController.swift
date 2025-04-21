@@ -45,8 +45,6 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         super.viewDidLoad()
 
         configureUI()
-        updateUI()
-
         setupBindings()
 
         viewModel.loadThemes()
@@ -94,7 +92,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         }
 
         dataSource = ThemeSelectionCollectionViewDataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, identifier in
-            guard let self = self else { fatalError("Inconsistent state") }
+            guard let self else { fatalError("Inconsistent state") }
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
                                                                     for: indexPath, item: identifier)
             let theme = self.viewModel.themes.value[indexPath.row]
@@ -111,19 +109,19 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
         }
     }
 
-    private func updateUI() {
+    private func updateUI(_ themes: [ThemeSelectionItemModel]) {
         var snapshot = NSDiffableDataSourceSnapshot<ThemeSelectionSection, ThemeSelectionItemModel>()
         snapshot.appendSections([ThemeSelectionSection.main])
-        snapshot.appendItems(viewModel.themes.value, toSection: ThemeSelectionSection.main)
+        snapshot.appendItems(themes, toSection: ThemeSelectionSection.main)
         dataSource?.apply(snapshot, animatingDifferences: false)
     }
 
     private func setupBindings() {
         viewModel.themes
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-                guard let self = self else { return }
-                self.updateUI()
+            .sink { [weak self] themes in
+                guard let self else { return }
+                self.updateUI(themes)
             }
             .store(in: &cancellables)
     }
