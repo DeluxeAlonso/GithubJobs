@@ -19,6 +19,8 @@ protocol MutableFeatureFlagProtocol {
     var title: String { get }
     var value: Bool { get set }
 
+    func setValue(_ value: Bool)
+
 }
 
 final class FeatureFlag: FeatureFlagProtocol {
