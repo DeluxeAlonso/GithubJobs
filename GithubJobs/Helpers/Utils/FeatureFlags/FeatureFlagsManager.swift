@@ -19,7 +19,7 @@ protocol FeatureFlagsManagerProtocol: Actor {
 
     init() {}
 
-    let useCustomChevron: MutableFeatureFlagProtocol = MutableCustomChevronFeatureFlag()
+    let useCustomChevron: MutableFeatureFlagProtocol = CustomChevronFeatureFlag()
     let displayFaqs: MutableFeatureFlagProtocol = DisplayFAQsFeatureFlag()
 
     private var allFlags: [MutableFeatureFlagProtocol] {

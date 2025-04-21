@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class MutableCustomChevronFeatureFlag: MutableFeatureFlagProtocol {
+final class CustomChevronFeatureFlag: MutableFeatureFlagProtocol {
 
     let identifier: String = FeatureFlagIdentifier.customChevron.rawValue
     let title: String = "User custom chevron view"
