@@ -95,8 +95,7 @@ final class ThemeSelectionViewController: ViewController, UICollectionViewDelega
             guard let self else { fatalError("Inconsistent state") }
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
                                                                     for: indexPath, item: identifier)
-            let theme = self.viewModel.themes.value[indexPath.row]
-            cell.accessories = [.checkmark(displayed: .always, options: .init(isHidden: !viewModel.)]
+            cell.accessories = [.checkmark(displayed: .always, options: .init(isHidden: !viewModel.isSelected(at: indexPath.row)))]
             return cell
         }
 
