@@ -33,7 +33,7 @@ protocol JobsInteractorProtocol: Sendable {
 }
 
 @MainActor
-protocol JobsCoordinatorProtocol: AnyObject {
+protocol JobsCoordinatorProtocol: Coordinator {
 
     func showJobDetail(_ job: Job)
     func showSettings()
