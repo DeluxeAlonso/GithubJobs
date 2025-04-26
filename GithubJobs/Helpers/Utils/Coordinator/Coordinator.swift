@@ -55,6 +55,11 @@ protocol Coordinator: AnyObject {
      * - Parameter child: The child coordinator to be removed.
      */
     func childDidFinish(_ child: Coordinator)
+
+    /**
+     * Dismisses the coordinator's view controller.
+     */
+    func dismiss()
 }
 
 extension Coordinator {

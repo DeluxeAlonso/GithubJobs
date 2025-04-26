@@ -52,7 +52,7 @@ protocol SettingsViewModelProtocol {
  * The coordinator responds to navigation requests and manages the presentation of new screens.
  */
 @MainActor
-protocol SettingsCoordinatorProtocol: AnyObject {
+protocol SettingsCoordinatorProtocol: Coordinator {
 
     /**
      * Initiates navigation to a new screen based on the specified navigation type.
@@ -61,12 +61,6 @@ protocol SettingsCoordinatorProtocol: AnyObject {
      *   and any parameters needed for the navigation.
      */
     func startNavigation(for navigation: SettingsNavigation)
-
-    /**
-     * Dismisses the current settings screen and returns to the previous screen.
-     * This method is typically called when the user completes or cancels the settings flow.
-     */
-    func dismiss()
 }
 
 /**
