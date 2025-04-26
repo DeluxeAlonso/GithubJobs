@@ -23,7 +23,7 @@ protocol JobDetailViewModelProtocol {
 }
 
 @MainActor
-protocol JobDetailCoordinatorProtocol: AnyObject {
+protocol JobDetailCoordinatorProtocol: Coordinator {
 
     func showJobDetail(_ job: Job)
 
