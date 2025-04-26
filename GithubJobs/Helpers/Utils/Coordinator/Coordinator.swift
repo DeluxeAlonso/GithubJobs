@@ -60,6 +60,13 @@ protocol Coordinator: AnyObject {
      * Dismisses the coordinator's view controller.
      */
     func dismiss()
+
+    /**
+     * Dismisses the coordinator's view controller with an optional completion handler.
+     *
+     * - Parameter completion: Optional closure to be executed after dismissal.
+     */
+    func dismiss(completion: (() -> Void)?)
 }
 
 extension Coordinator {
