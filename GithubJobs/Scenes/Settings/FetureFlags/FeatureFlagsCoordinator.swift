@@ -17,12 +17,12 @@ final class FeatureFlagsCoordinator: BaseCoordinator {
         return HostingController(rootView: view, configuration: hostingConfiguration)
     }
 
-    private func makeInteractort() -> FeatureFlagsInteractorProtocol {
+    private func makeInteractor() -> FeatureFlagsInteractorProtocol {
         FeatureFlagsInteractor(featureFlagsManager: FeatureFlagsManager.shared)
     }
 
     private func makeViewModel(hostingConfiguration: HostingConfiguration) -> some FeatureFlagsViewModelProtocol {
-        FeatureFlagsViewModel(interactor: makeInteractort(),
+        FeatureFlagsViewModel(interactor: makeInteractor(),
                               hostingConfiguration: hostingConfiguration)
     }
 
