@@ -27,7 +27,7 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
     @Published var viewState: FeatureFlagsViewState = .loading
 
-    let interactor: FeatureFlagsInteractorProtocol
+    private let interactor: FeatureFlagsInteractorProtocol
 
     weak var hostingConfiguration: HostingConfiguration?
 
