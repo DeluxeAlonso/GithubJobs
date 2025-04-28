@@ -29,7 +29,7 @@ final class FeatureFlagsViewModel: FeatureFlagsViewModelProtocol {
 
     private let interactor: FeatureFlagsInteractorProtocol
 
-    weak var hostingConfiguration: HostingConfiguration?
+    private weak var hostingConfiguration: HostingConfiguration?
 
     init(interactor: FeatureFlagsInteractorProtocol,
          hostingConfiguration: HostingConfiguration) {
