@@ -17,7 +17,6 @@ struct ExpandCollapseControlDisclosureStyle: DisclosureGroupStyle {
                 configuration.label
                 Spacer()
                 Image(systemName: configuration.isExpanded ? styleConfiguration.expandedIconName : styleConfiguration.collapsedIconName)
-                    .resizable()
                     .scaledToFit()
                     .frame(width: styleConfiguration.iconSize.width, height: styleConfiguration.iconSize.height)
                     .padding(.trailing, styleConfiguration.iconTrailingPadding)

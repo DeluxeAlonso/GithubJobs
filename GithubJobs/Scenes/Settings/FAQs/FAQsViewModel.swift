@@ -32,7 +32,7 @@ final class FAQsViewModel: FAQsViewModelProtocol {
 
     @Published var viewState: FAQsViewState = .loading
 
-    weak var hostingConfiguration: HostingConfiguration?
+    private weak var hostingConfiguration: HostingConfiguration?
 
     var verticalSpacing: CGFloat { 16.0 }
 
