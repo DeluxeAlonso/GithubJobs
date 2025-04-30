@@ -12,7 +12,7 @@ final class ThemeSelectionSectionHeaderView: UICollectionReusableView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray
-        label.font = .preferredFont(forTextStyle: .footnote)
+        label.font = FontHelper.Dynamic.footnote
 
         label.translatesAutoresizingMaskIntoConstraints = false
 
