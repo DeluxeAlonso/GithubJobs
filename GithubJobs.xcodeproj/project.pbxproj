@@ -450,10 +450,10 @@
 		E28B528A2556FEE200389043 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E2EE328C2DC1ED030074ED38 /* Font */,
 				E240CC1B2D644BB4008F0E74 /* Coordinator */,
 				E2FCD6D02CCF4DD400B05FB8 /* FeatureFlags */,
 				E2F570A528979DE900A67593 /* Theming */,
-				E28B52AB25570CF000389043 /* FontHelper.swift */,
 				E2641BFC2557C8AE00675868 /* LocalizedStrings.swift */,
 			);
 			path = Utils;
@@ -770,6 +770,14 @@
 				E2D19FC62CE8239A00BC0F45 /* ErrorViewModel+LocalizedError.swift */,
 			);
 			path = ErrorView;
+			sourceTree = "<group>";
+		};
+		E2EE328C2DC1ED030074ED38 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				E28B52AB25570CF000389043 /* FontHelper.swift */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		E2F570A528979DE900A67593 /* Theming */ = {
