@@ -17,7 +17,7 @@ final class CustomFooterView: UIView {
         label.textAlignment = .center
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
-        label.font = FontHelper.dynamic(.body)
+        label.font = FontHelper.Dynamic.body
         label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
