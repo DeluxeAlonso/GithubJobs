@@ -40,39 +40,39 @@ struct FontHelper {
     // MARK: - Font Weight Methods
 
     static func ultraLight(withSize size: CGFloat, family: FontFamily = .system) -> UIFont {
-        return font(with: .ultraLight, size: size, family: family)
+        font(with: .ultraLight, size: size, family: family)
     }
 
     static func thin(withSize size: CGFloat, family: FontFamily = .system) -> UIFont {
-        return font(with: .thin, size: size, family: family)
+        font(with: .thin, size: size, family: family)
     }
 
     static func light(withSize size: CGFloat, family: FontFamily = .system) -> UIFont {
-        return font(with: .light, size: size, family: family)
+        font(with: .light, size: size, family: family)
     }
 
     static func regular(withSize size: CGFloat, family: FontFamily = .system) -> UIFont {
-        return font(with: .regular, size: size, family: family)
+        font(with: .regular, size: size, family: family)
     }
 
     static func medium(withSize size: CGFloat, family: FontFamily = .system) -> UIFont {
-        return font(with: .medium, size: size, family: family)
+        font(with: .medium, size: size, family: family)
     }
 
     static func semiBold(withSize size: CGFloat, family: FontFamily = .system) -> UIFont {
-        return font(with: .semibold, size: size, family: family)
+        font(with: .semibold, size: size, family: family)
     }
 
     static func bold(withSize size: CGFloat, family: FontFamily = .system) -> UIFont {
-        return font(with: .bold, size: size, family: family)
+        font(with: .bold, size: size, family: family)
     }
 
     static func heavy(withSize size: CGFloat, family: FontFamily = .system) -> UIFont {
-        return font(with: .heavy, size: size, family: family)
+        font(with: .heavy, size: size, family: family)
     }
 
     static func black(withSize size: CGFloat, family: FontFamily = .system) -> UIFont {
-        return font(with: .black, size: size, family: family)
+        font(with: .black, size: size, family: family)
     }
 
     // MARK: - Helper Methods
