@@ -22,6 +22,7 @@ final class HostingController<Content>: UIHostingController<Content> where Conte
             .sink { [weak self] title in
                 guard let self else { return }
                 self.title = title
+                self.navigationItem.title = title
             }.store(in: &cancellables)
     }
 
