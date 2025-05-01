@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-final class HostingConfiguration: ObservableObject {
+final class HostingConfiguration {
 
     @Published var title: String?
 
