@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-final class HostingController<Content>: UIHostingController<Content> where Content: View {
+final class HostingController<Content: View>: UIHostingController<Content> {
 
     private let configuration: HostingConfiguration
     private var cancellables: Set<AnyCancellable> = []
