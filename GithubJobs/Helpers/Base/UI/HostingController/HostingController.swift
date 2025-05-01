@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-final class HostingController<Content>: UIHostingController<Content> where Content: View {
+final class HostingController<Content: View>: UIHostingController<Content> {
 
     private let configuration: HostingConfiguration
     private var cancellables: Set<AnyCancellable> = []
@@ -22,6 +22,7 @@ final class HostingController<Content>: UIHostingController<Content> where Conte
             .sink { [weak self] title in
                 guard let self else { return }
                 self.title = title
+                self.navigationItem.title = title
             }.store(in: &cancellables)
     }
 
