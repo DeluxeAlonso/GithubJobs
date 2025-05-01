@@ -28,11 +28,12 @@ final class Animator {
     ///
     /// - Parameters:
     ///   - view: The `UIView` to animate.
+    ///   - duration: The duration of the animation.
     ///   - completion: An optional closure to be executed when the animation completes. The closure takes a Boolean
     ///     parameter indicating whether the animation finished successfully.
-    static func fade(view: UIView, completion: ((Bool) -> Void)? = nil) {
+    static func fade(view: UIView, duration: TimeInterval = 0.5, completion: ((Bool) -> Void)? = nil) {
         view.layer.opacity = 0.1
-        UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: .allowUserInteraction, animations: {
+        UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: .allowUserInteraction, animations: {
             view.layer.opacity = 1
         }, completion: completion)
     }
