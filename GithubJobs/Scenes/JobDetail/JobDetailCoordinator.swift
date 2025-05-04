@@ -5,6 +5,7 @@
 //  Created by Alonso on 11/7/20.
 //
 
+import Coordinator
 import UIKit
 
 final class JobDetailCoordinator: BaseCoordinator, JobDetailCoordinatorProtocol {
