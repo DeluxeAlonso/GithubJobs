@@ -16,7 +16,7 @@ final class JobDetailSectionView: UIView {
         label.textAlignment = .center
         label.textColor = .black
         label.backgroundColor = .systemTeal
-        label.font = FontHelper.Dynamic.headline
+        label.font = FontHelper.Dynamic.body
         label.adjustsFontForContentSizeCategory = true
 
         return label
