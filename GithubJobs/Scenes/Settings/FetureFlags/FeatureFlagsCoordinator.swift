@@ -5,6 +5,7 @@
 //  Created by Alonso on 27/10/24.
 //
 
+import Coordinator
 import UIKit
 
 final class FeatureFlagsCoordinator: BaseCoordinator {

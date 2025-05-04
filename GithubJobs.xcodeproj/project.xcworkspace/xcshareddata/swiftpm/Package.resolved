@@ -1,5 +1,5 @@
 {
-  "originHash" : "b5b7abec994d2cee20b951ebc39798f54a79bc07693b6e5d404cd1b7df51c5ac",
+  "originHash" : "a127b1b8a280cd1609fb1273550c1b9cc1743e81491b20c5569ee970239e6d93",
   "pins" : [
     {
       "identity" : "collectionconcurrencykit",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "b4f23e24b5a1bff301efc5e70871083ca029ff95",
         "version" : "0.2.0"
+      }
+    },
+    {
+      "identity" : "coordinator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DeluxeAlonso/Coordinator.git",
+      "state" : {
+        "revision" : "77610485e7fb10bdd16a67f81cd1bdebf4d7f252",
+        "version" : "0.0.1"
       }
     },
     {

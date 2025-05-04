@@ -99,6 +99,7 @@
 		E2B3E7302556DFD200B5483A /* CharacterSet+Filtering.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E72F2556DFD200B5483A /* CharacterSet+Filtering.swift */; };
 		E2B3E7372556E01400B5483A /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E7362556E01400B5483A /* Job.swift */; };
 		E2B3E73C2556E10700B5483A /* JobsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E73B2556E10700B5483A /* JobsResult.swift */; };
+		E2B5F73B2DC72B03000D405B /* Coordinator in Frameworks */ = {isa = PBXBuildFile; productRef = E2B5F73A2DC72B03000D405B /* Coordinator */; };
 		E2B844982CF19D670079A7C2 /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B844972CF19D670079A7C2 /* SettingsViewModelTests.swift */; };
 		E2BDF9482D547702009CB5E0 /* FeatureFlagProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BDF9472D547702009CB5E0 /* FeatureFlagProtocol.swift */; };
 		E2C48FA72D659D6500839F75 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C48FA62D659D6500839F75 /* RootCoordinator.swift */; };
@@ -298,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E29456C3263E6CA70011AF68 /* KingfisherStatic in Frameworks */,
+				E2B5F73B2DC72B03000D405B /* Coordinator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -838,6 +840,7 @@
 			name = GithubJobs;
 			packageProductDependencies = (
 				E29456C2263E6CA70011AF68 /* KingfisherStatic */,
+				E2B5F73A2DC72B03000D405B /* Coordinator */,
 			);
 			productName = GithubJobs;
 			productReference = E2B3E6AB2556D67400B5483A /* GithubJobs.app */;
@@ -915,6 +918,7 @@
 			packageReferences = (
 				E29456C1263E6CA70011AF68 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				E29456DC263E709F0011AF68 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				E2B5F7392DC72B03000D405B /* XCRemoteSwiftPackageReference "Coordinator" */,
 			);
 			productRefGroup = E2B3E6AC2556D67400B5483A /* Products */;
 			projectDirPath = "";
@@ -1485,6 +1489,14 @@
 				minimumVersion = 0.43.1;
 			};
 		};
+		E2B5F7392DC72B03000D405B /* XCRemoteSwiftPackageReference "Coordinator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DeluxeAlonso/Coordinator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1492,6 +1504,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E29456C1263E6CA70011AF68 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = KingfisherStatic;
+		};
+		E2B5F73A2DC72B03000D405B /* Coordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2B5F7392DC72B03000D405B /* XCRemoteSwiftPackageReference "Coordinator" */;
+			productName = Coordinator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
