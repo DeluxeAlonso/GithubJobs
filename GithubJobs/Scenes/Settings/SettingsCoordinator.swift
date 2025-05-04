@@ -5,6 +5,7 @@
 //  Created by Alonso on 24/07/22.
 //
 
+import Coordinator
 import UIKit
 
 enum SettingsNavigation {

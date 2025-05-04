@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Coordinator
 
 @MainActor
 protocol JobDetailViewModelProtocol {

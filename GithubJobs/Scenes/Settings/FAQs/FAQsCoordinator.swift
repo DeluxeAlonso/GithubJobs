@@ -5,6 +5,7 @@
 //  Created by Alonso on 14/11/24.
 //
 
+import Coordinator
 import UIKit
 
 final class FAQsCoordinator: BaseCoordinator {
