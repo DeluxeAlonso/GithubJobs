@@ -35,7 +35,6 @@ final class JobsCoordinator: BaseCoordinator, JobsCoordinatorProtocol {
         guard let presentingViewController = navigationController.topViewController else { return }
 
         let coordinator = SettingsCoordinator(navigationController: UINavigationController())
-        coordinator.presentingViewController = navigationController.topViewController
         coordinator.parentCoordinator = unwrappedParentCoordinator
 
         unwrappedParentCoordinator.childCoordinators.append(coordinator)

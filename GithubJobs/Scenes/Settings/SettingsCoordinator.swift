@@ -16,8 +16,6 @@ enum SettingsNavigation {
 
 final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
 
-    var presentingViewController: UIViewController?
-
     override func build() -> UIViewController {
         let themeManager = ThemeManager.shared
         let featureFlagsManager = FeatureFlagsManager.shared
