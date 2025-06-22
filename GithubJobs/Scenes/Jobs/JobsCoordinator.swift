@@ -25,20 +25,14 @@ final class JobsCoordinator: BaseCoordinator, JobsCoordinatorProtocol {
         let coordinator = JobDetailCoordinator(navigationController: navigationController,
                                                detailNavigationController: UINavigationController(),
                                                job: job)
-        coordinator.parentCoordinator = unwrappedParentCoordinator
-
-        unwrappedParentCoordinator.childCoordinators.append(coordinator)
-        coordinator.start(coordinatorMode: .push)
+        start(coordinator, coordinatorMode: .push)
     }
 
     func showSettings() {
         guard let presentingViewController = navigationController.topViewController else { return }
 
         let coordinator = SettingsCoordinator(navigationController: UINavigationController())
-        coordinator.parentCoordinator = unwrappedParentCoordinator
-
-        unwrappedParentCoordinator.childCoordinators.append(coordinator)
-        coordinator.start(coordinatorMode: .present(presentingViewController: presentingViewController, configuration: nil))
+        start(coordinator, coordinatorMode: .present(presentingViewController: presentingViewController, configuration: nil))
     }
     
 }
