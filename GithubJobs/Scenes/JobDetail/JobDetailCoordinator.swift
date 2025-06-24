@@ -38,10 +38,7 @@ final class JobDetailCoordinator: BaseCoordinator, JobDetailCoordinatorProtocol 
             navController = navigationController
         }
         let coordinator = JobDetailCoordinator(navigationController: navController, job: job)
-        coordinator.parentCoordinator = unwrappedParentCoordinator
-
-        unwrappedParentCoordinator.childCoordinators.append(coordinator)
-        coordinator.start(coordinatorMode: .push)
+        start(coordinator, coordinatorMode: .push)
     }
 
 }
