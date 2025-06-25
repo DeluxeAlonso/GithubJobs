@@ -41,29 +41,17 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
 
     private func showThemeSelection() {
         let coordinator = ThemeSelectionCoordinator(navigationController: navigationController)
-
-        coordinator.parentCoordinator = unwrappedParentCoordinator
-
-        unwrappedParentCoordinator.childCoordinators.append(coordinator)
-        coordinator.start(coordinatorMode: .push)
+        start(coordinator, coordinatorMode: .push)
     }
 
     private func showFAQs() {
         let coordinator = FAQsCoordinator(navigationController: navigationController)
-
-        coordinator.parentCoordinator = unwrappedParentCoordinator
-
-        unwrappedParentCoordinator.childCoordinators.append(coordinator)
-        coordinator.start(coordinatorMode: .push)
+        start(coordinator, coordinatorMode: .push)
     }
 
     private func showFeatureFlags() {
         let coordinator = FeatureFlagsCoordinator(navigationController: navigationController)
-
-        coordinator.parentCoordinator = unwrappedParentCoordinator
-
-        unwrappedParentCoordinator.childCoordinators.append(coordinator)
-        coordinator.start(coordinatorMode: .push)
+        start(coordinator, coordinatorMode: .push)
     }
 
 }
